@@ -14,13 +14,13 @@ define('SIMPLE_PAGES_PLUGIN_VERSION', 0.1);
 define('SIMPLE_PAGES_PAGE_PATH', 'simple-pages/');
 
 add_plugin_hook('add_routes', 'simple_pages_routes');
-
 add_plugin_hook('initialize', 'simple_pages_initialize');
 add_plugin_hook('install', 'simple_pages_install');
 add_plugin_hook('config_form', 'simple_pages_config_form');
 add_plugin_hook('config', 'simple_pages_config');
-
 add_plugin_hook('theme_header', 'simple_pages_css');
+
+add_filter('admin_navigation_main', 'simple_pages_main_nav');
 
 /**
  *
@@ -33,13 +33,17 @@ function simple_pages_initialize() {
 	add_theme_pages('views/admin', 'admin');
 	add_theme_pages('views/public','public');
 	add_theme_pages('views/shared','both');
-	add_navigation('SimplePages', 'simple-pages', 'main');
+	// add_navigation('SimplePages', 'simple-pages', 'main');
 
 	//Define some special ACL rules for this plugin
-	$acl = Zend_registry::get( 'acl' );
-	$acl->registerRule(new Zend_Acl_Resource('Pages'), array('add', 'edit', 'delete')); 
-	$acl->allow('admin','Pages', array('add', 'edit', 'delete')); 
+	//$acl = get_acl();
+	//$acl->registerRule(new Zend_Acl_Resource('Pages'), array('add', 'edit', 'delete')); 
+	//$acl->allow('admin','Pages', array('add', 'edit', 'delete')); 
 	
+}
+
+function simple_pages_main_nav($navArray) {
+	return $navArray + array('Simple Pages' => url_for('simple-pages'));
 }
 
 function simple_pages_install() {
@@ -117,8 +121,6 @@ function simple_pages_config_form() {
 			<label for="simple_pages_page_path">Relative Page Path From Project Root:</label>
 			<p class="instructionText">Please enter the relative page path from the project root where you want the pages to be located. Use forward slashes to indicate subdirectories, but do not begin with a forward slash.</p>
 			<input type="text" name="simple_pages_page_path" value="<?php echo settings('simple_pages_page_path'); ?>" size="<?php echo $textInputSize; ?>" />
-			
-		
 		</div>
 	<?php
 }

@@ -4,8 +4,10 @@
  * @package: SimplePages
  */
 
-class SimplePagesPageTable extends Omeka_Table {
+class SimplePagesPageTable extends Omeka_Db_Table {
 
+	protected $_name = 'simple_pages_pages';
+	
 	public function findRecent( $includeHidden=true, $maxPages = 0) {
 				
 		// get list of pages

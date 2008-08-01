@@ -1,6 +1,5 @@
 <?php
 require_once('SimplePagesPageTable.php');
-get_db()->addTable('SimplePagesPage', 'simple_pages_pages'); //will be deprecated
  
 /**
  * SimplePagesPage
