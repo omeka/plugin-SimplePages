@@ -8,6 +8,7 @@ class SimplePagesController extends Omeka_Controller_Action {
 	
 	public function init() 
 	{
+		
 	}
 	
 	public function indexAction() 
@@ -16,10 +17,10 @@ class SimplePagesController extends Omeka_Controller_Action {
 	}
 		
 	public function browseAction() 
-	{		
+	{	
 		if ($_POST) {
 			$selectedPages = $this->getSelectedPages($_POST);
-			
+
 			$selectedAction = strtolower($_POST['simple_pages_selected_action']);
 			switch($selectedAction) {
 				case 'delete':
@@ -31,7 +32,7 @@ class SimplePagesController extends Omeka_Controller_Action {
 				case 'hide':
 					foreach($selectedPages as $page) {
 						$page->is_published = 0;
-						$page->save();
+						$page->save();						
 					}
 				break;
 				
@@ -45,29 +46,26 @@ class SimplePagesController extends Omeka_Controller_Action {
 				default:
 			}	
 		}
+				
+		$pages =  $this->getTable('SimplePagesPage')->findRecent();				
+		$this->view->pages = $pages;
 		
-		$pages =  $this->getTable('SimplePagesPage')->findRecent();
-		return $this->render('simple-pages/browse.php', compact("pages"));
 	}
 	
 	protected function getSelectedPages($post)
 	{
 		$pages = array();
-		$pageNum = 0;
-						
-		for($i = 0; $i < $post['simple_pages_page_count']; $i++)
-		{
-			if (isset($post['simple_pages_selected_page_' . $i])) {
-				$pageId = $post['simple_pages_selected_page_' . $i];
-				$pages[] = $this->getTable('SimplePagesPage')->find($pageId);				
-			}	
+		
+		foreach($post['simple_pages_selected_pages'] as $pageId) {
+			$pages[] = $this->getTable('SimplePagesPage')->find($pageId);
 		}
+		
 		return $pages;
 	}
 	
 	public function addPageAction() 
-	{
-		
+	{	
+				
 		//add a page
 		
 		if ($_POST) {
@@ -86,8 +84,7 @@ class SimplePagesController extends Omeka_Controller_Action {
 				throw $e;
 			}
 			$this->_redirect('simple-pages/browse/');
-		}
-		return $this->render('simple-pages/add-page.php');	
+		}				
 	}
 	
 	public function deletePageAction() 
@@ -100,11 +97,10 @@ class SimplePagesController extends Omeka_Controller_Action {
 	
 	public function showPageAction() 
 	{
-				
 		$pageId = $this->_getParam('id');		
 		$page = $this->getTable('SimplePagesPage')->find($pageId);
 		
-		return $this->render('simple-pages/show-page.php', compact("page"));			
+		$this->view->page = $page;			
 	}
 	
 	public function editPageAction() 
@@ -134,7 +130,7 @@ class SimplePagesController extends Omeka_Controller_Action {
 			}
 		}
 		
-		return $this->render('simple-pages/edit-page.php', compact("page"));			
+		$this->view->page = $page;
 	}
 
 }

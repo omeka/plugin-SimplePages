@@ -33,7 +33,7 @@ function simple_pages_initialize() {
 	add_theme_pages('views/admin', 'admin');
 	add_theme_pages('views/public','public');
 	add_theme_pages('views/shared','both');
-	// add_navigation('SimplePages', 'simple-pages', 'main');
+ 	// add_navigation('SimplePages', 'simple-pages', 'main');
 
 	//Define some special ACL rules for this plugin
 	//$acl = get_acl();
@@ -43,7 +43,7 @@ function simple_pages_initialize() {
 }
 
 function simple_pages_main_nav($navArray) {
-	return $navArray + array('Simple Pages' => url_for('simple-pages'));
+	return $navArray + array('SimplePages' => url_for('simple-pages'));
 }
 
 function simple_pages_install() {
@@ -79,15 +79,16 @@ function simple_pages_routes($router) {
 	$router->addRoute('simple_pages_default', new Zend_Controller_Router_Route($bp, array('controller'=> 'simple-pages', 'action'=>'browse')));
     $router->addRoute('simple_pages_links', new Zend_Controller_Router_Route($bp . ':action', array('controller'=> 'simple-pages')));
     $router->addRoute('simple_pages_edit_page', new Zend_Controller_Router_Route($bp . 'editPage/:id', array('controller'=> 'simple-pages', 'action'=>'editPage')));
-    $router->addRoute('simple_pages_show_page', new Zend_Controller_Router_Route($bp . 'showPage/:id', array('controller'=> 'simple-pages', 'action'=>'showPage')));
-	
+    $router->addRoute('simple_pages_show_page', new Zend_Controller_Router_Route($bp . 'showPage/:id', array('controller'=> 'simple-pages', 'action'=>'show-page')));
+		
 	// add custom routes for all pages
+	
 	$db = get_db();
 	$pages =  $db->getTable('SimplePagesPage')->findRecent();
 	foreach($pages as $page) {
 		$pageSlug = $page['slug'];
 		if (!empty($pageSlug) && $pageSlug != '/') {
-			$router->addRoute('simple_pages_show_page_' . $page['id'], new Zend_Controller_Router_Route($page['slug'] . ':id', array('controller'=> 'simple-pages', 'action'=>'showPage', 'id'=> $page['id'])));	
+			$router->addRoute('simple_pages_show_page_' . $page['id'], new Zend_Controller_Router_Route($page['slug'] . ':id', array('controller'=> 'simple-pages', 'action'=>'show-page', 'id'=> $page['id'])));	
 		}
 	}
 	
@@ -177,4 +178,26 @@ function simple_pages_css() {
 	echo $html;
 }
 
-?>
+function simple_pages_update_slug_javascript() {
+	$js = <<<SP_JS
+	
+	<script type="text/javascript" language="javascript">
+		String.prototype.trim = function() {
+			return this.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); 
+		}
+		
+		function updateSlug() {
+			var title = $('simple_pages_page_title').value;			
+			title = title.replace(/\W+/g,' ');			
+			title = title.trim().toLowerCase();
+			var slug_words = title.split(" ");
+			var slug = slug_words.join("-");
+			
+			$('simple_pages_page_slug').value = slug + '/';
+		}
+	</script>
+	
+SP_JS;
+	return $js;
+
+}

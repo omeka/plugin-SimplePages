@@ -11,15 +11,21 @@ class SimplePagesPageTable extends Omeka_Db_Table {
 	public function findRecent( $includeHidden=true, $maxPages = 0) {
 				
 		// get list of pages
+		$select = '';
+		
 		if ($includeHidden) {
-			$sqlWhereClause = '1 ORDER BY published_date DESC';			
+			$select = $this->getSelect()->where('1')->order('published_date DESC');			
 		} else {
-			$sqlWhereClause = 'is_active = TRUE ORDER BY published_date DESC';
+			$select = $this->getSelect()->where('is_active = TRUE')->order('published_date DESC');			
 		}
-		if (!empty($maxPages)) {
-			$sqlWhereClause .= ' LIMIT ' . $maxPages;
+		
+		if (!empty($select) && !empty($maxPages)) {
+			$select = $select->limit($maxPages);
 		}
-		$pages = $this->findBySql($sqlWhereClause, array());
+		
+		$params = array();
+		$pages = $this->fetchObjects($select, $params);
+		
 		return $pages;
 	}
 	

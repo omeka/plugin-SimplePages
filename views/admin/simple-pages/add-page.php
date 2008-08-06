@@ -5,10 +5,13 @@
 	<h1>SimplePages | Add Page</h1>
 	<?php echo flash(); ?>
 
+	<?php echo simple_pages_update_slug_javascript(); ?>
+	
+
 	<form id="simple-pages-form" style="float:left; width: 600px;" method="post">
 		<div class="field">
 			<label for="simple_pages_page_title">Title</label>
-			<input type="simple_pages_page_title" class="textinput" name="simple_pages_page_title" id="simple_pages_page_title" value="" />
+			<input type="simple_pages_page_title" class="textinput" name="simple_pages_page_title" id="simple_pages_page_title" value="" onkeyup="updateSlug();" />
 		</div>
 
 		<div class="field">
@@ -18,21 +21,21 @@
 
 
 		<fieldset>
-			<?php textarea(array('id'=>'simple_pages_page_html','name'=>'simple_pages_page_html','rows'=>'20','cols'=>'80'), null, 'HTML'); ?>
+			<?php echo textarea(array('id'=>'simple_pages_page_html','name'=>'simple_pages_page_html','rows'=>'20','cols'=>'80'), null, 'HTML'); ?>
 		</fieldset>
 		
-			<fieldset>
-				<?php textarea(array('id'=>'simple_pages_page_css','name'=>'simple_pages_page_css','rows'=>'20','cols'=>'80'), $page['css'], 'CSS'); ?>
-			</fieldset>
+		<fieldset>
+			<?php echo textarea(array('id'=>'simple_pages_page_css','name'=>'simple_pages_page_css','rows'=>'20','cols'=>'80'), $page['css'], 'CSS'); ?>
+		</fieldset>
 	
 		<div class="field">
 			<?php
-				checkbox(array('name'=>'simple_pages_page_is_published', 'id'=>'simple_pages_page_is_published'), TRUE, null, "Is Published" );
+				echo checkbox(array('name'=>'simple_pages_page_is_published', 'id'=>'simple_pages_page_is_published'), TRUE, null, "Is Published" );
 			?>			
 		</div>
 		
 		<p id="submits">
-		<?php submit('Save'); ?>
+		<?php echo submit('Save'); ?>
 		</p>
 			
 	</form>
