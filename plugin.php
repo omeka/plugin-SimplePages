@@ -10,30 +10,17 @@
 define('SIMPLE_PAGES_PLUGIN_VERSION', 0.1);
 define('SIMPLE_PAGES_PAGE_PATH', 'simple-pages/');
 
-require_once('models/SimplePagesPage.php');
+add_plugin_directories();
+
+require_once 'SimplePagesPage.php';
 
 add_plugin_hook('add_routes', 'simple_pages_routes');
-add_plugin_hook('initialize', 'simple_pages_initialize');
 add_plugin_hook('install', 'simple_pages_install');
 add_plugin_hook('config_form', 'simple_pages_config_form');
 add_plugin_hook('config', 'simple_pages_config');
 add_plugin_hook('theme_header', 'simple_pages_css');
 
 add_filter('admin_navigation_main', 'simple_pages_main_nav');
-
-function simple_pages_initialize() {
-    add_controllers('controllers');
-    add_theme_pages('views/admin', 'admin');
-    add_theme_pages('views/public','public');
-    add_theme_pages('views/shared','both');
-    
-    // add_navigation('SimplePages', 'simple-pages', 'main');
-    
-    //Define some special ACL rules for this plugin
-    //$acl = get_acl();
-    //$acl->registerRule(new Zend_Acl_Resource('Pages'), array('add', 'edit', 'delete')); 
-    //$acl->allow('admin','Pages', array('add', 'edit', 'delete')); 
-}
 
 function simple_pages_main_nav($navArray) {
     return $navArray + array('SimplePages' => url_for('simple-pages'));
@@ -68,24 +55,29 @@ function simple_pages_install() {
 function simple_pages_routes($router) {
     
     // get the base path
-    $bp = get_option('simple_pages_page_path');    
+    $bp = get_option('simple_pages_page_path');
+    //$bp = 'simplepages/';
     
     // add Pages plugin routes
     $router->addRoute('simple_pages_default', 
                       new Zend_Controller_Router_Route($bp, 
-                                                       array('controller' => 'simple-pages', 
-                                                       'action'=>'browse')));
+                                                       array('controller' => 'page', 
+                                                             'action'     => 'browse', 
+                                                             'module'     => 'simplepages')));
     $router->addRoute('simple_pages_links', 
                       new Zend_Controller_Router_Route($bp . ':action', 
-                                                       array('controller' => 'simple-pages')));
+                                                       array('controller' => 'page', 
+                                                             'module'     => 'simplepages')));
     $router->addRoute('simple_pages_edit_page', 
-                      new Zend_Controller_Router_Route($bp . 'editPage/:id', 
-                                                       array('controller' => 'simple-pages', 
-                                                       'action'=>'editPage')));
+                      new Zend_Controller_Router_Route($bp . 'edit-page/:id', 
+                                                       array('controller' => 'page', 
+                                                             'action'     => 'edit-page', 
+                                                             'module'     => 'simplepages')));
     $router->addRoute('simple_pages_show_page', 
-                      new Zend_Controller_Router_Route($bp . 'showPage/:id', 
-                                                       array('controller' => 'simple-pages', 
-                                                       'action'=>'show-page')));
+                      new Zend_Controller_Router_Route($bp . 'show-page/:id', 
+                                                       array('controller' => 'page', 
+                                                             'action'     => 'show-page', 
+                                                             'module'     => 'simplepages')));
     
     // add custom routes for all pages
     $db = get_db();
@@ -95,9 +87,10 @@ function simple_pages_routes($router) {
         if (!empty($pageSlug) && $pageSlug != '/') {
             $router->addRoute('simple_pages_show_page_' . $page['id'], 
                               new Zend_Controller_Router_Route($page['slug'] . ':id', 
-                                                               array('controller' => 'simple-pages', 
-                                                               'action' =>'show-page', 
-                                                               'id' => $page['id'])));    
+                                                               array('controller' => 'page', 
+                                                                     'action'     => 'show-page', 
+                                                                     'id'         => $page['id'], 
+                                                                     'module'     => 'simplepages')));    
         }
     }
 }

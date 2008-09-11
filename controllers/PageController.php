@@ -1,5 +1,5 @@
 <?php
-class SimplePagesController extends Omeka_Controller_Action {    
+class SimplePages_PageController extends Omeka_Controller_Action {    
     
     public function init() {}
     
@@ -10,7 +10,9 @@ class SimplePagesController extends Omeka_Controller_Action {
         
     public function browseAction() 
     {
-        if ($_POST) {
+        // Do not act if no pages were submitted.
+        if (isset($_POST['simple_pages_selected_pages'])) {
+            
             $selectedPages = $this->getSelectedPages($_POST);
             $selectedAction = strtolower($_POST['simple_pages_selected_action']);
             
