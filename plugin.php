@@ -16,8 +16,6 @@ require_once 'SimplePagesPage.php';
 
 add_plugin_hook('add_routes', 'simple_pages_routes');
 add_plugin_hook('install', 'simple_pages_install');
-add_plugin_hook('config_form', 'simple_pages_config_form');
-add_plugin_hook('config', 'simple_pages_config');
 add_plugin_hook('theme_header', 'simple_pages_css');
 
 add_filter('admin_navigation_main', 'simple_pages_main_nav');
@@ -54,9 +52,7 @@ function simple_pages_install() {
 
 function simple_pages_routes($router) {
     
-    // get the base path
-    $bp = get_option('simple_pages_page_path');
-    //$bp = 'simplepages/';
+    $bp = 'simple-pages/';
     
     // add Pages plugin routes
     $router->addRoute('simple_pages_default', 
@@ -98,40 +94,6 @@ function simple_pages_routes($router) {
 function simple_pages_clean_path($path)
 {
     return trim(trim($path), '/') . '/';
-}
-
-
-function simple_pages_config($post) {
-    
-    set_option('simple_pages_page_path', 
-               simple_pages_clean_path($post['simple_pages_page_path']));
-    
-    // If the page path is empty then make it the default page path.
-    if (trim(get_option('simple_pages_page_path')) == '') {
-        set_option('simple_pages_page_path', 
-                   simple_pages_clean_path(SIMPLE_PAGES_PAGE_PATH));
-    }
-    $froute_pages = get_option('simple_pages_page_path');
-}
-
-function simple_pages_config_form() {
-    simple_pages_settings_css();
-    //this styling needs to be associated with appropriate hook
-    $textInputSize = 30;
-    $textAreaRows = 10;
-    $textAreaCols = 50;
-?>
-<div id="simple_pages_settings">
-    <label for="simple_pages_page_path">Relative Page Path From Project Root:</label>
-    <p class="instructionText">Please enter the relative page path from the project root where you want the pages to be located. Use forward slashes to indicate subdirectories, but do not begin with a forward slash.</p>
-    <input type="text" name="simple_pages_page_path" value="<?php echo settings('simple_pages_page_path'); ?>" size="<?php echo $textInputSize; ?>" />
-</div>
-<?php
-}
-
-function simple_pages_url($path) 
-{
-    return WEB_ROOT . '/' . settings('simple_pages_page_path') . $path;
 }
 
 function simple_pages_slug_url($page) 
