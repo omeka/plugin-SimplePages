@@ -1,4 +1,7 @@
 <?php 
+// Need to add ACL to prevent public and researchers from adding pages
+// Need to add validation to the add and edit forms.
+
 /**
 * SimplePages Plugin
 * 
@@ -28,7 +31,7 @@ function simple_pages_install() {
     
     // set default configuration variables for plugin    
     set_option('simple_pages_plugin_version', SIMPLE_PAGES_PLUGIN_VERSION);    
-    set_option('simple_pages_page_path', simple_pages_clean_path(SIMPLE_PAGES_PAGE_PATH));
+    set_option('simple_pages_page_path', SIMPLE_PAGES_PAGE_PATH);
     
     $db = get_db();
     
@@ -52,48 +55,75 @@ function simple_pages_install() {
 
 function simple_pages_routes($router) {
     
-    $bp = 'simple-pages/';
+    $router->addRoute(
+        'simple_pages_default', 
+        new Zend_Controller_Router_Route(
+            SIMPLE_PAGES_PAGE_PATH, 
+            array(
+                'controller' => 'page', 
+                'action'     => 'browse', 
+                'module'     => 'simplepages'
+            )
+        )
+    );
+    $router->addRoute(
+        'simple_pages_links', 
+        new Zend_Controller_Router_Route(
+            SIMPLE_PAGES_PAGE_PATH . ':action', 
+            array(
+                'controller' => 'page', 
+                'module'     => 'simplepages'
+            )
+        )
+    );
+    $router->addRoute(
+        'simple_pages_edit_page', 
+        new Zend_Controller_Router_Route(
+            SIMPLE_PAGES_PAGE_PATH . 'edit-page/:id', 
+            array(
+                'controller' => 'page', 
+                'action'     => 'edit-page', 
+                'module'     => 'simplepages'
+            )
+        )
+    );
+    $router->addRoute(
+        'simple_pages_show_page', 
+        new Zend_Controller_Router_Route(
+            SIMPLE_PAGES_PAGE_PATH . 'show-page/:id', 
+            array(
+                'controller' => 'page', 
+                'action'     => 'show-page', 
+                'module'     => 'simplepages'
+            )
+        )
+    );
     
-    // add Pages plugin routes
-    $router->addRoute('simple_pages_default', 
-                      new Zend_Controller_Router_Route($bp, 
-                                                       array('controller' => 'page', 
-                                                             'action'     => 'browse', 
-                                                             'module'     => 'simplepages')));
-    $router->addRoute('simple_pages_links', 
-                      new Zend_Controller_Router_Route($bp . ':action', 
-                                                       array('controller' => 'page', 
-                                                             'module'     => 'simplepages')));
-    $router->addRoute('simple_pages_edit_page', 
-                      new Zend_Controller_Router_Route($bp . 'edit-page/:id', 
-                                                       array('controller' => 'page', 
-                                                             'action'     => 'edit-page', 
-                                                             'module'     => 'simplepages')));
-    $router->addRoute('simple_pages_show_page', 
-                      new Zend_Controller_Router_Route($bp . 'show-page/:id', 
-                                                       array('controller' => 'page', 
-                                                             'action'     => 'show-page', 
-                                                             'module'     => 'simplepages')));
-    
-    // add custom routes for all pages
+    // Add custom routes.
     $db = get_db();
-    $pages = $db->getTable('SimplePagesPage')->findRecent();
+    $pages = $db->getTable('SimplePagesPage')->getPages();
     foreach($pages as $page) {
         $pageSlug = $page['slug'];
         if (!empty($pageSlug) && $pageSlug != '/') {
-            $router->addRoute('simple_pages_show_page_' . $page['id'], 
-                              new Zend_Controller_Router_Route($page['slug'] . ':id', 
-                                                               array('controller' => 'page', 
-                                                                     'action'     => 'show-page', 
-                                                                     'id'         => $page['id'], 
-                                                                     'module'     => 'simplepages')));    
+            $router->addRoute(
+                'simple_pages_show_page_' . $page['id'], 
+                new Zend_Controller_Router_Route(
+                    $page['slug'], 
+                    array(
+                        'controller' => 'page', 
+                        'action'     => 'show-page', 
+                        'id'         => $page['id'], 
+                        'module'     => 'simplepages'
+                    )
+                )
+            );    
         }
     }
 }
 
 function simple_pages_clean_path($path)
 {
-    return trim(trim($path), '/') . '/';
+    return trim(ltrim($path, '/'));
 }
 
 function simple_pages_slug_url($page) 
@@ -101,55 +131,42 @@ function simple_pages_slug_url($page)
     return WEB_ROOT . '/' . $page['slug'];
 }
 
-// the css style for the configure settings
-function simple_pages_settings_css() 
-{
-    $html = '';
-    $html .= '<style type="text/css" media="screen">';
-    $html .= '#simple_pages_settings label, #simple_pages_settings input, #simple_pages_settings textarea {';
-    $html .= 'display:block;';
-    $html .= 'float:none;';
-    $html .= '}';
-    $html .= '#simple_pages_settings input, #simple_pages_settings textarea {';
-    $html .= 'margin-bottom:1em;';
-    $html .= '}';
-    $html .= '</style>';
-    echo $html;
-}
-
-// the css style for every page
 function simple_pages_css() {
-    $html = '';
-    $html .= '<style type="text/css" media="screen">';
-    $html .= '#simple_pages_comment_form label, #simple_pages_comment_form input, #simple_pages_comment_form textarea {';
-    $html .= 'display:block;';
-    $html .= 'float:none;';
-    $html .= '}';
-    $html .= '#simple_pages_comment_form label { font-size: 1.5em; }';
-    $html .= '#simple_pages_comment_form input, #simple_pages_comment_form textarea {';
-    $html .= 'margin-bottom:1em;';
-    $html .= '}';
-    $html .= '</style>';
-    echo $html;
+    ?>
+<style type="text/css" media="screen">
+#simple_pages_comment_form label, 
+#simple_pages_comment_form input, 
+#simple_pages_comment_form textarea {
+    display:block;
+    float:none;
+}
+#simple_pages_comment_form label {
+    font-size: 1.5em;
+}
+#simple_pages_comment_form input, 
+#simple_pages_comment_form textarea {
+    margin-bottom:1em;
+}
+</style>
+<?php
 }
 
 function simple_pages_update_slug_javascript() {
-    $js = <<<SP_JS
-    <script type="text/javascript" language="javascript">
-        String.prototype.trim = function() {
-            return this.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); 
-        }
+?>
+<script type="text/javascript" language="javascript">
+    String.prototype.trim = function() {
+        return this.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); 
+    }
+    
+    function updateSlug() {
+        var title = $('simple_pages_page_title').value;            
+        title = title.replace(/[^a-z0-9\/]/gi,' ');            
+        title = title.trim().toLowerCase();
+        var slug_words = title.split(" ");
+        var slug = slug_words.join("-");
         
-        function updateSlug() {
-            var title = $('simple_pages_page_title').value;            
-            title = title.replace(/\W+/g,' ');            
-            title = title.trim().toLowerCase();
-            var slug_words = title.split(" ");
-            var slug = slug_words.join("-");
-            
-            $('simple_pages_page_slug').value = slug + '/';
-        }
-    </script>
-SP_JS;
-    return $js;
+        $('simple_pages_page_slug').value = slug + '/';
+    }
+</script>
+<?php
 }

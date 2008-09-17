@@ -1,10 +1,8 @@
 <?php head(array('title' => 'SimplePages', 'body_class' => 'simple-pages-plugin')); ?>
-<h1>SimplePages | Browse</h1>
-  <a class="add add-page" href="<?php echo uri('simple-pages/add-page') ?>">Add Page</a>
+<h1>SimplePages | Browse Pages</h1>
+<p><a class="add add-page" href="<?php echo uri('simple-pages/add-page') ?>">Add Page</a></p>
 <div id="primary">
     <?php echo flash(); ?>
-
-    <h2>Pages</h2>
     <script language="javascript" type="text/javascript"> 
         function simple_pages_verify_action() {
             if ($('simple_pages_selected_action').options[$('simple_pages_selected_action').selectedIndex].value == 'delete') {
@@ -21,7 +19,7 @@
     <table>
         <thead>
             <tr>
-                <th>Published</th>
+                <th></th>
                 <th>Title</th>
                 <th>Date</th>
                 <th>Status</th>
@@ -47,7 +45,7 @@
     </select>
     </form>
     <?php else: ?>
-        <p>No pages yet.</p>
+        <p>There are no pages. Why don't you <a href="<?php echo uri('simple-pages/add-page') ?>">add one</a>?</p>
     <?php endif; ?>
 </div>
 <?php foot(); ?>

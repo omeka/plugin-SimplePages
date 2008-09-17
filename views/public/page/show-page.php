@@ -5,7 +5,7 @@
     <?php if ($page['is_published']): ?>    
         <style type="text/css"><?php echo $page['css'] ?></style> 
         <h2><?php echo $page['title']; ?></h2>
-        <?php echo $page['html']; ?>
+        <?php echo eval('?>' . $page['html']); ?>
     <?php endif; ?>
     </div>
     <?php else: ?>

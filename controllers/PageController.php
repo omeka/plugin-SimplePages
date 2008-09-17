@@ -39,7 +39,7 @@ class SimplePages_PageController extends Omeka_Controller_Action {
             }
         }
         
-        $pages =  $this->getTable('SimplePagesPage')->findRecent();                
+        $pages =  $this->getTable('SimplePagesPage')->getPages();                
         $this->view->pages = $pages;
     }
     
