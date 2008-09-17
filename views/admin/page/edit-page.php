@@ -4,7 +4,7 @@
 <div id="primary">
 
     <?php echo simple_pages_update_slug_javascript(); ?>
-    <p><a href="<?php echo url_for('simple-pages/browse') ?>">Browse Pages</a></p>
+    <p><a href="<?php echo uri('simple-pages/browse') ?>">Browse Pages</a></p>
     <p><a href="<?php echo simple_pages_slug_url($page); ?>">View</a></p>
     <form id="simple-pages-form" method="post">
         <div class="field">

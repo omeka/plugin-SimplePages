@@ -21,7 +21,7 @@ add_plugin_hook('theme_header', 'simple_pages_css');
 add_filter('admin_navigation_main', 'simple_pages_main_nav');
 
 function simple_pages_main_nav($navArray) {
-    return $navArray + array('SimplePages' => url_for('simple-pages'));
+    return $navArray + array('SimplePages' => uri('simple-pages'));
 }
 
 function simple_pages_install() {
