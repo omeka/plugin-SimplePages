@@ -4,9 +4,11 @@
 <div id="primary">
 
     <?php echo simple_pages_update_slug_javascript(); ?>
-    <p><a href="<?php echo uri('simple-pages/browse') ?>">Browse Pages</a></p>
-    <p><a href="<?php echo simple_pages_slug_url($page); ?>">View</a></p>
-    <form id="simple-pages-form" method="post">
+
+    <ul id="panel-nav">
+    <?php echo nav(array('Browse Pages' => url_for('simple-pages/browse'), 'View this Page' => simple_pages_slug_url($page))); ?>
+    </ul>
+        <form id="simple-pages-form" method="post">
         <div class="field">
             <label for="simple_pages_page_title">Title</label>
             <div class="input">
