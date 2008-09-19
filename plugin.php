@@ -62,7 +62,7 @@ function simple_pages_routes($router) {
             array(
                 'controller' => 'page', 
                 'action'     => 'browse', 
-                'module'     => 'simplepages'
+                'module'     => 'simple-pages'
             )
         )
     );
@@ -72,7 +72,7 @@ function simple_pages_routes($router) {
             SIMPLE_PAGES_PAGE_PATH . ':action', 
             array(
                 'controller' => 'page', 
-                'module'     => 'simplepages'
+                'module'     => 'simple-pages'
             )
         )
     );
@@ -83,7 +83,7 @@ function simple_pages_routes($router) {
             array(
                 'controller' => 'page', 
                 'action'     => 'edit-page', 
-                'module'     => 'simplepages'
+                'module'     => 'simple-pages'
             )
         )
     );
@@ -94,7 +94,7 @@ function simple_pages_routes($router) {
             array(
                 'controller' => 'page', 
                 'action'     => 'show-page', 
-                'module'     => 'simplepages'
+                'module'     => 'simple-pages'
             )
         )
     );
@@ -113,7 +113,7 @@ function simple_pages_routes($router) {
                         'controller' => 'page', 
                         'action'     => 'show-page', 
                         'id'         => $page['id'], 
-                        'module'     => 'simplepages'
+                        'module'     => 'simple-pages'
                     )
                 )
             );    
