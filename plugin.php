@@ -19,6 +19,7 @@ require_once 'SimplePagesPage.php';
 
 add_plugin_hook('add_routes', 'simple_pages_routes');
 add_plugin_hook('install', 'simple_pages_install');
+add_plugin_hook('uninstall', 'simple_pages_uninstall');
 add_plugin_hook('theme_header', 'simple_pages_css');
 
 add_filter('admin_navigation_main', 'simple_pages_main_nav');
@@ -34,7 +35,6 @@ function simple_pages_install() {
     set_option('simple_pages_page_path', SIMPLE_PAGES_PAGE_PATH);
     
     $db = get_db();
-    
     $sql = "
     CREATE TABLE IF NOT EXISTS `$db->SimplePagesPage` (
         `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -48,8 +48,17 @@ function simple_pages_install() {
         PRIMARY KEY (`id`),
         INDEX (`user_id`) 
     ) ENGINE = MYISAM ;";
-    
     // create simple pages table in database if needed
+    $db->exec($sql);
+}
+
+function simple_pages_uninstall()
+{
+    delete_option('simple_pages_plugin_version');
+    delete_option('simple_pages_page_path');
+    
+    $db = get_db();
+    $sql = "DROP TABLE IF EXISTS `$db->SimplePagesPage`";
     $db->exec($sql);
 }
 
