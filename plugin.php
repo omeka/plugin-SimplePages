@@ -13,14 +13,13 @@
 define('SIMPLE_PAGES_PLUGIN_VERSION', 0.1);
 define('SIMPLE_PAGES_PAGE_PATH', 'simple-pages/');
 
-add_plugin_directories();
-
 require_once 'SimplePagesPage.php';
 
 add_plugin_hook('add_routes', 'simple_pages_routes');
 add_plugin_hook('install', 'simple_pages_install');
 add_plugin_hook('uninstall', 'simple_pages_uninstall');
 add_plugin_hook('theme_header', 'simple_pages_css');
+add_plugin_hook('define_acl', 'simple_pages_acl');
 
 add_filter('admin_navigation_main', 'simple_pages_main_nav');
 
@@ -178,4 +177,15 @@ function simple_pages_update_slug_javascript() {
     }
 </script>
 <?php
+}
+
+function simple_pages_acl(Omeka_Acl $acl)
+{
+    // add a namespaced acl.
+    $resource = new Omeka_Acl_Resource('SimplePages_Page');
+    $resource->add(array('add-page', 'delete-page', 'edit-page'));
+    $acl->add($resource);
+    $acl->deny(null, 'SimplePages_Page');
+    $acl->allow('super', 'SimplePages_Page');
+    $acl->allow('admin', 'SimplePages_Page');
 }
