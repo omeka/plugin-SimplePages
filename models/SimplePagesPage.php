@@ -1,7 +1,7 @@
 <?php
 class SimplePagesPage extends Omeka_Record
 {
-    public $created_by_user_id;
+    public $modified_by_user_id;
     public $published = 0;
     public $title;
     public $slug;
@@ -9,18 +9,18 @@ class SimplePagesPage extends Omeka_Record
     public $updated;
     public $inserted;
     
-    public function getCreatedByUser()
+    public function getModifiedByUser()
     {
-        return $this->getTable('User')->find($this->created_by_user_id);
+        return $this->getTable('User')->find($this->modified_by_user_id);
     }
     
 	protected function beforeValidate()
 	{
 	    $this->title = trim($this->title);
-	    $this->slug = trim($this->slug);
+	    $this->slug = $this->_generateSlug($this->slug);
 	    
 		if (empty($this->slug)) {
-			$this->slug = generate_slug($this->title);
+			$this->slug = $this->_generateSlug($this->title);
 		}
 	}
     
@@ -37,6 +37,10 @@ class SimplePagesPage extends Omeka_Record
 		if (empty($this->slug)) {
 			$this->addError('slug', 'The page must be given a valid slug.');
 		}
+		
+		if ('/' == $this->slug) {
+		    $this->addError('slug', 'The slug for your page must not be a forward slash.');
+        }
         
 		if (255 < strlen($this->slug)) {
 			$this->addError('slug', 'The slug for your page must be 255 characters or less.');
@@ -49,6 +53,17 @@ class SimplePagesPage extends Omeka_Record
     
     protected function beforeSaveForm($post)
     {
-		$this->created_by_user_id = current_user()->id;
+		$this->modified_by_user_id = current_user()->id;
+		$this->updated = date('Y-m-d H:i:s');
+    }
+    
+    private function _generateSlug($seed)
+    {
+        $seed = trim($seed);
+        $seed = strtolower($seed);
+        // Replace spaces with dashes.
+        $seed = str_replace(' ', '-', $seed);
+        // Remove all but alphanumeric characters and underscores.
+        return preg_replace('/[^\w\/-]/i', '', $seed);
     }
 }

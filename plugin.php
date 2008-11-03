@@ -17,17 +17,17 @@ function simple_pages_install()
     
     $db = get_db();
     $sql = "
-CREATE TABLE IF NOT EXISTS `simple_pages_pages` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `created_by_user_id` int(10) unsigned NOT NULL,
-  `published` tinyint(1) NOT NULL,
-  `title` tinytext collate utf8_unicode_ci NOT NULL,
-  `slug` tinytext collate utf8_unicode_ci NOT NULL,
-  `text` text collate utf8_unicode_ci,
-  `updated` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `inserted` timestamp NOT NULL default '0000-00-00 00:00:00',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+    CREATE TABLE IF NOT EXISTS `$db->SimplePagesPage` (
+      `id` int(10) unsigned NOT NULL auto_increment,
+      `modified_by_user_id` int(10) unsigned NOT NULL,
+      `published` tinyint(1) NOT NULL,
+      `title` tinytext collate utf8_unicode_ci NOT NULL,
+      `slug` tinytext collate utf8_unicode_ci NOT NULL,
+      `text` text collate utf8_unicode_ci,
+      `updated` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+      `inserted` timestamp NOT NULL default '0000-00-00 00:00:00',
+      PRIMARY KEY  (`id`)
+    ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
     $db->query($sql);
 }
 
