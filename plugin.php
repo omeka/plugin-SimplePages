@@ -8,7 +8,6 @@ add_plugin_hook('install', 'simple_pages_install');
 add_plugin_hook('uninstall', 'simple_pages_uninstall');
 add_plugin_hook('define_routes', 'simple_pages_define_routes');
 add_plugin_hook('define_acl', 'simple_pages_define_acl');
-add_plugin_hook('admin_theme_header', 'simple_pages_admin_theme_header');
 
 add_filter('admin_navigation_main', 'simple_pages_admin_navigation_main');
 
@@ -18,17 +17,17 @@ function simple_pages_install()
     
     $db = get_db();
     $sql = "
-    CREATE TABLE IF NOT EXISTS `$db->SimplePagesPage` (
-      `id` int(10) unsigned NOT NULL auto_increment,
-      `created_by_user_id` int(10) unsigned NOT NULL,
-      `published` tinyint(1) NOT NULL,
-      `title` tinytext collate utf8_unicode_ci,
-      `slug` tinytext collate utf8_unicode_ci NOT NULL,
-      `text` text collate utf8_unicode_ci,
-      `updated` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-      `inserted` timestamp NOT NULL default '0000-00-00 00:00:00',
-      PRIMARY KEY  (`id`)
-    ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+CREATE TABLE IF NOT EXISTS `simple_pages_pages` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `created_by_user_id` int(10) unsigned NOT NULL,
+  `published` tinyint(1) NOT NULL,
+  `title` tinytext collate utf8_unicode_ci NOT NULL,
+  `slug` tinytext collate utf8_unicode_ci NOT NULL,
+  `text` text collate utf8_unicode_ci,
+  `updated` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `inserted` timestamp NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
     $db->query($sql);
 }
 
@@ -74,11 +73,6 @@ function simple_pages_define_acl($acl)
     $acl->deny(null, 'SimplePages_Page');
     $acl->allow('super', 'SimplePages_Page');
     $acl->allow('admin', 'SimplePages_Page');
-}
-
-function simple_pages_admin_theme_header()
-{
-    echo js('slug-auto-generate');
 }
 
 function simple_pages_admin_navigation_main($nav)

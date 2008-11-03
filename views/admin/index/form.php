@@ -23,7 +23,7 @@
     <div class="inputs">
         <?php echo $this->formTextarea('text', 
                                        $page->text, 
-                                       array('id' => 'simple-pages-text', 
+                                       array('id'    => 'simple-pages-text', 
                                              'class' => 'textinput', 
                                              'cols'  => 60, 
                                              'rows'  => 20)); ?>
