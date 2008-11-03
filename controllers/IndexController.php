@@ -1,12 +1,25 @@
 <?php
 class SimplePages_IndexController extends Omeka_Controller_Action
 {    
+    public function init()
+    {
+        // Set the model class so this controller can perform some functions, 
+        // such as $this->findById()
+        $this->_modelClass = 'SimplePagesPage';
+    }
+    
     public function indexAction() 
     {
+        // Always go to browse.
+        $this->redirect->goto('browse');
+        return;
     }
     
     public function browseAction()
     {
+        // Get all the pages in the database.
+        $pages = $this->getTable('SimplePagesPage')->findAll();
+        $this->view->assign(compact('pages'));
     }
     
     public function addAction()
@@ -24,13 +37,12 @@ class SimplePages_IndexController extends Omeka_Controller_Action
     private function _processPageForm($page, $actionName)
     {
         try {
-            $returnValue = $exhibit->saveForm($_POST);
+            $returnValue = $page->saveForm($_POST);
             if ($returnValue) {
-                // Will this work?
-                if (array_key_exists('add_page',$_POST)) {
-                    $this->flash('A page has been added.');
-                } else if (array_key_exists('edit_page',$_POST)) {
-                    $this->flash('A page has been edited.');
+                if (array_key_exists('simple-pages-add-submit', $_POST)) {
+                    $this->flashSuccess('A page has been added.');
+                } else if (array_key_exists('simple-pages-edit-submit', $_POST)) {
+                    $this->flashSuccess('A page has been edited.');
                 }
                 unset($_POST);
                 $this->redirect->goto('browse');
@@ -42,5 +54,14 @@ class SimplePages_IndexController extends Omeka_Controller_Action
             $this->flash($e->getMessage());
         }
         $this->view->assign(compact('page', 'actionName'));
+    }
+    
+    public function deleteAction()
+    {
+        $page = $this->findById();
+        $page->delete();
+        $this->flashSuccess('A page has been deleted.');
+        $this->redirect->goto('browse');
+        return;
     }
 }

@@ -8,6 +8,7 @@ add_plugin_hook('install', 'simple_pages_install');
 add_plugin_hook('uninstall', 'simple_pages_uninstall');
 add_plugin_hook('define_routes', 'simple_pages_define_routes');
 add_plugin_hook('define_acl', 'simple_pages_define_acl');
+add_plugin_hook('admin_theme_header', 'simple_pages_admin_theme_header');
 
 add_filter('admin_navigation_main', 'simple_pages_admin_navigation_main');
 
@@ -43,7 +44,7 @@ function simple_pages_uninstall()
 function simple_pages_define_routes($router)
 {
     // Add custom routes.
-    $pages = get_db()->getTable('SimplePagesPage')->findPages();
+    $pages = get_db()->getTable('SimplePagesPage')->findAll();
     foreach($pages as $page) {
         // Do not at a route if the page is not published.
         if (!$page->published) {
@@ -73,6 +74,11 @@ function simple_pages_define_acl($acl)
     $acl->deny(null, 'SimplePages_Page');
     $acl->allow('super', 'SimplePages_Page');
     $acl->allow('admin', 'SimplePages_Page');
+}
+
+function simple_pages_admin_theme_header()
+{
+    echo js('slug-auto-generate');
 }
 
 function simple_pages_admin_navigation_main($nav)
