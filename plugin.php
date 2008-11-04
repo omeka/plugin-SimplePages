@@ -67,15 +67,18 @@ function simple_pages_define_routes($router)
 function simple_pages_define_acl($acl)
 {
     // add a namespaced acl.
-    $resource = new Omeka_Acl_Resource('SimplePages_Page');
-    $resource->add(array('add', 'delete', 'edit'));
+    $resource = new Omeka_Acl_Resource('SimplePages_Index');
+    $resource->add(array('add', 'delete', 'edit', 'browse'));
     $acl->add($resource);
-    $acl->deny(null, 'SimplePages_Page');
-    $acl->allow('super', 'SimplePages_Page');
-    $acl->allow('admin', 'SimplePages_Page');
+    $acl->deny('contributor', 'SimplePages_Index');
+    $acl->allow('super', 'SimplePages_Index');
+    $acl->allow('admin', 'SimplePages_Index');
 }
 
 function simple_pages_admin_navigation_main($nav)
 {
-    return $nav + array('Simple Pages' => uri('simple-pages'));
+	if(has_permission('SimplePages_Index','browse')) {
+    	$nav['Simple Pages'] = uri('simple-pages');
+	}
+	return $nav;
 }
