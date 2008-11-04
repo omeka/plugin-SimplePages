@@ -15,6 +15,7 @@ head($head);
             <tr>
                 <th>Title</th>
                 <th>Slug</th>
+                <th>Created By</th>
                 <th>Last Modified By</th>
                 <th>Published?</th>
                 <th>Edit</th>
@@ -25,11 +26,12 @@ head($head);
             <tr>
                 <td><?php echo $page->title; ?></td>
                 <td><?php echo $page->slug; ?></td>
+                <td><?php echo $page->getCreatedByUser()->username; ?> on <?php echo date('M j, Y g:ia', strtotime($page->inserted)); ?></td>
                 <td><?php echo $page->getModifiedByUser()->username; ?> on <?php echo date('M j, Y g:ia', strtotime($page->updated)); ?></td>
-                <td><?php if ($page->published): ?>
+                <td><?php if ($page->is_published): ?>
                 published [<a href="<?php echo public_uri($page->slug); ?>">view</a>]
                 <?php else: ?>
-                not published
+                not published [<a href="<?php echo public_uri($page->slug); ?>">preview</a>]
                 <?php endif; ?></td>
                 <td><a class="edit" href="<?php echo uri("simple-pages/index/edit/id/$page->id") ?>">Edit</a></td>
             </tr>

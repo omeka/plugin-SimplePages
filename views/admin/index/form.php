@@ -35,11 +35,20 @@
 
 </div>
 <div class="field">
-    <?php echo $this->formLabel('published', 'Publish this page?'); ?>
+    <?php echo $this->formLabel('is_published', 'Publish this page?'); ?>
     <div class="inputs">
-        <?php echo $this->formCheckbox('published', 
-                                       $page->published, 
-                                       array('id' => 'simple-pages-published'), 
+        <?php echo $this->formCheckbox('is_published', 
+                                       $page->is_published, 
+                                       array('id' => 'simple-pages-is-published'), 
+                                       array(1, 0)); ?>
+    </div>
+</div>
+<div class="field">
+    <?php echo $this->formLabel('add_to_public_nav', 'Link to this page on the public navigation?'); ?>
+    <div class="inputs">
+        <?php echo $this->formCheckbox('add_to_public_nav', 
+                                       $page->add_to_public_nav, 
+                                       array('id' => 'simple-pages-add-to-public-nav'), 
                                        array(1, 0)); ?>
     </div>
 </div>

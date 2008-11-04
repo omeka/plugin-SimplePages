@@ -19,25 +19,29 @@ class SimplePages_IndexController extends Omeka_Controller_Action
     {
         // Get all the pages in the database.
         $pages = $this->getTable('SimplePagesPage')->findAll();
-        $this->view->assign(compact('pages'));
+        $this->view->pages = $pages;
     }
     
     public function addAction()
     {
         $page = new SimplePagesPage;
-        return $this->_processPageForm($page, 'Add');
+        $page->created_by_user_id = current_user()->id;
+        return $this->_processPageForm($page);
     }
     
     public function editAction()
     {    
         $page = $this->findById();
-        return $this->_processPageForm($page, 'Edit');
+        return $this->_processPageForm($page);
     }
     
-    private function _processPageForm($page, $actionName)
+    private function _processPageForm($page)
     {
         try {
+            // Attempt to save the form.
             $returnValue = $page->saveForm($_POST);
+            // If the form is saved, set the flash message and redirect to the 
+            // browse action.
             if ($returnValue) {
                 if (array_key_exists('simple-pages-add-submit', $_POST)) {
                     $this->flashSuccess('A page has been added.');
@@ -48,12 +52,14 @@ class SimplePages_IndexController extends Omeka_Controller_Action
                 $this->redirect->goto('browse');
                 return;
             }
+        // Catch validation errors.
         } catch (Omeka_Validator_Exception $e) {
             $this->flashValidationErrors($e);
+        // Catch any other errors that may occur.
         } catch (Exception $e) {
             $this->flash($e->getMessage());
         }
-        $this->view->assign(compact('page', 'actionName'));
+        $this->view->page = $page;
     }
     
     public function deleteAction()
