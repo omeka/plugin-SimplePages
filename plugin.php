@@ -16,6 +16,7 @@ function simple_pages_install()
 {
     set_option('simple_pages_plugin_version', SIMPLE_PAGES_PLUGIN_VERSION);
     
+    // Create the table.
     $db = get_db();
     $sql = "
     CREATE TABLE IF NOT EXISTS `simple_pages_pages` (
@@ -32,6 +33,18 @@ function simple_pages_install()
       PRIMARY KEY  (`id`)
     ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
     $db->query($sql);
+    
+    // Save an example page.
+    $page = new SimplePagesPage;
+    $page->modified_by_user_id = current_user()->id;
+    $page->created_by_user_id = current_user()->id;
+    $page->is_published = 1;
+    $page->add_to_public_nav = 1;
+    $page->title = 'About';
+    $page->slug = 'about';
+    $page->text = '<p>This is an example page. Feel free to replace this 
+    content, or delete the page and start from scratch.</p>';
+    $page->save();
 }
 
 function simple_pages_uninstall()
