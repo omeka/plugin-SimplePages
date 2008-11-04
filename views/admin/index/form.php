@@ -6,8 +6,8 @@
                                    array('id'    => 'simple-pages-title', 
                                          'class' => 'textinput', 
                                          'size'  => 40)); ?>
+	    <p class="explanation">The title of the page (required).</p>
     </div>
-    <p class="explanation">The title of the page (required).</p>
 </div>
 <div class="field">
     <?php echo $this->formLabel('slug', 'Slug'); ?>
@@ -17,10 +17,9 @@
                                    array('id'    => 'simple-pages-slug', 
                                          'class' => 'textinput', 
                                          'size'  => 40)); ?>
+		<p class="explanation">The URL slug for the page. Automatically created from the title if not entered. Allowed characters: alphanumeric, underscores, dashes, and forward slashes.</p>
     </div>
-    <p class="explanation">The URL slug for the page. Automatically created 
-    from the title if not entered. Allowed characters: alphanumeric, 
-    underscores, dashes, and forward slashes.</p>
+
 </div>
 <div class="field">
     <?php echo $this->formLabel('text', 'Text'); ?>
@@ -31,9 +30,9 @@
                                              'class' => 'textinput', 
                                              'cols'  => 60, 
                                              'rows'  => 20)); ?>
-    </div>
-    <p class="explanation">The content for the page (optional). HTML and PHP 
-    are allowed.</p>
+	<p class="explanation">The content for the page (optional). HTML and PHP are allowed.</p>    
+</div>
+
 </div>
 <div class="field">
     <?php echo $this->formLabel('published', 'Publish this page?'); ?>
