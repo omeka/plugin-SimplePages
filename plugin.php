@@ -1,25 +1,39 @@
 <?php
+/**
+ * @version $Id$
+ * @copyright Center for History and New Media, 2008
+ * @license http://www.gnu.org/licenses/gpl-3.0.txt
+ * @package SimplePages
+ */
+
+// Define the plugin version.
 define('SIMPLE_PAGES_PLUGIN_VERSION', '0.2');
 
 // Require the record model for the simple_pages_page table.
 require_once 'SimplePagesPage.php';
 
+// Add plugin hooks.
 add_plugin_hook('install', 'simple_pages_install');
 add_plugin_hook('uninstall', 'simple_pages_uninstall');
 add_plugin_hook('define_routes', 'simple_pages_define_routes');
 add_plugin_hook('define_acl', 'simple_pages_define_acl');
 
+// Add filters.
 add_filter('admin_navigation_main', 'simple_pages_admin_navigation_main');
 add_filter('public_navigation_main', 'simple_pages_public_navigation_main');
 
+/**
+ * Install the plugin.
+ */
 function simple_pages_install()
 {
+    // Set the version.
     set_option('simple_pages_plugin_version', SIMPLE_PAGES_PLUGIN_VERSION);
     
     // Create the table.
     $db = get_db();
     $sql = "
-    CREATE TABLE IF NOT EXISTS `simple_pages_pages` (
+    CREATE TABLE IF NOT EXISTS `$db->SimplePagesPage` (
       `id` int(10) unsigned NOT NULL auto_increment,
       `modified_by_user_id` int(10) unsigned NOT NULL,
       `created_by_user_id` int(10) unsigned NOT NULL,
@@ -47,18 +61,28 @@ function simple_pages_install()
     $page->save();
 }
 
+/**
+ * Uninstall the plugin.
+ */
 function simple_pages_uninstall()
 {
+    // Delete the plugin version number.
     delete_option('simple_pages_plugin_version');
     
+    // Drop the table.
     $db = get_db();
     $sql = "DROP TABLE IF EXISTS `$db->SimplePagesPage`";
     $db->query($sql);
 }
 
+/**
+ * Define the routes.
+ * 
+ * @param Zend_Controller_Router_Rewrite
+ */
 function simple_pages_define_routes($router)
 {
-    // Add custom routes.
+    // Add custom routes based on the page slug.
     $pages = get_db()->getTable('SimplePagesPage')->findAll();
     foreach($pages as $page) {
         $router->addRoute(
@@ -76,6 +100,11 @@ function simple_pages_define_routes($router)
     }
 }
 
+/**
+ * Define the ACL.
+ * 
+ * @param Omeka_Acl
+ */
 function simple_pages_define_acl($acl)
 {
     // Add a namespaced ACL to restrict access to the Simple Pages admin 
@@ -99,14 +128,26 @@ function simple_pages_define_acl($acl)
     $acl->allow('admin', 'SimplePages_Page');
 }
 
+/**
+ * Add the Simple Pages link to the admin main navigation.
+ * 
+ * @param array Navigation array.
+ * @return array Filtered navigation array.
+ */
 function simple_pages_admin_navigation_main($nav)
 {
-	if (has_permission('SimplePages_Index', 'browse')) {
-    	$nav['Simple Pages'] = uri('simple-pages');
-	}
-	return $nav;
+    if (has_permission('SimplePages_Index', 'browse')) {
+        $nav['Simple Pages'] = uri('simple-pages');
+    }
+    return $nav;
 }
 
+/**
+ * Add the page title to the public main navigation.
+ * 
+ * @param array Navigation array.
+ * @return array Filtered navigation array.
+ */
 function simple_pages_public_navigation_main($nav)
 {
     $pages = get_db()->getTable('SimplePagesPage')->findAll();

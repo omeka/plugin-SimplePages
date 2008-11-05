@@ -1,4 +1,21 @@
 <?php
+/**
+ * @version $Id$
+ * @copyright Center for History and New Media, 2008
+ * @license http://www.gnu.org/licenses/gpl-3.0.txt
+ * @package SimplePages
+ */
+
+// Require the Simple Pages table class.
+require_once 'SimplePagesPageTable.php';
+
+/**
+ * The Simple Pages page record class.
+ *
+ * @package SimplePages
+ * @author CHNM
+ * @copyright Center for History and New Media, 2008
+ */
 class SimplePagesPage extends Omeka_Record
 {
     public $modified_by_user_id;
@@ -13,6 +30,7 @@ class SimplePagesPage extends Omeka_Record
     
     /**
      * Get the modified by user object.
+     * 
      * @return User
      */
     public function getModifiedByUser()
@@ -22,6 +40,7 @@ class SimplePagesPage extends Omeka_Record
     
     /**
      * Get the created by user object.
+     * 
      * @return User
      */
     public function getCreatedByUser()
@@ -32,15 +51,15 @@ class SimplePagesPage extends Omeka_Record
     /**
      * Prepare certain variables for validation.
      */
-	protected function beforeValidate()
-	{
-	    $this->title = trim($this->title);
-	    $this->slug = $this->_generateSlug($this->slug);
-	    
-		if (empty($this->slug)) {
-			$this->slug = $this->_generateSlug($this->title);
-		}
-	}
+    protected function beforeValidate()
+    {
+        $this->title = trim($this->title);
+        $this->slug = $this->_generateSlug($this->slug);
+        
+        if (empty($this->slug)) {
+            $this->slug = $this->_generateSlug($this->title);
+        }
+    }
     
     /**
      * Validate the form data.
@@ -48,32 +67,32 @@ class SimplePagesPage extends Omeka_Record
     protected function _validate()
     {
         if (empty($this->title)) {
-			$this->addError('title', 'The page must be given a title.');
-		}        
-		
-		if (255 < strlen($this->title)) {
-			$this->addError('title', 'The title for your page must be 255 characters or less.');
-		}
+            $this->addError('title', 'The page must be given a title.');
+        }        
         
-		if (!$this->fieldIsUnique('title')) {
-			$this->addError('title', 'The title is already in use by another page. Please choose another.');
-		}
-        
-		if (empty($this->slug)) {
-			$this->addError('slug', 'The page must be given a valid slug.');
-		}
-		
-		if (preg_match('/^\/+$/', $this->slug)) {
-		    $this->addError('slug', 'The slug for your page must not be a forward slash.');
+        if (255 < strlen($this->title)) {
+            $this->addError('title', 'The title for your page must be 255 characters or less.');
         }
         
-		if (255 < strlen($this->slug)) {
-			$this->addError('slug', 'The slug for your page must be 255 characters or less.');
-		}
+        if (!$this->fieldIsUnique('title')) {
+            $this->addError('title', 'The title is already in use by another page. Please choose another.');
+        }
         
-		if (!$this->fieldIsUnique('slug')) {
-			$this->addError('slug', 'The slug is already in use by another page. Please choose another.');
-		}
+        if (empty($this->slug)) {
+            $this->addError('slug', 'The page must be given a valid slug.');
+        }
+        
+        if (preg_match('/^\/+$/', $this->slug)) {
+            $this->addError('slug', 'The slug for your page must not be a forward slash.');
+        }
+        
+        if (255 < strlen($this->slug)) {
+            $this->addError('slug', 'The slug for your page must be 255 characters or less.');
+        }
+        
+        if (!$this->fieldIsUnique('slug')) {
+            $this->addError('slug', 'The slug is already in use by another page. Please choose another.');
+        }
     }
     
     /**
@@ -81,12 +100,13 @@ class SimplePagesPage extends Omeka_Record
      */
     protected function beforeSaveForm($post)
     {
-		$this->modified_by_user_id = current_user()->id;
-		$this->updated = date('Y-m-d H:i:s');
+        $this->modified_by_user_id = current_user()->id;
+        $this->updated = date('Y-m-d H:i:s');
     }
     
     /**
      * Generate a slug given a seed string.
+     * 
      * @param string
      * @return string
      */

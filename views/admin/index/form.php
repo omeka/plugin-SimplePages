@@ -6,7 +6,7 @@
                                    array('id'    => 'simple-pages-title', 
                                          'class' => 'textinput', 
                                          'size'  => 40)); ?>
-	    <p class="explanation">The title of the page (required).</p>
+        <p class="explanation">The title of the page (required).</p>
     </div>
 </div>
 <div class="field">
@@ -17,7 +17,9 @@
                                    array('id'    => 'simple-pages-slug', 
                                          'class' => 'textinput', 
                                          'size'  => 40)); ?>
-		<p class="explanation">The URL slug for the page. Automatically created from the title if not entered. Allowed characters: alphanumeric, underscores, dashes, and forward slashes.</p>
+        <p class="explanation">The URL slug for the page. Automatically created 
+        from the title if not entered. Allowed characters: alphanumeric, 
+        underscores, dashes, and forward slashes.</p>
     </div>
 
 </div>
@@ -30,7 +32,8 @@
                                              'class' => 'textinput', 
                                              'cols'  => 60, 
                                              'rows'  => 20)); ?>
-	<p class="explanation">The content for the page (optional). HTML and PHP are allowed.</p>    
+    <p class="explanation">The content for the page (optional). HTML markup and 
+    PHP code are allowed.</p>    
 </div>
 
 </div>

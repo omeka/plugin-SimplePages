@@ -6,6 +6,10 @@ head($head);
 <h1><?php echo $head['title']; ?></h1>
 <div id="primary">
     <?php echo flash(); ?>
+    <p>This page was created by <i><?php echo $page->getCreatedByUser()->username; ?></i> 
+    on <?php echo date('M j, Y g:ia', strtotime($page->inserted)); ?>, and last 
+    modified by <i><?php echo $page->getModifiedByUser()->username; ?></i> 
+    on <?php echo date('M j, Y g:ia', strtotime($page->updated)); ?></p>
     <form method="post">
         <?php include 'form.php'; ?>
         <?php echo $this->formSubmit('simple-pages-edit-submit', 
