@@ -38,15 +38,18 @@ class SimplePages_IndexController extends Omeka_Controller_Action
     
     public function addAction()
     {
+        // Create a new page.
         $page = new SimplePagesPage;
+        // Set the created by user ID.
         $page->created_by_user_id = current_user()->id;
-        return $this->_processPageForm($page, 'add');
+        $this->_processPageForm($page, 'add');
     }
     
     public function editAction()
     {
+        // Get the requested page.
         $page = $this->findById();
-        return $this->_processPageForm($page, 'edit');
+        $this->_processPageForm($page, 'edit');
     }
     
     /**
@@ -54,10 +57,10 @@ class SimplePages_IndexController extends Omeka_Controller_Action
      */
     private function _processPageForm($page, $action)
     {
+        // Attempt to save the form if there is a valid POST. If the form 
+        // is successfully saved, set the flash message, unset the POST, 
+        // and redirect to the browse action.
         try {
-            // Attempt to save the form if there is a valid POST. If the form 
-            // is successfully saved, set the flash message and redirect to the 
-            // browse action.
             if ($page->saveForm($_POST)) {
                 if ('add' == $action) {
                     $this->flashSuccess("The page \"$page->title\" has been added.");

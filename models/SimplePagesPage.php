@@ -54,8 +54,9 @@ class SimplePagesPage extends Omeka_Record
     protected function beforeValidate()
     {
         $this->title = trim($this->title);
+        // Generate the page slug.
         $this->slug = $this->_generateSlug($this->slug);
-        
+        // If the resulting slug is empty, generate it from the page title.
         if (empty($this->slug)) {
             $this->slug = $this->_generateSlug($this->title);
         }

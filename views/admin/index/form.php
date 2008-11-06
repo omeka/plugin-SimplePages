@@ -1,23 +1,3 @@
-<?php echo js('tiny_mce/tiny_mce'); ?>
-<script type="text/javascript">
-Event.observe(window, 'load', function(){
-    tinyMCE.init({
-     	mode: "exact",
-     	elements : "simple-pages-text",    // Put the editor in for all textareas with an 'html-editor' class.
-    	theme: "advanced",
-		plugins: "codeprotect",
-		fix_content_duplication : false,
-		fix_list_elements : true,
-		valid_child_elements:"ul[li],ol[li]",
-    	theme_advanced_toolbar_location : "top",
-    	theme_advanced_buttons1 : "bold,italic,underline,justifyleft,justifycenter,justifyright,bullist,numlist,link,formatselect,code",
-		theme_advanced_buttons2 : "",
-		theme_advanced_buttons3 : "",
-		theme_advanced_toolbar_align : "left"
-    });
-});
-</script>
-
 <div class="field">
     <?php echo $this->formLabel('title', 'Title'); ?>
     <div class="inputs">
@@ -50,7 +30,7 @@ Event.observe(window, 'load', function(){
                                        $page->text, 
                                        array('id'    => 'simple-pages-text', 
                                              'class' => 'textinput', 
-                                             'cols'  => 76, 
+                                             'cols'  => 66, 
                                              'rows'  => 20)); ?>
     <p class="explanation">The content for the page (optional). HTML markup and 
     PHP code are allowed.</p>    

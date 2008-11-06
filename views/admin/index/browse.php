@@ -25,7 +25,7 @@ head($head);
             <tr>
                 <td><?php echo $page->title; ?></td>
                 <td><?php echo $page->slug; ?></td>
-                <td><i><?php echo $page->getModifiedByUser()->username; ?></i> on <?php echo date('M j, Y g:ia', strtotime($page->updated)); ?></td>
+                <td><strong><?php echo $page->getModifiedByUser()->username; ?></strong> on <?php echo date('M j, Y g:ia', strtotime($page->updated)); ?></td>
                 <td><?php if ($page->is_published): ?>
                 published [<a href="<?php echo public_uri($page->slug); ?>">view</a>]
                 <?php else: ?>
