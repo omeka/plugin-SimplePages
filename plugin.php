@@ -7,7 +7,7 @@
  */
 
 // Define the plugin version.
-define('SIMPLE_PAGES_PLUGIN_VERSION', '0.2');
+define('SIMPLE_PAGES_PLUGIN_VERSION', '0.2.1');
 
 // Require the record model for the simple_pages_page table.
 require_once 'SimplePagesPage.php';
