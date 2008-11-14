@@ -1,6 +1,6 @@
 <?php
 $head = array('body_class' => 'simple-pages primary', 
-              'title' => "Simple Pages | Edit &#8220;$page->title&#8221;");
+              'title' => "Simple Pages | Edit &#8220;" . htmlspecialchars($page->title) . "&#8221;");
 head($head);
 ?>
 <h1><?php echo $head['title']; ?></h1>

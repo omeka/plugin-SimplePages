@@ -23,7 +23,7 @@ head($head);
         <tbody>
         <?php foreach ($pages as $page): ?>
             <tr>
-                <td><?php echo $page->title; ?></td>
+                <td><?php echo htmlspecialchars($page->title) ; ?></td>
                 <td><?php echo $page->slug; ?></td>
                 <td><strong><?php echo $page->getModifiedByUser()->username; ?></strong> on <?php echo date('M j, Y g:ia', strtotime($page->updated)); ?></td>
                 <td><?php if ($page->is_published): ?>
