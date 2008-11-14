@@ -17,6 +17,11 @@ add_plugin_hook('install', 'simple_pages_install');
 add_plugin_hook('uninstall', 'simple_pages_uninstall');
 add_plugin_hook('define_routes', 'simple_pages_define_routes');
 add_plugin_hook('define_acl', 'simple_pages_define_acl');
+add_plugin_hook('config_form', 'simple_pages_config_form');
+add_plugin_hook('config', 'simple_pages_config');
+
+// Custom plugin hooks from other plugins.
+add_plugin_hook('html_purifier_form_submission', 'simple_pages_filter_html');
 
 // Add filters.
 add_filter('admin_navigation_main', 'simple_pages_admin_navigation_main');
@@ -126,6 +131,42 @@ function simple_pages_define_acl($acl)
     $acl->deny(null, 'SimplePages_Page');
     $acl->allow('super', 'SimplePages_Page');
     $acl->allow('admin', 'SimplePages_Page');
+}
+
+function simple_pages_config_form()
+{
+    include 'config_form.php';
+}
+
+function simple_pages_config()
+{
+    set_option('simple_pages_filter_page_content', (int)(boolean)$_POST['simple_pages_filter_page_content']);
+}
+
+/**
+ * Filter the 'text' field of the simple-pages form, but only if the 
+ * 'simple_pages_filter_page_content' setting has been enabled from within the
+ * configuration form.
+ * 
+ * @param Zend_Controller_Request_Http $request
+ * @param HTMLPurifier $purifier
+ * @return void
+ **/
+function simple_pages_filter_html($request, $purifier)
+{
+    // If we aren't editing or adding a page in SimplePages, don't do anything.
+    if ($request->getModuleName() != 'simple-pages' or !in_array($request->getActionName(), array('edit', 'add'))) {
+        return;
+    }
+    
+    // Do not filter HTML for the request unless this configuration directive is on.
+    if (!get_option('simple_pages_filter_page_content')) {
+        return;
+    }
+    
+    $post = $request->getPost();
+    $post['text'] = $purifier->purify($post['text']);    
+    $request->setPost($post);
 }
 
 /**
