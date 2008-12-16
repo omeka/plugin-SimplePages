@@ -1,5 +1,5 @@
 <?php
-$head = array('body_class' => 'simple-pages primary', 
+$head = array('bodyclass' => 'simple-pages primary', 
               'title' => "Simple Pages | Edit &#8220;" . htmlspecialchars($page->title) . "&#8221;");
 head($head);
 ?>
