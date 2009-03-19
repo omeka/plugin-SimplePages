@@ -13,7 +13,7 @@ head($head);
     <form method="post">
         <?php include 'form.php'; ?>
         <?php echo $this->formSubmit('simple-pages-edit-submit', 
-                                     'Edit Page', 
+                                     'Save Page', 
                                      array('id'    => 'simple-pages-edit-submit', 
                                            'class' => 'submit submit-medium')); ?>
         <p id="simple-pages-delete">
