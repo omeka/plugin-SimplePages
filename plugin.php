@@ -26,7 +26,7 @@ add_plugin_hook('html_purifier_form_submission', 'simple_pages_filter_html');
 // Add filters.
 add_filter('admin_navigation_main', 'simple_pages_admin_navigation_main');
 add_filter('public_navigation_main', 'simple_pages_public_navigation_main');
-add_filter('default_search_models', 'simple_pages_default_search_models');
+add_filter('search_models', 'simple_pages_search_models');
 
 
 /**
@@ -135,7 +135,7 @@ function simple_pages_define_acl($acl)
     $acl->allow('admin', 'SimplePages_Page');
 }
 
-function simple_pages_default_search_models($modelsToSearch)
+function simple_pages_search_models($modelsToSearch)
 {
     $modelsToSearch[] = 'SimplePagesPage';
     return $modelsToSearch;
