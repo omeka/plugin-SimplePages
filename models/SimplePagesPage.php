@@ -120,4 +120,42 @@ class SimplePagesPage extends Omeka_Record
         // Remove all but alphanumeric characters, underscores, and dashes.
         return preg_replace('/[^\w\/-]/i', '', $seed);
     }
+    
+    /**
+     * Creates and returns a Zend_Search_Lucene_Document for the SimplePagesPage
+     *
+     * @param Zend_Search_Lucene_Document $doc The Zend_Search_Lucene_Document from the subclass of Omeka_Record.
+     * @return Zend_Search_Lucene_Document
+     **/
+    public function createLuceneDocument($doc=null) 
+    {   
+        // If no document, lets create a new Zend Lucene Document
+        if (!$doc) {
+            $doc = new Zend_Search_Lucene_Document(); 
+        }
+        
+        // adds the fields for added or modified
+        Omeka_Search::addLuceneField($doc, 'Keyword', Omeka_Search::FIELD_NAME_DATE_ADDED, $this->inserted, true);            
+        Omeka_Search::addLuceneField($doc, 'Keyword', Omeka_Search::FIELD_NAME_DATE_MODIFIED, $this->updated, true);
+        
+        // adds the fields for public and private       
+        Omeka_Search::addLuceneField($doc, 'Keyword', Omeka_Search::FIELD_NAME_IS_PUBLIC, $this->is_published == '1' ? Omeka_Search::FIELD_VALUE_TRUE : Omeka_Search::FIELD_VALUE_FALSE, true);            
+        
+        // Adds fields for title and text
+        Omeka_Search::addLuceneField($doc, 'UnStored', array('SimplePagesPage', 'title'), $this->title);
+        Omeka_Search::addLuceneField($doc, 'UnStored', array('SimplePagesPage', 'text'), $this->text);
+        
+        // add the collection id of the collection that contains the item
+        if ($this->modified_by_user_id) {
+            Omeka_Search::addLuceneField($doc, 'Keyword', array('SimplePagesPage','modified_by_user_id'), $this->modified_by_user_id, true);                        
+        }
+        
+        // add the item type id for the item
+        if ($this->created_by_user_id) {
+            Omeka_Search::addLuceneField($doc, 'Keyword', array('SimplePagesPage','created_by_user_id'), $this->created_by_user_id, true);                        
+        }
+                
+        return parent::createLuceneDocument($doc);
+    }
+    
 }
