@@ -19,6 +19,7 @@ add_plugin_hook('define_routes', 'simple_pages_define_routes');
 add_plugin_hook('define_acl', 'simple_pages_define_acl');
 add_plugin_hook('config_form', 'simple_pages_config_form');
 add_plugin_hook('config', 'simple_pages_config');
+add_plugin_hook('search_result', 'simple_pages_search_result');
 
 // Custom plugin hooks from other plugins.
 add_plugin_hook('html_purifier_form_submission', 'simple_pages_filter_html');
@@ -133,6 +134,21 @@ function simple_pages_define_acl($acl)
     $acl->deny(null, 'SimplePages_Page');
     $acl->allow('super', 'SimplePages_Page');
     $acl->allow('admin', 'SimplePages_Page');
+}
+
+/**
+ * Display a record on the search results page
+ * 
+ * @param string $record The record of the search result to display
+ * @return void
+ */
+function simple_pages_search_result($record)
+{
+    switch(get_class($record)) {
+        case 'SimplePagesPage':
+            echo '<a href="' . WEB_ROOT . '/' . $record->slug . '">' . $record->title .   '</a>';
+        break;
+    }
 }
 
 function simple_pages_search_models($modelsToSearch)
