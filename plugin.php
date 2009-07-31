@@ -153,7 +153,7 @@ function simple_pages_search_result($record)
 
 function simple_pages_search_models($modelsToSearch)
 {
-    $modelsToSearch[] = 'SimplePagesPage';
+    $modelsToSearch['SimplePagesPage'] = array('resourceName'=>'SimplePages_Page', 'showPrivatePermission'=>'show-unpublished') ;
     return $modelsToSearch;
 }
 
