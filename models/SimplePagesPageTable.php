@@ -42,43 +42,42 @@ class SimplePagesPageTable extends Omeka_Db_Table
     
     public function addAdvancedSearchQueryForLucene($searchQuery, $requestParams) 
     {
-        $search = Omeka_Search::getInstance();
+        if ($search = Omeka_Search::getInstance()) {
         
-        foreach($requestParams as $requestParamName => $requestParamValue) {
-            switch($requestParamName) {
+            foreach($requestParams as $requestParamName => $requestParamValue) {
+                switch($requestParamName) {
 
-                case 'public':
-                    if (is_true($requestParamValue)) {
-                        $subquery = $search->getLuceneRequiredTermQueryForFieldName(Omeka_Search::FIELD_NAME_IS_PUBLIC, Omeka_Search::FIELD_VALUE_TRUE, true);
-                        $searchQuery->addSubquery($subquery, true);
-                    }
-                break;
+                    case 'public':
+                        if (is_true($requestParamValue)) {
+                            $subquery = $search->getLuceneRequiredTermQueryForFieldName(Omeka_Search::FIELD_NAME_IS_PUBLIC, Omeka_Search::FIELD_VALUE_TRUE, true);
+                            $searchQuery->addSubquery($subquery, true);
+                        }
+                    break;
 
-                case 'created_by_user_id':
-                //     // Must be logged in to view items specific to certain users
-                //     if (!$controller->isAllowed('browse', 'Users')) {
-                //         throw new Exception( 'May not browse by specific users.' );
-                //     }
-                    if (is_numeric($requestParamValue) && ((int)$requestParamValue > 0)) {
-                        $subquery = $search->getLuceneRequiredTermQueryForFieldName(array('SimplePagesPage', 'created_by_user_id'), $requestParamValue, true);
-                        $searchQuery->addSubquery($subquery, true);
-                    }
-                break;
-                
-                case 'modified_by_user_id':
-                //     // Must be logged in to view items specific to certain users
-                //     if (!$controller->isAllowed('browse', 'Users')) {
-                //         throw new Exception( 'May not browse by specific users.' );
-                //     }
-                    if (is_numeric($requestParamValue) && ((int)$requestParamValue > 0)) {
-                        $subquery = $search->getLuceneRequiredTermQueryForFieldName(array('SimplePagesPage', 'modified_by_user_id'), $requestParamValue, true);
-                        $searchQuery->addSubquery($subquery, true);
-                    }
-                break;
+                    case 'created_by_user_id':
+                    //     // Must be logged in to view items specific to certain users
+                    //     if (!$controller->isAllowed('browse', 'Users')) {
+                    //         throw new Exception( 'May not browse by specific users.' );
+                    //     }
+                        if (is_numeric($requestParamValue) && ((int)$requestParamValue > 0)) {
+                            $subquery = $search->getLuceneRequiredTermQueryForFieldName(array('SimplePagesPage', 'created_by_user_id'), $requestParamValue, true);
+                            $searchQuery->addSubquery($subquery, true);
+                        }
+                    break;
 
-            }
+                    case 'modified_by_user_id':
+                    //     // Must be logged in to view items specific to certain users
+                    //     if (!$controller->isAllowed('browse', 'Users')) {
+                    //         throw new Exception( 'May not browse by specific users.' );
+                    //     }
+                        if (is_numeric($requestParamValue) && ((int)$requestParamValue > 0)) {
+                            $subquery = $search->getLuceneRequiredTermQueryForFieldName(array('SimplePagesPage', 'modified_by_user_id'), $requestParamValue, true);
+                            $searchQuery->addSubquery($subquery, true);
+                        }
+                    break;
+
+                }
+            }   
         }
-        //die($searchQuery);
-    }
-    
+    }    
 }
