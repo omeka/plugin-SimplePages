@@ -49,7 +49,7 @@ class SimplePagesPageTable extends Omeka_Db_Table
 
                     case 'public':
                         if (is_true($requestParamValue)) {
-                            $subquery = $search->getLuceneRequiredTermQueryForFieldName(Omeka_Search::FIELD_NAME_IS_PUBLIC, Omeka_Search::FIELD_VALUE_TRUE, true);
+                            $subquery = $search->getLuceneRequiredTermQueryForFieldName(Omeka_Search::FIELD_NAME_IS_PUBLIC, Omeka_Search::FIELD_VALUE_TRUE);
                             $searchQuery->addSubquery($subquery, true);
                         }
                     break;
@@ -60,7 +60,7 @@ class SimplePagesPageTable extends Omeka_Db_Table
                     //         throw new Exception( 'May not browse by specific users.' );
                     //     }
                         if (is_numeric($requestParamValue) && ((int)$requestParamValue > 0)) {
-                            $subquery = $search->getLuceneRequiredTermQueryForFieldName(array('SimplePagesPage', 'created_by_user_id'), $requestParamValue, true);
+                            $subquery = $search->getLuceneRequiredTermQueryForFieldName(array('SimplePagesPage', 'created_by_user_id'), $requestParamValue);
                             $searchQuery->addSubquery($subquery, true);
                         }
                     break;
@@ -71,7 +71,7 @@ class SimplePagesPageTable extends Omeka_Db_Table
                     //         throw new Exception( 'May not browse by specific users.' );
                     //     }
                         if (is_numeric($requestParamValue) && ((int)$requestParamValue > 0)) {
-                            $subquery = $search->getLuceneRequiredTermQueryForFieldName(array('SimplePagesPage', 'modified_by_user_id'), $requestParamValue, true);
+                            $subquery = $search->getLuceneRequiredTermQueryForFieldName(array('SimplePagesPage', 'modified_by_user_id'), $requestParamValue);
                             $searchQuery->addSubquery($subquery, true);
                         }
                     break;

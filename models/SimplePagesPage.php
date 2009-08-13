@@ -125,9 +125,10 @@ class SimplePagesPage extends Omeka_Record
      * Creates and returns a Zend_Search_Lucene_Document for the SimplePagesPage
      *
      * @param Zend_Search_Lucene_Document $doc The Zend_Search_Lucene_Document from the subclass of Omeka_Record.
+     * @param string $contentFieldValue The value for the content field.
      * @return Zend_Search_Lucene_Document
      **/
-    public function createLuceneDocument($doc=null) 
+    public function createLuceneDocument($doc=null, $contentFieldValue='') 
     {   
         // If no document, lets create a new Zend Lucene Document
         if (!$doc) {
@@ -145,7 +146,10 @@ class SimplePagesPage extends Omeka_Record
 
             // Adds fields for title and text
             $search->addLuceneField($doc, 'UnStored', array('SimplePagesPage', 'title'), $this->title);
+            $contentFieldValue .= $this->title . "\n";
+            
             $search->addLuceneField($doc, 'UnStored', array('SimplePagesPage', 'text'), $this->text);
+            $contentFieldValue .= $this->text . "\n";
 
             // add the collection id of the collection that contains the item
             if ($this->modified_by_user_id) {
@@ -158,7 +162,6 @@ class SimplePagesPage extends Omeka_Record
             }
         }
      
-        return parent::createLuceneDocument($doc);
+        return parent::createLuceneDocument($doc, $contentFieldValue);
     }
-    
 }
