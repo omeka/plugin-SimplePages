@@ -29,7 +29,7 @@ add_plugin_hook('html_purifier_form_submission', 'simple_pages_filter_html');
 add_filter('admin_navigation_main', 'simple_pages_admin_navigation_main');
 add_filter('public_navigation_main', 'simple_pages_public_navigation_main');
 add_filter('lucene_search_models', 'simple_pages_lucene_search_models');
-
+add_filter('lucene_search_create_document', 'simple_pages_lucene_search_create_document');
 
 /**
  * Install the plugin.
@@ -260,12 +260,12 @@ function simple_pages_create_lucene_document_for_simple_page($simplePage)
         $contentFieldValue .= $simplePage->text . "\n";
 
         // add the collection id of the collection that contains the item
-        if ($this->modified_by_user_id) {
+        if ($simplePage->modified_by_user_id) {
             $search->addLuceneField($doc, 'Keyword', array('SimplePagesPage','modified_by_user_id'), $simplePage->modified_by_user_id, true);                        
         }
 
         // add the item type id for the item
-        if ($this->created_by_user_id) {
+        if ($simpePage->created_by_user_id) {
             $search->addLuceneField($doc, 'Keyword', array('SimplePagesPage','created_by_user_id'), $simplePage->created_by_user_id, true);                        
         }
         
@@ -280,7 +280,7 @@ function simple_pages_create_lucene_document_for_simple_page($simplePage)
 function simple_pages_lucene_search_add_advanced_search_query($modelName, $searchQuery, $requestParams)
 {
     switch($modelName) {
-        case 'SimplePage';
+        case 'SimplePage':
             simple_pages_add_advanced_search_query_for_simple_page($searchQuery, $requestParams);
         break;
     }
