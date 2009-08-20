@@ -6,9 +6,6 @@
  * @package SimplePages
  */
 
-// Define the plugin version.
-define('SIMPLE_PAGES_PLUGIN_VERSION', get_plugin_ini('SimplePages', 'version'));
-
 // Require the record model for the simple_pages_page table.
 require_once 'SimplePagesPage.php';
 
@@ -35,10 +32,7 @@ add_filter('lucene_search_create_document', 'simple_pages_lucene_search_create_d
  * Install the plugin.
  */
 function simple_pages_install()
-{
-    // Set the version.
-    set_option('simple_pages_plugin_version', SIMPLE_PAGES_PLUGIN_VERSION);
-    
+{    
     // Create the table.
     $db = get_db();
     $sql = "
@@ -74,14 +68,11 @@ function simple_pages_install()
  * Uninstall the plugin.
  */
 function simple_pages_uninstall()
-{
-    // Delete the plugin version number.
-    delete_option('simple_pages_plugin_version');
-    
+{        
     // Drop the table.
     $db = get_db();
     $sql = "DROP TABLE IF EXISTS `$db->SimplePagesPage`";
-    $db->query($sql);
+    $db->query($sql);    
 }
 
 /**
@@ -232,13 +223,13 @@ function simple_pages_lucene_search_create_document($doc, $record)
     switch($recordClass)
     {
         case 'SimplePagesPage':
-            $doc = simple_pages_create_lucene_document_for_simple_page($record);
+            $doc = simple_pages_lucene_create_document_for_simple_page($record);
         break;
     }
     return $doc;
 }
 
-function simple_pages_create_lucene_document_for_simple_page($simplePage)
+function simple_pages_lucene_create_document_for_simple_page($simplePage)
 {
     $doc = null;
     if ($search = LuceneSearch_Search::getInstance()) {
@@ -281,7 +272,7 @@ function simple_pages_lucene_search_add_advanced_search_query($modelName, $searc
 {
     switch($modelName) {
         case 'SimplePage':
-            simple_pages_add_advanced_search_query_for_simple_page($searchQuery, $requestParams);
+            simple_pages_lucene_add_advanced_search_query_for_simple_page($searchQuery, $requestParams);
         break;
     }
 }
@@ -301,7 +292,7 @@ function simple_pages_lucene_search_add_advanced_search_query($modelName, $searc
 * - inserted
 *
 */
-function simple_pages_add_advanced_search_query_for_simple_page($searchQuery, $requestParams) 
+function simple_pages_lucene_add_advanced_search_query_for_simple_page($searchQuery, $requestParams) 
 {
     if ($search = LuceneSearch_Search::getInstance()) {
     
