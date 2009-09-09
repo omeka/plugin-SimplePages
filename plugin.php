@@ -25,7 +25,7 @@ add_plugin_hook('html_purifier_form_submission', 'simple_pages_filter_html');
 // Add filters.
 add_filter('admin_navigation_main', 'simple_pages_admin_navigation_main');
 add_filter('public_navigation_main', 'simple_pages_public_navigation_main');
-add_filter('lucene_search_models', 'simple_pages_lucene_search_models');
+add_filter('lucene_search_model_to_permission_info', 'simple_pages_lucene_search_model_to_permission_info');
 add_filter('lucene_search_create_document', 'simple_pages_lucene_search_create_document');
 
 /**
@@ -143,10 +143,10 @@ function simple_pages_lucene_search_result($record)
     }
 }
 
-function simple_pages_lucene_search_models($modelsToSearch)
+function simple_pages_lucene_search_model_to_permission_info($modelToPermissionInfo)
 {
-    $modelsToSearch['SimplePagesPage'] = array('resourceName'=>'SimplePages_Page', 'showPrivatePermission'=>'show-unpublished') ;
-    return $modelsToSearch;
+    $modelToPermissionInfo['SimplePagesPage'] = array('resourceName'=>'SimplePages_Page', 'showPrivatePermission'=>'show-unpublished') ;
+    return $modelToPermissionInfo;
 }
 
 function simple_pages_config_form()
