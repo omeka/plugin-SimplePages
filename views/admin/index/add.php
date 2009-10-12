@@ -1,6 +1,6 @@
 <?php
 $head = array('bodyclass' => 'simple-pages primary', 
-              'title' => 'Simple Pages | Add Page');
+              'title' => html_escape('Simple Pages | Add Page'));
 head($head);
 ?>
 <h1><?php echo $head['title']; ?></h1>

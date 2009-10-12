@@ -138,7 +138,7 @@ function simple_pages_lucene_search_result($record)
 {
     switch(get_class($record)) {
         case 'SimplePagesPage':
-            echo '<a href="' . WEB_ROOT . '/' . $record->slug . '">' . $record->title .   '</a>';
+            echo '<a href="' . html_escape(WEB_ROOT . '/' . $record->slug) . '">' . html_escape($record->title) .   '</a>';
         break;
     }
 }
