@@ -16,6 +16,7 @@ add_plugin_hook('define_routes', 'simple_pages_define_routes');
 add_plugin_hook('define_acl', 'simple_pages_define_acl');
 add_plugin_hook('config_form', 'simple_pages_config_form');
 add_plugin_hook('config', 'simple_pages_config');
+
 add_plugin_hook('lucene_search_result', 'simple_pages_lucene_search_result');
 add_plugin_hook('lucene_search_add_advanced_search_query', 'simple_pages_lucene_search_add_advanced_search_query');
 
@@ -25,8 +26,13 @@ add_plugin_hook('html_purifier_form_submission', 'simple_pages_filter_html');
 // Add filters.
 add_filter('admin_navigation_main', 'simple_pages_admin_navigation_main');
 add_filter('public_navigation_main', 'simple_pages_public_navigation_main');
+
+add_filter('page_caching_whitelist', 'simple_pages_page_caching_whitelist');
+add_filter('page_caching_blacklist_for_record', 'simple_pages_page_caching_blacklist_for_record');
+
 add_filter('lucene_search_model_to_permission_info', 'simple_pages_lucene_search_model_to_permission_info');
 add_filter('lucene_search_create_document', 'simple_pages_lucene_search_create_document');
+
 
 /**
  * Install the plugin.
@@ -126,6 +132,47 @@ function simple_pages_define_acl($acl)
     $acl->deny(null, 'SimplePages_Page');
     $acl->allow('super', 'SimplePages_Page');
     $acl->allow('admin', 'SimplePages_Page');
+}
+
+/**
+ * Specify the default list of urls to whitelist
+ * 
+ * @param $whitelist array An associative array urls to whitelist, 
+ * where the key is a regular expression of relative urls to whitelist 
+ * and the value is an array of Zend_Cache front end settings
+ * @return array The white list
+ */
+function simple_pages_page_caching_whitelist($whitelist)
+{
+    // Add custom routes based on the page slug.
+    $pages = get_db()->getTable('SimplePagesPage')->findAll();
+    foreach($pages as $page) {
+        $whitelist['/' . trim($page->slug, '/')] = array('cache'=>true);
+    }
+        
+    return $whitelist;
+}
+
+/**
+ * Add pages to the blacklist
+ * 
+ * @param $blacklist array An associative array urls to blacklist, 
+ * where the key is a regular expression of relative urls to blacklist 
+ * and the value is an array of Zend_Cache front end settings
+ * @param $record
+ * @param $action
+ * @return array The white list
+ */
+function simple_pages_page_caching_blacklist_for_record($blacklist, $record, $action)
+{
+    if ($record instanceof SimplePagesPage) {
+        $page = $record;
+        if ($action == 'update' || $action == 'delete') {
+            $blacklist['/' . trim($page->slug, '/')] = array('cache'=>false);
+        }
+    }
+        
+    return $blacklist;
 }
 
 /**
