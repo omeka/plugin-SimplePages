@@ -27,6 +27,9 @@ class SimplePagesPage extends Omeka_Record
     public $text = null;
     public $updated;
     public $inserted;
+    public $order;
+    public $parent_id;
+    public $template;
     
     /**
      * Get the modified by user object.
@@ -79,7 +82,7 @@ class SimplePagesPage extends Omeka_Record
             $this->addError('title', 'The title is already in use by another page. Please choose another.');
         }
         
-        if (empty($this->slug)) {
+        if (trim($this->slug) == '') {
             $this->addError('slug', 'The page must be given a valid slug.');
         }
         
@@ -94,6 +97,10 @@ class SimplePagesPage extends Omeka_Record
         if (!$this->fieldIsUnique('slug')) {
             $this->addError('slug', 'The slug is already in use by another page. Please choose another.');
         }
+        
+        if (!is_numeric($this->order) || (!(strpos((string)$this->order, '.') === false)) || intval($this->order) < 0) {
+            $this->addError('order', 'The order must be an integer greater than or equal to 0.');
+        }
     }
     
     /**
@@ -101,6 +108,14 @@ class SimplePagesPage extends Omeka_Record
      */
     protected function beforeSaveForm($post)
     {
+        if ($this->order == '') {
+            $this->order = 0;
+        }
+        
+        if ($this->parent_id == '') {
+            $this->parent_id = 0;
+        }
+        
         $this->modified_by_user_id = current_user()->id;
         $this->updated = date('Y-m-d H:i:s');
     }
@@ -119,5 +134,10 @@ class SimplePagesPage extends Omeka_Record
         $seed = str_replace(' ', '-', $seed);
         // Remove all but alphanumeric characters, underscores, and dashes.
         return preg_replace('/[^\w\/-]/i', '', $seed);
+    }
+    
+    public function getPotentialParentPages() 
+    {
+        return $this->getTable('SimplePagesPage')->findPotentialParentPages($this->id);
     }
 }

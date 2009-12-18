@@ -23,7 +23,7 @@ class SimplePages_IndexController extends Omeka_Controller_Action
     }
     
     public function indexAction()
-    {
+    {        
         // Always go to browse.
         $this->redirect->goto('browse');
         return;
@@ -42,13 +42,15 @@ class SimplePages_IndexController extends Omeka_Controller_Action
         $page = new SimplePagesPage;
         // Set the created by user ID.
         $page->created_by_user_id = current_user()->id;
+        $page->template = '';
+        $page->order = 0;
         $this->_processPageForm($page, 'add');
     }
     
     public function editAction()
     {
         // Get the requested page.
-        $page = $this->findById();
+        $page = $this->findById();        
         $this->_processPageForm($page, 'edit');
     }
     
@@ -76,7 +78,7 @@ class SimplePages_IndexController extends Omeka_Controller_Action
             $this->flashValidationErrors($e);
         // Catch any other errors that may occur.
         } catch (Exception $e) {
-            $this->flash($e->getMessage());
+            $this->flashError($e->getMessage());
         }
         // Set the page object to the view.
         $this->view->page = $page;
