@@ -328,7 +328,7 @@ function simple_pages_select_parent_page($page)
 {   
      
     $valuePairs = array('0'=>'Main Page (No Parent)');
-    $potentialParentPages = get_db()->getTable('SimplePagesPage')->findPotentialParentPages($page->id);
+    $potentialParentPages = get_db()->getTable('SimplePagesPage')->findPotentialParentPages($page->id);    
     foreach($potentialParentPages as $potentialParentPage) {
         if (trim($potentialParentPage->title) != '') {
             $valuePairs[$potentialParentPage->id] = $potentialParentPage->title;

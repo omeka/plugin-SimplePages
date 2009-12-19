@@ -27,7 +27,7 @@ class SimplePagesPageTable extends Omeka_Db_Table
     public function findPotentialParentPages($pageId)
     {
         // create a page lookup table for all of the pages
-        $idToPageLookup = $this->createIdToPageLookup();
+        $idToPageLookup = $this->createIdToPageLookup();        
                 
         // find all of the page's descendants
         $descendantPages = $this->findChildren($pageId, true, $idToPageLookup);        
@@ -60,25 +60,25 @@ class SimplePagesPageTable extends Omeka_Db_Table
         if ((string)$parentId == '') {
             return array();
         }
-        
+                
         $descendantPages = array();
         
     	if ($includeAllDescendants) {
             // create the id to page lookup if required
             if (!$idToPageLookup) {
                 $idToPageLookup = $this->createIdToPageLookup();
-            }
+            }            
             
             // create the parent to children lookup if required
         	if (!$parentToChildrenLookup) {
                 $parentToChildrenLookup = $this->createParentToChildrenLookup($idToPageLookup);
-            }            
+            }                        
 
             // get all of the descendant pages of the parent page
         	$childrenPages = $parentToChildrenLookup[$parentId];
-        	$descendantPages = array_merge($descendantPages, $childrenPages);
+        	$descendantPages = array_merge($descendantPages, $childrenPages);        	
     	    foreach ( $childrenPages as $childPage ) {
-    			if ( $allGrandchildren = $this->findChildren($page->id, true, $idToPageLookup, $parentToChildrenLookup) ) {
+    			if ( $allGrandChildren = $this->findChildren($childPage->id, true, $idToPageLookup, $parentToChildrenLookup) ) {
     			    $descendantPages = array_merge($descendantPages, $allGrandChildren);
     			}
         	}
