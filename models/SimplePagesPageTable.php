@@ -141,8 +141,6 @@ class SimplePagesPageTable extends Omeka_Db_Table
                     $select->order('s.title ASC');
                     break;
              }
-         }
-         
-         //echo $select; exit;
+         }         
     }
 }
