@@ -27,9 +27,9 @@ class SimplePagesPage extends Omeka_Record
     public $text = null;
     public $updated;
     public $inserted;
-    public $order;
-    public $parent_id;
-    public $template;
+    public $order = 0;
+    public $parent_id = 0;
+    public $template = '';
     
     /**
      * Get the modified by user object.
@@ -69,7 +69,7 @@ class SimplePagesPage extends Omeka_Record
      * Validate the form data.
      */
     protected function _validate()
-    {
+    {        
         if (empty($this->title)) {
             $this->addError('title', 'The page must be given a title.');
         }        
@@ -106,7 +106,7 @@ class SimplePagesPage extends Omeka_Record
     /**
      * Prepare special variables before saving the form.
      */
-    protected function beforeSaveForm($post)
+    protected function beforeSave()
     {
         if ($this->order == '') {
             $this->order = 0;
@@ -117,7 +117,7 @@ class SimplePagesPage extends Omeka_Record
         }
         
         $this->modified_by_user_id = current_user()->id;
-        $this->updated = date('Y-m-d H:i:s');
+        $this->updated = date('Y-m-d H:i:s');        
     }
     
     /**

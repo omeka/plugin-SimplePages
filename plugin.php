@@ -75,10 +75,10 @@ function simple_pages_install()
     $page->created_by_user_id = current_user()->id;
     $page->is_published = 1;
     $page->add_to_public_nav = 1;
+    $page->parent_id = 0;
     $page->title = 'About';
     $page->slug = 'about';
-    $page->text = '<p>This is an example page. Feel free to replace this 
-    content, or delete the page and start from scratch.</p>';
+    $page->text = '<p>This is an example page. Feel free to replace this content, or delete the page and start from scratch.</p>';
     $page->save();
 }
 
