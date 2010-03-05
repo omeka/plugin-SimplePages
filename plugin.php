@@ -18,9 +18,6 @@ add_plugin_hook('define_acl', 'simple_pages_define_acl');
 add_plugin_hook('config_form', 'simple_pages_config_form');
 add_plugin_hook('config', 'simple_pages_config');
 
-add_plugin_hook('lucene_search_result', 'simple_pages_lucene_search_result');
-add_plugin_hook('lucene_search_add_advanced_search_query', 'simple_pages_lucene_search_add_advanced_search_query');
-
 // Custom plugin hooks from other plugins.
 add_plugin_hook('html_purifier_form_submission', 'simple_pages_filter_html');
 
@@ -30,10 +27,6 @@ add_filter('public_navigation_main', 'simple_pages_public_navigation_main');
 
 add_filter('page_caching_whitelist', 'simple_pages_page_caching_whitelist');
 add_filter('page_caching_blacklist_for_record', 'simple_pages_page_caching_blacklist_for_record');
-
-add_filter('lucene_search_model_to_permission_info', 'simple_pages_lucene_search_model_to_permission_info');
-add_filter('lucene_search_create_document', 'simple_pages_lucene_search_create_document');
-
 
 /**
  * Install the plugin.
@@ -234,27 +227,6 @@ function simple_pages_page_caching_blacklist_for_record($blacklist, $record, $ac
     return $blacklist;
 }
 
-/**
- * Display a record on the search results page
- * 
- * @param string $record The record of the search result to display
- * @return void
- */
-function simple_pages_lucene_search_result($record)
-{
-    switch(get_class($record)) {
-        case 'SimplePagesPage':
-            echo '<a href="' . html_escape(WEB_ROOT . '/' . $record->slug) . '">' . html_escape($record->title) .   '</a>';
-        break;
-    }
-}
-
-function simple_pages_lucene_search_model_to_permission_info($modelToPermissionInfo)
-{
-    $modelToPermissionInfo['SimplePagesPage'] = array('resourceName'=>'SimplePages_Page', 'showPrivatePermission'=>'show-unpublished') ;
-    return $modelToPermissionInfo;
-}
-
 function simple_pages_config_form()
 {
     include 'config_form.php';
@@ -313,7 +285,7 @@ function simple_pages_admin_navigation_main($nav)
  */
 function simple_pages_public_navigation_main($nav)
 {
-    $pages = get_db()->getTable('SimplePagesPage')->findAll();
+    $pages = get_db()->getTable('SimplePagesPage')->findBy(array('parent_id' => 0, 'sort' => 'order'));
     foreach ($pages as $page) {
         // Only add the link to the public navigation if the page is published.
         if ($page->is_published && $page->add_to_public_nav) {
@@ -356,120 +328,4 @@ function simple_pages_display_hierarchy($parentId)
         $html .= '</ul>';
     }
     return $html;
-}
-
-function simple_pages_lucene_search_create_document($doc, $record)
-{
-    $recordClass = get_class($record);
-    switch($recordClass)
-    {
-        case 'SimplePagesPage':
-            $doc = simple_pages_lucene_create_document_for_simple_page($record);
-        break;
-    }
-    return $doc;
-}
-
-function simple_pages_lucene_create_document_for_simple_page($simplePage)
-{
-    $doc = null;
-    if ($search = LuceneSearch_Search::getInstance()) {
-
-        $doc = new Zend_Search_Lucene_Document(); 
-        
-        // adds the fields for added or modified
-        $search->addLuceneField($doc, 'Keyword', LuceneSearch_Search::FIELD_NAME_DATE_ADDED, $simplePage->inserted, true);            
-        $search->addLuceneField($doc, 'Keyword', LuceneSearch_Search::FIELD_NAME_DATE_MODIFIED, $simplePage->updated, true);
-
-        // adds the fields for public and private       
-        $search->addLuceneField($doc, 'Keyword', LuceneSearch_Search::FIELD_NAME_IS_PUBLIC, $simplePage->is_published == '1' ? LuceneSearch_Search::FIELD_VALUE_TRUE : LuceneSearch_Search::FIELD_VALUE_FALSE, true);            
-
-        // Adds fields for title and text
-        $search->addLuceneField($doc, 'UnStored', array('SimplePagesPage', 'title'), $simplePage->title);
-        $contentFieldValue .= $simplePage->title . "\n";
-        
-        $search->addLuceneField($doc, 'UnStored', array('SimplePagesPage', 'text'), $simplePage->text);
-        $contentFieldValue .= $simplePage->text . "\n";
-
-        // add the collection id of the collection that contains the item
-        if ($simplePage->modified_by_user_id) {
-            $search->addLuceneField($doc, 'Keyword', array('SimplePagesPage','modified_by_user_id'), $simplePage->modified_by_user_id, true);                        
-        }
-
-        // add the item type id for the item
-        if ($simpePage->created_by_user_id) {
-            $search->addLuceneField($doc, 'Keyword', array('SimplePagesPage','created_by_user_id'), $simplePage->created_by_user_id, true);                        
-        }
-        
-        if (trim($contentFieldValue) != '') {
-            $search->addLuceneField($doc, 'UnStored', LuceneSearch_Search::FIELD_NAME_CONTENT, $contentFieldValue);                
-        }
-    }
-
-    return $doc;
-}
-
-function simple_pages_lucene_search_add_advanced_search_query($modelName, $searchQuery, $requestParams)
-{
-    switch($modelName) {
-        case 'SimplePage':
-            simple_pages_lucene_add_advanced_search_query_for_simple_page($searchQuery, $requestParams);
-        break;
-    }
-}
-
-/**
-* Takes a set of parameters and constructs a search query for Lucene.
-*
-* @param Zend_Search_Lucene_Search_Query_Boolean $searchQuery This is the
-* query that we construct.
-* @param array $requestParams This is an associative array where the key 
-* is the name of the parameter and the value is the value of the parameter.
-* Available parameters:
-* - modified_by_user_id
-* - created_by_user_id
-* - public
-* - updated
-* - inserted
-*
-*/
-function simple_pages_lucene_add_advanced_search_query_for_simple_page($searchQuery, $requestParams) 
-{
-    if ($search = LuceneSearch_Search::getInstance()) {
-    
-        foreach($requestParams as $requestParamName => $requestParamValue) {
-            switch($requestParamName) {
-
-                case 'public':
-                    if (is_true($requestParamValue)) {
-                        $subquery = $search->getLuceneRequiredTermQueryForFieldName(LuceneSearch_Search::FIELD_NAME_IS_PUBLIC, LuceneSearch_Search::FIELD_VALUE_TRUE);
-                        $searchQuery->addSubquery($subquery, true);
-                    }
-                break;
-
-                case 'created_by_user_id':
-                //     // Must be logged in to view items specific to certain users
-                //     if (!$controller->isAllowed('browse', 'Users')) {
-                //         throw new Exception( 'May not browse by specific users.' );
-                //     }
-                    if (is_numeric($requestParamValue) && ((int)$requestParamValue > 0)) {
-                        $subquery = $search->getLuceneRequiredTermQueryForFieldName(array('SimplePagesPage', 'created_by_user_id'), $requestParamValue);
-                        $searchQuery->addSubquery($subquery, true);
-                    }
-                break;
-
-                case 'modified_by_user_id':
-                //     // Must be logged in to view items specific to certain users
-                //     if (!$controller->isAllowed('browse', 'Users')) {
-                //         throw new Exception( 'May not browse by specific users.' );
-                //     }
-                    if (is_numeric($requestParamValue) && ((int)$requestParamValue > 0)) {
-                        $subquery = $search->getLuceneRequiredTermQueryForFieldName(array('SimplePagesPage', 'modified_by_user_id'), $requestParamValue);
-                        $searchQuery->addSubquery($subquery, true);
-                    }
-                break;
-
-            }
-        }   
-    }
 }
