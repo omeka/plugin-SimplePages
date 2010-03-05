@@ -136,8 +136,24 @@ class SimplePagesPage extends Omeka_Record
         return preg_replace('/[^\w\/-]/i', '', $seed);
     }
     
+    /**
+     * Returns an array of potential parent pages.  This used in the dropdown box for selecting a new parent for a page.
+     *
+     * @return Array  The potential parent pages
+     */
     public function getPotentialParentPages() 
     {
         return $this->getTable('SimplePagesPage')->findPotentialParentPages($this->id);
+    }
+    
+    /**
+    * Returns an array of ancestor pages.  If a page has no ancestors, then it returns an empty array.
+    * The ancestors are ordered from nearest (your parent) to furthest (root ancestor)
+    *
+    * @return Array The ancestor pages 
+    */
+    public function getAncestors()
+    {
+        return $this->getTable('SimplePagesPage')->findAncestorPages($this->id);
     }
 }

@@ -329,3 +329,37 @@ function simple_pages_display_hierarchy($parentId)
     }
     return $html;
 }
+
+function simple_pages_display_breadcrumbs($pageId, $seperator=' > ', $includePage=true) 
+{
+    $html = '';
+    $page = get_db()->getTable('SimplePagesPage')->find($pageId);
+    if ($page) {
+        $ancestorPages = get_db()->getTable('SimplePagesPage')->findAncestorPages($pageId);
+        $bPages = array_merge(array($page), $ancestorPages);
+        
+        // make sure all of the ancestors and the current page are published
+        foreach($bPages as $bPage) {
+            if (!$bPage->is_published) {
+                $html = '';
+                return $html;
+            }
+        }
+        
+        // find the page links
+        $pageLinks = array();
+        foreach($bPages as $bPage) {
+            if ($bPage->id == $page->id) {
+                if ($includePage) {
+                    $pageLinks[] = html_escape($bPage->title);    
+                }
+            } else {
+                $pageLinks[] = '<a href="' . uri($bPage->slug) .  '">' . html_escape($bPage->title) . '</a>';
+            }
+        }
+        
+        // create the bread crumb
+        $html .= implode(html_escape($seperator), array_reverse($pageLinks));
+    }
+    return $html;
+}

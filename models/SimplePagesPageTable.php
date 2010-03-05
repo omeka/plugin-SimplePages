@@ -24,25 +24,24 @@ class SimplePagesPageTable extends Omeka_Db_Table
         return $this->fetchObjects($select);
     }
     
-    public function findPotentialParentPages($pageId)
-    {
-        // create a page lookup table for all of the pages
-        $idToPageLookup = $this->createIdToPageLookup();        
-                
-        // find all of the page's descendants
-        $descendantPages = $this->findChildren($pageId, true, $idToPageLookup);        
-        
-        // filter out all of the descendant pages from the lookup table
-        $allPages = array_values($idToPageLookup);
-        foreach($descendantPages as $descendantPage) {
-            unset($idToPageLookup[$descendantPage->id]);
-        }
-        
-        // filter out the page itself from the lookup table
-        unset($idToPageLookup[$pageId]);
-
-        // return the values of the filtered page lookup table
-        return array_values($idToPageLookup);        
+    public function applySearchFilters($select, $params)
+    {    
+         if (isset($params['parent_id'])) {             
+             $select->where('s.parent_id = ?', array($params['parent_id']));
+         }
+         
+         if (isset($params['sort'])) {
+             switch($params['sort']) {
+                 case 'alpha':
+                    $select->order('s.title ASC');
+                    $select->order('s.order ASC');
+                    break;
+                 case 'order':
+                    $select->order('s.order ASC');
+                    $select->order('s.title ASC');
+                    break;
+             }
+         }         
     }
     
     /**
@@ -66,12 +65,12 @@ class SimplePagesPageTable extends Omeka_Db_Table
     	if ($includeAllDescendants) {
             // create the id to page lookup if required
             if (!$idToPageLookup) {
-                $idToPageLookup = $this->createIdToPageLookup();
+                $idToPageLookup = $this->_createIdToPageLookup();
             }            
             
             // create the parent to children lookup if required
         	if (!$parentToChildrenLookup) {
-                $parentToChildrenLookup = $this->createParentToChildrenLookup($idToPageLookup);
+                $parentToChildrenLookup = $this->_createParentToChildrenLookup($idToPageLookup);
             }                        
 
             // get all of the descendant pages of the parent page
@@ -90,7 +89,7 @@ class SimplePagesPageTable extends Omeka_Db_Table
         return $descendantPages;
     }
     
-    public function createIdToPageLookup() 
+    protected function _createIdToPageLookup() 
     {
         // get all of the pages
         // this should eventually be just the id/parent_id pairs for all pages
@@ -105,7 +104,7 @@ class SimplePagesPageTable extends Omeka_Db_Table
         return $idToPageLookup;
     }
     
-    public function createParentToChildrenLookup($idToPageLookup)
+    protected function _createParentToChildrenLookup($idToPageLookup)
     {    
         // create an associative array that maps parent ids to an array of any children's ids
         $parentToChildrenLookup = array();
@@ -124,23 +123,45 @@ class SimplePagesPageTable extends Omeka_Db_Table
         return $parentToChildrenLookup;
     }
     
-    public function applySearchFilters($select, $params)
-    {    
-         if (isset($params['parent_id'])) {             
-             $select->where('s.parent_id = ?', array($params['parent_id']));
-         }
-         
-         if (isset($params['sort'])) {
-             switch($params['sort']) {
-                 case 'alpha':
-                    $select->order('s.title ASC');
-                    $select->order('s.order ASC');
-                    break;
-                 case 'order':
-                    $select->order('s.order ASC');
-                    $select->order('s.title ASC');
-                    break;
-             }
-         }         
+    /**
+     *  Returns an array of pages that could be a parent for the current page.  
+     *  This is used to populate a dropdown for selecting a new parent for the current page.
+     *  In particluar, a page cannot be a parent of itself, and a page cannot have one of its descendents as a parent.
+     */
+    public function findPotentialParentPages($pageId)
+    {
+        // create a page lookup table for all of the pages
+        $idToPageLookup = $this->_createIdToPageLookup();        
+                
+        // find all of the page's descendants
+        $descendantPages = $this->findChildren($pageId, true, $idToPageLookup);        
+        
+        // filter out all of the descendant pages from the lookup table
+        $allPages = array_values($idToPageLookup);
+        foreach($descendantPages as $descendantPage) {
+            unset($idToPageLookup[$descendantPage->id]);
+        }
+        
+        // filter out the page itself from the lookup table
+        unset($idToPageLookup[$pageId]);
+
+        // return the values of the filtered page lookup table
+        return array_values($idToPageLookup);        
+    }
+    
+    public function findAncestorPages($pageId) 
+    {
+        // set the default ancestor pages to an empty array
+        $ancestorPages = array();
+        
+        // create a page lookup table for all of the pages
+        $page = $this->find($pageId);
+        while($page && $page->parent_id) {
+            if ($page = $this->find($page->parent_id)) {
+                $ancestorPages[] = $page;
+            }
+        }
+        
+        return $ancestorPages;
     }
 }
