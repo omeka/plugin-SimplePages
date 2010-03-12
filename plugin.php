@@ -155,6 +155,21 @@ function simple_pages_define_routes($router)
                 )
             )
         );
+        
+        if (simple_pages_is_home_page($page) && !is_admin_theme()) {
+            $router->addRoute(
+                'simple_pages_show_home_page_' . $page->id, 
+                new Zend_Controller_Router_Route(
+                    '/', 
+                    array(
+                        'module'       => 'simple-pages', 
+                        'controller'   => 'page', 
+                        'action'       => 'show', 
+                        'id'           => $page->id
+                    )
+                )
+            );
+        } 
     }
 }
 
@@ -362,4 +377,9 @@ function simple_pages_display_breadcrumbs($pageId, $seperator=' > ', $includePag
         $html .= implode(html_escape($seperator), array_reverse($pageLinks));
     }
     return $html;
+}
+
+function simple_pages_is_home_page($page) 
+{
+    return (((string)$page->id) == get_option('simple_pages_home_page_id'));
 }

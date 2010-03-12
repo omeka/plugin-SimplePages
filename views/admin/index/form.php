@@ -66,6 +66,16 @@
 </div>
 
 <div class="field">
+    <?php echo $this->formLabel('is_home_page', 'Make this page the home page?'); ?>
+    <div class="inputs">
+        <?php echo $this->formCheckbox('is_home_page', 
+                                       (int) simple_pages_is_home_page($page), 
+                                       array('id' => 'simple-pages-is-home-page'), 
+                                       array(1, 0)); ?>
+    </div>
+</div>
+
+<div class="field">
     <?php echo $this->formLabel('is_published', 'Publish this page?'); ?>
     <div class="inputs">
         <?php echo $this->formCheckbox('is_published', 
@@ -74,3 +84,4 @@
                                        array(1, 0)); ?>
     </div>
 </div>
+

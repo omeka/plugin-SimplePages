@@ -63,6 +63,18 @@ class SimplePages_IndexController extends Omeka_Controller_Action
         // is successfully saved, set the flash message, unset the POST, 
         // and redirect to the browse action.
         try {
+            
+            // set the simple_pages_home_page_id option, and unset the corresponding post variable
+            if (isset($_POST['is_home_page'])) {
+                $isHomePage = $_POST['is_home_page'];
+                unset($_POST['is_home_page']);
+                if ($isHomePage == '1') {                    
+                    set_option('simple_pages_home_page_id', $page->id);
+                } else if (get_option('simple_pages_home_page_id') == $page->id) {
+                    set_option('simple_pages_home_page_id', '');
+                }
+            }
+
             if ($page->saveForm($_POST)) {
                 if ('add' == $action) {
                     $this->flashSuccess("The page \"$page->title\" has been added.");
