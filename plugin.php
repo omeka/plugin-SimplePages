@@ -351,6 +351,9 @@ function simple_pages_display_breadcrumbs($pageId, $seperator=' > ', $includePag
 
 function simple_pages_is_home_page($page) 
 {
+    if ($page === null || $page->id === null) {
+        return false;
+    }
     return (((string)$page->id) == get_option('simple_pages_home_page_id'));
 }
 

@@ -64,15 +64,10 @@ class SimplePages_IndexController extends Omeka_Controller_Action
         // and redirect to the browse action.
         try {
             
-            // set the simple_pages_home_page_id option, and unset the corresponding post variable
+            // store and unset the is_home_page post variable
             if (isset($_POST['is_home_page'])) {
                 $isHomePage = $_POST['is_home_page'];
                 unset($_POST['is_home_page']);
-                if ($isHomePage == '1') {                    
-                    set_option('simple_pages_home_page_id', $page->id);
-                } else if (get_option('simple_pages_home_page_id') == $page->id) {
-                    set_option('simple_pages_home_page_id', '');
-                }
             }
 
             if ($page->saveForm($_POST)) {
@@ -80,6 +75,13 @@ class SimplePages_IndexController extends Omeka_Controller_Action
                     $this->flashSuccess("The page \"$page->title\" has been added.");
                 } else if ('edit' == $action) {
                     $this->flashSuccess("The page \"$page->title\" has been edited.");
+                }
+                
+                // store the simple_pages_home_page_id option
+                if ($isHomePage == '1') {                    
+                    set_option('simple_pages_home_page_id', $page->id);
+                } else if (get_option('simple_pages_home_page_id') == $page->id) {
+                    set_option('simple_pages_home_page_id', '');
                 }
                 unset($_POST);
                 $this->redirect->goto('browse');
