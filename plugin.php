@@ -13,7 +13,6 @@ require_once 'SimplePagesPage.php';
 add_plugin_hook('install', 'simple_pages_install');
 add_plugin_hook('uninstall', 'simple_pages_uninstall');
 add_plugin_hook('upgrade', 'simple_pages_upgrade');
-add_plugin_hook('define_routes', 'simple_pages_define_routes');
 add_plugin_hook('define_acl', 'simple_pages_define_acl');
 add_plugin_hook('config_form', 'simple_pages_config_form');
 add_plugin_hook('config', 'simple_pages_config');
@@ -136,48 +135,6 @@ function simple_pages_upgrade($oldVersion, $newVersion)
 function simple_pages_initialize()
 {
     Zend_Controller_Front::getInstance()->registerPlugin(new SimplePagesControllerPlugin);
-}
-
-
-/**
- * Define the routes.
- * 
- * @param Zend_Controller_Router_Rewrite
- */
-function simple_pages_define_routes($router)
-{
-    
-    // // Add custom routes based on the page slug.
-    // $pages = get_db()->getTable('SimplePagesPage')->findAll();
-    // foreach($pages as $page) {
-    //     $router->addRoute(
-    //         'simple_pages_show_page_' . $page->id, 
-    //         new Zend_Controller_Router_Route(
-    //             $page->slug, 
-    //             array(
-    //                 'module'       => 'simple-pages', 
-    //                 'controller'   => 'page', 
-    //                 'action'       => 'show', 
-    //                 'id'           => $page->id
-    //             )
-    //         )
-    //     );
-    //     
-    //     if (simple_pages_is_home_page($page) && !is_admin_theme()) {
-    //         $router->addRoute(
-    //             'simple_pages_show_home_page_' . $page->id, 
-    //             new Zend_Controller_Router_Route(
-    //                 '/', 
-    //                 array(
-    //                     'module'       => 'simple-pages', 
-    //                     'controller'   => 'page', 
-    //                     'action'       => 'show', 
-    //                     'id'           => $page->id
-    //                 )
-    //             )
-    //         );
-    //     } 
-    // }
 }
 
 /**
