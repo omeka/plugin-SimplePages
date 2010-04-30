@@ -17,6 +17,7 @@ add_plugin_hook('define_routes', 'simple_pages_define_routes');
 add_plugin_hook('define_acl', 'simple_pages_define_acl');
 add_plugin_hook('config_form', 'simple_pages_config_form');
 add_plugin_hook('config', 'simple_pages_config');
+add_plugin_hook('initialize', 'simple_pages_initialize');
 
 // Custom plugin hooks from other plugins.
 add_plugin_hook('html_purifier_form_submission', 'simple_pages_filter_html');
@@ -132,6 +133,11 @@ function simple_pages_upgrade($oldVersion, $newVersion)
     }
 }
 
+function simple_pages_initialize()
+{
+    Zend_Controller_Front::getInstance()->registerPlugin(new SimplePagesControllerPlugin);
+}
+
 
 /**
  * Define the routes.
@@ -140,37 +146,38 @@ function simple_pages_upgrade($oldVersion, $newVersion)
  */
 function simple_pages_define_routes($router)
 {
-    // Add custom routes based on the page slug.
-    $pages = get_db()->getTable('SimplePagesPage')->findAll();
-    foreach($pages as $page) {
-        $router->addRoute(
-            'simple_pages_show_page_' . $page->id, 
-            new Zend_Controller_Router_Route(
-                $page->slug, 
-                array(
-                    'module'       => 'simple-pages', 
-                    'controller'   => 'page', 
-                    'action'       => 'show', 
-                    'id'           => $page->id
-                )
-            )
-        );
-        
-        if (simple_pages_is_home_page($page) && !is_admin_theme()) {
-            $router->addRoute(
-                'simple_pages_show_home_page_' . $page->id, 
-                new Zend_Controller_Router_Route(
-                    '/', 
-                    array(
-                        'module'       => 'simple-pages', 
-                        'controller'   => 'page', 
-                        'action'       => 'show', 
-                        'id'           => $page->id
-                    )
-                )
-            );
-        } 
-    }
+    
+    // // Add custom routes based on the page slug.
+    // $pages = get_db()->getTable('SimplePagesPage')->findAll();
+    // foreach($pages as $page) {
+    //     $router->addRoute(
+    //         'simple_pages_show_page_' . $page->id, 
+    //         new Zend_Controller_Router_Route(
+    //             $page->slug, 
+    //             array(
+    //                 'module'       => 'simple-pages', 
+    //                 'controller'   => 'page', 
+    //                 'action'       => 'show', 
+    //                 'id'           => $page->id
+    //             )
+    //         )
+    //     );
+    //     
+    //     if (simple_pages_is_home_page($page) && !is_admin_theme()) {
+    //         $router->addRoute(
+    //             'simple_pages_show_home_page_' . $page->id, 
+    //             new Zend_Controller_Router_Route(
+    //                 '/', 
+    //                 array(
+    //                     'module'       => 'simple-pages', 
+    //                     'controller'   => 'page', 
+    //                     'action'       => 'show', 
+    //                     'id'           => $page->id
+    //                 )
+    //             )
+    //         );
+    //     } 
+    // }
 }
 
 /**
@@ -304,7 +311,13 @@ function simple_pages_public_navigation_main($nav)
     foreach ($pages as $page) {
         // Only add the link to the public navigation if the page is published.
         if ($page->is_published && $page->add_to_public_nav) {
-            $nav[$page->title] = uri($page->slug);
+            
+            // If the simple page is set to be the home page, use the home page url instead of the slug
+            if (simple_pages_is_home_page($page)) {
+                $nav[$page->title] = abs_uri('');
+            } else {
+                $nav[$page->title] = uri($page->slug);
+            }
         }
     }
     return $nav;
@@ -382,4 +395,49 @@ function simple_pages_display_breadcrumbs($pageId, $seperator=' > ', $includePag
 function simple_pages_is_home_page($page) 
 {
     return (((string)$page->id) == get_option('simple_pages_home_page_id'));
+}
+
+class SimplePagesControllerPlugin extends Zend_Controller_Plugin_Abstract
+{
+    /**
+    *
+    * @param Zend_Controller_Request_Abstract $request
+    * @return void
+    */
+    public function routeStartup(Zend_Controller_Request_Abstract $request)
+    {
+        $router = Omeka_Context::getInstance()->getFrontController()->getRouter();
+        
+        // Add custom routes based on the page slug.
+        $pages = get_db()->getTable('SimplePagesPage')->findAll();
+        foreach($pages as $page) {
+            $router->addRoute(
+                'simple_pages_show_page_' . $page->id, 
+                new Zend_Controller_Router_Route(
+                    $page->slug, 
+                    array(
+                        'module'       => 'simple-pages', 
+                        'controller'   => 'page', 
+                        'action'       => 'show', 
+                        'id'           => $page->id
+                    )
+                )
+            );
+
+            if (simple_pages_is_home_page($page) && !is_admin_theme()) {
+                $router->addRoute(
+                    'simple_pages_show_home_page_' . $page->id, 
+                    new Zend_Controller_Router_Route(
+                        '/', 
+                        array(
+                            'module'       => 'simple-pages', 
+                            'controller'   => 'page', 
+                            'action'       => 'show', 
+                            'id'           => $page->id
+                        )
+                    )
+                );
+            } 
+        }
+    }
 }
