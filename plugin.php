@@ -32,7 +32,7 @@ add_filter('page_caching_blacklist_for_record', 'simple_pages_page_caching_black
  * Install the plugin.
  */
 function simple_pages_install()
-{    
+{
     // Create the table.
     $db = get_db();
     $sql = "
@@ -264,26 +264,49 @@ function simple_pages_admin_navigation_main($nav)
  */
 function simple_pages_public_navigation_main($nav)
 {
-    $pages = get_db()->getTable('SimplePagesPage')->findBy(array('parent_id' => 0, 'sort' => 'order'));
+    $navLinks = simple_pages_get_public_navigation_links();
+    foreach($navLinks as $text => $uri) {
+        $nav[$text] = $uri;
+    }
+    return $nav;
+}
+
+/**
+ * Get the public navigation links underneath a parent page.
+ * 
+ * @param integer The id of the parent page
+ * @param $currentDepth The number of levels down the subnavigation is.
+ * @return array The navigation links.
+ */
+function simple_pages_get_public_navigation_links($parentId = 0, $currentDepth = 0)
+{
+    $pages = get_db()->getTable('SimplePagesPage')->findBy(array('parent_id' => $parentId, 'sort' => 'order'));    
+    $navLinks = array();
     foreach ($pages as $page) {
         // Only add the link to the public navigation if the page is published.
         if ($page->is_published && $page->add_to_public_nav) {
             
             // If the simple page is set to be the home page, use the home page url instead of the slug
             if (simple_pages_is_home_page($page)) {
-                $nav[$page->title] = abs_uri('');
+               $uri = abs_uri('');
             } else {
-                $nav[$page->title] = uri($page->slug);
+                $uri = uri($page->slug);
+            }
+            
+            $subNavLinks = simple_pages_get_public_navigation_links($page->id, $currentDepth + 1);
+            if (count($subNavLinks) > 0) {
+                $subNavClass = 'subnav-' . ($currentDepth + 1);
+                $navLinks[$page->title] = array('uri' => $uri, 'subnav_attributes' => array('class' => $subNavClass), 'subnav_links' => $subNavLinks);
+            } else {
+                $navLinks[$page->title] = $uri;
             }
         }
-    }
-    return $nav;
+    }    
+    return $navLinks;
 }
-
 
 function simple_pages_select_parent_page($page)
 {   
-     
     $valuePairs = array('0'=>'Main Page (No Parent)');
     $potentialParentPages = get_db()->getTable('SimplePagesPage')->findPotentialParentPages($page->id);    
     foreach($potentialParentPages as $potentialParentPage) {
@@ -298,7 +321,7 @@ function simple_pages_select_parent_page($page)
                        $valuePairs);
 }
 
-function simple_pages_display_hierarchy($parentId)
+function simple_pages_display_hierarchy($parentId, $partialFilePath='index/browse-hierarchy-page.php')
 {
     $html = '';
     $childrenPages = get_db()->getTable('SimplePagesPage')->findChildren($parentId);
@@ -306,8 +329,8 @@ function simple_pages_display_hierarchy($parentId)
         $html .= '<ul>';
         foreach($childrenPages as $childPage) {
             $html .= '<li>';
-            $html .= __v()->partial('index/browse-hierarchy-page.php', array('page'=>$childPage));
-            $html .= simple_pages_display_hierarchy($childPage->id);
+            $html .= __v()->partial($partialFilePath, array('page'=>$childPage));
+            $html .= simple_pages_display_hierarchy($childPage->id, $partialFilePath);
             $html .= '</li>';
         }
         $html .= '</ul>';
@@ -349,6 +372,12 @@ function simple_pages_display_breadcrumbs($pageId, $seperator=' > ', $includePag
     return $html;
 }
 
+/**
+ * Returns whether a page is the home page.
+ * 
+ * @param SimplePagesPage The page
+ * @return boolean
+ */
 function simple_pages_is_home_page($page) 
 {
     if ($page === null || $page->id === null) {

@@ -150,10 +150,21 @@ class SimplePagesPage extends Omeka_Record
     * Returns an array of ancestor pages.  If a page has no ancestors, then it returns an empty array.
     * The ancestors are ordered from nearest (your parent) to furthest (root ancestor)
     *
-    * @return Array The ancestor pages 
+    * @return array The ancestor pages 
     */
     public function getAncestors()
     {
         return $this->getTable('SimplePagesPage')->findAncestorPages($this->id);
+    }
+    
+    
+    /**
+    * Returns an array of children pages.  If a page has no children, then it returns an empty array.
+    * Note: this does not return all the descendant page; it just returns the children pages.
+    * @return array The child pages 
+    */
+    public function getChildren()
+    {
+        return $this->getTable('SimplePagesPage')->findChildrenPages($this->id);
     }
 }
