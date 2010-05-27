@@ -264,7 +264,7 @@ function simple_pages_admin_navigation_main($nav)
  */
 function simple_pages_public_navigation_main($nav)
 {
-    $navLinks = simple_pages_get_public_navigation_links();
+    $navLinks = simple_pages_get_page_links( 0, 0, 'order', true, true);
     foreach($navLinks as $text => $uri) {
         $nav[$text] = $uri;
     }
@@ -278,28 +278,33 @@ function simple_pages_public_navigation_main($nav)
  * @param $currentDepth The number of levels down the subnavigation is.
  * @return array The navigation links.
  */
-function simple_pages_get_public_navigation_links($parentId = 0, $currentDepth = 0)
+function simple_pages_get_page_links($parentId = 0, $currentDepth = 0, $sort = 'order', $requiresIsPublished = false, $requiresIsAddToPublicNav = false)
 {
-    $pages = get_db()->getTable('SimplePagesPage')->findBy(array('parent_id' => $parentId, 'sort' => 'order'));    
+    $findBy = array('parent_id' => $parentId, 'sort' => $sort);
+    if ($requiresIsPublished) {
+        $findBy['published'] == $requiresIsPublished;
+    }
+    if ($requiresIsAddToPublicNav) {
+        $findBy['add_to_public_nav'] == $requiresIsAddToPublicNav;
+    }
+    $pages = get_db()->getTable('SimplePagesPage')->findBy($findBy); 
+
     $navLinks = array();
-    foreach ($pages as $page) {
-        // Only add the link to the public navigation if the page is published.
-        if ($page->is_published && $page->add_to_public_nav) {
-            
-            // If the simple page is set to be the home page, use the home page url instead of the slug
-            if (simple_pages_is_home_page($page)) {
-               $uri = abs_uri('');
-            } else {
-                $uri = uri($page->slug);
-            }
-            
-            $subNavLinks = simple_pages_get_public_navigation_links($page->id, $currentDepth + 1);
-            if (count($subNavLinks) > 0) {
-                $subNavClass = 'subnav-' . ($currentDepth + 1);
-                $navLinks[$page->title] = array('uri' => $uri, 'subnav_attributes' => array('class' => $subNavClass), 'subnav_links' => $subNavLinks);
-            } else {
-                $navLinks[$page->title] = $uri;
-            }
+    
+    foreach ($pages as $page) {   
+        // If the simple page is set to be the home page, use the home page url instead of the slug
+        if (simple_pages_is_home_page($page)) {
+           $uri = abs_uri('');
+        } else {
+            $uri = uri($page->slug);
+        }
+        
+        $subNavLinks = simple_pages_get_page_links($page->id, $currentDepth + 1, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);
+        if (count($subNavLinks) > 0) {
+            $subNavClass = 'subnav-' . ($currentDepth + 1);
+            $navLinks[$page->title] = array('uri' => $uri, 'subnav_attributes' => array('class' => $subNavClass), 'subnav_links' => $subNavLinks);
+        } else {
+            $navLinks[$page->title] = $uri;
         }
     }    
     return $navLinks;
