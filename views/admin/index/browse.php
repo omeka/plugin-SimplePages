@@ -16,13 +16,13 @@ head($head);
 <p id="add-page" class="add-button"><a class="add" href="<?php echo html_escape(uri('simple-pages/index/add')); ?>">Add a Page</a></p>
 <div id="primary">
 <?php echo flash(); ?>
-<?php if (empty($pages)): ?>
+<?php if (!has_simple_pages_for_loop()): ?>
     <p>There are no pages. Why not <a href="<?php echo html_escape(uri('simple-pages/index/add')); ?>">add one</a>?</p>
 <?php else: ?>
     <?php if ($_GET['view'] == 'hierarchy'): ?>
-        <?php echo $this->partial('index/browse-hierarchy.php', array('pages' => $pages)); ?>
+        <?php echo $this->partial('index/browse-hierarchy.php', array('simplePages' => get_simple_pages_for_loop())); ?>
     <?php else: ?>
-        <?php echo $this->partial('index/browse-list.php', array('pages' => $pages)); ?>
+        <?php echo $this->partial('index/browse-list.php', array('simplePages' => get_simple_pages_for_loop())); ?>
     <?php endif; ?>    
 <?php endif; ?>
 </div>

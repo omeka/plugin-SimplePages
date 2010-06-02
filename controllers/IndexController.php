@@ -33,7 +33,7 @@ class SimplePages_IndexController extends Omeka_Controller_Action
     {
         // Get all the pages in the database, ordered by slug.
         $pages = $this->getTable('SimplePagesPage')->findAllPagesOrderBySlug();
-        $this->view->pages = $pages;
+        $this->view->simplePages = $pages;
     }
     
     public function addAction()
@@ -95,7 +95,7 @@ class SimplePages_IndexController extends Omeka_Controller_Action
             $this->flashError($e->getMessage());
         }
         // Set the page object to the view.
-        $this->view->page = $page;
+        $this->view->simplePage = $page;
     }
     
     public function deleteAction()

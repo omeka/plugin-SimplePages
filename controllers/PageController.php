@@ -29,6 +29,6 @@ class SimplePages_PageController extends Omeka_Controller_Action
         }
         
         // Set the page object to the view.
-        $this->view->page = $page;
+        $this->view->simplePage = $page;
     }
 }
