@@ -24,8 +24,16 @@ function simple_pages_set_current_page($simplePage=null)
 /**
  * Get the public navigation links for children pages of a parent page.
  * 
+ * @uses simple_pages_get_current_page()
+ * @uses simple_pages_is_home_page()
+ * @uses abs_uri()
+ * @uses uri()
+ * @uses simple_pages_get_links_for_children_pages()
  * @param integer|null The id of the parent page.  If null, it uses the current simple page
  * @param $currentDepth The number of levels down the subnavigation is.
+ * @param string The method by which you sort pages. Options are 'order' (default) and 'alpha'.
+ * @param boolean Whether to return only published pages.
+ * @param boolean Whether to return pages explicitly added to the public navigation.
  * @return array The navigation links.
  */
 function simple_pages_get_links_for_children_pages($parentId = null, $currentDepth = 0, $sort = 'order', $requiresIsPublished = false, $requiresIsAddToPublicNav = false)
@@ -166,19 +174,6 @@ function has_simple_pages_for_loop()
  	return get_db()->getTable('SimplePagesPage')->count();
  }
 
-
- /**
-  * Get the public navigation links for children pages of a parent page.
-  * 
-  * @param integer|null The id of the parent page.  If null, it uses the current simple page
-  * @param $currentDepth The number of levels down the subnavigation is.
-  * @return array The navigation links.
-  */
- function get_links_for_children_simple_pages($parentId = null, $currentDepth = 0, $sort = 'order', $requiresIsPublished = false, $requiresIsAddToPublicNav = false)
- {
-     return simple_pages_get_links_for_children_pages($parentId, $currentDepth, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);
- }
-
 /**
 * Gets a property from an simple page
 *
@@ -198,4 +193,29 @@ function simple_page($propertyName, $options=array(), $simplePage=null)
 	} else {
 	    return null;
 	}
+}
+
+/**
+* Returns a nested unordered list of SimplePage links
+*
+* @uses simple_pages_get_links_for_children_pages()
+* @uses nav()
+* @param integer|null The id of the parent page.  If null, it uses the current simple page
+* @param $currentDepth The number of levels down the subnavigation is.
+* @param string The method by which you sort pages. Options are 'order' (default) and 'alpha'.
+* @param boolean Whether to return only published pages.
+* @param boolean Whether to return pages explicitly added to the public navigation.
+* @return string
+**/
+function simple_pages_navigation($parentId = null, $currentDepth = 0, $sort = 'order', $requiresIsPublished = false, $requiresIsAddToPublicNav = false) 
+{
+    $html = '';
+    $childPageLinks = simple_pages_get_links_for_children_pages($parentId, $currentDepth, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);    
+    if ($childPageLinks) {
+        $html .= '<ul id="simple-pages-page-children-nav">';
+        $html .= nav($childPageLinks); 
+        $html .= '</ul>';
+        
+    }
+    return $html;
 }
