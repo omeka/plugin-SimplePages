@@ -207,13 +207,13 @@ function simple_page($propertyName, $options=array(), $simplePage=null)
 * @param boolean Whether to return pages explicitly added to the public navigation.
 * @return string
 **/
-function simple_pages_navigation($parentId = null, $currentDepth = 0, $sort = 'order', $requiresIsPublished = false, $requiresIsAddToPublicNav = false) 
+function simple_pages_navigation($parentId = null, $currentDepth = null, $sort = 'order', $requiresIsPublished = false, $requiresIsAddToPublicNav = false) 
 {
     $html = '';
     $childPageLinks = simple_pages_get_links_for_children_pages($parentId, $currentDepth, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);    
     if ($childPageLinks) {
         $html .= '<ul id="simple-pages-page-children-nav">';
-        $html .= nav($childPageLinks); 
+        $html .= nav($childPageLinks, $currentDepth); 
         $html .= '</ul>';
         
     }
