@@ -294,7 +294,7 @@ function simple_pages_select_parent_page($page)
 function simple_pages_display_hierarchy($parentPageId = 0, $partialFilePath='index/browse-hierarchy-page.php')
 {
     $html = '';
-    $childrenPages = get_db()->getTable('SimplePagesPage')->findChildren($parentPageId);
+    $childrenPages = get_db()->getTable('SimplePagesPage')->findChildrenPages($parentPageId);
     if (count($childrenPages)) {        
         $html .= '<ul>';
         foreach($childrenPages as $childPage) {

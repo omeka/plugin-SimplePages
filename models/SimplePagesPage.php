@@ -153,7 +153,7 @@ class SimplePagesPage extends Omeka_Record
     * @return array The ancestor pages 
     */
     public function getAncestors()
-    {
+    {        
         return $this->getTable('SimplePagesPage')->findAncestorPages($this->id);
     }
     

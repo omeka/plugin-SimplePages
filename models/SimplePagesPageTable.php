@@ -17,7 +17,9 @@ class SimplePagesPageTable extends Omeka_Db_Table
 {
     /**
      * Find all pages, ordered by slug name.
-     */
+     *
+     * @return array The pages ordered alphabetically by their slugs
+     **/
     public function findAllPagesOrderBySlug()
     {
         $select = $this->getSelect()->order('slug');
@@ -65,7 +67,7 @@ class SimplePagesPageTable extends Omeka_Db_Table
      * @param array $pages The array of all pages
      * @return array
      */
-    public function findChildren($parentId, $includeAllDescendants=false, $idToPageLookup = null, $parentToChildrenLookup = null)
+    public function findChildrenPages($parentId, $includeAllDescendants=false, $idToPageLookup = null, $parentToChildrenLookup = null)
     {
         if ((string)$parentId == '') {
             return array();
@@ -88,7 +90,7 @@ class SimplePagesPageTable extends Omeka_Db_Table
         	$childrenPages = $parentToChildrenLookup[$parentId];
         	$descendantPages = array_merge($descendantPages, $childrenPages);        	
     	    foreach ( $childrenPages as $childPage ) {
-    			if ( $allGrandChildren = $this->findChildren($childPage->id, true, $idToPageLookup, $parentToChildrenLookup) ) {
+    			if ( $allGrandChildren = $this->findChildrenPages($childPage->id, true, $idToPageLookup, $parentToChildrenLookup) ) {
     			    $descendantPages = array_merge($descendantPages, $allGrandChildren);
     			}
         	}
@@ -138,14 +140,17 @@ class SimplePagesPageTable extends Omeka_Db_Table
      *  Returns an array of pages that could be a parent for the current page.  
      *  This is used to populate a dropdown for selecting a new parent for the current page.
      *  In particluar, a page cannot be a parent of itself, and a page cannot have one of its descendents as a parent.
-     */
+     *
+     * @param integer $pageId The id of the page whose potential parent pages are returned.
+     * @return array The potential parent pages.
+     **/
     public function findPotentialParentPages($pageId)
     {
         // create a page lookup table for all of the pages
         $idToPageLookup = $this->_createIdToPageLookup();        
                 
         // find all of the page's descendants
-        $descendantPages = $this->findChildren($pageId, true, $idToPageLookup);        
+        $descendantPages = $this->findChildrenPages($pageId, true, $idToPageLookup);        
         
         // filter out all of the descendant pages from the lookup table
         $allPages = array_values($idToPageLookup);
@@ -160,8 +165,14 @@ class SimplePagesPageTable extends Omeka_Db_Table
         return array_values($idToPageLookup);        
     }
     
+    /** 
+    * Returns an array of all the ancestor pages of a page. 
+    *
+    * @param integer $pageId The id of the page whose ancestors are returned.
+    * @return array The array of ancestor pages.
+    **/
     public function findAncestorPages($pageId) 
-    {
+    {        
         // set the default ancestor pages to an empty array
         $ancestorPages = array();
         
