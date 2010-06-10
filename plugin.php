@@ -242,7 +242,7 @@ function simple_pages_filter_html($request, $purifier)
     }
     
     $post = $request->getPost();
-    $post['text'] = $purifier->purify($post['text']);    
+    $post['text'] = $purifier->purify($post['text']); 
     $request->setPost($post);
 }
 
@@ -288,7 +288,7 @@ function simple_pages_select_parent_page($page)
     return __v()->formSelect('parent_id', 
                        $page->parent_id,
                        array('id'=>'simple-pages-parent-id'),
-                       $valuePairs);
+                       $valuePairs) . "\n";
 }
 
 function simple_pages_display_hierarchy($parentPageId = 0, $partialFilePath='index/browse-hierarchy-page.php')
