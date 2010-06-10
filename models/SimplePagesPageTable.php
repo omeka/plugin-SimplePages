@@ -25,23 +25,34 @@ class SimplePagesPageTable extends Omeka_Db_Table
     }
     
     public function applySearchFilters($select, $params)
-    {    
-         if (isset($params['parent_id'])) {             
-             $select->where('s.parent_id = ?', array($params['parent_id']));
-         }
-         
-         if (isset($params['sort'])) {
-             switch($params['sort']) {
-                 case 'alpha':
+    {        
+        $paramNames = array('parent_id', 
+                            'is_published', 
+                            'add_to_public_nav', 
+                            'title', 
+                            'slug',
+                            'created_by_user_id',
+                            'modified_by_user_id',
+                            'template');
+                            
+        foreach($paramNames as $paramName) {
+            if (isset($params[$paramName])) {             
+                $select->where('s.' . $paramName . ' = ?', array($params[$paramName]));
+            }            
+        }
+
+        if (isset($params['sort'])) {
+            switch($params['sort']) {
+                case 'alpha':
                     $select->order('s.title ASC');
                     $select->order('s.order ASC');
                     break;
-                 case 'order':
+                case 'order':
                     $select->order('s.order ASC');
                     $select->order('s.title ASC');
                     break;
-             }
-         }         
+            }
+        }         
     }
     
     /**

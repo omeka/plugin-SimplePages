@@ -49,11 +49,12 @@ function simple_pages_get_links_for_children_pages($parentId = null, $currentDep
     
     $findBy = array('parent_id' => $parentId, 'sort' => $sort);
     if ($requiresIsPublished) {
-        $findBy['published'] == $requiresIsPublished;
+        $findBy['is_published'] = $requiresIsPublished ? 1 : 0;        
     }
     if ($requiresIsAddToPublicNav) {
-        $findBy['add_to_public_nav'] == $requiresIsAddToPublicNav;
+        $findBy['add_to_public_nav'] = $requiresIsAddToPublicNav ? 1 : 0;
     }
+    
     $pages = get_db()->getTable('SimplePagesPage')->findBy($findBy); 
 
     $navLinks = array();
@@ -212,10 +213,9 @@ function simple_pages_navigation($parentId = null, $currentDepth = null, $sort =
     $html = '';
     $childPageLinks = simple_pages_get_links_for_children_pages($parentId, $currentDepth, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);    
     if ($childPageLinks) {
-        $html .= '<ul id="simple-pages-page-children-nav">';
+        $html .= '<ul class="simple-pages-navigation">' . "\n";
         $html .= nav($childPageLinks, $currentDepth); 
-        $html .= '</ul>';
-        
+        $html .= '</ul>' . "\n";
     }
     return $html;
 }
