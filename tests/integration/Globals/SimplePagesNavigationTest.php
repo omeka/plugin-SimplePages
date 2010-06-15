@@ -10,7 +10,7 @@ class Globals_SimplePagesNavigationTest extends SimplePages_Test_AppTestCase
     public function testSimplePagesNavigationForNoChildrenPages()
     {
         $this->dispatch('about');
-        $this->assertEquals('', simple_pages_navigation());
+        $this->assertEquals('', simple_pages_navigation(null));
     }
     
     public function testSimplePagesNavigationForSomeChildrenPages()
@@ -43,7 +43,7 @@ class Globals_SimplePagesNavigationTest extends SimplePages_Test_AppTestCase
         $expectedNav .= '<li class="nav-test-title-2"><a href="/testslug2">Test Title 2</a></li>' . "\n";
         $expectedNav .= '</ul>' . "\n";
         
-        $this->assertEquals($expectedNav, simple_pages_navigation());
+        $this->assertEquals($expectedNav, simple_pages_navigation(null));
     }
     
     public function testSimplePagesNavigationForSomeGrandChildrenPages()
@@ -115,7 +115,7 @@ class Globals_SimplePagesNavigationTest extends SimplePages_Test_AppTestCase
         $expectedNav .= '</li>' . "\n";
         $expectedNav .= '</ul>' . "\n";
         
-        $this->assertEquals($expectedNav, simple_pages_navigation());
+        $this->assertEquals($expectedNav, simple_pages_navigation(null));
     }
     
     public function testSimplePagesNavigationForOnlyPublishedChildrenPages()
