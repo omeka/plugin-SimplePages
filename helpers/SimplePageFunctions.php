@@ -219,3 +219,52 @@ function simple_pages_navigation($parentId = 0, $currentDepth = null, $sort = 'o
     }
     return $html;
 }
+
+/**
+ * Returns a breadcrumb for a given page.
+ *
+ * @uses uri(), html_escape()
+ * @param integer|null The id of the page.  If null, it uses the current simple page.
+ * @param string $separator The string used to separate each section of the breadcrumb.
+ * @param boolean $includePage Whether to include the title of the current page.
+ **/
+function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $includePage=true) 
+{
+    $html = '';
+    
+    if ($pageId == null) {
+        $page = get_current_simple_page();
+    } else {
+        $page = get_db()->getTable('SimplePagesPage')->find($pageId);
+    }
+    
+    if ($page) {
+        $ancestorPages = get_db()->getTable('SimplePagesPage')->findAncestorPages($page->id);
+        $bPages = array_merge(array($page), $ancestorPages);
+        
+        // make sure all of the ancestors and the current page are published
+        foreach($bPages as $bPage) {
+            if (!$bPage->is_published) {
+                $html = '';
+                return $html;
+            }
+        }
+        
+        // find the page links
+        $pageLinks = array();
+        foreach($bPages as $bPage) {
+            if ($bPage->id == $page->id) {
+                if ($includePage) {
+                    $pageLinks[] = html_escape($bPage->title);    
+                }
+            } else {
+                $pageLinks[] = '<a href="' . uri($bPage->slug) .  '">' . html_escape($bPage->title) . '</a>';
+            }
+        }
+        $pageLinks[] = '<a href="'.uri('').'">Home</a>';
+        
+        // create the bread crumb
+        $html .= implode(html_escape($seperator), array_reverse($pageLinks));
+    }
+    return $html;
+}
