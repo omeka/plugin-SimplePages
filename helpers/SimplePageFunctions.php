@@ -232,7 +232,7 @@ function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $inc
 {
     $html = '';
     
-    if ($pageId == null) {
+    if ($pageId === null) {
         $page = get_current_simple_page();
     } else {
         $page = get_db()->getTable('SimplePagesPage')->find($pageId);
