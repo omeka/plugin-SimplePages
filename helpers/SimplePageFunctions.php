@@ -268,3 +268,22 @@ function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $inc
     }
     return $html;
 }
+
+/**
+ * Returns the earliest ancestor page for a given page.
+ *
+ * @uses get_current_simple_page()
+ * @param integer|null The id of the page. If null, it uses the current simple page.
+ * @return SimplePagesPage|null
+ **/
+function simple_pages_earliest_ancestor_page($pageId)
+{
+    if ($pageId === null) {
+        $page = get_current_simple_page();
+    } else {
+        $page = get_db()->getTable('SimplePagesPage')->find($pageId);
+    }
+    
+    $pageAncestors = get_db()->getTable('SimplePagesPage')->findAncestorPages($page->id);
+    return end($pageAncestors);
+}

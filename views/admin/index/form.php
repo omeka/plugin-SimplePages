@@ -59,12 +59,13 @@
 </div>
 
 <div class="field">
-    <?php echo $this->formLabel('add_to_public_nav', 'Link to this page on the public navigation?'); ?>
+    <?php echo $this->formLabel('add_to_public_nav', 'Add link to this page to the primary navigation?'); ?>
     <div class="inputs">
         <?php echo $this->formCheckbox('add_to_public_nav', 
                                        simple_page('add_to_public_nav'), 
                                        array('id' => 'simple-pages-add-to-public-nav'), 
                                        array(1, 0)); ?>
+        <p class="explanation">Checking this box will add a link to this page to the theme's primary navigation. If custom header navigation is configured in the theme, a link to this page will not appear in the primary navigation unless you also add it to your theme's configuration.</p>
     </div>
 </div>
 
@@ -85,5 +86,6 @@
                                        simple_page('is_published'), 
                                        array('id' => 'simple-pages-is-published'), 
                                        array(1, 0)); ?>
+        <p class="explanation">Checking this box will make the page public and will appear in Simple Page navigation.</p>
     </div>
 </div>
