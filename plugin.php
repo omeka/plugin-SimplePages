@@ -8,9 +8,6 @@
 
 define('SIMPLE_PAGES_PLUGIN_DIR', dirname(__FILE__));
 
-// Require the record model for the simple_pages_page table.
-require_once 'SimplePagesPage.php';
-
 // Add plugin hooks.
 add_plugin_hook('install', 'simple_pages_install');
 add_plugin_hook('uninstall', 'simple_pages_uninstall');
