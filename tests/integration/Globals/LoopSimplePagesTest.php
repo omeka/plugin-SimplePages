@@ -74,7 +74,10 @@ class LoopSimplePagesTest extends PHPUnit_Framework_TestCase
         // This is not a real 'unit' test because Omeka_View has not been 
         // mocked out, but for what we need for this test, this is much easier.
         $this->view = new Omeka_View;
-        Zend_Registry::set('view', $this->view);        
+        Zend_Registry::set('view', $this->view);    
+        
+        $this->dbAdapter = new Zend_Test_DbAdapter;
+        $this->db = new Omeka_Db($this->dbAdapter);    
     }
     
     // This test, which would have taken 4 seconds to run if using Omeka_Test_AppTestCase,
@@ -99,7 +102,7 @@ class LoopSimplePagesTest extends PHPUnit_Framework_TestCase
         $pageCount = 5;
         $pages = array();
         for($i = 1; $i <= $pageCount; $i++) {
-            $page = new SimplePagesPage;
+            $page = new SimplePagesPage($this->db);
             $page->slug = $i;
             $pages[] = $page;
         }
