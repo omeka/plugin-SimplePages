@@ -5,6 +5,9 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.txt
  **/
 
+require_once dirname(__FILE__) . '/../../SimplePages_Test_AppTestCase.php';
+
+
 class Globals_SimplePagesGetCurrentSimplePageTest extends SimplePages_Test_AppTestCase
 {   
     public function testGetCurrentSimplePage()
