@@ -145,25 +145,25 @@ function simple_pages_initialize()
  */
 function simple_pages_define_acl($acl)
 {
-    // Add a namespaced ACL to restrict access to the Simple Pages admin 
-    // interface.
-    $resource = new Omeka_Acl_Resource('SimplePages_Index');
-    $resource->add(array('add', 'delete', 'edit', 'browse'));
-    $acl->add($resource);
-    // Deny every role, then allow only super and admin.
-    $acl->deny(null, 'SimplePages_Index');
+    // SimplePages administrative interface.
+    // Omeka_Acl_Resource is deprecated in 2.0.
+    if (version_compare(OMEKA_VERSION, '2.0-dev', '<')) {
+        $indexResource = new Omeka_Acl_Resource('SimplePages_Index');
+        $indexResource->add(array('add', 'delete', 'edit', 'browse'));
+        $pageResource = new Omeka_Acl_Resource('SimplePages_Page');
+        $pageResource->add(array('show-unpublished'));
+    } else {
+        $indexResource = new Zend_Acl_Resource('SimplePages_Index');
+        $pageResource = new Zend_Acl_Resource('SimplePages_Page');
+    }
+    $acl->add($indexResource);
+    $acl->add($pageResource);
     $acl->allow('super', 'SimplePages_Index');
-    $acl->allow('admin', 'SimplePages_Index');
-    
-    // Add a namespaced ACL to restrict access to unpublished pages on the 
-    // public website.
-    $resource = new Omeka_Acl_Resource('SimplePages_Page');
-    $resource->add(array('show-unpublished'));
-    $acl->add($resource);
-    // Deny every role, then allow only super and admin.
-    $acl->deny(null, 'SimplePages_Page');
+    $acl->allow('admin', 'SimplePages_Index');    
     $acl->allow('super', 'SimplePages_Page');
     $acl->allow('admin', 'SimplePages_Page');
+    $acl->allow(null, 'SimplePages_Page', 'show');
+    $acl->deny(null, 'SimplePages_Page', 'show-unpublished');
 }
 
 /**
