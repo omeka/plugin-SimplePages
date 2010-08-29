@@ -15,18 +15,13 @@ class SimplePages_Test_AppTestCase extends Omeka_Test_AppTestCase
         // Authenticate and set the current user 
         $this->user = $this->db->getTable('User')->find(1);
         $this->_authenticateUser($this->user);
-        Omeka_Context::getInstance()->setCurrentUser($this->user);
                 
         // Add the plugin hooks and filters (including the install hook)
         $pluginBroker = get_plugin_broker();
         $this->_addPluginHooksAndFilters($pluginBroker, self::PLUGIN_NAME);
         
-        // Install the plugin
-        $plugin = $this->_installPlugin(self::PLUGIN_NAME);
-        $this->assertTrue($plugin->isInstalled());
-        
-        // Initialize the core resource plugin hooks and filters (like the initialize hook)
-        $this->_initializeCoreResourcePluginHooksAndFilters($pluginBroker, self::PLUGIN_NAME);
+        $pluginHelper = new Omeka_Test_Helper_Plugin;
+        $pluginHelper->setUp(self::PLUGIN_NAME);                
     }
         
     public function _addPluginHooksAndFilters($pluginBroker, $pluginName)
