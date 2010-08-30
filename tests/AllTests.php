@@ -20,7 +20,10 @@ class SimplePages_AllTests extends PHPUnit_Framework_TestSuite
     {
         $suite = new SimplePages_AllTests('SimplePages Tests');
         $testCollector = new PHPUnit_Runner_IncludePathTestCollector(
-          array(dirname(__FILE__) . '/integration')
+            array(
+              dirname(__FILE__) . '/integration',
+              dirname(__FILE__) . '/unit'
+            )
         );
         $suite->addTestFiles($testCollector->collectTests());
         return $suite;

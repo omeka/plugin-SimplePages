@@ -10,18 +10,18 @@
 // This test must include all the global helper functions as that job would
 // normally be handled by Omeka_Test_AppTestCase.
 // The number of '/../' makes it more difficult to understand where the file actually is.
-require_once dirname(__FILE__) . '/../../../../../application/helpers/all.php';
+require_once dirname(__FILE__) . '/../../../../application/helpers/all.php';
 
 // Despite it seeming a bit ugly and verbose to do all these includes by hand,
 // it gives a much more accurate sense of all the dependencies that are required
 // for this one function to work.  The obvious advantage to this is that a new
 // developer could start work on the project and know immediately where to look
 // to cross-reference existing functions that are used by this one.
-require_once dirname(__FILE__) . '/../../../helpers/SimplePageFunctions.php';
+require_once dirname(__FILE__) . '/../../helpers/SimplePageFunctions.php';
 
 // We also need this because the signature of set_current_simple_page() requires 
 // the SimplePagesPage model.
-require_once dirname(__FILE__) . '/../../../models/SimplePagesPage.php';
+require_once dirname(__FILE__) . '/../../models/SimplePagesPage.php';
 
 /**
  * Notice how this class does not extend off Omeka_Test_AppTestCase.  This means
