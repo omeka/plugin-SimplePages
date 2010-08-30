@@ -5,10 +5,7 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.txt
  **/
 
-require_once dirname(__FILE__) . '/../../SimplePages_Test_AppTestCase.php';
-
-
-class Globals_SimplePagesGetCurrentSimplePageTest extends SimplePages_Test_AppTestCase
+class SimplePages_GetCurrentSimplePageTest extends SimplePages_Test_AppTestCase
 {   
     protected $_useAdminViews = false;
     

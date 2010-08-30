@@ -5,7 +5,7 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.txt
  **/
 
-class Globals_SimplePagesIsHomePageTest extends SimplePages_Test_AppTestCase
+class SimplePages_IsHomePageTest extends SimplePages_Test_AppTestCase
 {   
     public function testIsHomePage()
     {   

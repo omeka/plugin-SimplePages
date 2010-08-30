@@ -5,7 +5,7 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.txt
  **/
 
-class Globals_SimplePagesGetSimplePagesForLoopTest extends SimplePages_Test_AppTestCase
+class SimplePages_GetSimplePagesForLoopTest extends SimplePages_Test_AppTestCase
 {   
     protected $_isAdminTest = true;
     
