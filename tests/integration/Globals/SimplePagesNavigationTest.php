@@ -6,7 +6,9 @@
  **/
 
 class Globals_SimplePagesNavigationTest extends SimplePages_Test_AppTestCase
-{       
+{   
+    protected $_useAdminViews = false;
+        
     public function testSimplePagesNavigationForNoChildrenPages()
     {
         $this->dispatch('about');

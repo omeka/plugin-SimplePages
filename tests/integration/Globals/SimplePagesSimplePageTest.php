@@ -6,7 +6,9 @@
  **/
 
 class Globals_SimplePagesSimplePageTest extends SimplePages_Test_AppTestCase
-{       
+{   
+    protected $_useAdminViews = false;
+        
     public function testSimplePage()
     {
         $this->_deleteAllPages(); 

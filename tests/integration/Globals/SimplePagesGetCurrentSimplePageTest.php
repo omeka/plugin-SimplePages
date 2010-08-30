@@ -10,6 +10,8 @@ require_once dirname(__FILE__) . '/../../SimplePages_Test_AppTestCase.php';
 
 class Globals_SimplePagesGetCurrentSimplePageTest extends SimplePages_Test_AppTestCase
 {   
+    protected $_useAdminViews = false;
+    
     public function testGetCurrentSimplePage()
     {
         $this->dispatch('about');

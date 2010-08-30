@@ -7,6 +7,8 @@
 
 class Globals_SimplePagesSetCurrentSimplePageTest extends SimplePages_Test_AppTestCase
 {   
+    protected $_useAdminViews = false;
+    
     public function testSetCurrentSimplePage()
     {
         $this->dispatch('about');
