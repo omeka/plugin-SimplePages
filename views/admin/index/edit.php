@@ -16,9 +16,7 @@ head($head);
                                      'Save Page', 
                                      array('id'    => 'simple-pages-edit-submit', 
                                            'class' => 'submit submit-medium')); ?>
-        <p id="simple-pages-delete">
-            <a class="delete" href="<?php echo html_escape(uri("simple-pages/index/delete/id/" . simple_page('id'))); ?>">Delete This Page</a>
-        </p>
     </form>
+    <?php echo delete_button(null, 'delete-page', 'Delete this Page'); ?>
 </div>
 <?php foot(); ?>
