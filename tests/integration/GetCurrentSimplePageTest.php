@@ -7,7 +7,7 @@
 
 class SimplePages_GetCurrentSimplePageTest extends SimplePages_Test_AppTestCase
 {   
-    protected $_useAdminViews = false;
+    protected $_isAdminTest = false;
     
     public function testGetCurrentSimplePage()
     {

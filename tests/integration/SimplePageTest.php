@@ -7,7 +7,7 @@
 
 class SimplePages_SimplePageTest extends SimplePages_Test_AppTestCase
 {   
-    protected $_useAdminViews = false;
+    protected $_isAdminTest = false;
         
     public function testSimplePage()
     {
