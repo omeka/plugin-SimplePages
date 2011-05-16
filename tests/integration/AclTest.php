@@ -20,8 +20,10 @@ class SimplePages_AclTest extends Omeka_Test_AppTestCase
     public function setUp()
     {
         parent::setUp();
-        require_once PLUGIN_DIR . DIRECTORY_SEPARATOR . 'SimplePages' 
+        $this->pluginbroker->setCurrentPluginDirName('SimplePages');
+        include PLUGIN_DIR . DIRECTORY_SEPARATOR . 'SimplePages' 
             . DIRECTORY_SEPARATOR . 'plugin.php';
+        $this->pluginbroker->setCurrentPluginDirName(null);
         simple_pages_define_acl($this->acl);    
         self::dbChanged(false);
     }

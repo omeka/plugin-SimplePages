@@ -16,6 +16,7 @@ class SimplePages_Test_AppTestCase extends Omeka_Test_AppTestCase
         $this->user = $this->db->getTable('User')->find(1);
         $this->_authenticateUser($this->user);
                 
+        require_once SIMPLE_PAGES_DIR . '/functions.php';
         // Add the plugin hooks and filters (including the install hook)
         $pluginBroker = get_plugin_broker();
         $this->_addPluginHooksAndFilters($pluginBroker, self::PLUGIN_NAME);
