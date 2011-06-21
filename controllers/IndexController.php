@@ -90,10 +90,8 @@ class SimplePages_IndexController extends Omeka_Controller_Action
         // Catch validation errors.
         } catch (Omeka_Validator_Exception $e) {
             $this->flashValidationErrors($e);
-        // Catch any other errors that may occur.
-        } catch (Exception $e) {
-            $this->flashError($e->getMessage());
         }
+
         // Set the page object to the view.
         $this->view->simplePage = $page;
     }
