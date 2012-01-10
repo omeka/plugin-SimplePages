@@ -71,35 +71,35 @@ class SimplePagesPage extends Omeka_Record
     protected function _validate()
     {        
         if (empty($this->title)) {
-            $this->addError('title', 'The page must be given a title.');
+            $this->addError('title', __('The page must be given a title.'));
         }        
         
         if (255 < strlen($this->title)) {
-            $this->addError('title', 'The title for your page must be 255 characters or less.');
+            $this->addError('title', __('The title for your page must be 255 characters or less.'));
         }
         
         if (!$this->fieldIsUnique('title')) {
-            $this->addError('title', 'The title is already in use by another page. Please choose another.');
+            $this->addError('title', __('The title is already in use by another page. Please choose another.'));
         }
         
         if (trim($this->slug) == '') {
-            $this->addError('slug', 'The page must be given a valid slug.');
+            $this->addError('slug', __('The page must be given a valid slug.'));
         }
         
         if (preg_match('/^\/+$/', $this->slug)) {
-            $this->addError('slug', 'The slug for your page must not be a forward slash.');
+            $this->addError('slug', __('The slug for your page must not be a forward slash.'));
         }
         
         if (255 < strlen($this->slug)) {
-            $this->addError('slug', 'The slug for your page must be 255 characters or less.');
+            $this->addError('slug', __('The slug for your page must be 255 characters or less.'));
         }
         
         if (!$this->fieldIsUnique('slug')) {
-            $this->addError('slug', 'The slug is already in use by another page. Please choose another.');
+            $this->addError('slug', __('The slug is already in use by another page. Please choose another.'));
         }
         
         if (!is_numeric($this->order) || (!(strpos((string)$this->order, '.') === false)) || intval($this->order) < 0) {
-            $this->addError('order', 'The order must be an integer greater than or equal to 0.');
+            $this->addError('order', __('The order must be an integer greater than or equal to 0.'));
         }
     }
     

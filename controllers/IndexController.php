@@ -72,9 +72,9 @@ class SimplePages_IndexController extends Omeka_Controller_Action
 
             if ($page->saveForm($_POST)) {
                 if ('add' == $action) {
-                    $this->flashSuccess("The page \"$page->title\" has been added.");
+                    $this->flashSuccess(__('The page "%s" has been added.', $page->title));
                 } else if ('edit' == $action) {
-                    $this->flashSuccess("The page \"$page->title\" has been edited.");
+                    $this->flashSuccess(__('The page "%s" has been edited.', $page->title));
                 }
                 
                 // store the simple_pages_home_page_id option
@@ -98,6 +98,6 @@ class SimplePages_IndexController extends Omeka_Controller_Action
 
     protected function _getDeleteSuccessMessage($record)
     {
-        return "The page \"$record->title\" has been deleted.";
+        return __('The page "%s" has been deleted.', $record->title);
     }
 }

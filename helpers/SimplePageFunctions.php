@@ -261,7 +261,7 @@ function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $inc
                 $pageLinks[] = '<a href="' . uri($bPage->slug) .  '">' . html_escape($bPage->title) . '</a>';
             }
         }
-        $pageLinks[] = '<a href="'.uri('').'">Home</a>';
+        $pageLinks[] = '<a href="'.uri('').'">' + __('Home') + '</a>';
         
         // create the bread crumb
         $html .= implode(html_escape($seperator), array_reverse($pageLinks));

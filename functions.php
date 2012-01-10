@@ -106,6 +106,7 @@ function simple_pages_upgrade($oldVersion, $newVersion)
 
 function simple_pages_initialize()
 {
+    add_translation_source(dirname(__FILE__) . '/languages');
     Zend_Controller_Front::getInstance()->registerPlugin(new SimplePagesControllerPlugin);
 }
 
@@ -223,7 +224,7 @@ function simple_pages_filter_html($request, $purifier)
 function simple_pages_admin_navigation_main($nav)
 {
     if (has_permission('SimplePages_Index', 'browse')) {
-        $nav['Simple Pages'] = uri('simple-pages');
+        $nav[__('Simple Pages')] = uri('simple-pages');
     }
     return $nav;
 }
@@ -245,7 +246,7 @@ function simple_pages_public_navigation_main($nav)
 
 function simple_pages_select_parent_page($page)
 {   
-    $valuePairs = array('0'=>'Main Page (No Parent)');
+    $valuePairs = array('0' => __('Main Page (No Parent)'));
     $potentialParentPages = get_db()->getTable('SimplePagesPage')->findPotentialParentPages($page->id);    
     foreach($potentialParentPages as $potentialParentPage) {
         if (trim($potentialParentPage->title) != '') {
