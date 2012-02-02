@@ -1,0 +1,250 @@
+# Translation for the Simple Pages plugin for Omeka.
+# Copyright (C) 2011 Roy Rosenzweig Center for History and New Media
+# This file is distributed under the same license as the Omeka package.
+# 
+# Translators:
+# Alexios Dimitropoulos <alexios.dimitropoulos@gmail.com>, 2012.
+# stauros gkinis <gkista@yahoo.gr>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: Omeka\n"
+"Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
+"POT-Creation-Date: 2012-01-09 21:49-0500\n"
+"PO-Revision-Date: 2012-02-01 13:02+0000\n"
+"Last-Translator: Stoitsis Giannis <>\n"
+"Language-Team: Greek (Greece) (http://www.transifex.net/projects/p/omeka/team/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: config_form.php:2
+msgid "Filter User Input For Page Content?"
+msgstr "Φίλτρο εισόδου χρήστη για το Περιεχόμενο σελίδας;"
+
+#: config_form.php:8
+msgid ""
+"If checked, Simple Pages will attempt to filter the HTML provided for the "
+"content of pages using the default settings from the HtmlPurifier plugin. "
+"Note that this will not work unless the HtmlPurifier plugin has also been "
+"installed and activated. PHP code will not be allowed in the content of "
+"pages if this box is checked."
+msgstr ""
+"Αν επιλεχθεί, οι απλές σελίδες θα προσπαθήσουν να φιλτράρουν την HTML που "
+"παρέχεται για το περιεχόμενο των σελίδων χρησιμοποιώντας τις προεπιλεγμένες "
+"ρυθμίσεις από το plugin HtmlPurifier. Σημειώστε ότι αυτό δεν θα λειτουργήσει"
+" εκτός και αν το plugin HtmlPurifier εγκατασταθεί και ενεργοποιηθεί. PHP "
+"κώδικςα δεν θα επιτρέπεται στο περιεχόμενο των σελίδων, εάν αυτό το πλαίσιο "
+"είναι επιλεγμένο."
+
+#: controllers/IndexController.php:75
+#, php-format
+msgid "The page \"%s\" has been added."
+msgstr "Η σελίδα \"%s\" έχει δημιουργηθεί."
+
+#: controllers/IndexController.php:77
+#, php-format
+msgid "The page \"%s\" has been edited."
+msgstr "Η σελίδα \"%s\" έχει υποστεί επεξεργασία."
+
+#: controllers/IndexController.php:101
+#, php-format
+msgid "The page \"%s\" has been deleted."
+msgstr "Η σελίδα \"%s\" έχει διαγραφεί."
+
+#: functions.php:227
+msgid "Simple Pages"
+msgstr "Απλές Σελίδες"
+
+#: functions.php:249
+msgid "Main Page (No Parent)"
+msgstr "Κεντρική Σελίδα(No Parent)"
+
+#: models/SimplePagesPage.php:74
+msgid "The page must be given a title."
+msgstr "Η σελίδα πρέπει να έχει ένα τίτλο."
+
+#: models/SimplePagesPage.php:78
+msgid "The title for your page must be 255 characters or less."
+msgstr "Ο τίτλος της σελίδας πρέπει να είναι το πολύ 255 χαρακτήρες."
+
+#: models/SimplePagesPage.php:82
+msgid "The title is already in use by another page. Please choose another."
+msgstr ""
+"Ο τίτλος χρησιμοποιείται ήδη από άλλη σελίδα.Παρακαλώ επιλέξτε έναν άλλο."
+
+#: models/SimplePagesPage.php:86
+msgid "The page must be given a valid slug."
+msgstr "Η σελίδα πρέπει να έχει ένα έγκυρο slug."
+
+#: models/SimplePagesPage.php:90
+msgid "The slug for your page must not be a forward slash."
+msgstr "Το slug της σελίδας δεν πρέπει να είναι μία κάθετος."
+
+#: models/SimplePagesPage.php:94
+msgid "The slug for your page must be 255 characters or less."
+msgstr "Το slug της σελίδας πρέπει να είναι το πολύ 255 χαρακτήρες."
+
+#: models/SimplePagesPage.php:98
+msgid "The slug is already in use by another page. Please choose another."
+msgstr ""
+"Το slug χρησιμοποιείται ήδη από άλλη σελίδα.Παρακαλώ επιλέξτε ένα άλλο."
+
+#: models/SimplePagesPage.php:102
+msgid "The order must be an integer greater than or equal to 0."
+msgstr "Η σειρά πρέπει να είναι ακέραιος μεγαλύτερος ή ίσος με 0."
+
+#: views/admin/index/add.php:3
+msgid "Simple Pages | Add Page"
+msgstr "Απλές Σελίδες | Προσθήκη Σελίδας"
+
+#: views/admin/index/add.php:12
+msgid "Add Page"
+msgstr "Προσθήκη Σελίδας"
+
+#: views/admin/index/browse-hierarchy-page.php:16
+#: views/admin/index/browse-list.php:16
+#, php-format
+msgid "<strong>%1$s</strong> on %2$s"
+msgstr "<strong>%1$s</strong> σε %2$s"
+
+#: views/admin/index/browse-hierarchy-page.php:20
+#: views/admin/index/browse-list.php:20
+msgid "Not Published"
+msgstr "Μη δημοσιευμένο"
+
+#: views/admin/index/browse-hierarchy-page.php:20
+#: views/admin/index/browse-list.php:20
+msgid "Published"
+msgstr "Δημοσιευμένο"
+
+#: views/admin/index/browse-list.php:5 views/admin/index/form.php:14
+msgid "Slug"
+msgstr "Slug"
+
+#: views/admin/index/browse-list.php:6
+msgid "Last Modified By"
+msgstr "Τελευταία τροποποίηση από"
+
+#: views/admin/index/browse-list.php:7
+msgid "Published?"
+msgstr "Δημοσίευση?"
+
+#: views/admin/index/browse.php:3
+msgid "Simple Pages | Browse"
+msgstr "Απλές Σελίδες | Περιήγηση"
+
+#: views/admin/index/browse.php:11
+msgid "List View"
+msgstr "Προβολή Λίστας"
+
+#: views/admin/index/browse.php:14
+msgid "Hierarchy View"
+msgstr "Προβολή ιεραρχίας"
+
+#: views/admin/index/browse.php:18
+msgid "Add a Page"
+msgstr "Προσθήκη μίας Σελίδας"
+
+#: views/admin/index/browse.php:22
+msgid "Add a page."
+msgstr "Προσθήκη μίας Σελίδας."
+
+#: views/admin/index/browse.php:22
+msgid "There are no pages."
+msgstr "Δεν υπάρχουν σελίδες."
+
+#: views/admin/index/edit.php:3
+#, php-format
+msgid "Simple Pages | Edit \"%s\""
+msgstr "Απλές Σελίδες | Επεξεργασία \"%s\""
+
+#: views/admin/index/edit.php:9
+#, php-format
+msgid ""
+"This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
+" <strong>%3$s</strong> on %4$s."
+msgstr ""
+"Αυτή η σελίδα δημιουργήθηκε από <strong>%1$s</strong> σε %2$s, και τελευταία"
+" τροποίηση από <strong>%3$s</strong> σε %4$s."
+
+#: views/admin/index/edit.php:17
+msgid "Save Page"
+msgstr "Αποθήκευση Σελίδας"
+
+#: views/admin/index/edit.php:21
+msgid "Delete this Page"
+msgstr "Διαγραφή αυτής της Σελίδας"
+
+#: views/admin/index/form.php:9
+msgid "The title of the page (required)."
+msgstr "Ο τίτλος της σελίδας (υποχρεωτικό)"
+
+#: views/admin/index/form.php:22
+msgid ""
+"The URL slug for the page. Automatically created from the title if not "
+"entered. Allowed characters: alphanumeric, underscores, dashes, and forward "
+"slashes."
+msgstr ""
+"Το URL slug της σελίδας. Δημιουργείται αυτόματα από τον τίτλο αν δεν "
+"εισαχθεί. Χαρακτήρες που επιτρέπονται: αλφαριθμητικοί, κάτω παύλες, παύλες, "
+"και κάθετοι."
+
+#: views/admin/index/form.php:29
+msgid "Text"
+msgstr "Κείμενο"
+
+#: views/admin/index/form.php:38
+msgid ""
+"The content for the page (optional). HTML markup and PHP code are allowed."
+msgstr ""
+"Το περιεχόμενο της σελίδας (προαιρετικό). Επιτρέπεται HTML και PHP κώδικας."
+
+#: views/admin/index/form.php:44
+msgid "Parent"
+msgstr "Parent"
+
+#: views/admin/index/form.php:47
+msgid "The parent page."
+msgstr "Η γονική σελίδα."
+
+#: views/admin/index/form.php:58
+msgid ""
+"The order of the page relative to the other pages with the same parent."
+msgstr ""
+"Η σειρά της σελίδας σε σχέση με τις άλλες σελίδες με την ίδια γονική σελίδα."
+
+#: views/admin/index/form.php:63
+msgid "Add this page to the primary navigation?"
+msgstr "Προσθήκη αυτής της σελίδας στην κεντρική πλοήγηση;"
+
+#: views/admin/index/form.php:69
+msgid ""
+"Checking this box will add a link to this page to the theme's primary "
+"navigation. If custom header navigation is configured in the theme, a link "
+"to this page will not appear in the primary navigation unless you also add "
+"it to your theme's configuration."
+msgstr ""
+"Επιλέγοντας αυτό το κουτί θα προσθέσει μια σύνδεση σε αυτή τη σελίδα στην "
+"κεντρική πλοήγηση του θέματος. Αν έχει δημιουργηθεί προσαρμοσμένη πλοήγηση "
+"στο θέμα, μια σύνδεση σε αυτή τη σελίδα δεν θα εμφανιστεί στην κεντρική "
+"πλοήγηση, εκτός αν την προσθέσετε, επίσης, στις ρυθμίσεις του θέματός σας."
+
+#: views/admin/index/form.php:74
+msgid "Make this page the home page?"
+msgstr "Θέλετε να κάνετε αυτή τη σελίδα την αρχική σελίδα;"
+
+#: views/admin/index/form.php:84
+msgid "Publish this page?"
+msgstr "Δημοσίευση αυτής της σελίδας;"
+
+#: views/admin/index/form.php:90
+msgid ""
+"Checking this box will make the page public and it will appear in Simple "
+"Page navigation."
+msgstr ""
+"Επιλέγοντας αυτό το κουτί θα κάνει την σελίδα δημόσια και θα εμφανιστεί στη "
+"πλοήγηση των απλών σελίδων."
+
+

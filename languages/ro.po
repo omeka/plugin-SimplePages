@@ -1,0 +1,248 @@
+# Translation for the Simple Pages plugin for Omeka.
+# Copyright (C) 2011 Roy Rosenzweig Center for History and New Media
+# This file is distributed under the same license as the Omeka package.
+# 
+# Translators:
+# Nicolaie Constantinescu <kosson@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: Omeka\n"
+"Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
+"POT-Creation-Date: 2012-01-09 21:49-0500\n"
+"PO-Revision-Date: 2012-01-30 13:28+0000\n"
+"Last-Translator: Nicolaie Constantinescu <kosson@gmail.com>\n"
+"Language-Team: Romanian (http://www.transifex.net/projects/p/omeka/team/ro/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1))\n"
+
+#: config_form.php:2
+msgid "Filter User Input For Page Content?"
+msgstr "Vrei să filtrezi ce introduc utilizatorii în pagina de conținut?"
+
+#: config_form.php:8
+msgid ""
+"If checked, Simple Pages will attempt to filter the HTML provided for the "
+"content of pages using the default settings from the HtmlPurifier plugin. "
+"Note that this will not work unless the HtmlPurifier plugin has also been "
+"installed and activated. PHP code will not be allowed in the content of "
+"pages if this box is checked."
+msgstr ""
+"Dacă bifezi, Pagini simple va încerca filtrarea secvențelor de cod HTML din "
+"conținutul paginilor prin folosirea setărilor implicite ale modulului "
+"HtmlPurifier. Trebuie să știi că nu va funcționa dacă modulul nu este "
+"instalat și activat. Cod de PHP nu va fi permis în conținutul paginilor dacă"
+" bifezi această căsuță."
+
+#: controllers/IndexController.php:75
+#, php-format
+msgid "The page \"%s\" has been added."
+msgstr "A fost adăugată pagina \"%s\"."
+
+#: controllers/IndexController.php:77
+#, php-format
+msgid "The page \"%s\" has been edited."
+msgstr "A fost editată pagina \"%s\"."
+
+#: controllers/IndexController.php:101
+#, php-format
+msgid "The page \"%s\" has been deleted."
+msgstr "Pagina \"%s\" a fost ștearsă."
+
+#: functions.php:227
+msgid "Simple Pages"
+msgstr "Pagini simple"
+
+#: functions.php:249
+msgid "Main Page (No Parent)"
+msgstr "Pagina principală (fără părinte)"
+
+#: models/SimplePagesPage.php:74
+msgid "The page must be given a title."
+msgstr "Pagii trebuie să i se dea un titlu"
+
+#: models/SimplePagesPage.php:78
+msgid "The title for your page must be 255 characters or less."
+msgstr ""
+"Titlul pentru pagină trebuie să fie de 255 de caractere sau mai puțin."
+
+#: models/SimplePagesPage.php:82
+msgid "The title is already in use by another page. Please choose another."
+msgstr "Titlul este deja folosit de altă pagină. Alege altul!"
+
+#: models/SimplePagesPage.php:86
+msgid "The page must be given a valid slug."
+msgstr "Pagina trebuie să aibe o terminație validă."
+
+#: models/SimplePagesPage.php:90
+msgid "The slug for your page must not be a forward slash."
+msgstr "Terminația pentru URL-ul paginii nu trebuie să fie un slash."
+
+#: models/SimplePagesPage.php:94
+msgid "The slug for your page must be 255 characters or less."
+msgstr "Terminația paginii trebuie să aibe 255 de caractere sau mai puțin."
+
+#: models/SimplePagesPage.php:98
+msgid "The slug is already in use by another page. Please choose another."
+msgstr "Terminația este deja utilizată de altă pagină. Alege alta."
+
+#: models/SimplePagesPage.php:102
+msgid "The order must be an integer greater than or equal to 0."
+msgstr "Ordinea trebuie să fie un număr întreg mai mare sau egal cu 0."
+
+#: views/admin/index/add.php:3
+msgid "Simple Pages | Add Page"
+msgstr "Pagini simple | Adaugă pagină"
+
+#: views/admin/index/add.php:12
+msgid "Add Page"
+msgstr "Adaugă pagină"
+
+#: views/admin/index/browse-hierarchy-page.php:16
+#: views/admin/index/browse-list.php:16
+#, php-format
+msgid "<strong>%1$s</strong> on %2$s"
+msgstr "<strong>%1$s</strong> pe %2$s"
+
+#: views/admin/index/browse-hierarchy-page.php:20
+#: views/admin/index/browse-list.php:20
+msgid "Not Published"
+msgstr "Nepublicată"
+
+#: views/admin/index/browse-hierarchy-page.php:20
+#: views/admin/index/browse-list.php:20
+msgid "Published"
+msgstr "Publicată"
+
+#: views/admin/index/browse-list.php:5 views/admin/index/form.php:14
+msgid "Slug"
+msgstr "Terminație"
+
+#: views/admin/index/browse-list.php:6
+msgid "Last Modified By"
+msgstr "Ultima modificare de către"
+
+#: views/admin/index/browse-list.php:7
+msgid "Published?"
+msgstr "Publicată?"
+
+#: views/admin/index/browse.php:3
+msgid "Simple Pages | Browse"
+msgstr "Pagini simple | Navighează"
+
+#: views/admin/index/browse.php:11
+msgid "List View"
+msgstr "Ultima vizualizare"
+
+#: views/admin/index/browse.php:14
+msgid "Hierarchy View"
+msgstr "Vizualizare ierarhică"
+
+#: views/admin/index/browse.php:18
+msgid "Add a Page"
+msgstr "Adaugă o pagină"
+
+#: views/admin/index/browse.php:22
+msgid "Add a page."
+msgstr "Adaugă o pagină"
+
+#: views/admin/index/browse.php:22
+msgid "There are no pages."
+msgstr "Nu există pagini."
+
+#: views/admin/index/edit.php:3
+#, php-format
+msgid "Simple Pages | Edit \"%s\""
+msgstr "Pagini simple | Editează \"%s\""
+
+#: views/admin/index/edit.php:9
+#, php-format
+msgid ""
+"This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
+" <strong>%3$s</strong> on %4$s."
+msgstr ""
+"Această pagină a fost creată de <strong>%1$s</strong> pe %2$s, și a fost "
+"modificată ultima dată de <strong>%3$s</strong> la %4$s."
+
+#: views/admin/index/edit.php:17
+msgid "Save Page"
+msgstr "Salvează pagina"
+
+#: views/admin/index/edit.php:21
+msgid "Delete this Page"
+msgstr "Șterge această pagină"
+
+#: views/admin/index/form.php:9
+msgid "The title of the page (required)."
+msgstr "Titlul paginii (este obligatoriu)."
+
+#: views/admin/index/form.php:22
+msgid ""
+"The URL slug for the page. Automatically created from the title if not "
+"entered. Allowed characters: alphanumeric, underscores, dashes, and forward "
+"slashes."
+msgstr ""
+"Terminația URL-ului pentru pagină. Dacă nu este introdusă de mână, va fi "
+"creată din ce există ca titlu. Caracterele permise sunt: alfanumerice, "
+"liniuțe jos și linii."
+
+#: views/admin/index/form.php:29
+msgid "Text"
+msgstr "Text"
+
+#: views/admin/index/form.php:38
+msgid ""
+"The content for the page (optional). HTML markup and PHP code are allowed."
+msgstr ""
+"Conținutul paginii (opțional). Sunt permise să fie introduse secvențe de cod"
+" PHP sau HTML."
+
+#: views/admin/index/form.php:44
+msgid "Parent"
+msgstr "Părinte"
+
+#: views/admin/index/form.php:47
+msgid "The parent page."
+msgstr "Pagina părinte."
+
+#: views/admin/index/form.php:58
+msgid ""
+"The order of the page relative to the other pages with the same parent."
+msgstr "Ordinea paginii relativ la alte pagini care au același părinte."
+
+#: views/admin/index/form.php:63
+msgid "Add this page to the primary navigation?"
+msgstr "Vrei să adaugi această pagină în navigarea de bază?"
+
+#: views/admin/index/form.php:69
+msgid ""
+"Checking this box will add a link to this page to the theme's primary "
+"navigation. If custom header navigation is configured in the theme, a link "
+"to this page will not appear in the primary navigation unless you also add "
+"it to your theme's configuration."
+msgstr ""
+"Bifând această căsuță vei adăuga un link la această pagină în zona de "
+"navigare de bază a temei alese pentru site. Dacă navigarea din partea "
+"superioară (header) este setată în tema aleasă, nu va apărea linkul către "
+"această pagină în navigarea de bază acest lucru făcându-se doar dacă-l "
+"adaugi în configurările temei."
+
+#: views/admin/index/form.php:74
+msgid "Make this page the home page?"
+msgstr "Vrei să faci din această pagină, pagina de start a siteului?"
+
+#: views/admin/index/form.php:84
+msgid "Publish this page?"
+msgstr "Vrei să publici pagina?"
+
+#: views/admin/index/form.php:90
+msgid ""
+"Checking this box will make the page public and it will appear in Simple "
+"Page navigation."
+msgstr ""
+"Bifând această căsuță vei face pagina accesibilă public și va apărea în "
+"structura de navigare a Paginilor simple."
+
+
