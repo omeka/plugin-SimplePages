@@ -23,7 +23,7 @@ function simple_pages_set_current_page($simplePage=null)
 
 /**
  * Get the public navigation links for children pages of a parent page.
- * 
+ *
  * @uses simple_pages_get_current_page()
  * @uses simple_pages_is_home_page()
  * @uses abs_uri()
@@ -46,27 +46,27 @@ function simple_pages_get_links_for_children_pages($parentId = null, $currentDep
             $parentId = 0;
         }
     }
-    
+
     $findBy = array('parent_id' => $parentId, 'sort' => $sort);
     if ($requiresIsPublished) {
-        $findBy['is_published'] = $requiresIsPublished ? 1 : 0;        
+        $findBy['is_published'] = $requiresIsPublished ? 1 : 0;
     }
     if ($requiresIsAddToPublicNav) {
         $findBy['add_to_public_nav'] = $requiresIsAddToPublicNav ? 1 : 0;
     }
-    
-    $pages = get_db()->getTable('SimplePagesPage')->findBy($findBy); 
+
+    $pages = get_db()->getTable('SimplePagesPage')->findBy($findBy);
 
     $navLinks = array();
-    
-    foreach ($pages as $page) {   
+
+    foreach ($pages as $page) {
         // If the simple page is set to be the home page, use the home page url instead of the slug
         if (simple_pages_is_home_page($page)) {
            $uri = abs_uri('');
         } else {
             $uri = uri($page->slug);
         }
-        
+
         $subNavLinks = simple_pages_get_links_for_children_pages($page->id, $currentDepth + 1, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);
         if (count($subNavLinks) > 0) {
             $subNavClass = 'subnav-' . ($currentDepth + 1);
@@ -74,17 +74,17 @@ function simple_pages_get_links_for_children_pages($parentId = null, $currentDep
         } else {
             $navLinks[$page->title] = $uri;
         }
-    }    
+    }
     return $navLinks;
 }
 
 /**
  * Returns whether a simple page is the home page.
- * 
+ *
  * @param SimplePagesPage The simple page
  * @return boolean
  */
-function simple_pages_is_home_page($simplePage) 
+function simple_pages_is_home_page($simplePage)
 {
     if ($simplePage === null || $simplePage->id === null) {
         return false;
@@ -127,7 +127,7 @@ function set_simple_pages_for_loop($simplePages)
 
 /**
  * Get the set of simple pages for the current loop.
- * 
+ *
  * @return array
  **/
 function get_simple_pages_for_loop()
@@ -137,7 +137,7 @@ function get_simple_pages_for_loop()
 
 /**
  * Loops through simple pages assigned to the view.
- * 
+ *
  * @return mixed The current simple page
  */
 function loop_simple_pages()
@@ -147,12 +147,12 @@ function loop_simple_pages()
 
 /**
  * Determine whether or not there are any simple pages in the database.
- * 
+ *
  * @return boolean
  **/
 function has_simple_pages()
 {
-    return (total_simple_pages() > 0);    
+    return (total_simple_pages() > 0);
 }
 
 /**
@@ -170,9 +170,9 @@ function has_simple_pages_for_loop()
   *
   * @return integer
   **/
- function total_simple_pages() 
- {	
- 	return get_db()->getTable('SimplePagesPage')->count();
+ function total_simple_pages()
+ {
+     return get_db()->getTable('SimplePagesPage')->count();
  }
 
 /**
@@ -188,12 +188,12 @@ function simple_page($propertyName, $options=array(), $simplePage=null)
     if (!$simplePage) {
         $simplePage = get_current_simple_page();
     }
-            
-	if (property_exists(get_class($simplePage), $propertyName)) {
-	    return $simplePage->$propertyName;
-	} else {
-	    return null;
-	}
+
+    if (property_exists(get_class($simplePage), $propertyName)) {
+        return $simplePage->$propertyName;
+    } else {
+        return null;
+    }
 }
 
 /**
@@ -208,13 +208,13 @@ function simple_page($propertyName, $options=array(), $simplePage=null)
 * @param boolean Whether to return pages explicitly added to the public navigation.
 * @return string
 **/
-function simple_pages_navigation($parentId = 0, $currentDepth = null, $sort = 'order', $requiresIsPublished = true, $requiresIsAddToPublicNav = false) 
+function simple_pages_navigation($parentId = 0, $currentDepth = null, $sort = 'order', $requiresIsPublished = true, $requiresIsAddToPublicNav = false)
 {
     $html = '';
-    $childPageLinks = simple_pages_get_links_for_children_pages($parentId, $currentDepth, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);    
+    $childPageLinks = simple_pages_get_links_for_children_pages($parentId, $currentDepth, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);
     if ($childPageLinks) {
         $html .= '<ul class="simple-pages-navigation">' . "\n";
-        $html .= nav($childPageLinks, $currentDepth); 
+        $html .= nav($childPageLinks, $currentDepth);
         $html .= '</ul>' . "\n";
     }
     return $html;
@@ -228,20 +228,20 @@ function simple_pages_navigation($parentId = 0, $currentDepth = null, $sort = 'o
  * @param string $separator The string used to separate each section of the breadcrumb.
  * @param boolean $includePage Whether to include the title of the current page.
  **/
-function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $includePage=true) 
+function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $includePage=true)
 {
     $html = '';
-    
+
     if ($pageId === null) {
         $page = get_current_simple_page();
     } else {
         $page = get_db()->getTable('SimplePagesPage')->find($pageId);
     }
-    
+
     if ($page) {
         $ancestorPages = get_db()->getTable('SimplePagesPage')->findAncestorPages($page->id);
         $bPages = array_merge(array($page), $ancestorPages);
-        
+
         // make sure all of the ancestors and the current page are published
         foreach($bPages as $bPage) {
             if (!$bPage->is_published) {
@@ -249,20 +249,20 @@ function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $inc
                 return $html;
             }
         }
-        
+
         // find the page links
         $pageLinks = array();
         foreach($bPages as $bPage) {
             if ($bPage->id == $page->id) {
                 if ($includePage) {
-                    $pageLinks[] = html_escape($bPage->title);    
+                    $pageLinks[] = html_escape($bPage->title);
                 }
             } else {
                 $pageLinks[] = '<a href="' . uri($bPage->slug) .  '">' . html_escape($bPage->title) . '</a>';
             }
         }
-        $pageLinks[] = '<a href="'.uri('').'">' + __('Home') + '</a>';
-        
+        $pageLinks[] = '<a href="'.uri('').'">' . __('Home') . '</a>';
+
         // create the bread crumb
         $html .= implode(html_escape($seperator), array_reverse($pageLinks));
     }
@@ -283,7 +283,7 @@ function simple_pages_earliest_ancestor_page($pageId)
     } else {
         $page = get_db()->getTable('SimplePagesPage')->find($pageId);
     }
-    
+
     $pageAncestors = get_db()->getTable('SimplePagesPage')->findAncestorPages($page->id);
     return end($pageAncestors);
 }
