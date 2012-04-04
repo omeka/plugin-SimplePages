@@ -1,0 +1,225 @@
+# Translation for the Simple Pages plugin for Omeka.
+# Copyright (C) 2011 Roy Rosenzweig Center for History and New Media
+# This file is distributed under the same license as the Omeka package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Omeka\n"
+"Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
+"POT-Creation-Date: 2012-01-09 21:49-0500\n"
+"PO-Revision-Date: 2012-03-09 10:21+0000\n"
+"Last-Translator: Matti Lassila <matti.lassila@gmail.com>\n"
+"Language-Team: Finnish (Finland) (http://www.transifex.net/projects/p/omeka/language/fi_FI/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fi_FI\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: config_form.php:2
+msgid "Filter User Input For Page Content?"
+msgstr "Haitallisen sisällön suodatus"
+
+#: config_form.php:8
+msgid ""
+"If checked, Simple Pages will attempt to filter the HTML provided for the "
+"content of pages using the default settings from the HtmlPurifier plugin. "
+"Note that this will not work unless the HtmlPurifier plugin has also been "
+"installed and activated. PHP code will not be allowed in the content of "
+"pages if this box is checked."
+msgstr "Suodattaa syötetyn sisällön haittakoodin varalta. Mikäli sivulla halutaan käyttää PHP-koodia, tätä ominaisuutta ei voida käyttää. Sisällön suodatus vaatii HtmlPurifier -lisäosan käyttöönoton sivuston Lisäosat-asetuksista."
+
+#: controllers/IndexController.php:75
+#, php-format
+msgid "The page \"%s\" has been added."
+msgstr "Sivu  \"%s\" lisättiin."
+
+#: controllers/IndexController.php:77
+#, php-format
+msgid "The page \"%s\" has been edited."
+msgstr "Sivua \"%s\" muokattiin. "
+
+#: controllers/IndexController.php:101
+#, php-format
+msgid "The page \"%s\" has been deleted."
+msgstr "Sivu \"%s\" on poistettu."
+
+#: functions.php:227
+msgid "Simple Pages"
+msgstr "Sivut"
+
+#: functions.php:249
+msgid "Main Page (No Parent)"
+msgstr "Pääsivu (hierarkian ylin)"
+
+#: models/SimplePagesPage.php:74
+msgid "The page must be given a title."
+msgstr "Sivulla tulee olla otsikko."
+
+#: models/SimplePagesPage.php:78
+msgid "The title for your page must be 255 characters or less."
+msgstr "Sivun otsikon tulee olla 255 merkkiä tai vähemmän."
+
+#: models/SimplePagesPage.php:82
+msgid "The title is already in use by another page. Please choose another."
+msgstr "Otsikko on jo käytössä. Laadi uusi otsikko."
+
+#: models/SimplePagesPage.php:86
+msgid "The page must be given a valid slug."
+msgstr "Sivulla tulee olla URL-teksti, joka sisältää vain sallittuja merkkejä."
+
+#: models/SimplePagesPage.php:90
+msgid "The slug for your page must not be a forward slash."
+msgstr "URL-teksti ei saa olla kauttaviiva."
+
+#: models/SimplePagesPage.php:94
+msgid "The slug for your page must be 255 characters or less."
+msgstr "URL-tekstin tulee olla pituudeltaan 255 merkkiä tai vähemmän."
+
+#: models/SimplePagesPage.php:98
+msgid "The slug is already in use by another page. Please choose another."
+msgstr "URL-teksti on jo käytössä. Laadi uusi teksti."
+
+#: models/SimplePagesPage.php:102
+msgid "The order must be an integer greater than or equal to 0."
+msgstr "Järjestysnumeron tulee olla nollaa suurempi luku."
+
+#: views/admin/index/add.php:3
+msgid "Simple Pages | Add Page"
+msgstr "Sivut | Lisää sivu"
+
+#: views/admin/index/add.php:12
+msgid "Add Page"
+msgstr "Lisää sivu"
+
+#: views/admin/index/browse-hierarchy-page.php:16
+#: views/admin/index/browse-list.php:16
+#, php-format
+msgid "<strong>%1$s</strong> on %2$s"
+msgstr "<strong>%1$s</strong>  %2$s"
+
+#: views/admin/index/browse-hierarchy-page.php:20
+#: views/admin/index/browse-list.php:20
+msgid "Not Published"
+msgstr "Julkaisematon"
+
+#: views/admin/index/browse-hierarchy-page.php:20
+#: views/admin/index/browse-list.php:20
+msgid "Published"
+msgstr "Julkaistu"
+
+#: views/admin/index/browse-list.php:5 views/admin/index/form.php:14
+msgid "Slug"
+msgstr "URL-teksti"
+
+#: views/admin/index/browse-list.php:6
+msgid "Last Modified By"
+msgstr "Muokattu"
+
+#: views/admin/index/browse-list.php:7
+msgid "Published?"
+msgstr "Julkaistu?"
+
+#: views/admin/index/browse.php:3
+msgid "Simple Pages | Browse"
+msgstr "Sivut | Selaa"
+
+#: views/admin/index/browse.php:11
+msgid "List View"
+msgstr "Listanäkymä"
+
+#: views/admin/index/browse.php:14
+msgid "Hierarchy View"
+msgstr "Sivuhierarkia"
+
+#: views/admin/index/browse.php:18
+msgid "Add a Page"
+msgstr "Lisää sivu"
+
+#: views/admin/index/browse.php:22
+msgid "Add a page."
+msgstr "Lisää sivu."
+
+#: views/admin/index/browse.php:22
+msgid "There are no pages."
+msgstr "Ei sivuja."
+
+#: views/admin/index/edit.php:3
+#, php-format
+msgid "Simple Pages | Edit \"%s\""
+msgstr "Sivut | Muokkaa \"%s\""
+
+#: views/admin/index/edit.php:9
+#, php-format
+msgid ""
+"This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
+" <strong>%3$s</strong> on %4$s."
+msgstr "Käyttäjä <strong>%1$s</strong> loi sivun %2$s ja sitä muokkasi viimeksi <strong>%3$s</strong> %4$s."
+
+#: views/admin/index/edit.php:17
+msgid "Save Page"
+msgstr "Tallenna sivu"
+
+#: views/admin/index/edit.php:21
+msgid "Delete this Page"
+msgstr "Poista sivu"
+
+#: views/admin/index/form.php:9
+msgid "The title of the page (required)."
+msgstr "Sivun otsikko (vaaditaan)."
+
+#: views/admin/index/form.php:22
+msgid ""
+"The URL slug for the page. Automatically created from the title if not "
+"entered. Allowed characters: alphanumeric, underscores, dashes, and forward "
+"slashes."
+msgstr "Sivun URL-teksti. Mikäli URL-tekstiä ei ole annettu, se luodaan automaattisesti sivun otsikon pohjalta. Sallitut merkit: kirjaimet ja numerot, alaviiva, väliviiva ja kauttaviiva."
+
+#: views/admin/index/form.php:29
+msgid "Text"
+msgstr "Teksti"
+
+#: views/admin/index/form.php:38
+msgid ""
+"The content for the page (optional). HTML markup and PHP code are allowed."
+msgstr "Sivun sisältö. HTML-merkkaus ja PHP-koodi ovat sallittuja."
+
+#: views/admin/index/form.php:44
+msgid "Parent"
+msgstr "Yläsivu"
+
+#: views/admin/index/form.php:47
+msgid "The parent page."
+msgstr "Hierarkiassa ylempi sivu."
+
+#: views/admin/index/form.php:58
+msgid ""
+"The order of the page relative to the other pages with the same parent."
+msgstr "Sivun järjestys suhteessa muihin alisivuihin saman yläsivun alla."
+
+#: views/admin/index/form.php:63
+msgid "Add this page to the primary navigation?"
+msgstr "Lisää sivu päänavigointiin"
+
+#: views/admin/index/form.php:69
+msgid ""
+"Checking this box will add a link to this page to the theme's primary "
+"navigation. If custom header navigation is configured in the theme, a link "
+"to this page will not appear in the primary navigation unless you also add "
+"it to your theme's configuration."
+msgstr "Lisää sivun päänavigointiin. Jos teemassa on määritelty oma päänavigointi, sivu täytyy lisätä navigointiin myös teeman asetuksista."
+
+#: views/admin/index/form.php:74
+msgid "Make this page the home page?"
+msgstr "Käytä etusivuna"
+
+#: views/admin/index/form.php:84
+msgid "Publish this page?"
+msgstr "Julkaise"
+
+#: views/admin/index/form.php:90
+msgid ""
+"Checking this box will make the page public and it will appear in Simple "
+"Page navigation."
+msgstr "Julkaisee sivun ja lisää sen sivujen navigointinäkymään."

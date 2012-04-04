@@ -1,0 +1,226 @@
+# Translation for the Simple Pages plugin for Omeka.
+# Copyright (C) 2011 Roy Rosenzweig Center for History and New Media
+# This file is distributed under the same license as the Omeka package.
+# 
+# Translators:
+# MangleRojo  <jpmoyar@manglerojo.org>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: Omeka\n"
+"Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
+"POT-Creation-Date: 2012-01-09 21:49-0500\n"
+"PO-Revision-Date: 2012-03-22 16:29+0000\n"
+"Last-Translator: MangleRojo <correo@manglerojo.org>\n"
+"Language-Team: Spanish (Colombia) (http://www.transifex.net/projects/p/omeka/language/es_CO/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_CO\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: config_form.php:2
+msgid "Filter User Input For Page Content?"
+msgstr "¿Filtrar Entrada para Contenido de la Página?"
+
+#: config_form.php:8
+msgid ""
+"If checked, Simple Pages will attempt to filter the HTML provided for the "
+"content of pages using the default settings from the HtmlPurifier plugin. "
+"Note that this will not work unless the HtmlPurifier plugin has also been "
+"installed and activated. PHP code will not be allowed in the content of "
+"pages if this box is checked."
+msgstr "Si selecciona esta opción, Simples Pages intentará filtrar el HTML dado para el contenido de las páginas utilizando la configuración predeterminada del plugin HtmlPurifier.  Tenga en cuenta que esto no funcionará a menos que el plugin de HtmlPurifier también esté instalado y activado. El código PHP no se permitirá en el contenido de las páginas si se marca esta casilla."
+
+#: controllers/IndexController.php:75
+#, php-format
+msgid "The page \"%s\" has been added."
+msgstr "La página \"%s\" ha sido agregada."
+
+#: controllers/IndexController.php:77
+#, php-format
+msgid "The page \"%s\" has been edited."
+msgstr "La página \"%s\" ha sido editado."
+
+#: controllers/IndexController.php:101
+#, php-format
+msgid "The page \"%s\" has been deleted."
+msgstr "la página \"%s\" ha sido borrado."
+
+#: functions.php:227
+msgid "Simple Pages"
+msgstr "Simple Pages"
+
+#: functions.php:249
+msgid "Main Page (No Parent)"
+msgstr "Página Principal (Sin Relación)"
+
+#: models/SimplePagesPage.php:74
+msgid "The page must be given a title."
+msgstr "La página debe tener un título."
+
+#: models/SimplePagesPage.php:78
+msgid "The title for your page must be 255 characters or less."
+msgstr "El título para la página debe tener 255 caracteres o menos."
+
+#: models/SimplePagesPage.php:82
+msgid "The title is already in use by another page. Please choose another."
+msgstr "El título es usado por otra página. Por favor escoja otro."
+
+#: models/SimplePagesPage.php:86
+msgid "The page must be given a valid slug."
+msgstr "La página debe tener un slug válido."
+
+#: models/SimplePagesPage.php:90
+msgid "The slug for your page must not be a forward slash."
+msgstr "El slug para la página debe tener un slash."
+
+#: models/SimplePagesPage.php:94
+msgid "The slug for your page must be 255 characters or less."
+msgstr "El slug para la página debe tener 255 caracteres o menos."
+
+#: models/SimplePagesPage.php:98
+msgid "The slug is already in use by another page. Please choose another."
+msgstr "El slug es usado por otra página. Por favor escoja otro."
+
+#: models/SimplePagesPage.php:102
+msgid "The order must be an integer greater than or equal to 0."
+msgstr "El dígito de orden debe ser un entero mayor o igual a 0. "
+
+#: views/admin/index/add.php:3
+msgid "Simple Pages | Add Page"
+msgstr "Simple Pages | Agregar Página"
+
+#: views/admin/index/add.php:12
+msgid "Add Page"
+msgstr "Agregar Página"
+
+#: views/admin/index/browse-hierarchy-page.php:16
+#: views/admin/index/browse-list.php:16
+#, php-format
+msgid "<strong>%1$s</strong> on %2$s"
+msgstr "<strong>%1$s</strong> en %2$s"
+
+#: views/admin/index/browse-hierarchy-page.php:20
+#: views/admin/index/browse-list.php:20
+msgid "Not Published"
+msgstr "Sin Publicar"
+
+#: views/admin/index/browse-hierarchy-page.php:20
+#: views/admin/index/browse-list.php:20
+msgid "Published"
+msgstr "Publicadas"
+
+#: views/admin/index/browse-list.php:5 views/admin/index/form.php:14
+msgid "Slug"
+msgstr "Slug"
+
+#: views/admin/index/browse-list.php:6
+msgid "Last Modified By"
+msgstr "Última Modificación Por"
+
+#: views/admin/index/browse-list.php:7
+msgid "Published?"
+msgstr "¿Publicar?"
+
+#: views/admin/index/browse.php:3
+msgid "Simple Pages | Browse"
+msgstr "Simple Pages | Navegar"
+
+#: views/admin/index/browse.php:11
+msgid "List View"
+msgstr "Vista por lista"
+
+#: views/admin/index/browse.php:14
+msgid "Hierarchy View"
+msgstr "Vista por Jerarquía"
+
+#: views/admin/index/browse.php:18
+msgid "Add a Page"
+msgstr "Agregar una Página"
+
+#: views/admin/index/browse.php:22
+msgid "Add a page."
+msgstr "Agregar una página."
+
+#: views/admin/index/browse.php:22
+msgid "There are no pages."
+msgstr "No hay páginas."
+
+#: views/admin/index/edit.php:3
+#, php-format
+msgid "Simple Pages | Edit \"%s\""
+msgstr "Simple Pages | Editar \"%s\""
+
+#: views/admin/index/edit.php:9
+#, php-format
+msgid ""
+"This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
+" <strong>%3$s</strong> on %4$s."
+msgstr "Esta página fue creada por <strong>%1$s</strong> en %2$s, y modificada la última vez por <strong>%3$s</strong> en %4$s."
+
+#: views/admin/index/edit.php:17
+msgid "Save Page"
+msgstr "Guardar Página"
+
+#: views/admin/index/edit.php:21
+msgid "Delete this Page"
+msgstr "Borrar esta Página"
+
+#: views/admin/index/form.php:9
+msgid "The title of the page (required)."
+msgstr "Título de la página (requerido)"
+
+#: views/admin/index/form.php:22
+msgid ""
+"The URL slug for the page. Automatically created from the title if not "
+"entered. Allowed characters: alphanumeric, underscores, dashes, and forward "
+"slashes."
+msgstr "Slug URL de la página. Es creado automáticamente a partir del título.\nCaracteres permitidos: alfanuméricos, guión abajo, guión y slash. "
+
+#: views/admin/index/form.php:29
+msgid "Text"
+msgstr "Texto"
+
+#: views/admin/index/form.php:38
+msgid ""
+"The content for the page (optional). HTML markup and PHP code are allowed."
+msgstr "Contenido de la página (opcional). Código HTML y PHP es permitido."
+
+#: views/admin/index/form.php:44
+msgid "Parent"
+msgstr "Relación"
+
+#: views/admin/index/form.php:47
+msgid "The parent page."
+msgstr "Páginas relacionadas."
+
+#: views/admin/index/form.php:58
+msgid ""
+"The order of the page relative to the other pages with the same parent."
+msgstr "El orden de la página con relación a otras páginas con la misma relación."
+
+#: views/admin/index/form.php:63
+msgid "Add this page to the primary navigation?"
+msgstr "¿Agregar esta página a la navegación principal?"
+
+#: views/admin/index/form.php:69
+msgid ""
+"Checking this box will add a link to this page to the theme's primary "
+"navigation. If custom header navigation is configured in the theme, a link "
+"to this page will not appear in the primary navigation unless you also add "
+"it to your theme's configuration."
+msgstr "Al seleccionar esta opción se agregará un vínculo a esta página en la barra de navegación principal del tema público del sitio."
+
+#: views/admin/index/form.php:74
+msgid "Make this page the home page?"
+msgstr "¿Hacer esta página la página principal?"
+
+#: views/admin/index/form.php:84
+msgid "Publish this page?"
+msgstr "¿Publicar esta página?"
+
+#: views/admin/index/form.php:90
+msgid ""
+"Checking this box will make the page public and it will appear in Simple "
+"Page navigation."
+msgstr "Al seleccionar esta opción la página será publica y aparecerá en la navegación de Simple Pages."
