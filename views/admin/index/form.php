@@ -1,3 +1,31 @@
+<?php echo js('tiny_mce/tiny_mce'); ?>
+<script type="text/javascript">
+jQuery(window).load(function() {
+    tinyMCE.init({
+        mode : 'exact', 
+        elements: '<?php if (simple_page('use_tiny_mce')) echo 'simple-pages-text'; ?>', 
+        
+        plugins: "paste,inlinepopups",
+        convert_urls: false,
+        theme: "advanced",
+        theme_advanced_toolbar_location: "top",
+        force_br_newlines: false,
+        forced_root_block: 'p', // Needed for 3.x
+        remove_linebreaks: true,
+        fix_content_duplication: false,
+        fix_list_elements: true,
+        valid_child_elements: "ul[li],ol[li]",
+        theme_advanced_buttons1: "bold,italic,underline,justifyleft,justifycenter,justifyright,bullist,numlist,link,formatselect,code",
+        theme_advanced_buttons2: "",
+        theme_advanced_buttons3: "",
+        theme_advanced_toolbar_align: "left"
+    });
+    jQuery('#simple-pages-use-tiny-mce').click(function() {
+        tinyMCE.execCommand('mceToggleEditor', true, 'simple-pages-text');
+    });
+});
+</script>
+
 <div class="field">
     <?php echo $this->formLabel('title', __('Title')); ?>
     <div class="inputs">
@@ -26,6 +54,19 @@
 </div>
 
 <div class="field">
+    <?php echo $this->formLabel('use_tiny_mce', __('Use rich-text editor?')); ?>
+    <div class="inputs">
+        <?php echo $this->formCheckbox('use_tiny_mce', 
+                                       simple_page('use_tiny_mce'), 
+                                       array('id' => 'simple-pages-use-tiny-mce'), 
+                                       array(1, 0)); ?>
+        <p class="explanation">
+            <?php echo __('This will enable a rich-text editor for the simple page text below. <strong>Warning</strong>: if enabled, PHP code will not be evaluated and and may be hidden from view. Be sure to remove PHP code that you don\'t want exposed in the HTML source.'); ?>
+        </p>    
+    </div>
+</div>
+
+<div class="field">
     <?php echo $this->formLabel('text', __('Text')); ?>
     <div class="inputs">
         <?php echo $this->formTextarea('text', 
@@ -35,7 +76,7 @@
                                              'cols'  => 66, 
                                              'rows'  => 20)); ?>
         <p class="explanation">
-            <?php echo __('The content for the page (optional). HTML markup and PHP code are allowed.'); ?>
+            <?php echo __('The content for the page (optional). HTML markup is allowed. PHP code is allowed if you are not using the rich-text editor.'); ?>
         </p>    
     </div>
 </div>

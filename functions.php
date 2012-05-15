@@ -22,6 +22,7 @@ function simple_pages_install()
       `order` int(10) unsigned NOT NULL,
       `parent_id` int(10) unsigned NOT NULL,
       `template` tinytext COLLATE utf8_unicode_ci NOT NULL,
+      `use_tiny_mce` tinyint(1) NOT NULL,
       PRIMARY KEY (`id`),
       KEY `is_published` (`is_published`),
       KEY `inserted` (`inserted`),
@@ -99,7 +100,12 @@ function simple_pages_upgrade($oldVersion, $newVersion)
             
             $sql = "ALTER TABLE `$db->SimplePagesPage` ADD `template` TINYTEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ";
             $db->query($sql);
-            
+        case '1.0':
+        case '1.1':
+        case '1.2':
+        case '1.2.1':
+            $sql = "ALTER TABLE `$db->SimplePagesPage` ADD `use_tiny_mce` TINYINT(1) NOT NULL";
+            $db->query($sql);
         break;
     }
 }

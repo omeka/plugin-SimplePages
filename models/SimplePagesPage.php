@@ -30,6 +30,7 @@ class SimplePagesPage extends Omeka_Record
     public $order = 0;
     public $parent_id = 0;
     public $template = '';
+    public $use_tiny_mce = 0;
     
     /**
      * Get the modified by user object.
