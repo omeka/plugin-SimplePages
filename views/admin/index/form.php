@@ -58,14 +58,14 @@ jQuery(window).load(function() {
 </div>
 
 <div class="field">
-    <?php echo $this->formLabel('use_tiny_mce', __('Use rich-text editor?')); ?>
+    <?php echo $this->formLabel('use_tiny_mce', __('Use HTML editor?')); ?>
     <div class="inputs">
         <?php echo $this->formCheckbox('use_tiny_mce', 
                                        simple_page('use_tiny_mce'), 
                                        array('id' => 'simple-pages-use-tiny-mce'), 
                                        array(1, 0)); ?>
         <p class="explanation">
-            <?php echo __('This will enable a rich-text editor for the simple page text below. <strong>Warning</strong>: if enabled, PHP code will not be evaluated and and may be hidden from view. Be sure to remove PHP code that you don\'t want exposed in the HTML source.'); ?>
+            <?php echo __('This will enable an HTML editor for the simple page text below. <strong>Warning</strong>: if enabled, PHP code will not be evaluated and may be hidden from view. Be sure to remove PHP code that you don\'t want exposed in the HTML source.'); ?>
         </p>    
     </div>
 </div>
@@ -80,7 +80,7 @@ jQuery(window).load(function() {
                                              'cols'  => 66, 
                                              'rows'  => 35)); ?>
         <p class="explanation">
-            <?php echo __('The content for the page (optional). HTML markup is allowed. PHP code is allowed if you are not using the rich-text editor.'); ?>
+            <?php echo __('The content for the page (optional). HTML markup is allowed. PHP code is allowed if you are not using the HTML editor.'); ?>
         </p>    
     </div>
 </div>
