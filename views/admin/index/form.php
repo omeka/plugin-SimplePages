@@ -1,27 +1,26 @@
 <?php echo js('tiny_mce/tiny_mce'); ?>
 <script type="text/javascript">
 jQuery(window).load(function() {
+    // Initialize and configure TinyMCE.
     tinyMCE.init({
-        mode : 'exact', 
-        elements: '<?php if (simple_page('use_tiny_mce')) echo 'simple-pages-text'; ?>', 
-        
-        plugins: "paste,inlinepopups",
-        convert_urls: false,
-        theme: "advanced",
-        theme_advanced_toolbar_location: "top",
-        force_br_newlines: false,
-        forced_root_block: 'p', // Needed for 3.x
-        remove_linebreaks: true,
-        fix_content_duplication: false,
-        fix_list_elements: true,
-        valid_child_elements: "ul[li],ol[li]",
-        theme_advanced_buttons1: "bold,italic,underline,justifyleft,justifycenter,justifyright,bullist,numlist,link,formatselect,code",
-        theme_advanced_buttons2: "",
-        theme_advanced_buttons3: "",
-        theme_advanced_toolbar_align: "left"
+        // Assign TinyMCE a textarea:
+        mode : 'exact',
+        elements: '<?php if (simple_page('use_tiny_mce')) echo 'simple-pages-text'; ?>',
+        // Configure theme:
+        theme: 'advanced',
+        theme_advanced_toolbar_location: 'top',
+        theme_advanced_toolbar_align: 'left',
+        // Allow object embed (see http://www.tinymce.com/forum/viewtopic.php?id=24539):
+        plugins: 'media',
+        media_strict: false,
     });
+    // Add or remove TinyMCE control.
     jQuery('#simple-pages-use-tiny-mce').click(function() {
-        tinyMCE.execCommand('mceToggleEditor', true, 'simple-pages-text');
+        if (jQuery(this).is(':checked')) {
+            tinyMCE.execCommand('mceAddControl', true, 'simple-pages-text');
+        } else {
+            tinyMCE.execCommand('mceRemoveControl', true, 'simple-pages-text');
+        }
     });
 });
 </script>
@@ -74,7 +73,7 @@ jQuery(window).load(function() {
                                        array('id'    => 'simple-pages-text', 
                                              'class' => 'textinput', 
                                              'cols'  => 66, 
-                                             'rows'  => 20)); ?>
+                                             'rows'  => 35)); ?>
         <p class="explanation">
             <?php echo __('The content for the page (optional). HTML markup is allowed. PHP code is allowed if you are not using the rich-text editor.'); ?>
         </p>    
