@@ -6,13 +6,18 @@ jQuery(window).load(function() {
         // Assign TinyMCE a textarea:
         mode : 'exact',
         elements: '<?php if (simple_page('use_tiny_mce')) echo 'simple-pages-text'; ?>',
+        // Add plugins:
+        plugins: 'media,paste,inlinepopups',
         // Configure theme:
         theme: 'advanced',
         theme_advanced_toolbar_location: 'top',
         theme_advanced_toolbar_align: 'left',
-        // Allow object embed (see http://www.tinymce.com/forum/viewtopic.php?id=24539):
-        plugins: 'media',
+        theme_advanced_buttons3_add : 'pastetext,pasteword,selectall',
+        // Allow object embed. Used by media plugin
+        // See http://www.tinymce.com/forum/viewtopic.php?id=24539
         media_strict: false,
+        // General configuration:
+        convert_urls: false,
     });
     // Add or remove TinyMCE control.
     jQuery('#simple-pages-use-tiny-mce').click(function() {
