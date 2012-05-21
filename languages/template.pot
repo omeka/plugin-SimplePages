@@ -45,43 +45,43 @@ msgstr ""
 msgid "The page \"%s\" has been deleted."
 msgstr ""
 
-#: functions.php:227
+#: functions.php:233
 msgid "Simple Pages"
 msgstr ""
 
-#: functions.php:249
+#: functions.php:255
 msgid "Main Page (No Parent)"
 msgstr ""
 
-#: models/SimplePagesPage.php:74
+#: models/SimplePagesPage.php:75
 msgid "The page must be given a title."
 msgstr ""
 
-#: models/SimplePagesPage.php:78
+#: models/SimplePagesPage.php:79
 msgid "The title for your page must be 255 characters or less."
 msgstr ""
 
-#: models/SimplePagesPage.php:82
+#: models/SimplePagesPage.php:83
 msgid "The title is already in use by another page. Please choose another."
 msgstr ""
 
-#: models/SimplePagesPage.php:86
+#: models/SimplePagesPage.php:87
 msgid "The page must be given a valid slug."
 msgstr ""
 
-#: models/SimplePagesPage.php:90
+#: models/SimplePagesPage.php:91
 msgid "The slug for your page must not be a forward slash."
 msgstr ""
 
-#: models/SimplePagesPage.php:94
+#: models/SimplePagesPage.php:95
 msgid "The slug for your page must be 255 characters or less."
 msgstr ""
 
-#: models/SimplePagesPage.php:98
+#: models/SimplePagesPage.php:99
 msgid "The slug is already in use by another page. Please choose another."
 msgstr ""
 
-#: models/SimplePagesPage.php:102
+#: models/SimplePagesPage.php:103
 msgid "The order must be an integer greater than or equal to 0."
 msgstr ""
 
@@ -109,7 +109,7 @@ msgstr ""
 msgid "Published"
 msgstr ""
 
-#: views/admin/index/browse-list.php:5 views/admin/index/form.php:14
+#: views/admin/index/browse-list.php:5 views/admin/index/form.php:46
 msgid "Slug"
 msgstr ""
 
@@ -165,43 +165,56 @@ msgstr ""
 msgid "Delete this Page"
 msgstr ""
 
-#: views/admin/index/form.php:9
+#: views/admin/index/form.php:41
 msgid "The title of the page (required)."
 msgstr ""
 
-#: views/admin/index/form.php:22
+#: views/admin/index/form.php:54
 msgid ""
 "The URL slug for the page. Automatically created from the title if not "
 "entered. Allowed characters: alphanumeric, underscores, dashes, and forward "
 "slashes."
 msgstr ""
 
-#: views/admin/index/form.php:29
+#: views/admin/index/form.php:61
+msgid "Use HTML editor?"
+msgstr ""
+
+#: views/admin/index/form.php:68
+msgid ""
+"This will enable an HTML editor for the simple page text below. "
+"<strong>Warning</strong>: if enabled, PHP code will not be evaluated and may "
+"be hidden from view. Be sure to remove PHP code that you don't want exposed "
+"in the HTML source."
+msgstr ""
+
+#: views/admin/index/form.php:74
 msgid "Text"
 msgstr ""
 
-#: views/admin/index/form.php:38
+#: views/admin/index/form.php:83
 msgid ""
-"The content for the page (optional). HTML markup and PHP code are allowed."
+"The content for the page (optional). HTML markup is allowed. PHP code is "
+"allowed if you are not using the HTML editor."
 msgstr ""
 
-#: views/admin/index/form.php:44
+#: views/admin/index/form.php:89
 msgid "Parent"
 msgstr ""
 
-#: views/admin/index/form.php:47
+#: views/admin/index/form.php:92
 msgid "The parent page."
 msgstr ""
 
-#: views/admin/index/form.php:58
+#: views/admin/index/form.php:103
 msgid "The order of the page relative to the other pages with the same parent."
 msgstr ""
 
-#: views/admin/index/form.php:63
+#: views/admin/index/form.php:108
 msgid "Add this page to the primary navigation?"
 msgstr ""
 
-#: views/admin/index/form.php:69
+#: views/admin/index/form.php:114
 msgid ""
 "Checking this box will add a link to this page to the theme's primary "
 "navigation. If custom header navigation is configured in the theme, a link "
@@ -209,15 +222,15 @@ msgid ""
 "it to your theme's configuration."
 msgstr ""
 
-#: views/admin/index/form.php:74
+#: views/admin/index/form.php:119
 msgid "Make this page the home page?"
 msgstr ""
 
-#: views/admin/index/form.php:84
+#: views/admin/index/form.php:129
 msgid "Publish this page?"
 msgstr ""
 
-#: views/admin/index/form.php:90
+#: views/admin/index/form.php:135
 msgid ""
 "Checking this box will make the page public and it will appear in Simple "
 "Page navigation."
