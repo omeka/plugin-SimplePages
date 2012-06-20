@@ -19,20 +19,20 @@ class SimplePages_IndexController extends Omeka_Controller_Action
     {
         // Set the model class so this controller can perform some functions, 
         // such as $this->findById()
-        $this->_modelClass = 'SimplePagesPage';
+        $this->_helper->db->setDefaultModelName('SimplePagesPage');
     }
     
     public function indexAction()
     {        
         // Always go to browse.
-        $this->redirect->goto('browse');
+        $this->_helper->redirector('browse');
         return;
     }
     
     public function browseAction()
     {
         // Get all the pages in the database, ordered by slug.
-        $pages = $this->getTable('SimplePagesPage')->findAllPagesOrderBySlug();
+        $pages = $this->_helper->db->getTable()->findAllPagesOrderBySlug();
         $this->view->simplePages = $pages;
     }
     
@@ -50,7 +50,7 @@ class SimplePages_IndexController extends Omeka_Controller_Action
     public function editAction()
     {
         // Get the requested page.
-        $page = $this->findById();        
+        $page = $this->_helper->db->findById();
         $this->_processPageForm($page, 'edit');
     }
     
@@ -72,9 +72,9 @@ class SimplePages_IndexController extends Omeka_Controller_Action
 
             if ($page->saveForm($_POST)) {
                 if ('add' == $action) {
-                    $this->flashSuccess(__('The page "%s" has been added.', $page->title));
+                    $this->_helper->flashMessenger(__('The page "%s" has been added.', $page->title), 'success');
                 } else if ('edit' == $action) {
-                    $this->flashSuccess(__('The page "%s" has been edited.', $page->title));
+                    $this->_helper->flashMessenger(__('The page "%s" has been edited.', $page->title), 'success');
                 }
                 
                 // store the simple_pages_home_page_id option
@@ -84,7 +84,7 @@ class SimplePages_IndexController extends Omeka_Controller_Action
                     set_option('simple_pages_home_page_id', '');
                 }
                 unset($_POST);
-                $this->redirect->goto('browse');
+                $this->_helper->redirector('browse');
                 return;
             }
         // Catch validation errors.

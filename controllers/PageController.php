@@ -19,13 +19,12 @@ class SimplePages_PageController extends Omeka_Controller_Action
     {
         // Ge the page object from the passed ID.
         $pageId = $this->_getParam('id');
-        $page = $this->getTable('SimplePagesPage')->find($pageId);
+        $page = $this->_helper->db->getTable('SimplePagesPage')->find($pageId);
         
         // Restrict access to the page when it is not published.
         if (!$page->is_published 
-            && !$this->isAllowed('show-unpublished')) {
-            $this->redirect->gotoUrl('403');
-            return;
+            && !$this->_helper->acl->isAllowed('show-unpublished')) {
+            throw new Omeka_Controller_Exception_403;
         }
         
         // Set the page object to the view.
