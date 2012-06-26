@@ -292,7 +292,7 @@ class SimplePagesControllerPlugin extends Zend_Controller_Plugin_Abstract
     */
     public function routeStartup(Zend_Controller_Request_Abstract $request)
     {
-        $router = Omeka_Context::getInstance()->getFrontController()->getRouter();
+        $router = Zend_Controller_Front::getInstance()->getRouter();
         
         // Add custom routes based on the page slug.
         $pages = get_db()->getTable('SimplePagesPage')->findAll();
