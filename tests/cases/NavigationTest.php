@@ -35,7 +35,7 @@ class SimplePages_NavigationTest extends SimplePages_Test_AppTestCase
         $testPage0->parent_id = $aboutPage->id;
         $testPage0->order = 0;
         $testPage0->save();
-        
+
         $this->dispatch('about');
         
         $expectedNav = '';
@@ -93,7 +93,7 @@ class SimplePages_NavigationTest extends SimplePages_Test_AppTestCase
         $testPage8->parent_id = $testPage6->id;
         $testPage8->order = 0;
         $testPage8->save();
-        
+
         $this->dispatch('about');
         
         $expectedNav = '';
@@ -143,7 +143,7 @@ class SimplePages_NavigationTest extends SimplePages_Test_AppTestCase
         $testPage0->order = 0;
         $testPage0->is_published = 0;
         $testPage0->save();
-        
+
         $this->dispatch('about');
         
         $expectedNav = '';
@@ -180,7 +180,7 @@ class SimplePages_NavigationTest extends SimplePages_Test_AppTestCase
         $testPage0->is_published = 0;
         $testPage0->add_to_public_nav = 0;
         $testPage0->save();
-        
+
         $this->dispatch('about');
         
         $expectedNav = '';

@@ -113,7 +113,6 @@ function simple_pages_upgrade($oldVersion, $newVersion)
 function simple_pages_initialize()
 {
     add_translation_source(dirname(__FILE__) . '/languages');
-    Zend_Controller_Front::getInstance()->registerPlugin(new SimplePagesControllerPlugin);
 }
 
 /**
@@ -142,6 +141,52 @@ function simple_pages_define_acl($acl)
     $acl->allow('admin', 'SimplePages_Page');
     $acl->allow(null, 'SimplePages_Page', 'show');
     $acl->deny(null, 'SimplePages_Page', 'show-unpublished');
+}
+
+/**
+ * Add the routes for accessing simple pages by slug, and for
+ * replacing the public-side home page.
+ *
+ * @param Zend_Controller_Router_Rewrite $router
+ */
+function simple_pages_define_routes($router)
+{
+    // No special routing for the admin side.
+    if (is_admin_theme()) {
+        return;
+    }
+
+    // Add custom routes based on the page slug.
+    $pages = get_db()->getTable('SimplePagesPage')->findAll();
+    foreach ($pages as $page) {
+        $router->addRoute(
+            'simple_pages_show_page_' . $page->id, 
+            new Zend_Controller_Router_Route(
+                $page->slug, 
+                array(
+                    'module'       => 'simple-pages', 
+                    'controller'   => 'page', 
+                    'action'       => 'show', 
+                    'id'           => $page->id
+                )
+            )
+        );
+
+        if (simple_pages_is_home_page($page)) {
+            $router->addRoute(
+                'simple_pages_show_home_page_' . $page->id, 
+                new Zend_Controller_Router_Route(
+                    '/', 
+                    array(
+                        'module'       => 'simple-pages', 
+                        'controller'   => 'page', 
+                        'action'       => 'show', 
+                        'id'           => $page->id
+                    )
+                )
+            );
+        } 
+    }
 }
 
 /**
@@ -281,49 +326,4 @@ function simple_pages_display_hierarchy($parentPageId = 0, $partialFilePath='ind
         $html .= '</ul>';
     }
     return $html;
-}
-
-class SimplePagesControllerPlugin extends Zend_Controller_Plugin_Abstract
-{
-    /**
-    *
-    * @param Zend_Controller_Request_Abstract $request
-    * @return void
-    */
-    public function routeStartup(Zend_Controller_Request_Abstract $request)
-    {
-        $router = Omeka_Context::getInstance()->getFrontController()->getRouter();
-        
-        // Add custom routes based on the page slug.
-        $pages = get_db()->getTable('SimplePagesPage')->findAll();
-        foreach($pages as $page) {
-            $router->addRoute(
-                'simple_pages_show_page_' . $page->id, 
-                new Zend_Controller_Router_Route(
-                    $page->slug, 
-                    array(
-                        'module'       => 'simple-pages', 
-                        'controller'   => 'page', 
-                        'action'       => 'show', 
-                        'id'           => $page->id
-                    )
-                )
-            );
-
-            if (simple_pages_is_home_page($page) && !is_admin_theme()) {
-                $router->addRoute(
-                    'simple_pages_show_home_page_' . $page->id, 
-                    new Zend_Controller_Router_Route(
-                        '/', 
-                        array(
-                            'module'       => 'simple-pages', 
-                            'controller'   => 'page', 
-                            'action'       => 'show', 
-                            'id'           => $page->id
-                        )
-                    )
-                );
-            } 
-        }
-    }
 }

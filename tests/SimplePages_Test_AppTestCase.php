@@ -22,7 +22,8 @@ class SimplePages_Test_AppTestCase extends Omeka_Test_AppTestCase
         $this->_addPluginHooksAndFilters($pluginBroker, self::PLUGIN_NAME);
         
         $pluginHelper = new Omeka_Test_Helper_Plugin;
-        $pluginHelper->setUp(self::PLUGIN_NAME);                
+        $pluginHelper->setUp(self::PLUGIN_NAME);
+        $this->_reloadRoutes();
     }
         
     public function _addPluginHooksAndFilters($pluginBroker, $pluginName)
@@ -91,5 +92,10 @@ class SimplePages_Test_AppTestCase extends Omeka_Test_AppTestCase
             $pages[] = $this->_addTestPage( $titlePrefix . $i, $slugPrefix . $i, $textPrefix . $i);
         }
         return $pages;
+    }
+
+    protected function _reloadRoutes()
+    {
+        simple_pages_define_routes(Zend_Controller_Front::getInstance()->getRouter());
     }
 }
