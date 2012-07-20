@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2012-03-09 10:21+0000\n"
-"Last-Translator: Matti Lassila <matti.lassila@gmail.com>\n"
-"Language-Team: Finnish (Finland) (http://www.transifex.net/projects/p/omeka/language/fi_FI/)\n"
+"PO-Revision-Date: 2012-05-21 19:45+0000\n"
+"Last-Translator: John Flatness <john@zerocrates.org>\n"
+"Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/omeka/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,43 +45,43 @@ msgstr "Sivua \"%s\" muokattiin. "
 msgid "The page \"%s\" has been deleted."
 msgstr "Sivu \"%s\" on poistettu."
 
-#: functions.php:227
+#: functions.php:233
 msgid "Simple Pages"
 msgstr "Sivut"
 
-#: functions.php:249
+#: functions.php:255
 msgid "Main Page (No Parent)"
 msgstr "Pääsivu (hierarkian ylin)"
 
-#: models/SimplePagesPage.php:74
+#: models/SimplePagesPage.php:75
 msgid "The page must be given a title."
 msgstr "Sivulla tulee olla otsikko."
 
-#: models/SimplePagesPage.php:78
+#: models/SimplePagesPage.php:79
 msgid "The title for your page must be 255 characters or less."
 msgstr "Sivun otsikon tulee olla 255 merkkiä tai vähemmän."
 
-#: models/SimplePagesPage.php:82
+#: models/SimplePagesPage.php:83
 msgid "The title is already in use by another page. Please choose another."
 msgstr "Otsikko on jo käytössä. Laadi uusi otsikko."
 
-#: models/SimplePagesPage.php:86
+#: models/SimplePagesPage.php:87
 msgid "The page must be given a valid slug."
 msgstr "Sivulla tulee olla URL-teksti, joka sisältää vain sallittuja merkkejä."
 
-#: models/SimplePagesPage.php:90
+#: models/SimplePagesPage.php:91
 msgid "The slug for your page must not be a forward slash."
 msgstr "URL-teksti ei saa olla kauttaviiva."
 
-#: models/SimplePagesPage.php:94
+#: models/SimplePagesPage.php:95
 msgid "The slug for your page must be 255 characters or less."
 msgstr "URL-tekstin tulee olla pituudeltaan 255 merkkiä tai vähemmän."
 
-#: models/SimplePagesPage.php:98
+#: models/SimplePagesPage.php:99
 msgid "The slug is already in use by another page. Please choose another."
 msgstr "URL-teksti on jo käytössä. Laadi uusi teksti."
 
-#: models/SimplePagesPage.php:102
+#: models/SimplePagesPage.php:103
 msgid "The order must be an integer greater than or equal to 0."
 msgstr "Järjestysnumeron tulee olla nollaa suurempi luku."
 
@@ -109,7 +109,7 @@ msgstr "Julkaisematon"
 msgid "Published"
 msgstr "Julkaistu"
 
-#: views/admin/index/browse-list.php:5 views/admin/index/form.php:14
+#: views/admin/index/browse-list.php:5 views/admin/index/form.php:46
 msgid "Slug"
 msgstr "URL-teksti"
 
@@ -165,44 +165,57 @@ msgstr "Tallenna sivu"
 msgid "Delete this Page"
 msgstr "Poista sivu"
 
-#: views/admin/index/form.php:9
+#: views/admin/index/form.php:41
 msgid "The title of the page (required)."
 msgstr "Sivun otsikko (vaaditaan)."
 
-#: views/admin/index/form.php:22
+#: views/admin/index/form.php:54
 msgid ""
 "The URL slug for the page. Automatically created from the title if not "
 "entered. Allowed characters: alphanumeric, underscores, dashes, and forward "
 "slashes."
 msgstr "Sivun URL-teksti. Mikäli URL-tekstiä ei ole annettu, se luodaan automaattisesti sivun otsikon pohjalta. Sallitut merkit: kirjaimet ja numerot, alaviiva, väliviiva ja kauttaviiva."
 
-#: views/admin/index/form.php:29
+#: views/admin/index/form.php:61
+msgid "Use HTML editor?"
+msgstr ""
+
+#: views/admin/index/form.php:68
+msgid ""
+"This will enable an HTML editor for the simple page text below. "
+"<strong>Warning</strong>: if enabled, PHP code will not be evaluated and may"
+" be hidden from view. Be sure to remove PHP code that you don't want exposed"
+" in the HTML source."
+msgstr ""
+
+#: views/admin/index/form.php:74
 msgid "Text"
 msgstr "Teksti"
 
-#: views/admin/index/form.php:38
+#: views/admin/index/form.php:83
 msgid ""
-"The content for the page (optional). HTML markup and PHP code are allowed."
-msgstr "Sivun sisältö. HTML-merkkaus ja PHP-koodi ovat sallittuja."
+"The content for the page (optional). HTML markup is allowed. PHP code is "
+"allowed if you are not using the HTML editor."
+msgstr ""
 
-#: views/admin/index/form.php:44
+#: views/admin/index/form.php:89
 msgid "Parent"
 msgstr "Yläsivu"
 
-#: views/admin/index/form.php:47
+#: views/admin/index/form.php:92
 msgid "The parent page."
 msgstr "Hierarkiassa ylempi sivu."
 
-#: views/admin/index/form.php:58
+#: views/admin/index/form.php:103
 msgid ""
 "The order of the page relative to the other pages with the same parent."
 msgstr "Sivun järjestys suhteessa muihin alisivuihin saman yläsivun alla."
 
-#: views/admin/index/form.php:63
+#: views/admin/index/form.php:108
 msgid "Add this page to the primary navigation?"
 msgstr "Lisää sivu päänavigointiin"
 
-#: views/admin/index/form.php:69
+#: views/admin/index/form.php:114
 msgid ""
 "Checking this box will add a link to this page to the theme's primary "
 "navigation. If custom header navigation is configured in the theme, a link "
@@ -210,15 +223,15 @@ msgid ""
 "it to your theme's configuration."
 msgstr "Lisää sivun päänavigointiin. Jos teemassa on määritelty oma päänavigointi, sivu täytyy lisätä navigointiin myös teeman asetuksista."
 
-#: views/admin/index/form.php:74
+#: views/admin/index/form.php:119
 msgid "Make this page the home page?"
 msgstr "Käytä etusivuna"
 
-#: views/admin/index/form.php:84
+#: views/admin/index/form.php:129
 msgid "Publish this page?"
 msgstr "Julkaise"
 
-#: views/admin/index/form.php:90
+#: views/admin/index/form.php:135
 msgid ""
 "Checking this box will make the page public and it will appear in Simple "
 "Page navigation."

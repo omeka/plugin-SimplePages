@@ -13,7 +13,7 @@ class SimplePages_SimplePageTest extends SimplePages_Test_AppTestCase
     {
         $this->_deleteAllPages(); 
         $page = $this->_addTestPage('Test Title', 'testslug', 'testtext' );
-        
+        $this->_reloadRoutes();        
         $this->dispatch('testslug');
         
         $this->assertEquals('Test Title', simple_page('title'));

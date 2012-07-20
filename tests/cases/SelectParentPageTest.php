@@ -36,7 +36,6 @@ class SimplePages_SelectParentPageTest extends SimplePages_Test_AppTestCase
         $selectHtml .= '    <option value="4" label="Test Title 3">Test Title 3</option>' . "\n";
         $selectHtml .= '    <option value="5" label="Test Title 4">Test Title 4</option>' . "\n";
         $selectHtml .= '</select>' . "\n";
-        
         $this->assertEquals($selectHtml, simple_pages_select_parent_page($testPage1));
     }
     
