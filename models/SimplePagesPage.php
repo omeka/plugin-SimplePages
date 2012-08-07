@@ -6,9 +6,6 @@
  * @package SimplePages
  */
 
-// Require the Simple Pages table class.
-require_once 'SimplePagesPageTable.php';
-
 /**
  * The Simple Pages page record class.
  *
@@ -16,7 +13,7 @@ require_once 'SimplePagesPageTable.php';
  * @author CHNM
  * @copyright Center for History and New Media, 2008
  */
-class SimplePagesPage extends Omeka_Record
+class SimplePagesPage extends Omeka_Record_AbstractRecord
 {
     public $modified_by_user_id;
     public $created_by_user_id;

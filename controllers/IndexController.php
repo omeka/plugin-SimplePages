@@ -13,7 +13,7 @@
  * @author CHNM
  * @copyright Center for History and New Media, 2008
  */
-class SimplePages_IndexController extends Omeka_Controller_Action
+class SimplePages_IndexController extends Omeka_Controller_AbstractActionController
 {    
     public function init()
     {
