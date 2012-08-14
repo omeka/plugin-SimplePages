@@ -26,8 +26,7 @@ function simple_pages_set_current_page($simplePage=null)
  *
  * @uses simple_pages_get_current_page()
  * @uses simple_pages_is_home_page()
- * @uses abs_uri()
- * @uses uri()
+ * @uses public_uri()
  * @uses simple_pages_get_links_for_children_pages()
  * @param integer|null The id of the parent page.  If null, it uses the current simple page
  * @param $currentDepth The number of levels down the subnavigation is.
@@ -62,9 +61,9 @@ function simple_pages_get_links_for_children_pages($parentId = null, $currentDep
     foreach ($pages as $page) {
         // If the simple page is set to be the home page, use the home page url instead of the slug
         if (simple_pages_is_home_page($page)) {
-           $uri = abs_uri('');
+           $uri = public_uri('');
         } else {
-            $uri = uri($page->slug);
+            $uri = public_uri($page->slug);
         }
 
         $subNavLinks = simple_pages_get_links_for_children_pages($page->id, $currentDepth + 1, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);
@@ -223,7 +222,7 @@ function simple_pages_navigation($parentId = 0, $currentDepth = null, $sort = 'o
 /**
  * Returns a breadcrumb for a given page.
  *
- * @uses uri(), html_escape()
+ * @uses public_uri(), html_escape()
  * @param integer|null The id of the page.  If null, it uses the current simple page.
  * @param string $separator The string used to separate each section of the breadcrumb.
  * @param boolean $includePage Whether to include the title of the current page.
@@ -258,10 +257,10 @@ function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $inc
                     $pageLinks[] = html_escape($bPage->title);
                 }
             } else {
-                $pageLinks[] = '<a href="' . uri($bPage->slug) .  '">' . html_escape($bPage->title) . '</a>';
+                $pageLinks[] = '<a href="' . public_uri($bPage->slug) .  '">' . html_escape($bPage->title) . '</a>';
             }
         }
-        $pageLinks[] = '<a href="'.uri('').'">' . __('Home') . '</a>';
+        $pageLinks[] = '<a href="'. public_uri('') . '">' . __('Home') . '</a>';
 
         // create the bread crumb
         $html .= implode(html_escape($seperator), array_reverse($pageLinks));
