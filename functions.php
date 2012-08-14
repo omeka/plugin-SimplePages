@@ -59,8 +59,10 @@ function simple_pages_uninstall()
     $db->query($sql);    
 }
 
-function simple_pages_upgrade($oldVersion, $newVersion)
+function simple_pages_upgrade($args)
 {
+    $oldVersion = $args['old_version'];
+    $newVersion = $args['new_version'];
     $db = get_db();
     
     switch($oldVersion) {
@@ -120,8 +122,10 @@ function simple_pages_initialize()
  * 
  * @param Omeka_Acl
  */
-function simple_pages_define_acl($acl)
+function simple_pages_define_acl($args)
 {
+    $acl = $args['acl'];
+
     // SimplePages administrative interface.
     // Omeka_Acl_Resource is deprecated in 2.0.
     if (version_compare(OMEKA_VERSION, '2.0-dev', '<')) {
@@ -149,8 +153,10 @@ function simple_pages_define_acl($acl)
  *
  * @param Zend_Controller_Router_Rewrite $router
  */
-function simple_pages_define_routes($router)
+function simple_pages_define_routes($args)
 {
+    $router = $args['router'];
+
     // No special routing for the admin side.
     if (is_admin_theme()) {
         return;
@@ -218,8 +224,11 @@ function simple_pages_page_caching_whitelist($whitelist)
  * @param $action
  * @return array The white list
  */
-function simple_pages_page_caching_blacklist_for_record($blacklist, $record, $action)
+function simple_pages_page_caching_blacklist_for_record($blacklist, $args)
 {
+    $record = $args['record'];
+    $action = $args['action'];
+
     if ($record instanceof SimplePagesPage) {
         $page = $record;
         if ($action == 'update' || $action == 'delete') {
@@ -249,8 +258,11 @@ function simple_pages_config()
  * @param HTMLPurifier $purifier
  * @return void
  **/
-function simple_pages_filter_html($request, $purifier)
+function simple_pages_filter_html($args)
 {
+    $request = $args['request'];
+    $purifier = $args['purifier'];
+
     // If we aren't editing or adding a page in SimplePages, don't do anything.
     if ($request->getModuleName() != 'simple-pages' or !in_array($request->getActionName(), array('edit', 'add'))) {
         return;
