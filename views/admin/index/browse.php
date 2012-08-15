@@ -4,8 +4,6 @@ $head = array('bodyclass' => 'simple-pages primary',
               'content_class' => 'horizontal-nav');
 head($head);
 ?>
-<h1><?php echo $head['title']; ?></h1>
-
 <ul id="section-nav" class="navigation">
     <li class="<?php if (isset($_GET['view']) &&  $_GET['view'] != 'hierarchy') {echo 'current';} ?>">
         <a href="<?php echo html_escape(uri('simple-pages/index/browse?view=list')); ?>"><?php echo __('List View'); ?></a>
