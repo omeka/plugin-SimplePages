@@ -7,7 +7,7 @@ head($head);
 <h1><?php echo $head['title']; ?></h1>
 
 <ul id="section-nav" class="navigation">
-    <li class="<?php if (isset($_GET['view']) &&  $_GET['view'] != 'hierarchy') {echo 'current';} ?>">
+    <li class="<?php if (!isset($_GET['view']) || $_GET['view'] == 'list') {echo 'current';} ?>">
         <a href="<?php echo html_escape(uri('simple-pages/index/browse?view=list')); ?>"><?php echo __('List View'); ?></a>
     </li>
     <li class="<?php if (isset($_GET['view']) && $_GET['view'] == 'hierarchy') {echo 'current';} ?>">
@@ -15,7 +15,6 @@ head($head);
     </li>
 </ul>
 
-<p id="add-page" class="add-button"><a class="add" href="<?php echo html_escape(uri('simple-pages/index/add')); ?>"><?php echo __('Add a Page'); ?></a></p>
 <div id="primary">
 <?php echo flash(); ?>
 <?php if (!has_simple_pages_for_loop()): ?>
@@ -28,4 +27,6 @@ head($head);
     <?php endif; ?>    
 <?php endif; ?>
 </div>
+
+<p id="add-page" class="add-button"><a class="add green button" href="<?php echo html_escape(uri('simple-pages/index/add')); ?>"><?php echo __('Add a Page'); ?></a></p>
 <?php foot(); ?>
