@@ -3,7 +3,6 @@ $head = array('bodyclass' => 'simple-pages primary',
               'title' => html_escape(__('Simple Pages | Add Page')));
 head($head);
 ?>
-<h1><?php echo $head['title']; ?></h1>
 <div id="primary">
     <?php echo flash(); ?>
     <form method="post">

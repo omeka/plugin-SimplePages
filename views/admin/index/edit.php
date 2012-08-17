@@ -3,7 +3,6 @@ $head = array('bodyclass' => 'simple-pages primary',
               'title' => html_escape(__('Simple Pages | Edit "%s"', simple_page('title'))));
 head($head);
 ?>
-<h1><?php echo $head['title']; ?></h1>
 <div id="primary">
     <?php echo flash(); ?>
     <p><?php echo __('This page was created by <strong>%1$s</strong> on %2$s, and last modified by <strong>%3$s</strong> on %4$s.',
