@@ -339,3 +339,9 @@ function simple_pages_display_hierarchy($parentPageId = 0, $partialFilePath='ind
     }
     return $html;
 }
+
+function simple_pages_search_record_types($recordTypes)
+{
+    $recordTypes[] = 'SimplePagesPage';
+    return $recordTypes;
+}

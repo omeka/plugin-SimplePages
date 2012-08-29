@@ -29,6 +29,11 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
     public $template = '';
     public $use_tiny_mce = 0;
     
+    protected function _initializeMixins()
+    {
+        $this->_mixins[] = new Mixin_Search($this);
+    }
+    
     /**
      * Get the modified by user object.
      * 
@@ -118,6 +123,15 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
         $this->updated = date('Y-m-d H:i:s');        
     }
     
+    protected function afterSave()
+    {
+        if (!$this->is_published) {
+            $this->setSearchTextPrivate();
+        }
+        $this->setSearchTextTitle($this->title);
+        $this->addSearchText($this->text);
+    }
+    
     /**
      * Generate a slug given a seed string.
      * 
@@ -164,5 +178,11 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
     public function getChildren()
     {
         return $this->getTable('SimplePagesPage')->findChildrenPages($this->id);
+    }
+    
+    public function getRecordRoute()
+    {
+        return array('module' => 'simple-pages', 'controller' => 'page', 
+                     'action' => 'show', 'id' => $this->id);
     }
 }

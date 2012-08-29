@@ -28,5 +28,7 @@ add_filter('public_navigation_main', 'simple_pages_public_navigation_main');
 add_filter('page_caching_whitelist', 'simple_pages_page_caching_whitelist');
 add_filter('page_caching_blacklist_for_record', 'simple_pages_page_caching_blacklist_for_record');
 
+add_filter('search_record_types', 'simple_pages_search_record_types');
+
 require_once SIMPLE_PAGES_DIR . '/helpers/SimplePageFunctions.php';
 require_once SIMPLE_PAGES_DIR . '/functions.php';
