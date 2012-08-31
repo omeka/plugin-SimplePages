@@ -180,9 +180,9 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
         return $this->getTable('SimplePagesPage')->findChildrenPages($this->id);
     }
     
-    public function getRecordRoute()
+    public function getRecordUrl()
     {
-        return array('module' => 'simple-pages', 'controller' => 'page', 
-                     'action' => 'show', 'id' => $this->id);
+        $urlHelper = new Omeka_View_Helper_Url;
+        return $urlHelper->url(array(), 'simple_pages_show_page_' . $this->id);
     }
 }

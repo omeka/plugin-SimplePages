@@ -157,11 +157,6 @@ function simple_pages_define_routes($args)
 {
     $router = $args['router'];
 
-    // No special routing for the admin side.
-    if (is_admin_theme()) {
-        return;
-    }
-
     // Add custom routes based on the page slug.
     $pages = get_db()->getTable('SimplePagesPage')->findAll();
     foreach ($pages as $page) {
