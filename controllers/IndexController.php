@@ -29,13 +29,6 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
         return;
     }
     
-    public function browseAction()
-    {
-        // Get all the pages in the database, ordered by slug.
-        $pages = $this->_helper->db->getTable()->findAllPagesOrderBySlug();
-        $this->view->simplePages = $pages;
-    }
-    
     public function addAction()
     {
         // Create a new page.
@@ -89,7 +82,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
             }
         // Catch validation errors.
         } catch (Omeka_Validator_Exception $e) {
-            $this->flashValidationErrors($e);
+            $this->_helper->flashMessenger($e);
         }
 
         // Set the page object to the view.
@@ -99,5 +92,10 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
     protected function _getDeleteSuccessMessage($record)
     {
         return __('The page "%s" has been deleted.', $record->title);
+    }
+
+    protected function _getPluralized($lower = false)
+    {
+        return 'simplePages';
     }
 }

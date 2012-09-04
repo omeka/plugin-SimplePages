@@ -31,24 +31,26 @@ jQuery(window).load(function() {
 </script>
 
 <div class="field">
-    <?php echo $this->formLabel('title', __('Title')); ?>
-    <div class="inputs">
+    <div class="two columns alpha">
+        <?php echo $this->formLabel('title', __('Title')); ?>
+    </div>
+    <div class="five columns omega inputs">
         <?php echo $this->formText('title', 
                                    simple_page('title'), 
-                                   array('id'    => 'simple-pages-title', 
-                                         'class' => 'textinput', 
+                                   array('id'    => 'simple-pages-title',
                                          'size'  => 40)); ?>
         <p class="explanation"><?php echo __('The title of the page (required).'); ?></p>
     </div>
 </div>
 
 <div class="field">
-    <?php echo $this->formLabel('slug', __('Slug')); ?>
-    <div class="inputs">
+    <div class="two columns alpha">
+        <?php echo $this->formLabel('slug', __('Slug')); ?>
+    </div>
+    <div class="five columns omega inputs">
         <?php echo $this->formText('slug', 
                                    simple_page('slug'), 
-                                   array('id'    => 'simple-pages-slug', 
-                                         'class' => 'textinput', 
+                                   array('id'    => 'simple-pages-slug',
                                          'size'  => 40)); ?>
         <p class="explanation">
             <?php echo __('The URL slug for the page. Automatically created from the title if not entered. Allowed characters: alphanumeric, underscores, dashes, and forward slashes.'); ?>
@@ -58,8 +60,10 @@ jQuery(window).load(function() {
 </div>
 
 <div class="field">
-    <?php echo $this->formLabel('use_tiny_mce', __('Use HTML editor?')); ?>
-    <div class="inputs">
+    <div class="two columns alpha">
+        <?php echo $this->formLabel('use_tiny_mce', __('Use HTML editor?')); ?>
+    </div>
+    <div class="five columns omega inputs">
         <?php echo $this->formCheckbox('use_tiny_mce', 
                                        simple_page('use_tiny_mce'), 
                                        array('id' => 'simple-pages-use-tiny-mce'), 
@@ -71,14 +75,15 @@ jQuery(window).load(function() {
 </div>
 
 <div class="field">
-    <?php echo $this->formLabel('text', __('Text')); ?>
-    <div class="inputs">
+    <div class="two columns alpha">
+        <?php echo $this->formLabel('text', __('Text')); ?>
+    </div>
+    <div class="five columns omega inputs">
         <?php echo $this->formTextarea('text', 
                                        simple_page('text'), 
-                                       array('id'    => 'simple-pages-text', 
-                                             'class' => 'textinput', 
-                                             'cols'  => 66, 
-                                             'rows'  => 35)); ?>
+                                       array('id'    => 'simple-pages-text',
+                                             'cols'  => 50, 
+                                             'rows'  => 25)); ?>
         <p class="explanation">
             <?php echo __('The content for the page (optional). HTML markup is allowed. PHP code is allowed if you are not using the HTML editor.'); ?>
         </p>    
@@ -86,27 +91,32 @@ jQuery(window).load(function() {
 </div>
 
 <div class="field">
-    <?php echo $this->formLabel('parent_id', __('Parent')); ?>
-    <div class="inputs">    
+    <div class="two columns alpha">
+        <?php echo $this->formLabel('parent_id', __('Parent')); ?>
+    </div>
+    <div class="five columns omega inputs">    
         <?php echo simple_pages_select_parent_page(get_current_simple_page()); ?> 
         <p class="explanation"><?php echo __('The parent page.'); ?></p>    
     </div>
 </div>
 
 <div class="field">
-    <?php echo $this->formLabel('order', __('Order')); ?>
-    <div class="inputs">
+    <div class="two columns alpha">
+        <?php echo $this->formLabel('order', __('Order')); ?>
+    </div>
+    <div class="five columns omega inputs">
         <?php echo $this->formText('order', 
                                    simple_page('order'), 
-                                   array('id'    => 'simple-pages-text', 
-                                             'class' => 'textinput')); ?>
+                                   array('id'    => 'simple-pages-text')); ?>
         <p class="explanation"><?php echo __('The order of the page relative to the other pages with the same parent.'); ?></p>    
     </div>
 </div>
 
 <div class="field">
-    <?php echo $this->formLabel('add_to_public_nav', __('Add this page to the primary navigation?')); ?>
-    <div class="inputs">
+    <div class="two columns alpha">
+        <?php echo $this->formLabel('add_to_public_nav', __('Add this page to the primary navigation?')); ?>
+    </div>
+    <div class="five columns omega inputs">
         <?php echo $this->formCheckbox('add_to_public_nav', 
                                        simple_page('add_to_public_nav'), 
                                        array('id' => 'simple-pages-add-to-public-nav'), 
@@ -116,8 +126,10 @@ jQuery(window).load(function() {
 </div>
 
 <div class="field">
-    <?php echo $this->formLabel('is_home_page', __('Make this page the home page?')); ?>
-    <div class="inputs">
+    <div class="two columns alpha">
+        <?php echo $this->formLabel('is_home_page', __('Make this page the home page?')); ?>
+    </div>
+    <div class="five columns omega inputs">
         <?php echo $this->formCheckbox('is_home_page', 
                                        (int) simple_pages_is_home_page(get_current_simple_page()), 
                                        array('id' => 'simple-pages-is-home-page'), 
@@ -126,8 +138,10 @@ jQuery(window).load(function() {
 </div>
 
 <div class="field">
-    <?php echo $this->formLabel('is_published', __('Publish this page?')); ?>
-    <div class="inputs">
+    <div class="two columns alpha">
+        <?php echo $this->formLabel('is_published', __('Publish this page?')); ?>
+    </div>
+    <div class="five columns omega inputs">
         <?php echo $this->formCheckbox('is_published', 
                                        simple_page('is_published'), 
                                        array('id' => 'simple-pages-is-published'), 

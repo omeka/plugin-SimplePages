@@ -12,10 +12,9 @@ head($head);
         <a href="<?php echo html_escape(uri('simple-pages/index/browse?view=hierarchy')); ?>"><?php echo __('Hierarchy View'); ?></a>
     </li>
 </ul>
-
-<p id="add-page" class="add-button"><a class="add" href="<?php echo html_escape(uri('simple-pages/index/add')); ?>"><?php echo __('Add a Page'); ?></a></p>
-<div id="primary">
 <?php echo flash(); ?>
+
+<a class="add-page button small green" href="<?php echo html_escape(uri('simple-pages/index/add')); ?>"><?php echo __('Add a Page'); ?></a>
 <?php if (!has_simple_pages_for_loop()): ?>
     <p><?php echo __('There are no pages.'); ?> <a href="<?php echo html_escape(uri('simple-pages/index/add')); ?>"><?php echo __('Add a page.'); ?></a></p>
 <?php else: ?>
@@ -25,5 +24,4 @@ head($head);
         <?php echo $this->partial('index/browse-list.php', array('simplePages' => get_simple_pages_for_loop())); ?>
     <?php endif; ?>    
 <?php endif; ?>
-</div>
 <?php foot(); ?>

@@ -53,20 +53,6 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
     {
         return $this->getTable('User')->find($this->created_by_user_id);
     }
-
-    /**
-     * Prepare certain variables for validation.
-     */
-    protected function beforeValidate()
-    {
-        $this->title = trim($this->title);
-        // Generate the page slug.
-        $this->slug = $this->_generateSlug($this->slug);
-        // If the resulting slug is empty, generate it from the page title.
-        if (empty($this->slug)) {
-            $this->slug = $this->_generateSlug($this->title);
-        }
-    }
     
     /**
      * Validate the form data.
@@ -111,6 +97,14 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
      */
     protected function beforeSave()
     {
+        $this->title = trim($this->title);
+        // Generate the page slug.
+        $this->slug = $this->_generateSlug($this->slug);
+        // If the resulting slug is empty, generate it from the page title.
+        if (empty($this->slug)) {
+            $this->slug = $this->_generateSlug($this->title);
+        }
+        
         if ($this->order == '') {
             $this->order = 0;
         }
