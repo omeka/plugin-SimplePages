@@ -123,6 +123,7 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
             $this->setSearchTextPrivate();
         }
         $this->setSearchTextTitle($this->title);
+        $this->addSearchText($this->title);
         $this->addSearchText($this->text);
     }
     
