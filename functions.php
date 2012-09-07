@@ -173,7 +173,7 @@ function simple_pages_define_routes($args)
             )
         );
 
-        if (simple_pages_is_home_page($page)) {
+        if (!is_admin_theme() && simple_pages_is_home_page($page)) {
             $router->addRoute(
                 'simple_pages_show_home_page_' . $page->id, 
                 new Zend_Controller_Router_Route(
