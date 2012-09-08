@@ -7,7 +7,7 @@
  **/
 function simple_pages_get_current_page()
 {
-    return __v()->simplePage;
+    return __v()->simple_pages_page;
 }
 
 /**
@@ -18,7 +18,7 @@ function simple_pages_get_current_page()
  **/
 function simple_pages_set_current_page($simplePage=null)
 {
-    __v()->simplePage = $simplePage;
+    __v()->simple_pages_page = $simplePage;
 }
 
 /**
@@ -121,7 +121,7 @@ function set_current_simple_page(SimplePagesPage $simplePage)
  **/
 function set_simple_pages_for_loop($simplePages)
 {
-    __v()->simplePages = $simplePages;
+    __v()->simple_pages_pages = $simplePages;
 }
 
 /**
@@ -131,7 +131,7 @@ function set_simple_pages_for_loop($simplePages)
  **/
 function get_simple_pages_for_loop()
 {
-    return __v()->simplePages;
+    return __v()->simple_pages_pages;
 }
 
 /**
@@ -141,7 +141,7 @@ function get_simple_pages_for_loop()
  */
 function loop_simple_pages()
 {
-    return loop_records('simplePages', get_simple_pages_for_loop(), 'set_current_simple_page');
+    return loop('simple_pages_pages', get_simple_pages_for_loop());
 }
 
 /**
@@ -161,7 +161,7 @@ function has_simple_pages()
 function has_simple_pages_for_loop()
 {
     $view = __v();
-    return ($view->simplePages and count($view->simplePages));
+    return ($view->simple_pages_pages and count($view->simple_pages_pages));
 }
 
 /**

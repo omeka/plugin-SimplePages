@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-    <?php while(loop_simple_pages()): ?>
+    <?php foreach (loop_simple_pages() as $simplePage): ?>
         <tr>
             <td>
                 <span class="title">
@@ -29,6 +29,6 @@
                 html_escape(format_date(simple_page('updated'), Zend_Date::DATETIME_MEDIUM))); ?>
             </td>
         </tr>
-    <?php endwhile; ?>
+    <?php endforeach; ?>
     </tbody>
 </table>

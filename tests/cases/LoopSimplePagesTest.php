@@ -69,7 +69,7 @@ class LoopSimplePagesTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        // loop_records() needs access to the view object, as you will discover
+        // loop() needs access to the view object, as you will discover
         // if you run these tests without this line.
         // This is not a real 'unit' test because Omeka_View has not been 
         // mocked out, but for what we need for this test, this is much easier.
@@ -85,7 +85,7 @@ class LoopSimplePagesTest extends PHPUnit_Framework_TestCase
     // really do anything except test the base case.
     public function testDoesNothingIfNoPages()
     {
-        while (loop_simple_pages()) {
+        foreach (loop_simple_pages() as $simplePage) {
             $this->fail("If it gets here, loop_simple_pages() must be broken.");
         }
     }
@@ -115,7 +115,7 @@ class LoopSimplePagesTest extends PHPUnit_Framework_TestCase
         set_simple_pages_for_loop($pages);
         
         $count = 0;
-        while (loop_simple_pages()) {
+        foreach (loop_simple_pages() as $simplePage) {
             $this->assertEquals(get_current_simple_page()->slug, $count + 1);
             $count++;
         }
