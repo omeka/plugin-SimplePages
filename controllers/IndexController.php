@@ -86,16 +86,11 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
         }
 
         // Set the page object to the view.
-        $this->view->simplePage = $page;
+        $this->view->simple_pages_page = $page;
     }
 
     protected function _getDeleteSuccessMessage($record)
     {
         return __('The page "%s" has been deleted.', $record->title);
-    }
-
-    protected function _getPluralized($lower = false)
-    {
-        return 'simplePages';
     }
 }
