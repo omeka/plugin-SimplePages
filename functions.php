@@ -282,7 +282,7 @@ function simple_pages_filter_html($args)
 function simple_pages_admin_navigation_main($nav)
 {
     if (has_permission('SimplePages_Index', 'browse')) {
-        $nav[__('Simple Pages')] = uri('simple-pages');
+        $nav[__('Simple Pages')] = url('simple-pages');
     }
     return $nav;
 }

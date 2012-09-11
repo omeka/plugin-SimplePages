@@ -19,7 +19,7 @@ head($head);
             __('Save Page'), 
             array('id'    => 'simple-pages-edit-submit', 
             'class' => 'submit big green button')); ?>
-        <a href="<?php echo uri(array('action' => 'delete-confirm')); ?>" class="big red button delete-confirm"><?php echo __('Delete'); ?></a>
+        <a href="<?php echo url(array('action' => 'delete-confirm')); ?>" class="big red button delete-confirm"><?php echo __('Delete'); ?></a>
     </div>
 </form>
 <?php foot(); ?>

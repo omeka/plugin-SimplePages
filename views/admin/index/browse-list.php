@@ -13,14 +13,14 @@
         <tr>
             <td>
                 <span class="title">
-                    <a href="<?php echo html_escape(public_uri(simple_page('slug'))); ?>"><?php echo html_escape(simple_page('title')) ; ?></a>
+                    <a href="<?php echo html_escape(public_url(simple_page('slug'))); ?>"><?php echo html_escape(simple_page('title')) ; ?></a>
                     <?php if(!simple_page('is_published')): ?>
                         (<?php echo __('Not Published'); ?>)
                     <?php endif; ?>
                 </span>
                 <ul class="action-links group">
-                    <li><a class="edit" href="<?php echo html_escape(uri("simple-pages/index/edit/id/" . simple_page('id'))) ?>"><?php echo __('Edit'); ?></a></li>
-                    <li><a class="delete-confirm" href="<?php echo html_escape(uri("simple-pages/index/delete-confirm/id/" . simple_page('id'))) ?>"><?php echo __('Delete'); ?></a></li>
+                    <li><a class="edit" href="<?php echo html_escape(url("simple-pages/index/edit/id/" . simple_page('id'))) ?>"><?php echo __('Edit'); ?></a></li>
+                    <li><a class="delete-confirm" href="<?php echo html_escape(url("simple-pages/index/delete-confirm/id/" . simple_page('id'))) ?>"><?php echo __('Delete'); ?></a></li>
                 </ul>
             </td>
             <td><?php echo html_escape(simple_page('slug')); ?></td>
