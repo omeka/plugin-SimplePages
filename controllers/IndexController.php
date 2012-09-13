@@ -52,37 +52,39 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
      */
     private function _processPageForm($page, $action)
     {
-        // Attempt to save the form if there is a valid POST. If the form 
-        // is successfully saved, set the flash message, unset the POST, 
-        // and redirect to the browse action.
-        try {
-            
-            // store and unset the is_home_page post variable
-            if (isset($_POST['is_home_page'])) {
-                $isHomePage = $_POST['is_home_page'];
-                unset($_POST['is_home_page']);
-            }
-
-            if ($page->saveForm($_POST)) {
-                if ('add' == $action) {
-                    $this->_helper->flashMessenger(__('The page "%s" has been added.', $page->title), 'success');
-                } else if ('edit' == $action) {
-                    $this->_helper->flashMessenger(__('The page "%s" has been edited.', $page->title), 'success');
-                }
+        if ($this->getRequest()->isPost()) {
+            // Attempt to save the form if there is a valid POST. If the form 
+            // is successfully saved, set the flash message, unset the POST, 
+            // and redirect to the browse action.
+            try {
                 
-                // store the simple_pages_home_page_id option
-                if ($isHomePage == '1') {                    
-                    set_option('simple_pages_home_page_id', $page->id);
-                } else if (get_option('simple_pages_home_page_id') == $page->id) {
-                    set_option('simple_pages_home_page_id', '');
+                // store and unset the is_home_page post variable
+                if (isset($_POST['is_home_page'])) {
+                    $isHomePage = $_POST['is_home_page'];
+                    unset($_POST['is_home_page']);
                 }
-                unset($_POST);
-                $this->_helper->redirector('browse');
-                return;
+                $page->setPostData($_POST);
+                if ($page->save()) {
+                    if ('add' == $action) {
+                        $this->_helper->flashMessenger(__('The page "%s" has been added.', $page->title), 'success');
+                    } else if ('edit' == $action) {
+                        $this->_helper->flashMessenger(__('The page "%s" has been edited.', $page->title), 'success');
+                    }
+                    
+                    // store the simple_pages_home_page_id option
+                    if ($isHomePage == '1') {                    
+                        set_option('simple_pages_home_page_id', $page->id);
+                    } else if (get_option('simple_pages_home_page_id') == $page->id) {
+                        set_option('simple_pages_home_page_id', '');
+                    }
+                    unset($_POST);
+                    $this->_helper->redirector('browse');
+                    return;
+                }
+            // Catch validation errors.
+            } catch (Omeka_Validator_Exception $e) {
+                $this->_helper->flashMessenger($e);
             }
-        // Catch validation errors.
-        } catch (Omeka_Validator_Exception $e) {
-            $this->_helper->flashMessenger($e);
         }
 
         // Set the page object to the view.

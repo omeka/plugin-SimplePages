@@ -95,7 +95,7 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
     /**
      * Prepare special variables before saving the form.
      */
-    protected function beforeSave()
+    protected function beforeSave($args)
     {
         $this->title = trim($this->title);
         // Generate the page slug.
@@ -117,7 +117,7 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
         $this->updated = date('Y-m-d H:i:s');        
     }
     
-    protected function afterSave()
+    protected function afterSave($args)
     {
         if (!$this->is_published) {
             $this->setSearchTextPrivate();
