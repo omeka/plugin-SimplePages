@@ -1,4 +1,4 @@
-<?php echo js('tiny_mce/tiny_mce'); ?>
+<?php echo js_src('tiny_mce/tiny_mce'); ?>
 <script type="text/javascript">
 jQuery(window).load(function() {
     // Initialize and configure TinyMCE.
