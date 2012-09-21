@@ -1,7 +1,7 @@
 <?php
 $head = array('bodyclass' => 'simple-pages primary', 
               'title' => html_escape(__('Simple Pages | Add Page')));
-head($head);
+echo head($head);
 ?>
 <?php echo flash(); ?>
 <form method="post">
@@ -15,4 +15,4 @@ head($head);
                                            'class' => 'submit big green button')); ?>
     </div>
 </form>
-<?php foot(); ?>
+<?php echo foot(); ?>

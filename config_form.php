@@ -1,7 +1,7 @@
 <div class="field">
     <label for="simple_pages_filter_page_content"><?php echo __('Filter User Input For Page Content?'); ?></label>
     <div class="inputs">
-    <?php echo __v()->formCheckbox('simple_pages_filter_page_content', true, 
+    <?php echo get_view()->formCheckbox('simple_pages_filter_page_content', true, 
     array('checked'=>(boolean)get_option('simple_pages_filter_page_content'))); ?>
     <p class="explanation">
     <?php

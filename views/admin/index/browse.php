@@ -2,7 +2,7 @@
 $head = array('bodyclass' => 'simple-pages primary',
               'title' => html_escape(__('Simple Pages | Browse')),
               'content_class' => 'horizontal-nav');
-head($head);
+echo head($head);
 ?>
 <ul id="section-nav" class="navigation">
     <li class="<?php if (isset($_GET['view']) &&  $_GET['view'] != 'hierarchy') {echo 'current';} ?>">
@@ -24,4 +24,4 @@ head($head);
         <?php echo $this->partial('index/browse-list.php', array('simplePages' => get_simple_pages_for_loop())); ?>
     <?php endif; ?>    
 <?php endif; ?>
-<?php foot(); ?>
+<?php echo foot(); ?>

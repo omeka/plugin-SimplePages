@@ -312,7 +312,7 @@ function simple_pages_select_parent_page($page)
         }
     }
     
-    return __v()->formSelect('parent_id', 
+    return get_view()->formSelect('parent_id', 
                        $page->parent_id,
                        array('id'=>'simple-pages-parent-id'),
                        $valuePairs) . "\n";
@@ -326,7 +326,7 @@ function simple_pages_display_hierarchy($parentPageId = 0, $partialFilePath='ind
         $html .= '<ul>';
         foreach($childrenPages as $childPage) {
             $html .= '<li>';
-            $html .= __v()->partial($partialFilePath, array('simplePage'=>$childPage));
+            $html .= get_view()->partial($partialFilePath, array('simplePage'=>$childPage));
             $html .= simple_pages_display_hierarchy($childPage->id, $partialFilePath);
             $html .= '</li>';
         }

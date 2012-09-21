@@ -1,7 +1,7 @@
 <?php
 $head = array('bodyclass' => 'simple-pages primary', 
               'title' => html_escape(__('Simple Pages | Edit "%s"', simple_page('title'))));
-head($head);
+echo head($head);
 ?>
 <?php echo flash(); ?>
 <p><?php echo __('This page was created by <strong>%1$s</strong> on %2$s, and last modified by <strong>%3$s</strong> on %4$s.',
@@ -22,4 +22,4 @@ head($head);
         <a href="<?php echo url(array('action' => 'delete-confirm')); ?>" class="big red button delete-confirm"><?php echo __('Delete'); ?></a>
     </div>
 </form>
-<?php foot(); ?>
+<?php echo foot(); ?>
