@@ -255,7 +255,7 @@ function simple_pages_config()
  **/
 function simple_pages_filter_html($args)
 {
-    $request = $args['request'];
+    $request = Zend_Controller_Front::getInstance()->getRequest();
     $purifier = $args['purifier'];
 
     // If we aren't editing or adding a page in SimplePages, don't do anything.
