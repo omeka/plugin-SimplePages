@@ -21,13 +21,6 @@ class SimplePages_PageController extends Omeka_Controller_AbstractActionControll
         $pageId = $this->_getParam('id');
         $page = $this->_helper->db->getTable('SimplePagesPage')->find($pageId);
         
-        // Redirect to the public theme's route if accessing the page via the 
-        // admin theme or if somehow using the default route.
-        $currentRouteName = $this->getFrontController()->getRouter()->getCurrentRouteName();
-        if (is_admin_theme() || 'default' == $currentRouteName) {
-            $this->_helper->redirector->goToUrl(WEB_ROOT . '/' . $page->slug);
-        }
-        
         // Restrict access to the page when it is not published.
         if (!$page->is_published 
             && !$this->_helper->acl->isAllowed('show-unpublished')) {
