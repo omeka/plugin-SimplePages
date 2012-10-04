@@ -186,10 +186,9 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
     
     public function getProperty($property)
     {
-        $propsArray = $this->toArray();
-        
-        if(array_key_exists($property, $propsArray)) {
-            return $propsArray[$property];
+        $property = str_replace(' ', '_', $property);
+        if (in_array($property, $this->getTable()->getColumns())) {
+            return $this->$property;
         } else {
             throw new InvalidArgumentException(__("'%s' is an invalid special value.", $property));
         }
