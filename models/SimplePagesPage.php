@@ -183,4 +183,15 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
         }
         return parent::getRecordUrl($action);
     }
+    
+    public function getProperty($property)
+    {
+        $propsArray = $this->toArray();
+        
+        if(array_key_exists($property, $propsArray)) {
+            return $propsArray[$property];
+        } else {
+            throw new InvalidArgumentException(__("'%s' is an invalid special value.", $property));
+        }
+    }
 }

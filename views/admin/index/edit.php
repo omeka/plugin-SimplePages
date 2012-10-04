@@ -45,6 +45,5 @@ jQuery(window).load(function() {
     html_escape(format_date(simple_page('inserted'), Zend_Date::DATETIME_MEDIUM)),
     html_escape(get_current_simple_page()->getModifiedByUser()->username), 
     html_escape(format_date(simple_page('updated'), Zend_Date::DATETIME_MEDIUM))); ?></p>
-<?php include 'form.php'; ?>
-<?php echo new SimplePagesAdminForm(array('record' => get_current_record('simple_pages_page'))); ?>
+<?php echo $form; ?>
 <?php echo foot(); ?>

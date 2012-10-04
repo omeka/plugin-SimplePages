@@ -37,6 +37,5 @@ jQuery(window).load(function() {
 });
 </script>
 <?php echo flash(); ?>
-        <?php include 'form.php'; ?>
-        <?php echo new SimplePagesAdminForm(); ?>
+<?php echo $form; ?>
 <?php echo foot(); ?>
