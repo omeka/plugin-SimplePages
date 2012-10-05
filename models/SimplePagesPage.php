@@ -183,4 +183,14 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
         return array('module' => 'simple-pages', 'controller' => 'index', 
                      'action' => $action, 'id' => $this->id);
     }
+    
+    public function getProperty($property)
+    {
+        $property = str_replace(' ', '_', $property);
+        if (in_array($property, $this->getTable()->getColumns())) {
+            return $this->$property;
+        } else {
+            throw new InvalidArgumentException(__("'%s' is an invalid special value.", $property));
+        }
+    }
 }

@@ -318,6 +318,18 @@ function simple_pages_select_parent_page($page)
                        $valuePairs) . "\n";
 }
 
+function simple_pages_get_parent_options($page)
+{
+    $valuePairs = array('0' => __('Main Page (No Parent)'));
+    $potentialParentPages = get_db()->getTable('SimplePagesPage')->findPotentialParentPages($page->id);
+    foreach($potentialParentPages as $potentialParentPage) {
+        if (trim($potentialParentPage->title) != '') {
+            $valuePairs[$potentialParentPage->id] = $potentialParentPage->title;
+        }
+    }
+    return $valuePairs;
+}
+
 function simple_pages_display_hierarchy($parentPageId = 0, $partialFilePath='index/browse-hierarchy-page.php')
 {
     $html = '';
