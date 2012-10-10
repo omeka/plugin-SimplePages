@@ -352,6 +352,6 @@ function simple_pages_display_hierarchy($parentPageId = 0, $partialFilePath='ind
 
 function simple_pages_search_record_types($recordTypes)
 {
-    $recordTypes['SimplePagesPage'] = __('Simple Pages');
+    $recordTypes['SimplePagesPage'] = __('Simple Page');
     return $recordTypes;
 }
