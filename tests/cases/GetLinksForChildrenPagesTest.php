@@ -81,7 +81,7 @@ class SimplePages_GetLinksForChildrenPagesTest extends SimplePages_Test_AppTestC
         
         $this->dispatch('/');
         
-        $actualNavLinks = simple_pages_get_links_for_children_pages($aboutPage->id, null, 'order', true, false);
+        $actualNavLinks = simple_pages_get_links_for_children_pages($aboutPage->id, 'order', true, false);
         $this->assertEquals(2, count($actualNavLinks));
         $expectedNavLinks = array();
         $expectedNavLinks['Test Title 1'] = '/testslug1';
@@ -138,7 +138,7 @@ class SimplePages_GetLinksForChildrenPagesTest extends SimplePages_Test_AppTestC
         
         $this->dispatch('/');
         
-        $actualNavLinks = simple_pages_get_links_for_children_pages($aboutPage->id, null, 'order', false, true);
+        $actualNavLinks = simple_pages_get_links_for_children_pages($aboutPage->id, 'order', false, true);
         $this->assertEquals(2, count($actualNavLinks));
         $expectedNavLinks = array();
         $expectedNavLinks['Test Title 2'] = array(

@@ -151,7 +151,7 @@ class SimplePages_NavigationTest extends SimplePages_Test_AppTestCase
         $expectedNav .= '<li class="nav-test-title-1"><a href="/testslug1">Test Title 1</a></li>' . "\n";
         $expectedNav .= '</ul>' . "\n";
         
-        $this->assertEquals($expectedNav, simple_pages_navigation($aboutPage->id, null, 'order', true, false));
+        $this->assertEquals($expectedNav, simple_pages_navigation($aboutPage->id, 'order', true, false));
     }
     
     public function testSimplePagesNavigationForOnlyAddToPublicNavChildrenPages()
@@ -188,6 +188,6 @@ class SimplePages_NavigationTest extends SimplePages_Test_AppTestCase
         $expectedNav .= '<li class="nav-test-title-2"><a href="/testslug2">Test Title 2</a></li>' . "\n";
         $expectedNav .= '</ul>' . "\n";
         
-        $this->assertEquals($expectedNav, simple_pages_navigation($aboutPage->id, null, 'order', false, true));
+        $this->assertEquals($expectedNav, simple_pages_navigation($aboutPage->id, 'order', false, true));
     }
 }

@@ -29,13 +29,12 @@ function simple_pages_set_current_page($simplePage=null)
  * @uses public_url()
  * @uses simple_pages_get_links_for_children_pages()
  * @param integer|null The id of the parent page.  If null, it uses the current simple page
- * @param $currentDepth The number of levels down the subnavigation is.
  * @param string The method by which you sort pages. Options are 'order' (default) and 'alpha'.
  * @param boolean Whether to return only published pages.
  * @param boolean Whether to return pages explicitly added to the public navigation.
  * @return array The navigation links.
  */
-function simple_pages_get_links_for_children_pages($parentId = null, $currentDepth = 0, $sort = 'order', $requiresIsPublished = false, $requiresIsAddToPublicNav = false)
+function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'order', $requiresIsPublished = false, $requiresIsAddToPublicNav = false)
 {
     if ($parentId === null) {
         $parentPage = simple_pages_get_current_page();
@@ -66,12 +65,18 @@ function simple_pages_get_links_for_children_pages($parentId = null, $currentDep
             $uri = public_url($page->slug);
         }
 
-        $subNavLinks = simple_pages_get_links_for_children_pages($page->id, $currentDepth + 1, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);
+        $subNavLinks = simple_pages_get_links_for_children_pages($page->id, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);
         if (count($subNavLinks) > 0) {
-            $subNavClass = 'subnav-' . ($currentDepth + 1);
-            $navLinks[$page->title] = array('uri' => $uri, 'subnav_attributes' => array('class' => $subNavClass), 'subnav_links' => $subNavLinks);
+            $navLinks[] = array(
+                'label' => $page->title,
+                'uri' => $uri,
+                'pages' => $subNavLinks
+            );
         } else {
-            $navLinks[$page->title] = $uri;
+            $navLinks[] = array(
+                'label' => $page->title,
+                'uri' => $uri
+            );
         }
     }
     return $navLinks;
@@ -201,20 +206,19 @@ function simple_page($propertyName, $options=array(), $simplePage=null)
 * @uses simple_pages_get_links_for_children_pages()
 * @uses nav()
 * @param integer|null The id of the parent page.  If null, it uses the current simple page
-* @param $currentDepth The number of levels down the subnavigation is.
 * @param string The method by which you sort pages. Options are 'order' (default) and 'alpha'.
 * @param boolean Whether to return only published pages.
 * @param boolean Whether to return pages explicitly added to the public navigation.
 * @return string
 **/
-function simple_pages_navigation($parentId = 0, $currentDepth = null, $sort = 'order', $requiresIsPublished = true, $requiresIsAddToPublicNav = false)
+function simple_pages_navigation($parentId = 0, $sort = 'order', $requiresIsPublished = true, $requiresIsAddToPublicNav = false)
 {
     $html = '';
-    $childPageLinks = simple_pages_get_links_for_children_pages($parentId, $currentDepth, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);
+    $childPageLinks = simple_pages_get_links_for_children_pages($parentId, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);
     if ($childPageLinks) {
-        $html .= '<ul class="simple-pages-navigation">' . "\n";
-        $html .= nav($childPageLinks, $currentDepth);
-        $html .= '</ul>' . "\n";
+        $html .= '<div class="simple-pages-navigation">' . "\n";
+        $html .= nav($childPageLinks);
+        $html .= '</div>' . "\n";
     }
     return $html;
 }

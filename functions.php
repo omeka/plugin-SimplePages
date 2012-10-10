@@ -281,9 +281,12 @@ function simple_pages_filter_html($args)
  */
 function simple_pages_admin_navigation_main($nav)
 {
-    if (is_allowed('SimplePages_Index', 'browse')) {
-        $nav[__('Simple Pages')] = url('simple-pages');
-    }
+    $nav[] = array(
+        'label' => __('Simple Pages'),
+        'uri' => url('simple-pages'),
+        'resource' => 'SimplePages_Index',
+        'privilege' => 'browse'
+    );
     return $nav;
 }
 
