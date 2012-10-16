@@ -155,7 +155,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                     return;
                 }
             // Catch validation errors.
-            } catch (Omeka_Validator_Exception $e) {
+            } catch (Omeka_Validate_Exception $e) {
                 $this->_helper->flashMessenger($e);
             }
         }
