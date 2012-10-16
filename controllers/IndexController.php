@@ -53,7 +53,12 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
     
     protected function _getForm($page = null)
     { 
-        $form = new Omeka_Form_Admin();
+        $formOptions = array('recordType' => 'simple_pages_page');
+        if($page && $page->exists()) {
+            $formOptions['record'] = $page;
+        }
+        
+        $form = new Omeka_Form_Admin($formOptions);
         $form->addElementToEditGroup('text',
                         'title',
                         array('id'=>'simple-pages-title',
