@@ -299,12 +299,7 @@ function simple_pages_admin_navigation_main($nav)
 function simple_pages_public_navigation_main($nav)
 {
     $navLinks = simple_pages_get_links_for_children_pages(0, 0, 'order', true, true);
-    foreach($navLinks as $text => $uri) {
-        $nav[] = array(
-            'label' => $text,
-            'uri' => $uri
-        );
-    }
+    $nav = array_merge($nav, $navLinks);
     return $nav;
 }
 
