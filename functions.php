@@ -282,34 +282,6 @@ function simple_pages_public_navigation_main($nav)
     return $nav;
 }
 
-function simple_pages_select_parent_page($page)
-{   
-    $valuePairs = array('0' => __('Main Page (No Parent)'));
-    $potentialParentPages = get_db()->getTable('SimplePagesPage')->findPotentialParentPages($page->id);    
-    foreach($potentialParentPages as $potentialParentPage) {
-        if (trim($potentialParentPage->title) != '') {
-            $valuePairs[$potentialParentPage->id] = $potentialParentPage->title;
-        }
-    }
-    
-    return get_view()->formSelect('parent_id', 
-                       $page->parent_id,
-                       array('id'=>'simple-pages-parent-id'),
-                       $valuePairs) . "\n";
-}
-
-function simple_pages_get_parent_options($page)
-{
-    $valuePairs = array('0' => __('Main Page (No Parent)'));
-    $potentialParentPages = get_db()->getTable('SimplePagesPage')->findPotentialParentPages($page->id);
-    foreach($potentialParentPages as $potentialParentPage) {
-        if (trim($potentialParentPage->title) != '') {
-            $valuePairs[$potentialParentPage->id] = $potentialParentPage->title;
-        }
-    }
-    return $valuePairs;
-}
-
 function simple_pages_search_record_types($recordTypes)
 {
     $recordTypes['SimplePagesPage'] = __('Simple Page');
