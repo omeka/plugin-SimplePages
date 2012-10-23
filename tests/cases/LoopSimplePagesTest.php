@@ -6,12 +6,6 @@
  * @package SimplePages
  **/
 
-// This is an example of why deeply nested test files can get confusing.
-// This test must include all the global helper functions as that job would
-// normally be handled by Omeka_Test_AppTestCase.
-// The number of '/../' makes it more difficult to understand where the file actually is.
-require_once dirname(__FILE__) . '/../../../../application/helpers/all.php';
-
 // Despite it seeming a bit ugly and verbose to do all these includes by hand,
 // it gives a much more accurate sense of all the dependencies that are required
 // for this one function to work.  The obvious advantage to this is that a new

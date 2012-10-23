@@ -24,8 +24,7 @@ class SimplePages_AclTest extends Omeka_Test_AppTestCase
         include PLUGIN_DIR . DIRECTORY_SEPARATOR . 'SimplePages' 
             . DIRECTORY_SEPARATOR . 'plugin.php';
         $this->pluginbroker->setCurrentPluginDirName(null);
-        simple_pages_define_acl($this->acl);    
-        self::dbChanged(false);
+        simple_pages_define_acl(array('acl' => $this->acl));
     }
 
     public function assertPreConditions()

@@ -18,7 +18,6 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
     public $modified_by_user_id;
     public $created_by_user_id;
     public $is_published = 0;
-    public $add_to_public_nav = 0;
     public $title;
     public $slug;
     public $text = null;
@@ -178,7 +177,7 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
     public function getRecordUrl($action = 'show')
     {
         if ('show' == $action) {
-            return public_url(array(), 'simple_pages_show_page_' . $this->id);
+            return public_url($this->slug);
         }
         return array('module' => 'simple-pages', 'controller' => 'index', 
                      'action' => $action, 'id' => $this->id);

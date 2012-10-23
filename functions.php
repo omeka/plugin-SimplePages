@@ -13,7 +13,6 @@ function simple_pages_install()
       `modified_by_user_id` int(10) unsigned NOT NULL,
       `created_by_user_id` int(10) unsigned NOT NULL,
       `is_published` tinyint(1) NOT NULL,
-      `add_to_public_nav` tinyint(1) NOT NULL,
       `title` tinytext COLLATE utf8_unicode_ci NOT NULL,
       `slug` tinytext COLLATE utf8_unicode_ci NOT NULL,
       `text` text COLLATE utf8_unicode_ci,
@@ -27,7 +26,6 @@ function simple_pages_install()
       KEY `is_published` (`is_published`),
       KEY `inserted` (`inserted`),
       KEY `updated` (`updated`),
-      KEY `add_to_public_nav` (`add_to_public_nav`),
       KEY `created_by_user_id` (`created_by_user_id`),
       KEY `modified_by_user_id` (`modified_by_user_id`),
       KEY `order` (`order`),
@@ -40,7 +38,6 @@ function simple_pages_install()
     $page->modified_by_user_id = current_user()->id;
     $page->created_by_user_id = current_user()->id;
     $page->is_published = 1;
-    $page->add_to_public_nav = 1;
     $page->parent_id = 0;
     $page->title = 'About';
     $page->slug = 'about';
@@ -108,6 +105,10 @@ function simple_pages_upgrade($args)
         case '1.2.1':
             $sql = "ALTER TABLE `$db->SimplePagesPage` ADD `use_tiny_mce` TINYINT(1) NOT NULL";
             $db->query($sql);
+        case '1.3':
+        case '1.3.1':
+            $db->query("ALTER TABLE `$db->SimplePagesPage` DROP `add_to_public_nav`");
+            delete_option('simple_pages_home_page_id');
         break;
     }
 }
@@ -125,36 +126,29 @@ function simple_pages_initialize()
 function simple_pages_define_acl($args)
 {
     $acl = $args['acl'];
-
-    // SimplePages administrative interface.
-    // Omeka_Acl_Resource is deprecated in 2.0.
-    if (version_compare(OMEKA_VERSION, '2.0-dev', '<')) {
-        $indexResource = new Omeka_Acl_Resource('SimplePages_Index');
-        $indexResource->add(array('add', 'delete', 'edit', 'browse'));
-        $pageResource = new Omeka_Acl_Resource('SimplePages_Page');
-        $pageResource->add(array('show-unpublished'));
-    } else {
-        $indexResource = new Zend_Acl_Resource('SimplePages_Index');
-        $pageResource = new Zend_Acl_Resource('SimplePages_Page');
-    }
+    
+    $indexResource = new Zend_Acl_Resource('SimplePages_Index');
+    $pageResource = new Zend_Acl_Resource('SimplePages_Page');
     $acl->add($indexResource);
     $acl->add($pageResource);
-    $acl->allow('super', 'SimplePages_Index');
-    $acl->allow('admin', 'SimplePages_Index');    
-    $acl->allow('super', 'SimplePages_Page');
-    $acl->allow('admin', 'SimplePages_Page');
+
+    $acl->allow(array('super', 'admin'), array('SimplePages_Index', 'SimplePages_Page'));
     $acl->allow(null, 'SimplePages_Page', 'show');
     $acl->deny(null, 'SimplePages_Page', 'show-unpublished');
 }
 
 /**
- * Add the routes for accessing simple pages by slug, and for
- * replacing the public-side home page.
- *
+ * Add the routes for accessing simple pages by slug.
+ * 
  * @param Zend_Controller_Router_Rewrite $router
  */
 function simple_pages_define_routes($args)
 {
+    // Don't add these routes on the admin side to avoid conflicts.
+    if (is_admin_theme()) {
+        return;
+    }
+
     $router = $args['router'];
 
     // Add custom routes based on the page slug.
@@ -172,21 +166,6 @@ function simple_pages_define_routes($args)
                 )
             )
         );
-
-        if (!is_admin_theme() && simple_pages_is_home_page($page)) {
-            $router->addRoute(
-                'simple_pages_show_home_page_' . $page->id, 
-                new Zend_Controller_Router_Route(
-                    '/', 
-                    array(
-                        'module'       => 'simple-pages', 
-                        'controller'   => 'page', 
-                        'action'       => 'show', 
-                        'id'           => $page->id
-                    )
-                )
-            );
-        } 
     }
 }
 
@@ -298,7 +277,7 @@ function simple_pages_admin_navigation_main($nav)
  */
 function simple_pages_public_navigation_main($nav)
 {
-    $navLinks = simple_pages_get_links_for_children_pages(0, 0, 'order', true, true);
+    $navLinks = simple_pages_get_links_for_children_pages(0, 0, 'order', true);
     $nav = array_merge($nav, $navLinks);
     return $nav;
 }

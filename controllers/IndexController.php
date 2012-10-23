@@ -118,7 +118,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                                 'values' => array(1, 0),
                                 'checked' => metadata($page, 'is_published'),
                                 'label' => 'Publish this page?',
-                                'description' => 'Checking this box will make the page public and it will appear in Simple Page navigation.'
+                                'description' => 'Checking this box will make the page public.'
                         ));
         
         return $form;
@@ -135,12 +135,6 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
             // is successfully saved, set the flash message, unset the POST, 
             // and redirect to the browse action.
             try {
-                
-                // store and unset the is_home_page post variable
-                if (isset($_POST['is_home_page'])) {
-                    $isHomePage = $_POST['is_home_page'];
-                    unset($_POST['is_home_page']);
-                }
                 $page->setPostData($_POST);
                 if ($page->save()) {
                     if ('add' == $action) {
@@ -149,13 +143,6 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                         $this->_helper->flashMessenger(__('The page "%s" has been edited.', $page->title), 'success');
                     }
                     
-                    // store the simple_pages_home_page_id option
-                    if ($isHomePage == '1') {                    
-                        set_option('simple_pages_home_page_id', $page->id);
-                    } else if (get_option('simple_pages_home_page_id') == $page->id) {
-                        set_option('simple_pages_home_page_id', '');
-                    }
-                    unset($_POST);
                     $this->_helper->redirector('browse');
                     return;
                 }

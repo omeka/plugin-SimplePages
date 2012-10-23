@@ -20,7 +20,6 @@ class SimplePages_SimplePageTest extends SimplePages_Test_AppTestCase
         $this->assertEquals('testtext', simple_page('text'));
         $this->assertEquals('testslug', simple_page('slug'));
         $this->assertEquals('1', simple_page('is_published'));
-        $this->assertEquals('1', simple_page('add_to_public_nav'));
         $this->assertEquals($this->user->id, simple_page('created_by_user_id'));
         $this->assertEquals($this->user->id, simple_page('modified_by_user_id'));
         $this->assertEquals(0, simple_page('order'));
@@ -35,7 +34,6 @@ class SimplePages_SimplePageTest extends SimplePages_Test_AppTestCase
         $this->assertEquals('testtext2', simple_page('text', array(), $page2));
         $this->assertEquals('testslug2', simple_page('slug', array(), $page2));
         $this->assertEquals('1', simple_page('is_published', array(), $page2));
-        $this->assertEquals('1', simple_page('add_to_public_nav', array(), $page2));
         $this->assertEquals($this->user->id, simple_page('created_by_user_id', array(), $page2));
         $this->assertEquals($this->user->id, simple_page('modified_by_user_id', array(), $page2));
         $this->assertEquals(0, simple_page('order', array(), $page2));

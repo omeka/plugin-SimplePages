@@ -25,16 +25,13 @@ function simple_pages_set_current_page($simplePage=null)
  * Get the public navigation links for children pages of a parent page.
  *
  * @uses simple_pages_get_current_page()
- * @uses simple_pages_is_home_page()
  * @uses public_url()
- * @uses simple_pages_get_links_for_children_pages()
  * @param integer|null The id of the parent page.  If null, it uses the current simple page
  * @param string The method by which you sort pages. Options are 'order' (default) and 'alpha'.
  * @param boolean Whether to return only published pages.
- * @param boolean Whether to return pages explicitly added to the public navigation.
  * @return array The navigation links.
  */
-function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'order', $requiresIsPublished = false, $requiresIsAddToPublicNav = false)
+function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'order', $requiresIsPublished = false)
 {
     if ($parentId === null) {
         $parentPage = simple_pages_get_current_page();
@@ -49,23 +46,15 @@ function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'or
     if ($requiresIsPublished) {
         $findBy['is_published'] = $requiresIsPublished ? 1 : 0;
     }
-    if ($requiresIsAddToPublicNav) {
-        $findBy['add_to_public_nav'] = $requiresIsAddToPublicNav ? 1 : 0;
-    }
 
     $pages = get_db()->getTable('SimplePagesPage')->findBy($findBy);
 
     $navLinks = array();
 
     foreach ($pages as $page) {
-        // If the simple page is set to be the home page, use the home page url instead of the slug
-        if (simple_pages_is_home_page($page)) {
-           $uri = public_url('');
-        } else {
-            $uri = public_url($page->slug);
-        }
+        $uri = public_url($page->slug);
 
-        $subNavLinks = simple_pages_get_links_for_children_pages($page->id, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);
+        $subNavLinks = simple_pages_get_links_for_children_pages($page->id, $sort, $requiresIsPublished);
         if (count($subNavLinks) > 0) {
             $navLinks[] = array(
                 'label' => $page->title,
@@ -75,25 +64,11 @@ function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'or
         } else {
             $navLinks[] = array(
                 'label' => $page->title,
-                'uri' => $uri
+                'uri' => $uri,
             );
         }
     }
     return $navLinks;
-}
-
-/**
- * Returns whether a simple page is the home page.
- *
- * @param SimplePagesPage The simple page
- * @return boolean
- */
-function simple_pages_is_home_page($simplePage)
-{
-    if ($simplePage === null || $simplePage->id === null) {
-        return false;
-    }
-    return (((string)$simplePage->id) == get_option('simple_pages_home_page_id'));
 }
 
 /**
@@ -208,13 +183,12 @@ function simple_page($propertyName, $options=array(), $simplePage=null)
 * @param integer|null The id of the parent page.  If null, it uses the current simple page
 * @param string The method by which you sort pages. Options are 'order' (default) and 'alpha'.
 * @param boolean Whether to return only published pages.
-* @param boolean Whether to return pages explicitly added to the public navigation.
 * @return string
-**/
-function simple_pages_navigation($parentId = 0, $sort = 'order', $requiresIsPublished = true, $requiresIsAddToPublicNav = false)
+*/
+function simple_pages_navigation($parentId = 0, $sort = 'order', $requiresIsPublished = true)
 {
     $html = '';
-    $childPageLinks = simple_pages_get_links_for_children_pages($parentId, $sort, $requiresIsPublished, $requiresIsAddToPublicNav);
+    $childPageLinks = simple_pages_get_links_for_children_pages($parentId, $sort, $requiresIsPublished);
     if ($childPageLinks) {
         $html .= '<div class="simple-pages-navigation">' . "\n";
         $html .= nav($childPageLinks);

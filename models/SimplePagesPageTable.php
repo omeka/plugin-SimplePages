@@ -30,8 +30,7 @@ class SimplePagesPageTable extends Omeka_Db_Table
     {
         $alias = $this->getTableAlias();
         $paramNames = array('parent_id', 
-                            'is_published', 
-                            'add_to_public_nav', 
+                            'is_published',
                             'title', 
                             'slug',
                             'created_by_user_id',
