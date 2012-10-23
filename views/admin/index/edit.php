@@ -3,7 +3,7 @@
 
 queue_js_file('tiny_mce/tiny_mce');
 $head = array('bodyclass' => 'simple-pages primary', 
-              'title' => html_escape(__('Simple Pages | Edit "%s"', simple_page('title'))));
+              'title' => __('Simple Pages | Edit "%s"', metadata('simple_pages_page', 'title')));
 echo head($head);
 ?>
 
@@ -14,7 +14,7 @@ jQuery(window).load(function() {
     tinyMCE.init({
         // Assign TinyMCE a textarea:
         mode : 'exact',
-        elements: '<?php if (simple_page('use_tiny_mce')) echo 'simple-pages-text'; ?>',
+        elements: '<?php if ($simple_pages_page->use_tiny_mce) echo 'simple-pages-text'; ?>',
         // Add plugins:
         plugins: 'media,paste,inlinepopups',
         // Configure theme:
@@ -41,9 +41,9 @@ jQuery(window).load(function() {
 
 <?php echo flash(); ?>
 <p><?php echo __('This page was created by <strong>%1$s</strong> on %2$s, and last modified by <strong>%3$s</strong> on %4$s.',
-    html_escape(get_current_simple_page()->getCreatedByUser()->username),
-    html_escape(format_date(simple_page('inserted'), Zend_Date::DATETIME_MEDIUM)),
-    html_escape(get_current_simple_page()->getModifiedByUser()->username), 
-    html_escape(format_date(simple_page('updated'), Zend_Date::DATETIME_MEDIUM))); ?></p>
+    metadata('simple_pages_page', 'created_username'),
+    html_escape(format_date(metadata('simple_pages_page', 'inserted'), Zend_Date::DATETIME_SHORT)),
+    metadata('simple_pages_page', 'modified_username'), 
+    html_escape(format_date(metadata('simple_pages_page', 'updated'), Zend_Date::DATETIME_SHORT))); ?></p>
 <?php echo $form; ?>
 <?php echo foot(); ?>

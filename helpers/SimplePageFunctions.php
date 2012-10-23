@@ -1,30 +1,8 @@
 <?php
 
 /**
- * Returns the current simple page.
- *
- * @return SimplePagesPage|null
- **/
-function simple_pages_get_current_page()
-{
-    return get_view()->simple_pages_page;
-}
-
-/**
- * Sets the current simple page.
- *
- * @param SimplePagesPage|null $simplePage
- * @return void
- **/
-function simple_pages_set_current_page($simplePage=null)
-{
-    get_view()->simple_pages_page = $simplePage;
-}
-
-/**
  * Get the public navigation links for children pages of a parent page.
  *
- * @uses simple_pages_get_current_page()
  * @uses public_url()
  * @param integer|null The id of the parent page.  If null, it uses the current simple page
  * @param string The method by which you sort pages. Options are 'order' (default) and 'alpha'.
@@ -34,7 +12,7 @@ function simple_pages_set_current_page($simplePage=null)
 function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'order', $requiresIsPublished = false)
 {
     if ($parentId === null) {
-        $parentPage = simple_pages_get_current_page();
+        $parentPage = get_current_record('simple_pages_page', false);
         if ($parentPage) {
             $parentId = $parentPage->id;
         } else {
@@ -72,110 +50,6 @@ function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'or
 }
 
 /**
-* Gets the current simple page
-*
-* @return SimplePagesPage|null
-**/
-function get_current_simple_page()
-{
-    return simple_pages_get_current_page();
-}
-
-/**
- * Sets the current simple page
- *
- * @see loop_simple_pages()
- * @param SimplePagesPage
- * @return void
- **/
-function set_current_simple_page(SimplePagesPage $simplePage)
-{
-   simple_pages_set_current_page($simplePage);
-}
-
-/**
- * Sets the simple pages for loop
- *
- * @param array $simplePages
- * @return void
- **/
-function set_simple_pages_for_loop($simplePages)
-{
-    get_view()->simple_pages_pages = $simplePages;
-}
-
-/**
- * Get the set of simple pages for the current loop.
- *
- * @return array
- **/
-function get_simple_pages_for_loop()
-{
-    return get_view()->simple_pages_pages;
-}
-
-/**
- * Loops through simple pages assigned to the view.
- *
- * @return mixed The current simple page
- */
-function loop_simple_pages()
-{
-    return loop('simple_pages_pages', get_simple_pages_for_loop());
-}
-
-/**
- * Determine whether or not there are any simple pages in the database.
- *
- * @return boolean
- **/
-function has_simple_pages()
-{
-    return (total_simple_pages() > 0);
-}
-
-/**
- * Determines whether there are any simple pages for loop.
- * @return boolean
- */
-function has_simple_pages_for_loop()
-{
-    $view = get_view();
-    return ($view->simple_pages_pages and count($view->simple_pages_pages));
-}
-
-/**
-  * Returns the total number of simple pages in the database
-  *
-  * @return integer
-  **/
- function total_simple_pages()
- {
-     return get_db()->getTable('SimplePagesPage')->count();
- }
-
-/**
-* Gets a property from an simple page
-*
-* @param string $propertyName
-* @param array $options
-* @param Exhibit $simplePage  The simple page
-* @return mixed The simple page property value
-**/
-function simple_page($propertyName, $options=array(), $simplePage=null)
-{
-    if (!$simplePage) {
-        $simplePage = get_current_simple_page();
-    }
-
-    if (property_exists(get_class($simplePage), $propertyName)) {
-        return $simplePage->$propertyName;
-    } else {
-        return null;
-    }
-}
-
-/**
 * Returns a nested unordered list of SimplePage links
 *
 * @uses simple_pages_get_links_for_children_pages()
@@ -210,7 +84,7 @@ function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $inc
     $html = '';
 
     if ($pageId === null) {
-        $page = get_current_simple_page();
+        $page = get_current_record('simple_pages_page', false);
     } else {
         $page = get_db()->getTable('SimplePagesPage')->find($pageId);
     }
@@ -246,17 +120,33 @@ function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $inc
     return $html;
 }
 
+function simple_pages_display_hierarchy($parentPageId = 0, $partialFilePath = 'index/browse-hierarchy-page.php')
+{
+    $html = '';
+    $childrenPages = get_db()->getTable('SimplePagesPage')->findChildrenPages($parentPageId);
+    if (count($childrenPages)) {        
+        $html .= '<ul>';
+        foreach($childrenPages as $childPage) {
+            $html .= '<li>';
+            $html .= get_view()->partial($partialFilePath, array('simple_pages_page' => $childPage));
+            $html .= simple_pages_display_hierarchy($childPage->id, $partialFilePath);
+            $html .= '</li>';
+        }
+        $html .= '</ul>';
+    }
+    return $html;
+}
+
 /**
  * Returns the earliest ancestor page for a given page.
  *
- * @uses get_current_simple_page()
  * @param integer|null The id of the page. If null, it uses the current simple page.
  * @return SimplePagesPage|null
  **/
 function simple_pages_earliest_ancestor_page($pageId)
 {
     if ($pageId === null) {
-        $page = get_current_simple_page();
+        $page = get_current_record('simple_pages_page');
     } else {
         $page = get_db()->getTable('SimplePagesPage')->find($pageId);
     }

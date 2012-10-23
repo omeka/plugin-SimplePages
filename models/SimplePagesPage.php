@@ -185,11 +185,13 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord
     
     public function getProperty($property)
     {
-        $property = str_replace(' ', '_', $property);
-        if (in_array($property, $this->getTable()->getColumns())) {
-            return $this->$property;
-        } else {
-            throw new InvalidArgumentException(__("'%s' is an invalid special value.", $property));
+        switch($property) {
+            case 'created_username':
+                return $this->getCreatedByUser()->username;
+            case 'modified_username':
+                return $this->getModifiedByUser()->username;
+            default:
+                return parent::getProperty($property);
         }
     }
 }

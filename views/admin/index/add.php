@@ -12,7 +12,7 @@ jQuery(window).load(function() {
     tinyMCE.init({
         // Assign TinyMCE a textarea:
         mode : 'exact',
-        elements: '<?php if (simple_page('use_tiny_mce')) echo 'simple-pages-text'; ?>',
+        elements: '<?php if ($simple_pages_page->use_tiny_mce) echo 'simple-pages-text'; ?>',
         // Add plugins:
         plugins: 'media,paste,inlinepopups',
         // Configure theme:

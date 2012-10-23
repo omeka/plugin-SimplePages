@@ -310,23 +310,6 @@ function simple_pages_get_parent_options($page)
     return $valuePairs;
 }
 
-function simple_pages_display_hierarchy($parentPageId = 0, $partialFilePath='index/browse-hierarchy-page.php')
-{
-    $html = '';
-    $childrenPages = get_db()->getTable('SimplePagesPage')->findChildrenPages($parentPageId);
-    if (count($childrenPages)) {        
-        $html .= '<ul>';
-        foreach($childrenPages as $childPage) {
-            $html .= '<li>';
-            $html .= get_view()->partial($partialFilePath, array('simplePage'=>$childPage));
-            $html .= simple_pages_display_hierarchy($childPage->id, $partialFilePath);
-            $html .= '</li>';
-        }
-        $html .= '</ul>';
-    }
-    return $html;
-}
-
 function simple_pages_search_record_types($recordTypes)
 {
     $recordTypes['SimplePagesPage'] = __('Simple Page');
