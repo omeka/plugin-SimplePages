@@ -1,4 +1,10 @@
 <?php
+/**
+ * Simple Pages
+ *
+ * @copyright Copyright 2008-2012 Roy Rosenzweig Center for History and New Media
+ * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU GPLv3
+ */
 
 /**
  * Get the public navigation links for children pages of a parent page.
@@ -78,7 +84,7 @@ function simple_pages_navigation($parentId = 0, $sort = 'order', $requiresIsPubl
  * @param integer|null The id of the page.  If null, it uses the current simple page.
  * @param string $separator The string used to separate each section of the breadcrumb.
  * @param boolean $includePage Whether to include the title of the current page.
- **/
+ */
 function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $includePage=true)
 {
     $html = '';
@@ -142,7 +148,7 @@ function simple_pages_display_hierarchy($parentPageId = 0, $partialFilePath = 'i
  *
  * @param integer|null The id of the page. If null, it uses the current simple page.
  * @return SimplePagesPage|null
- **/
+ */
 function simple_pages_earliest_ancestor_page($pageId)
 {
     if ($pageId === null) {

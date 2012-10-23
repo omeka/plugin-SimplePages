@@ -1,31 +1,20 @@
 <?php
 /**
- * @version $Id$
- * @copyright Center for History and New Media, 2007-2010
- * @license http://www.gnu.org/licenses/gpl-3.0.txt
- * @package SimplePages
+ * Simple Pages
+ *
+ * @copyright Copyright 2008-2012 Roy Rosenzweig Center for History and New Media
+ * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU GPLv3
  */
 
 /**
- * 
+ * Test the ACL for SimplePages.
  *
  * @package SimplePages
- * @copyright Center for History and New Media, 2007-2010
  */
-class SimplePages_AclTest extends Omeka_Test_AppTestCase
+class SimplePages_AclTest extends SimplePages_Test_AppTestCase
 {
     const PAGE_RESOURCE = 'SimplePages_Page';
     const ADMIN_RESOURCE = 'SimplePages_Index';
-    
-    public function setUp()
-    {
-        parent::setUp();
-        $this->pluginbroker->setCurrentPluginDirName('SimplePages');
-        include PLUGIN_DIR . DIRECTORY_SEPARATOR . 'SimplePages' 
-            . DIRECTORY_SEPARATOR . 'plugin.php';
-        $this->pluginbroker->setCurrentPluginDirName(null);
-        simple_pages_define_acl(array('acl' => $this->acl));
-    }
 
     public function assertPreConditions()
     {

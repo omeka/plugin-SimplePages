@@ -1,17 +1,15 @@
 <?php
 /**
- * @version $Id$
- * @copyright Center for History and New Media, 2008
- * @license http://www.gnu.org/licenses/gpl-3.0.txt
- * @package SimplePages
+ * Simple Pages
+ *
+ * @copyright Copyright 2008-2012 Roy Rosenzweig Center for History and New Media
+ * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU GPLv3
  */
 
 /**
  * The Simple Pages page record class.
  *
  * @package SimplePages
- * @author CHNM
- * @copyright Center for History and New Media, 2008
  */
 class SimplePagesPage extends Omeka_Record_AbstractRecord
 {

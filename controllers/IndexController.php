@@ -1,17 +1,15 @@
 <?php
 /**
- * @version $Id$
- * @copyright Center for History and New Media, 2008
- * @license http://www.gnu.org/licenses/gpl-3.0.txt
- * @package SimplePages
+ * Simple Pages
+ *
+ * @copyright Copyright 2008-2012 Roy Rosenzweig Center for History and New Media
+ * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU GPLv3
  */
 
 /**
  * The Simple Pages index controller class.
  *
  * @package SimplePages
- * @author CHNM
- * @copyright Center for History and New Media, 2008
  */
 class SimplePages_IndexController extends Omeka_Controller_AbstractActionController
 {    
@@ -23,7 +21,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
     }
     
     public function indexAction()
-    {        
+    {
         // Always go to browse.
         $this->_helper->redirector('browse');
         return;
@@ -31,7 +29,6 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
     
     public function addAction()
     {
-                
         // Create a new page.
         $page = new SimplePagesPage;
         

@@ -1,17 +1,15 @@
 <?php
 /**
- * @version $Id$
- * @copyright Center for History and New Media, 2008
- * @license http://www.gnu.org/licenses/gpl-3.0.txt
- * @package SimplePages
+ * Simple Pages
+ *
+ * @copyright Copyright 2008-2012 Roy Rosenzweig Center for History and New Media
+ * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU GPLv3
  */
 
 /**
  * The Simple Pages page table class.
  *
  * @package SimplePages
- * @author CHNM
- * @copyright Center for History and New Media, 2008
  */
 class SimplePagesPageTable extends Omeka_Db_Table
 {
@@ -19,7 +17,7 @@ class SimplePagesPageTable extends Omeka_Db_Table
      * Find all pages, ordered by slug name.
      *
      * @return array The pages ordered alphabetically by their slugs
-     **/
+     */
     public function findAllPagesOrderBySlug()
     {
         $select = $this->getSelect()->order('slug');
@@ -143,7 +141,7 @@ class SimplePagesPageTable extends Omeka_Db_Table
      *
      * @param integer $pageId The id of the page whose potential parent pages are returned.
      * @return array The potential parent pages.
-     **/
+     */
     public function findPotentialParentPages($pageId)
     {
         // create a page lookup table for all of the pages
@@ -170,7 +168,7 @@ class SimplePagesPageTable extends Omeka_Db_Table
     *
     * @param integer $pageId The id of the page whose ancestors are returned.
     * @return array The array of ancestor pages.
-    **/
+    */
     public function findAncestorPages($pageId) 
     {        
         // set the default ancestor pages to an empty array
