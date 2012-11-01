@@ -320,7 +320,9 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
      * where the key is a regular expression of relative urls to blacklist 
      * and the value is an array of Zend_Cache front end settings
      * @param $record
-     * @param $action
+     * @param $args Filter arguments. contains:
+     * - record: the record
+     * - action: the action
      * @return array The blacklist
      */
     function filterPageCachingBlacklistForRecord($blacklist, $args)
