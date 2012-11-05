@@ -37,7 +37,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     /**
      * Install the plugin.
      */
-    function hookInstall()
+    public function hookInstall()
     {
         // Create the table.
         $db = get_db();
@@ -84,7 +84,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     /**
      * Uninstall the plugin.
      */
-    function hookUninstall()
+    public function hookUninstall()
     {        
         // Drop the table.
         $db = get_db();
@@ -99,7 +99,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
      *
      * @param array $args contains: 'old_version' and 'new_version'
      */
-    function hookUpgrade($args)
+    public function hookUpgrade($args)
     {
         $oldVersion = $args['old_version'];
         $newVersion = $args['new_version'];
@@ -154,7 +154,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     /**
      * Add the translations.
      */
-    function hookInitialize()
+    public function hookInitialize()
     {
         add_translation_source(dirname(__FILE__) . '/languages');
     }
@@ -164,7 +164,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
      * 
      * @param Omeka_Acl
      */
-    function hookDefineAcl($args)
+    public function hookDefineAcl($args)
     {
         $acl = $args['acl'];
         
@@ -183,7 +183,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
      * 
      * @param Zend_Controller_Router_Rewrite $router
      */
-    function hookDefineRoutes($args)
+    public function hookDefineRoutes($args)
     {
         // Don't add these routes on the admin side to avoid conflicts.
         if (is_admin_theme()) {
@@ -213,7 +213,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     /**
      * Display the plugin config form.
      */
-    function hookConfigForm()
+    public function hookConfigForm()
     {
         require dirname(__FILE__) . '/config_form.php';
     }
@@ -221,7 +221,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     /**
      * Set the options from the config form input.
      */
-    function hookConfig()
+    public function hookConfig()
     {
         set_option('simple_pages_filter_page_content', (int)(boolean)$_POST['simple_pages_filter_page_content']);
     }
@@ -235,7 +235,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
      *  'request': Zend_Controller_Request_Http
      *  'purifier': HTMLPurifier
      */
-    function hookHtmlPurifierFormSubmission($args)
+    public function hookHtmlPurifierFormSubmission($args)
     {
         $request = Zend_Controller_Front::getInstance()->getRequest();
         $purifier = $args['purifier'];
@@ -261,7 +261,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
      * @param array Navigation array.
      * @return array Filtered navigation array.
      */
-    function filterAdminNavigationMain($nav)
+    public function filterAdminNavigationMain($nav)
     {
         $nav[] = array(
             'label' => __('Simple Pages'),
@@ -278,7 +278,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
      * @param array Navigation array.
      * @return array Filtered navigation array.
      */
-    function filterPublicNavigationMain($nav)
+    public function filterPublicNavigationMain($nav)
     {
         $navLinks = simple_pages_get_links_for_children_pages(0, 0, 'order', true);
         $nav = array_merge($nav, $navLinks);
@@ -288,7 +288,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     /**
      * Add SimplePagesPage as a searchable type.
      */
-    function filterSearchRecordTypes($recordTypes)
+    public function filterSearchRecordTypes($recordTypes)
     {
         $recordTypes['SimplePagesPage'] = __('Simple Page');
         return $recordTypes;
@@ -302,7 +302,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
      * and the value is an array of Zend_Cache front end settings
      * @return array The whitelist
      */
-    function filterPageCachingWhitelist($whitelist)
+    public function filterPageCachingWhitelist($whitelist)
     {
         // Add custom routes based on the page slug.
         $pages = get_db()->getTable('SimplePagesPage')->findAll();
@@ -325,7 +325,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
      * - action: the action
      * @return array The blacklist
      */
-    function filterPageCachingBlacklistForRecord($blacklist, $args)
+    public function filterPageCachingBlacklistForRecord($blacklist, $args)
     {
         $record = $args['record'];
         $action = $args['action'];
