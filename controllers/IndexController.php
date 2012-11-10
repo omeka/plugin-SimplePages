@@ -50,7 +50,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
     
     protected function _getForm($page = null)
     { 
-        $formOptions = array('recordType' => 'simple_pages_page');
+        $formOptions = array('type' => 'simple_pages_page');
         if($page && $page->exists()) {
             $formOptions['record'] = $page;
         }
