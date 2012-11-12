@@ -40,7 +40,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     public function hookInstall()
     {
         // Create the table.
-        $db = get_db();
+        $db = $this->_db;
         $sql = "
         CREATE TABLE IF NOT EXISTS `$db->SimplePagesPage` (
           `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -87,7 +87,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     public function hookUninstall()
     {        
         // Drop the table.
-        $db = get_db();
+        $db = $this->_db;
         $sql = "DROP TABLE IF EXISTS `$db->SimplePagesPage`";
         $db->query($sql);
 
@@ -103,7 +103,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     {
         $oldVersion = $args['old_version'];
         $newVersion = $args['new_version'];
-        $db = get_db();
+        $db = $this->_db;
         
         if ($oldVersion < '1.0') {
             $sql = "ALTER TABLE `$db->SimplePagesPage` ADD INDEX ( `is_published` )";
