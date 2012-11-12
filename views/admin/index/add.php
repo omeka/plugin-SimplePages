@@ -1,6 +1,6 @@
 <?php
 
-queue_js_file('tiny_mce/tiny_mce');
+queue_js_file('vendor/tiny_mce/tiny_mce');
 $head = array('bodyclass' => 'simple-pages primary', 
               'title' => html_escape(__('Simple Pages | Add Page')));
 echo head($head);

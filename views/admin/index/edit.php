@@ -1,12 +1,9 @@
 <?php
-
-
-queue_js_file('tiny_mce/tiny_mce');
+queue_js_file('vendor/tiny_mce/tiny_mce');
 $head = array('bodyclass' => 'simple-pages primary', 
               'title' => __('Simple Pages | Edit "%s"', metadata('simple_pages_page', 'title')));
 echo head($head);
 ?>
-
 
 <script type="text/javascript">
 jQuery(window).load(function() {
