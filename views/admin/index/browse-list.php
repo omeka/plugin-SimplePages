@@ -1,10 +1,10 @@
 <table class="full">
     <thead>
         <tr>
-            <?php echo browse_headings(array(
+            <?php echo browse_sort_links(array(
                 __('Title') => 'title',
                 __('Slug') => 'slug',
-                __('Last Modified') => 'updated'));
+                __('Last Modified') => 'updated'), array('link_tag' => 'th scope="col"', 'list_tag' => ''));
             ?>
         </tr>
     </thead>
