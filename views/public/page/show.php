@@ -15,7 +15,5 @@
     }
     ?>
 </div>
-<div id="secondary">
-    <?php echo simple_pages_navigation(); ?>
-</div>
+
 <?php echo foot(); ?>
