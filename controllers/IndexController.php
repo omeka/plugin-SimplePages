@@ -114,8 +114,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                         array('id' => 'simple_pages_is_published',
                                 'values' => array(1, 0),
                                 'checked' => metadata($page, 'is_published'),
-                                'label' => 'Publish this page?',
-                                'description' => 'Checking this box will make the page public.'
+                                'label' => 'Public',                                
                         ));
         
         return $form;

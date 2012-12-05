@@ -17,7 +17,7 @@
                         <?php echo metadata('simple_pages_page', 'title'); ?>
                     </a>
                     <?php if(!metadata('simple_pages_page', 'is_published')): ?>
-                        (<?php echo __('Not Published'); ?>)
+                        (<?php echo __('Private'); ?>)
                     <?php endif; ?>
                 </span>
                 <ul class="action-links group">
