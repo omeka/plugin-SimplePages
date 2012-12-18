@@ -62,7 +62,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                                 'size'  => 40,
                                 'value' => metadata($page, 'title'),
                                 'label' => 'Title',
-                                'description' => 'The title of the page (required).',
+                                'description' => 'Name and heading for the page (required).',
                                 'required' => true
                         ));
         
@@ -72,7 +72,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                                 'size'  => 40,
                                 'value'=> metadata($page, 'slug'),
                                 'label' => 'Slug',
-                                'description'=>'The URL slug for the page. Automatically created from the title if not entered. Allowed characters: alphanumeric, underscores, dashes, and forward slashes.'
+                                'description'=>'The slug is the part of the URL for this page. A slug will be created automatically from the title if one is not entered. Letters, numbers, underscores, dashes, and forward slashes are allowed.'
                         ));
         
         $form->addElementToEditGroup('checkbox', 'use_tiny_mce',
@@ -80,7 +80,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                                 'checked'=> metadata($page, 'use_tiny_mce'),
                                 'values'=> array(1, 0),
                                 'label' => 'Use HTML editor?',
-                                'description'=>'This will enable an HTML editor for the simple page text below. <strong>Warning</strong>: if enabled, PHP code will not be evaluated and may be hidden from view. Be sure to remove PHP code that you don\'t want exposed in the HTML source.'
+                                'description'=>'Check this to add an HTML editor bar for easily creating HTML. <strong>PHP code will not be read in pages if this option is checked</strong>.'
                         ));
          
         $form->addElementToEditGroup('textarea', 'text',
@@ -89,7 +89,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                                 'rows'  => 25,
                                 'value' => metadata($page, 'text'),
                                 'label' => 'Text',
-                                'description' => 'The content for the page (optional). HTML markup is allowed. PHP code is allowed if you are not using the HTML editor.'
+                                'description' => 'Add content for page, including HTML markup and PHP code (if the HTML editor is not checked above).'
                         ));
         
         $parentOptions = simple_pages_get_parent_options($page);
@@ -99,13 +99,13 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                                 'multiOptions' => $parentOptions,
                                 'value' => $page->parent_id,
                                 'label' => 'Parent',
-                                'description' => 'The parent page.'
+                                'description' => 'The parent page'
                         ));
         
         $form->addElementToSaveGroup('text', 'order',
                         array('value' => metadata($page, 'order'),
                                 'label' => 'Order',
-                                'description' => 'The order of the page relative to the other pages with the same parent.'
+                                'description' => 'The order of the page relative to the other pages with the same parent'
         
                         ));
         
@@ -115,7 +115,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                                 'values' => array(1, 0),
                                 'checked' => metadata($page, 'is_published'),
                                 'label' => 'Publish this page?',
-                                'description' => 'Checking this box will make the page public.'
+                                'description' => 'Checking this box will make the page public'
                         ));
         
         return $form;
