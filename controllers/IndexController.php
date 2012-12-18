@@ -62,7 +62,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                                 'size'  => 40,
                                 'value' => metadata($page, 'title'),
                                 'label' => 'Title',
-                                'description' => 'Name and heading for the page (required).',
+                                'description' => 'Name and heading for the page (required)',
                                 'required' => true
                         ));
         
