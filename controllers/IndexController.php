@@ -50,76 +50,102 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
     
     protected function _getForm($page = null)
     { 
-        $formOptions = array('type' => 'simple_pages_page', 'hasPublicPage'=>true);
-        if($page && $page->exists()) {
+        $formOptions = array('type' => 'simple_pages_page', 'hasPublicPage' => true);
+        if ($page && $page->exists()) {
             $formOptions['record'] = $page;
         }
         
         $form = new Omeka_Form_Admin($formOptions);
-        $form->addElementToEditGroup('text',
-                        'title',
-                        array('id'=>'simple-pages-title',
-                                'size'  => 40,
-                                'value' => metadata($page, 'title'),
-                                'label' => 'Title',
-                                'description' => 'Name and heading for the page (required)',
-                                'required' => true
-                        ));
+        $form->addElementToEditGroup(
+            'text', 'title',
+            array(
+                'id' => 'simple-pages-title',
+                'value' => $page->title,
+                'label' => __('Title'),
+                'description' => __('Name and heading for the page (required)'),
+                'required' => true
+            )
+        );
         
-        $form->addElementToEditGroup('text',
-                        'slug',
-                        array('id'=>'simple-pages-slug',
-                                'size'  => 40,
-                                'value'=> metadata($page, 'slug'),
-                                'label' => 'Slug',
-                                'description'=>'The slug is the part of the URL for this page. A slug will be created automatically from the title if one is not entered. Letters, numbers, underscores, dashes, and forward slashes are allowed.'
-                        ));
+        $form->addElementToEditGroup(
+            'text', 'slug',
+            array(
+                'id' => 'simple-pages-slug',
+                'value' => $page->slug,
+                'label' => __('Slug'),
+                'description' => __(
+                    'The slug is the part of the URL for this page. A slug '
+                    . 'will be created automatically from the title if one is '
+                    . 'not entered. Letters, numbers, underscores, dashes, and '
+                    . 'forward slashes are allowed.'
+                )
+            )
+        );
         
-        $form->addElementToEditGroup('checkbox', 'use_tiny_mce',
-                        array('id' => 'simple-pages-use-tiny-mce',
-                                'checked'=> metadata($page, 'use_tiny_mce'),
-                                'values'=> array(1, 0),
-                                'label' => 'Use HTML editor?',
-                                'description'=>'Check this to add an HTML editor bar for easily creating HTML. <strong>PHP code will not be read in pages if this option is checked</strong>.'
-                        ));
+        $form->addElementToEditGroup(
+            'checkbox', 'use_tiny_mce',
+            array(
+                'id' => 'simple-pages-use-tiny-mce',
+                'checked' => $page->use_tiny_mce,
+                'values' => array(1, 0),
+                'label' => __('Use HTML editor?'),
+                'description' => __(
+                    'Check this to add an HTML editor bar for easily creating '
+                    . 'HTML. <strong>PHP code will not be read in pages if '
+                    . 'this option is checked.</strong>'
+                )
+            )
+        );
          
-        $form->addElementToEditGroup('textarea', 'text',
-                        array('id'    => 'simple-pages-text',
-                                'cols'  => 50,
-                                'rows'  => 25,
-                                'value' => metadata($page, 'text'),
-                                'label' => 'Text',
-                                'description' => 'Add content for page, including HTML markup and PHP code (if the HTML editor is not checked above).'
-                        ));
+        $form->addElementToEditGroup(
+            'textarea', 'text',
+            array('id' => 'simple-pages-text',
+                'cols'  => 50,
+                'rows'  => 25,
+                'value' => $page->text,
+                'label' => __('Text'),
+                'description' => __(
+                    'Add content for page, including HTML markup and PHP code '
+                    . '(if the HTML editor is not checked above).'
+                )
+            )
+        );
         
-        $parentOptions = simple_pages_get_parent_options($page);
+        $form->addElementToSaveGroup(
+            'select', 'parent_id',
+            array(
+                'id' => 'simple-pages-parent-id',
+                'multiOptions' => simple_pages_get_parent_options($page),
+                'value' => $page->parent_id,
+                'label' => __('Parent'),
+                'description' => __('The parent page')
+            )
+        );
         
-        $form->addElementToSaveGroup('select', 'parent_id',
-                        array('id' => 'simple-pages-parent-id',
-                                'multiOptions' => $parentOptions,
-                                'value' => $page->parent_id,
-                                'label' => 'Parent',
-                                'description' => 'The parent page'
-                        ));
+        $form->addElementToSaveGroup(
+            'text', 'order',
+            array(
+                'value' => $page->order,
+                'label' => __('Order'),
+                'description' => __(
+                    'The order of the page relative to the other pages with '
+                    . 'the same parent'
+                )
+            )
+        );
         
-        $form->addElementToSaveGroup('text', 'order',
-                        array('value' => metadata($page, 'order'),
-                                'label' => 'Order',
-                                'description' => 'The order of the page relative to the other pages with the same parent'
-        
-                        ));
-        
-        
-        $form->addElementToSaveGroup('checkbox', 'is_published',
-                        array('id' => 'simple_pages_is_published',
-                                'values' => array(1, 0),
-                                'checked' => metadata($page, 'is_published'),
-                                'label' => 'Publish this page?',
-                                'description' => 'Checking this box will make the page public'
-                        ));
+        $form->addElementToSaveGroup(
+            'checkbox', 'is_published',
+            array(
+                'id' => 'simple_pages_is_published',
+                'values' => array(1, 0),
+                'checked' => $page->is_published,
+                'label' => __('Publish this page?'),
+                'description' => __('Checking this box will make the page public')
+            )
+        );
         
         return $form;
-        
     }
     
     /**
