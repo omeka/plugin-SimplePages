@@ -3,65 +3,65 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# Dana Léw <lew.dana@gmail.com>, 2013.
-# Jan Černý <cernyhonza@gmail.com>, 2012-2013.
+#   <rubenalcarazmartinez@gmail.com>, 2013.
+#   <sergi.blanes@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-01-13 10:04+0000\n"
-"Last-Translator: Jan Černý <cernyhonza@gmail.com>\n"
-"Language-Team: Czech (http://www.transifex.com/projects/p/omeka/language/cs/)\n"
+"PO-Revision-Date: 2013-01-13 08:40+0000\n"
+"Last-Translator: rubenalcaraz <rubenalcarazmartinez@gmail.com>\n"
+"Language-Team: Catalan (Spain) (http://www.transifex.com/projects/p/omeka/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Language: ca_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: SimplePagesPlugin.php:267
 msgid "Simple Pages"
-msgstr "Jednoduché stránky"
+msgstr "Simple Pages"
 
 #: SimplePagesPlugin.php:293
 msgid "Simple Page"
-msgstr "Jednoduchá stránka"
+msgstr "Simple Page"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
-msgstr "Filtrovat uživatelský vstup pro obsah stránky?"
+msgstr "Filtrar l'entrada de dades a la pàgina de continguts?"
 
 #: config_form.php:9
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page. PHP code will not be allowed in the "
 "content of pages if this box is checked."
-msgstr "Při označení, bude tento zásuvný modul, filtrovat všechny jednoduché stránky, pomocí HTML filtru nastaveného v bezpečnostním nastavení. Pokud je tato možnost vybrána, nebude v obsahu stránek povolen PHP kód."
+msgstr "Si s'activa aquest plugin filtrarà totes les pàgines estàtiques amb els filtres HTML establerts a la pàgina de configuració de la seguretat. Si aquesta casella està marcada, el codi PHP no és permet en el contingut de les pàgines."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
-msgstr "Jméno a titulek pro stránku (povinné)"
+msgstr "Nom i capçalera per a la pàgina (obligatori)"
 
 #: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
 msgid "Slug"
-msgstr "Klíč"
+msgstr "Identificador"
 
 #: controllers/IndexController.php:77
 msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr "Lomítko je součástí adresy URL této stránky. Lomítko, pokud není zadáno, se vytvoří automaticky z názvu. Povolené znaky jsou písmena, čísla, podtržítko, pomlčka a lomítko."
+msgstr "L'identificador és la part de l'URL per aquesta pàgina. Els identificadors es creen automaticament a partir del títol si no s'indica cap. Les lletres, números, guions baixos, guions i contrabarres són permesos."
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
-msgstr "Použít HTML editor?"
+msgstr "Vols utilitzar l'editor HTML?"
 
 #: controllers/IndexController.php:93
 msgid ""
 "Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
 "code will not be read in pages if this option is checked.</strong>"
-msgstr "Zaškrtnutím boxu přidáte panel HTML editoru pro snadné vytváření HTML tagů <strong>PHP kód nebude funkční, pokud je tato volba zaškrtnutá</strong>"
+msgstr "Activeu aquesta opció per afegir un editor HTML. <strong>El codi PHP no es podrà llegir en les pàgines si aquesta opció es troba marcada.</strong>"
 
 #: controllers/IndexController.php:106
 msgid "Text"
@@ -71,141 +71,141 @@ msgstr "Text"
 msgid ""
 "Add content for page, including HTML markup and PHP code (if the HTML editor"
 " is not checked above)."
-msgstr "Vložte obsah stránky, včetně HTML tagů a PHP skriptů ( pokud HTML editor není zaškrtnutý)"
+msgstr "Afegiu contingut a la pàgina, incloent codi HTML i PHP (si l'editor HTML està desmarcat)"
 
 #: controllers/IndexController.php:120
 msgid "Parent"
-msgstr "Rodič"
+msgstr "Element principal"
 
 #: controllers/IndexController.php:121
 msgid "The parent page"
-msgstr "Nadřazená stránka"
+msgstr "Pàgina superior"
 
 #: controllers/IndexController.php:129
 msgid "Order"
-msgstr "Pořadí"
+msgstr "Ordre"
 
 #: controllers/IndexController.php:131
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr "Pořadí stránky pro stejnou nadřazenou stránku"
+msgstr "L'ordre de la pàgina respecte a les altres pàgines amb la mateixa superior"
 
 #: controllers/IndexController.php:143
 msgid "Publish this page?"
-msgstr "Publikovat tuto stránku?"
+msgstr "Vols publicar aquesta pàgina?"
 
 #: controllers/IndexController.php:144
 msgid "Checking this box will make the page public"
-msgstr "Zaškrtnutím boxu tuto stránku zveřejníte"
+msgstr "Marqueu aquesta casella si voleu fer la pàgina pública"
 
 #: controllers/IndexController.php:164
 #, php-format
 msgid "The page \"%s\" has been added."
-msgstr "Stránka \"%s\" byla přidána."
+msgstr "S'ha afegit la pàgina: \"%s\""
 
 #: controllers/IndexController.php:166
 #, php-format
 msgid "The page \"%s\" has been edited."
-msgstr "Stránka \"%s\" byla upravena."
+msgstr "S'ha editat la pàgina: \"%s\""
 
 #: controllers/IndexController.php:184
 #, php-format
 msgid "The page \"%s\" has been deleted."
-msgstr "Stránka \"%s\" byla smazána."
+msgstr "S'ha esborrat la pàgina: \"%s\""
 
 #: helpers/SimplePageFunctions.php:121
 msgid "Home"
-msgstr "Domů"
+msgstr "Inici"
 
 #: helpers/SimplePageFunctions.php:166
 msgid "Main Page (No Parent)"
-msgstr "Hlavní stránka (Bez rodiče)"
+msgstr "Pàgina d'inici (sense element principal)"
 
 #: models/SimplePagesPage.php:60
 msgid "The page must be given a title."
-msgstr "Stránka musí mít titulek."
+msgstr "La pàgina ha de tenir un títol."
 
 #: models/SimplePagesPage.php:64
 msgid "The title for your page must be 255 characters or less."
-msgstr "Titulek vaší stránky nesmí být delší než 255 znaků."
+msgstr "El títol per a la pàgina ha de tenir 255 caràcters o menys."
 
 #: models/SimplePagesPage.php:68
 msgid "The title is already in use by another page. Please choose another."
-msgstr "Titulek je již použit v jiné stránce. Prosím vyberte jiný."
+msgstr "Aquest títol ja s'utilitza per una altra pàgina. Si us plau tria un altre."
 
 #: models/SimplePagesPage.php:72
 msgid "The page must be given a valid slug."
-msgstr "Ke stránce musí být přiřazen klíč."
+msgstr "La pàgina ha de tenir un identificador vàlid"
 
 #: models/SimplePagesPage.php:76
 msgid "The slug for your page must not be a forward slash."
-msgstr "Klíč této stránky nesmí být dopředné lomítko."
+msgstr "L'identificador de la pàgina no pot ser una barra diagonal."
 
 #: models/SimplePagesPage.php:80
 msgid "The slug for your page must be 255 characters or less."
-msgstr "Klíč vaší stránky nesmí být delší než 255 znaků."
+msgstr "L'identificador de la pàgina ha de tenir 255 caràcters o menys."
 
 #: models/SimplePagesPage.php:84
 msgid "The slug is already in use by another page. Please choose another."
-msgstr "Tento klíč je již používán jinou stránkou. Prosím zvolte jiný."
+msgstr "Aquest identificador ja s'utilitza en una altra pàgina. Si us plau tria un altre."
 
 #: models/SimplePagesPage.php:88
 msgid "The order must be an integer greater than or equal to 0."
-msgstr "Pořadí musí být celé číslo vetší nebo rovné 0."
+msgstr "El criteri d'ordenació ha de ser un nombre enter major o igual a 0."
 
 #: views/admin/index/add.php:5
 msgid "Simple Pages | Add Page"
-msgstr "Jednoduché stránky | Přidat stránku"
+msgstr "Simple Pages | Afegeix una pàgina"
 
 #: views/admin/index/browse-hierarchy-page.php:16
 #: views/admin/index/browse-list.php:33
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
-msgstr "<strong>%1$s</strong> na %2$s"
+msgstr "<strong>%1$s</strong> a %2$s"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Published"
-msgstr "Publikováno"
+msgstr "Publicat"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Not Published"
-msgstr "Nepublikováno"
+msgstr "No publicat"
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
-msgstr "Poslední změna"
+msgstr "Darrera modificació"
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"
-msgstr "Jednoduché stránky  | Procházet"
+msgstr "Simple Pages | Navega"
 
 #: views/admin/index/browse.php:9
 msgid "List View"
-msgstr "Zobrazit seznam"
+msgstr "Visualització en forma de llista"
 
 #: views/admin/index/browse.php:12
 msgid "Hierarchy View"
-msgstr "Zobrazit hierarchii"
+msgstr "Visualitza la jerarquia"
 
 #: views/admin/index/browse.php:17
 msgid "Add a Page"
-msgstr "Přidat stránku"
+msgstr "Afegeix una pàgina"
 
 #: views/admin/index/browse.php:19
 msgid "There are no pages."
-msgstr "Nejsou zde žádné stránky."
+msgstr "No hi ha cap pàgina."
 
 #: views/admin/index/browse.php:19
 msgid "Add a page."
-msgstr "Přidat stránku."
+msgstr "Afegeix una pàgina."
 
 #: views/admin/index/edit.php:4
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
-msgstr "Jednoduché stránky | Upravit \"%s\""
+msgstr "Simple Pages | Edita \"%s\""
 
 #: views/admin/index/edit.php:40
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
 " <strong>%3$s</strong> on %4$s."
-msgstr "Tuto stránku vytvořil <strong>%1$s</strong> dne %2$s, a naposledy upravil <strong>%3$s</strong> dne %4$s."
+msgstr "Aquesta pàgina ha estat creada <strong>%1$s</strong> el dia %2$s, i darrerament modificada per <strong>%3$s</strong> el dia %4$s."

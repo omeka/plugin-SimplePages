@@ -9,231 +9,202 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2012-05-23 12:25+0000\n"
-"Last-Translator: Carlos Eduardo Maciel <carlosmaciel1@gmail.com>\n"
+"PO-Revision-Date: 2013-01-10 17:29+0000\n"
+"Last-Translator: John Flatness <john@zerocrates.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/omeka/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: config_form.php:2
+#: SimplePagesPlugin.php:267
+msgid "Simple Pages"
+msgstr "Simple Pages"
+
+#: SimplePagesPlugin.php:293
+msgid "Simple Page"
+msgstr ""
+
+#: config_form.php:3
 msgid "Filter User Input For Page Content?"
 msgstr "Filtrar o pedido do usuário para conteúdo da página?"
 
-#: config_form.php:8
+#: config_form.php:9
 msgid ""
-"If checked, Simple Pages will attempt to filter the HTML provided for the "
-"content of pages using the default settings from the HtmlPurifier plugin. "
-"Note that this will not work unless the HtmlPurifier plugin has also been "
-"installed and activated. PHP code will not be allowed in the content of "
-"pages if this box is checked."
-msgstr "Se marcada, Simple Pages irá tentar filtrar o HTML fornecido para o conteúdo das páginas usando as strings padrão do plugin HtmlPurifier. Observe que isto não irá funcionar a menos que o HtmlPurifier  também esteja instalado e ativo. O código PHP não será permitido se esta opção estiver selecionada."
+"If checked, this plugin will filter all simple pages using the HTML filters "
+"set on the security settings page. PHP code will not be allowed in the "
+"content of pages if this box is checked."
+msgstr ""
 
-#: controllers/IndexController.php:75
+#: controllers/IndexController.php:65
+msgid "Name and heading for the page (required)"
+msgstr ""
+
+#: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
+msgid "Slug"
+msgstr "Slug"
+
+#: controllers/IndexController.php:77
+msgid ""
+"The slug is the part of the URL for this page. A slug will be created "
+"automatically from the title if one is not entered. Letters, numbers, "
+"underscores, dashes, and forward slashes are allowed."
+msgstr ""
+
+#: controllers/IndexController.php:91
+msgid "Use HTML editor?"
+msgstr "Usar o editor HTML?"
+
+#: controllers/IndexController.php:93
+msgid ""
+"Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
+"code will not be read in pages if this option is checked.</strong>"
+msgstr ""
+
+#: controllers/IndexController.php:106
+msgid "Text"
+msgstr "Texto"
+
+#: controllers/IndexController.php:108
+msgid ""
+"Add content for page, including HTML markup and PHP code (if the HTML editor"
+" is not checked above)."
+msgstr ""
+
+#: controllers/IndexController.php:120
+msgid "Parent"
+msgstr "Pai"
+
+#: controllers/IndexController.php:121
+msgid "The parent page"
+msgstr ""
+
+#: controllers/IndexController.php:129
+msgid "Order"
+msgstr ""
+
+#: controllers/IndexController.php:131
+msgid "The order of the page relative to the other pages with the same parent"
+msgstr ""
+
+#: controllers/IndexController.php:143
+msgid "Publish this page?"
+msgstr "Publicar esta página?"
+
+#: controllers/IndexController.php:144
+msgid "Checking this box will make the page public"
+msgstr ""
+
+#: controllers/IndexController.php:164
 #, php-format
 msgid "The page \"%s\" has been added."
 msgstr "A página \"%s\" foi adicionada."
 
-#: controllers/IndexController.php:77
+#: controllers/IndexController.php:166
 #, php-format
 msgid "The page \"%s\" has been edited."
 msgstr "A página \"%s\" foi editada."
 
-#: controllers/IndexController.php:101
+#: controllers/IndexController.php:184
 #, php-format
 msgid "The page \"%s\" has been deleted."
 msgstr "A página \"%s\" foi apagada."
 
-#: functions.php:233
-msgid "Simple Pages"
-msgstr "Simple Pages"
+#: helpers/SimplePageFunctions.php:121
+msgid "Home"
+msgstr ""
 
-#: functions.php:255
+#: helpers/SimplePageFunctions.php:166
 msgid "Main Page (No Parent)"
 msgstr "Página Principal (Sem Pais)"
 
-#: models/SimplePagesPage.php:75
+#: models/SimplePagesPage.php:60
 msgid "The page must be given a title."
 msgstr "A página precisa receber um título."
 
-#: models/SimplePagesPage.php:79
+#: models/SimplePagesPage.php:64
 msgid "The title for your page must be 255 characters or less."
 msgstr "O título de sua página deve conter no máximo 255 caracteres."
 
-#: models/SimplePagesPage.php:83
+#: models/SimplePagesPage.php:68
 msgid "The title is already in use by another page. Please choose another."
 msgstr "Este título já está em uso por outro usuário. Por favor escolha outro."
 
-#: models/SimplePagesPage.php:87
+#: models/SimplePagesPage.php:72
 msgid "The page must be given a valid slug."
 msgstr "A página precisa de um slug válido."
 
-#: models/SimplePagesPage.php:91
+#: models/SimplePagesPage.php:76
 msgid "The slug for your page must not be a forward slash."
 msgstr "O slug de sua página não pode ser uma barra."
 
-#: models/SimplePagesPage.php:95
+#: models/SimplePagesPage.php:80
 msgid "The slug for your page must be 255 characters or less."
 msgstr "O slug para sua página de conter no máximo 255 caracteres."
 
-#: models/SimplePagesPage.php:99
+#: models/SimplePagesPage.php:84
 msgid "The slug is already in use by another page. Please choose another."
 msgstr "Este slug já está em uso por outro usuário. Por favor escolha outro."
 
-#: models/SimplePagesPage.php:103
+#: models/SimplePagesPage.php:88
 msgid "The order must be an integer greater than or equal to 0."
 msgstr "A ordem deve ser uma integral maior ou igual a 0."
 
-#: views/admin/index/add.php:3
+#: views/admin/index/add.php:5
 msgid "Simple Pages | Add Page"
 msgstr "Simple Pages | Adicionar Página"
 
-#: views/admin/index/add.php:12
-msgid "Add Page"
-msgstr "Adicionar Página"
-
 #: views/admin/index/browse-hierarchy-page.php:16
-#: views/admin/index/browse-list.php:16
+#: views/admin/index/browse-list.php:33
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
 msgstr "<strong>%1$s</strong> em %2$s"
 
 #: views/admin/index/browse-hierarchy-page.php:20
-#: views/admin/index/browse-list.php:20
-msgid "Not Published"
-msgstr "Não Publicado"
-
-#: views/admin/index/browse-hierarchy-page.php:20
-#: views/admin/index/browse-list.php:20
 msgid "Published"
 msgstr "Publicado"
 
-#: views/admin/index/browse-list.php:5 views/admin/index/form.php:46
-msgid "Slug"
-msgstr "Slug"
-
-#: views/admin/index/browse-list.php:6
-msgid "Last Modified By"
-msgstr "Modificado última vez por"
+#: views/admin/index/browse-hierarchy-page.php:20
+msgid "Not Published"
+msgstr "Não Publicado"
 
 #: views/admin/index/browse-list.php:7
-msgid "Published?"
-msgstr "Publicado?"
+msgid "Last Modified"
+msgstr ""
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"
 msgstr "Simple Pages | Ver"
 
-#: views/admin/index/browse.php:11
+#: views/admin/index/browse.php:9
 msgid "List View"
 msgstr "Exibição em Lista"
 
-#: views/admin/index/browse.php:14
+#: views/admin/index/browse.php:12
 msgid "Hierarchy View"
 msgstr "Exibição por Hierarquia"
 
-#: views/admin/index/browse.php:18
+#: views/admin/index/browse.php:17
 msgid "Add a Page"
 msgstr "Adicionar uma Página"
 
-#: views/admin/index/browse.php:22
-msgid "Add a page."
-msgstr "Adicionar uma Página."
-
-#: views/admin/index/browse.php:22
+#: views/admin/index/browse.php:19
 msgid "There are no pages."
 msgstr "Não há nenhuma página."
 
-#: views/admin/index/edit.php:3
+#: views/admin/index/browse.php:19
+msgid "Add a page."
+msgstr "Adicionar uma Página."
+
+#: views/admin/index/edit.php:4
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
 msgstr "Simple Pages | Editar \"%s\""
 
-#: views/admin/index/edit.php:9
+#: views/admin/index/edit.php:40
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
 " <strong>%3$s</strong> on %4$s."
 msgstr "Esta página foi criada por <strong>%1$s</strong> em %2$s, e modificada pela última vez por <strong>%3$s</strong> em %4$s."
-
-#: views/admin/index/edit.php:17
-msgid "Save Page"
-msgstr "Salvar Página"
-
-#: views/admin/index/edit.php:21
-msgid "Delete this Page"
-msgstr "Apagar esta página"
-
-#: views/admin/index/form.php:41
-msgid "The title of the page (required)."
-msgstr "O título desta página (necessário)."
-
-#: views/admin/index/form.php:54
-msgid ""
-"The URL slug for the page. Automatically created from the title if not "
-"entered. Allowed characters: alphanumeric, underscores, dashes, and forward "
-"slashes."
-msgstr "A slug do URL para a página. Criado automaticamente a partir do título se nenhum outro for escolhido. Caracteres permitidos: alfanuméricos, sublinhas, traços e barras normais."
-
-#: views/admin/index/form.php:61
-msgid "Use HTML editor?"
-msgstr "Usar o editor HTML?"
-
-#: views/admin/index/form.php:68
-msgid ""
-"This will enable an HTML editor for the simple page text below. "
-"<strong>Warning</strong>: if enabled, PHP code will not be evaluated and may"
-" be hidden from view. Be sure to remove PHP code that you don't want exposed"
-" in the HTML source."
-msgstr "Esta ação irá habilitar um editor HTML para a página simples abaixo. <strong>Atenção</strong>: se habilitado, o código PHP não será avaliado e pode ser oculto. Certifique-se que removeu código o PHP que você não quer exposto no código-fonte HTML."
-
-#: views/admin/index/form.php:74
-msgid "Text"
-msgstr "Texto"
-
-#: views/admin/index/form.php:83
-msgid ""
-"The content for the page (optional). HTML markup is allowed. PHP code is "
-"allowed if you are not using the HTML editor."
-msgstr "O conteúdo opcional para a página (opcional). Markup HTML é permitido. Código PHP é permitido se você não estiver usando o editor HTML."
-
-#: views/admin/index/form.php:89
-msgid "Parent"
-msgstr "Pai"
-
-#: views/admin/index/form.php:92
-msgid "The parent page."
-msgstr "A página pai."
-
-#: views/admin/index/form.php:103
-msgid ""
-"The order of the page relative to the other pages with the same parent."
-msgstr "A ordem da página relativa à ordem das outras páginas com a mesma página pai."
-
-#: views/admin/index/form.php:108
-msgid "Add this page to the primary navigation?"
-msgstr "Adicionar esta página à navegação primária?"
-
-#: views/admin/index/form.php:114
-msgid ""
-"Checking this box will add a link to this page to the theme's primary "
-"navigation. If custom header navigation is configured in the theme, a link "
-"to this page will not appear in the primary navigation unless you also add "
-"it to your theme's configuration."
-msgstr "Marcar esta opção irá adicionar um link para esta página na navegação primária do tema. Se cabeçalho personalizado estiver configurado no tema ele não aparecerá na navegação primária, a menos que você o adicione na configuração do seu tema."
-
-#: views/admin/index/form.php:119
-msgid "Make this page the home page?"
-msgstr "Fazer desta a página inicial?"
-
-#: views/admin/index/form.php:129
-msgid "Publish this page?"
-msgstr "Publicar esta página?"
-
-#: views/admin/index/form.php:135
-msgid ""
-"Checking this box will make the page public and it will appear in Simple "
-"Page navigation."
-msgstr "Marcar esta opção irá tornar esta página pública e ela aparecerá na navegação Simple Page."

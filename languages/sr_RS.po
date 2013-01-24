@@ -3,209 +3,208 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# Dana Léw <lew.dana@gmail.com>, 2013.
-# Jan Černý <cernyhonza@gmail.com>, 2012-2013.
+# Bogdan Trifunovic <>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-01-13 10:04+0000\n"
-"Last-Translator: Jan Černý <cernyhonza@gmail.com>\n"
-"Language-Team: Czech (http://www.transifex.com/projects/p/omeka/language/cs/)\n"
+"PO-Revision-Date: 2013-01-23 08:37+0000\n"
+"Last-Translator: Bogdan Trifunovic <>\n"
+"Language-Team: Serbian (Serbia) (http://www.transifex.com/projects/p/omeka/language/sr_RS/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Language: sr_RS\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: SimplePagesPlugin.php:267
 msgid "Simple Pages"
-msgstr "Jednoduché stránky"
+msgstr "Једноставне странице"
 
 #: SimplePagesPlugin.php:293
 msgid "Simple Page"
-msgstr "Jednoduchá stránka"
+msgstr "Једноставна страница"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
-msgstr "Filtrovat uživatelský vstup pro obsah stránky?"
+msgstr "Филтрирај унос корисника за садржај странице?"
 
 #: config_form.php:9
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page. PHP code will not be allowed in the "
 "content of pages if this box is checked."
-msgstr "Při označení, bude tento zásuvný modul, filtrovat všechny jednoduché stránky, pomocí HTML filtru nastaveného v bezpečnostním nastavení. Pokud je tato možnost vybrána, nebude v obsahu stránek povolen PHP kód."
+msgstr "Уколико је потврђено овај додатак ће филтрирати све једноставне странице коришћењем HTML филтера подстављених на страници безбедносних подешавања. PHP код неће бити дозвољен у садржају страница ако је поље потврђено."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
-msgstr "Jméno a titulek pro stránku (povinné)"
+msgstr "Име и заглавље странице (захтевано)"
 
 #: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
 msgid "Slug"
-msgstr "Klíč"
+msgstr "Линк"
 
 #: controllers/IndexController.php:77
 msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr "Lomítko je součástí adresy URL této stránky. Lomítko, pokud není zadáno, se vytvoří automaticky z názvu. Povolené znaky jsou písmena, čísla, podtržítko, pomlčka a lomítko."
+msgstr "Линк је део URL-а за ову страницу. Линк ће бити креиран аутоматски из наслова уколико није посебно унешен. Слова, бројеви, доње, средње и косе црте су дозвољени."
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
-msgstr "Použít HTML editor?"
+msgstr "Користи HTML уређивач?"
 
 #: controllers/IndexController.php:93
 msgid ""
 "Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
 "code will not be read in pages if this option is checked.</strong>"
-msgstr "Zaškrtnutím boxu přidáte panel HTML editoru pro snadné vytváření HTML tagů <strong>PHP kód nebude funkční, pokud je tato volba zaškrtnutá</strong>"
+msgstr "Потврди овде да би се додао HTML уређивач за једноставно додавање HTML-a.  <strong>PHP код неће се видети у страницама ако је ова опција потврђена.</strong>"
 
 #: controllers/IndexController.php:106
 msgid "Text"
-msgstr "Text"
+msgstr "Текст"
 
 #: controllers/IndexController.php:108
 msgid ""
 "Add content for page, including HTML markup and PHP code (if the HTML editor"
 " is not checked above)."
-msgstr "Vložte obsah stránky, včetně HTML tagů a PHP skriptů ( pokud HTML editor není zaškrtnutý)"
+msgstr "Додај садржај странице, укључујући HTML ознаке и PHP код (уколико изнад није потврђен HTML уређивач)."
 
 #: controllers/IndexController.php:120
 msgid "Parent"
-msgstr "Rodič"
+msgstr "Родитељ"
 
 #: controllers/IndexController.php:121
 msgid "The parent page"
-msgstr "Nadřazená stránka"
+msgstr "Страница родитељ"
 
 #: controllers/IndexController.php:129
 msgid "Order"
-msgstr "Pořadí"
+msgstr "Редослед"
 
 #: controllers/IndexController.php:131
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr "Pořadí stránky pro stejnou nadřazenou stránku"
+msgstr "Редослед странице у односу на друге странице са истим родитељем"
 
 #: controllers/IndexController.php:143
 msgid "Publish this page?"
-msgstr "Publikovat tuto stránku?"
+msgstr "Објави страницу?"
 
 #: controllers/IndexController.php:144
 msgid "Checking this box will make the page public"
-msgstr "Zaškrtnutím boxu tuto stránku zveřejníte"
+msgstr "Потврђивањем овог поља страница ће бити видљива"
 
 #: controllers/IndexController.php:164
 #, php-format
 msgid "The page \"%s\" has been added."
-msgstr "Stránka \"%s\" byla přidána."
+msgstr "Страница \"%s\" је додата."
 
 #: controllers/IndexController.php:166
 #, php-format
 msgid "The page \"%s\" has been edited."
-msgstr "Stránka \"%s\" byla upravena."
+msgstr "Страница \"%s\" је уређена."
 
 #: controllers/IndexController.php:184
 #, php-format
 msgid "The page \"%s\" has been deleted."
-msgstr "Stránka \"%s\" byla smazána."
+msgstr "Страница \"%s\" је обрисана."
 
 #: helpers/SimplePageFunctions.php:121
 msgid "Home"
-msgstr "Domů"
+msgstr "Почетак"
 
 #: helpers/SimplePageFunctions.php:166
 msgid "Main Page (No Parent)"
-msgstr "Hlavní stránka (Bez rodiče)"
+msgstr "Главна страница (нема родитеља)"
 
 #: models/SimplePagesPage.php:60
 msgid "The page must be given a title."
-msgstr "Stránka musí mít titulek."
+msgstr "Страница мора имати наслов."
 
 #: models/SimplePagesPage.php:64
 msgid "The title for your page must be 255 characters or less."
-msgstr "Titulek vaší stránky nesmí být delší než 255 znaků."
+msgstr "Наслов странице мора имати 255 карактера или мање."
 
 #: models/SimplePagesPage.php:68
 msgid "The title is already in use by another page. Please choose another."
-msgstr "Titulek je již použit v jiné stránce. Prosím vyberte jiný."
+msgstr "Наслов је већ у употреби код друге странице. Молимо одабери други наслов."
 
 #: models/SimplePagesPage.php:72
 msgid "The page must be given a valid slug."
-msgstr "Ke stránce musí být přiřazen klíč."
+msgstr "Страница мора имати исправан линк."
 
 #: models/SimplePagesPage.php:76
 msgid "The slug for your page must not be a forward slash."
-msgstr "Klíč této stránky nesmí být dopředné lomítko."
+msgstr "Линк странице не сме бити коса црта."
 
 #: models/SimplePagesPage.php:80
 msgid "The slug for your page must be 255 characters or less."
-msgstr "Klíč vaší stránky nesmí být delší než 255 znaků."
+msgstr "Линк странице мора имати 255 карактера или мање."
 
 #: models/SimplePagesPage.php:84
 msgid "The slug is already in use by another page. Please choose another."
-msgstr "Tento klíč je již používán jinou stránkou. Prosím zvolte jiný."
+msgstr "Линк је већ у употреби код друге странице. Молимо одабери други линк."
 
 #: models/SimplePagesPage.php:88
 msgid "The order must be an integer greater than or equal to 0."
-msgstr "Pořadí musí být celé číslo vetší nebo rovné 0."
+msgstr "Редослед мора бити цео број већи од или једнак 0."
 
 #: views/admin/index/add.php:5
 msgid "Simple Pages | Add Page"
-msgstr "Jednoduché stránky | Přidat stránku"
+msgstr "Једноставне странице | Додај страницу"
 
 #: views/admin/index/browse-hierarchy-page.php:16
 #: views/admin/index/browse-list.php:33
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
-msgstr "<strong>%1$s</strong> na %2$s"
+msgstr "<strong>%1$s</strong> %2$s"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Published"
-msgstr "Publikováno"
+msgstr "Објављено"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Not Published"
-msgstr "Nepublikováno"
+msgstr "Није објављено"
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
-msgstr "Poslední změna"
+msgstr "Последња измењена"
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"
-msgstr "Jednoduché stránky  | Procházet"
+msgstr "Једноставне странице | Прегледај"
 
 #: views/admin/index/browse.php:9
 msgid "List View"
-msgstr "Zobrazit seznam"
+msgstr "Преглед листе"
 
 #: views/admin/index/browse.php:12
 msgid "Hierarchy View"
-msgstr "Zobrazit hierarchii"
+msgstr "Преглед хијерархије"
 
 #: views/admin/index/browse.php:17
 msgid "Add a Page"
-msgstr "Přidat stránku"
+msgstr "Додај страницу"
 
 #: views/admin/index/browse.php:19
 msgid "There are no pages."
-msgstr "Nejsou zde žádné stránky."
+msgstr "Нема страница."
 
 #: views/admin/index/browse.php:19
 msgid "Add a page."
-msgstr "Přidat stránku."
+msgstr "Додај страницу."
 
 #: views/admin/index/edit.php:4
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
-msgstr "Jednoduché stránky | Upravit \"%s\""
+msgstr "Једноставне странице | Уреди \"%s\""
 
 #: views/admin/index/edit.php:40
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
 " <strong>%3$s</strong> on %4$s."
-msgstr "Tuto stránku vytvořil <strong>%1$s</strong> dne %2$s, a naposledy upravil <strong>%3$s</strong> dne %4$s."
+msgstr "Ова страница је додата од <strong>%1$s</strong> %2$s и последњи пут измењена од <strong>%3$s</strong> %4$s."
