@@ -17,7 +17,8 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
      * @var array Hooks for the plugin.
      */
     protected $_hooks = array('install', 'uninstall', 'upgrade', 'initialize',
-        'define_acl', 'define_routes', 'html_purifier_form_submission');
+        'define_acl', 'define_routes', 'config_form', 'config',
+        'html_purifier_form_submission');
 
     /**
      * @var array Filters for the plugin.
@@ -207,6 +208,22 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
                 )
             );
         }
+    }
+
+    /**
+     * Display the plugin config form.
+     */
+    public function hookConfigForm()
+    {
+        require dirname(__FILE__) . '/config_form.php';
+    }
+
+    /**
+     * Set the options from the config form input.
+     */
+    public function hookConfig()
+    {
+        set_option('simple_pages_filter_page_content', (int)(boolean)$_POST['simple_pages_filter_page_content']);
     }
 
     /**
