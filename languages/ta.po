@@ -3,209 +3,208 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# rijekateam <digitalizacija@gkri.hr>, 2013
-# rijekateam <digitalizacija@gkri.hr>, 2012
+# bage <bagerathan@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-03-05 16:51+0000\n"
-"Last-Translator: rijekateam <digitalizacija@gkri.hr>\n"
-"Language-Team: Croatian (http://www.transifex.com/projects/p/omeka/language/hr/)\n"
+"PO-Revision-Date: 2013-02-14 15:41+0000\n"
+"Last-Translator: bage <bagerathan@gmail.com>\n"
+"Language-Team: Tamil (http://www.transifex.com/projects/p/omeka/language/ta/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: ta\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: SimplePagesPlugin.php:267
 msgid "Simple Pages"
-msgstr "Simple Pages"
+msgstr ""
 
 #: SimplePagesPlugin.php:293
 msgid "Simple Page"
-msgstr "Jednostavna stranica"
+msgstr ""
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
-msgstr "Filtriraj korisnički unos za sadržaj stranice?"
+msgstr ""
 
 #: config_form.php:9
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page. PHP code will not be allowed in the "
 "content of pages if this box is checked."
-msgstr "Ako odaberete, ovaj dodatak će filtrirati sve jednostavne stranice koristeći HTML filtere postavljene na stranici sigurnosnih postavki. PHP kod neće biti dozvoljen u sadržaju stanica ako je ova kućica označena. "
+msgstr ""
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
-msgstr "Naziv i naslov stranice (obavezno)"
+msgstr "பக்கத்திற்கான தலைப்பும் பெயரும் (கட்டாயமானது)"
 
 #: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
 msgid "Slug"
-msgstr "Slug"
+msgstr ""
 
 #: controllers/IndexController.php:77
 msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr "Slug je dio URL-a ove stranice. Ukoliko ništa ne upišete, slug se generira automatski iz naslova. Dopušteni znakovi: slova, brojevi, podcrtice, crtice i kose crte."
+msgstr ""
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
-msgstr "Koristi HTML urednik?"
+msgstr ""
 
 #: controllers/IndexController.php:93
 msgid ""
 "Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
 "code will not be read in pages if this option is checked.</strong>"
-msgstr "Označite ovu kućicu ako želite dodati HTML urednik za jednostavno kreiranje HTML-a. <strong>PHP kod neće biti čitan na stranicama ako je ova opcija označena.</strong>"
+msgstr ""
 
 #: controllers/IndexController.php:106
 msgid "Text"
-msgstr "Tekst"
+msgstr "உரை"
 
 #: controllers/IndexController.php:108
 msgid ""
 "Add content for page, including HTML markup and PHP code (if the HTML editor"
 " is not checked above)."
-msgstr "Dodaj sadržaj stranici, uključujući HTML oznake i PHP kod (ako gore nije označen HTML urednik). "
+msgstr ""
 
 #: controllers/IndexController.php:120
 msgid "Parent"
-msgstr "Nadređena stranica"
+msgstr ""
 
 #: controllers/IndexController.php:121
 msgid "The parent page"
-msgstr "Hijerarhijski nadređena stranica. "
+msgstr ""
 
 #: controllers/IndexController.php:129
 msgid "Order"
-msgstr "Redoslijed"
+msgstr "ஒழுங்கு"
 
 #: controllers/IndexController.php:131
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr "Redoslijed stranice u odnosu na druge stranice s istom nadređenom stranicom. "
+msgstr ""
 
 #: controllers/IndexController.php:143
 msgid "Publish this page?"
-msgstr "Objavi ovu stranicu?"
+msgstr "பக்கத்தை வெளியிடவா?"
 
 #: controllers/IndexController.php:144
 msgid "Checking this box will make the page public"
-msgstr "Označite ovu kućicu da objavite stranicu"
+msgstr ""
 
 #: controllers/IndexController.php:164
 #, php-format
 msgid "The page \"%s\" has been added."
-msgstr "Stranica \"%s\" je dodana."
+msgstr "பக்கம் \"%s\" சேர்க்கப்பட்டு விட்டது."
 
 #: controllers/IndexController.php:166
 #, php-format
 msgid "The page \"%s\" has been edited."
-msgstr "Stranica \"%s\" je uređena."
+msgstr "பக்கம் \"%s\" தொகுக்கப்பட்டது."
 
 #: controllers/IndexController.php:184
 #, php-format
 msgid "The page \"%s\" has been deleted."
-msgstr "Stranica \"%s\" je obrisana."
+msgstr "பக்கம் \"%s\" நீக்கப்பட்டுவிட்டது."
 
 #: helpers/SimplePageFunctions.php:121
 msgid "Home"
-msgstr "Home"
+msgstr "இல்லம்"
 
 #: helpers/SimplePageFunctions.php:166
 msgid "Main Page (No Parent)"
-msgstr "Glavna stranica (nema nadređene)"
+msgstr "பிரதான பக்கம் (பெற்றோரில்லை)"
 
 #: models/SimplePagesPage.php:60
 msgid "The page must be given a title."
-msgstr "Stranica mora imati naslov."
+msgstr "பக்கத்திற்கு கட்டாயம் தலைப்பொன்று இருக்க வேண்டும்."
 
 #: models/SimplePagesPage.php:64
 msgid "The title for your page must be 255 characters or less."
-msgstr "Naslov vaše stranice smije sadržavati najviše 255 znakova. "
+msgstr "உங்கள் பக்கத் தலைப்பு 255 எழுத்துக்களுக்கு குறைவாயிருக்க வேண்டும்."
 
 #: models/SimplePagesPage.php:68
 msgid "The title is already in use by another page. Please choose another."
-msgstr "Naslov se već koristi na drugoj stranici. Molimo izaberite drugi."
+msgstr "இப்பக்கத்தலைப்பு ஏலவே பயன்பாட்டில் உள்ளது. வேறொன்றை தேர்ந்தெடுங்கள்."
 
 #: models/SimplePagesPage.php:72
 msgid "The page must be given a valid slug."
-msgstr "Stranica mora imati valjani slug."
+msgstr ""
 
 #: models/SimplePagesPage.php:76
 msgid "The slug for your page must not be a forward slash."
-msgstr "Slug vaše stranice ne smije biti kosa crta."
+msgstr ""
 
 #: models/SimplePagesPage.php:80
 msgid "The slug for your page must be 255 characters or less."
-msgstr "Slug vaše stranice smije imati najviše 255 znakova. "
+msgstr ""
 
 #: models/SimplePagesPage.php:84
 msgid "The slug is already in use by another page. Please choose another."
-msgstr "Slug se već koristi na drugoj stranici. Molimo odaberite novi slug. "
+msgstr ""
 
 #: models/SimplePagesPage.php:88
 msgid "The order must be an integer greater than or equal to 0."
-msgstr "Redni broj mora biti broj veći od ili jednak nuli. "
+msgstr ""
 
 #: views/admin/index/add.php:5
 msgid "Simple Pages | Add Page"
-msgstr "Jednostavne stranice | Dodaj stranicu"
+msgstr ""
 
 #: views/admin/index/browse-hierarchy-page.php:16
 #: views/admin/index/browse-list.php:33
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
-msgstr "<strong>%1$s</strong> on %2$s"
+msgstr ""
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Published"
-msgstr "Objavljeno"
+msgstr "வெளியிடப்பட்டது"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Not Published"
-msgstr "Nije objavljeno"
+msgstr ""
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
-msgstr "Posljednje uređivanje"
+msgstr "இறுதியாய் மாற்றப்பட்டது"
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"
-msgstr "Jednostavne stranice | Pregledaj"
+msgstr ""
 
 #: views/admin/index/browse.php:9
 msgid "List View"
-msgstr "Popis"
+msgstr ""
 
 #: views/admin/index/browse.php:12
 msgid "Hierarchy View"
-msgstr "Hijerahijski prikaz"
+msgstr ""
 
 #: views/admin/index/browse.php:17
 msgid "Add a Page"
-msgstr "Dodaj stranicu"
+msgstr "பக்கமொன்றை சேருங்கள்"
 
 #: views/admin/index/browse.php:19
 msgid "There are no pages."
-msgstr "Nema stranica."
+msgstr ""
 
 #: views/admin/index/browse.php:19
 msgid "Add a page."
-msgstr "Dodaj stranicu."
+msgstr "பக்கமொன்றை சேருங்கள்."
 
 #: views/admin/index/edit.php:4
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
-msgstr "Jednostavne stranice | Uredi \"%s\""
+msgstr ""
 
 #: views/admin/index/edit.php:40
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
 " <strong>%3$s</strong> on %4$s."
-msgstr "Stranicu izradio <strong>%1$s</strong>  %2$s, a posljednji put modificirao <strong>%3$s</strong> %4$s."
+msgstr ""

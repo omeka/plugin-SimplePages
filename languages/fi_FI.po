@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# Matti Lassila <matti.lassila@gmail.com>, 2012.
+# Matti Lassila <matti.lassila@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-01-10 17:29+0000\n"
-"Last-Translator: John Flatness <john@zerocrates.org>\n"
+"PO-Revision-Date: 2013-01-30 12:49+0000\n"
+"Last-Translator: Matti Lassila <matti.lassila@gmail.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/omeka/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr "Sivut"
 
 #: SimplePagesPlugin.php:293
 msgid "Simple Page"
-msgstr ""
+msgstr "Sivu"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
@@ -35,11 +35,11 @@ msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page. PHP code will not be allowed in the "
 "content of pages if this box is checked."
-msgstr ""
+msgstr "Poista kaikki muut paitsi turvallisuusasetuksissa erikseen sallitut HTML-elementit ja PHP-koodi."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
-msgstr ""
+msgstr "Sivun nimi ja otsikko (pakollinen)"
 
 #: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
 msgid "Slug"
@@ -50,7 +50,7 @@ msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr ""
+msgstr "Sivun URL-teksti on osa selaimen osoitepalkissa näytettävää URL-osoitetta. Puuttuva URL-teksti luodaan automaattisesti. Kirjaimet, numerot, alaviivat, väliviivat sekä vinoviivat ovat sallittuja merkkejä."
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
@@ -60,7 +60,7 @@ msgstr "Käytä HTML-editoria"
 msgid ""
 "Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
 "code will not be read in pages if this option is checked.</strong>"
-msgstr ""
+msgstr "Näytä HTML-editori sivulla. PHP-koodia <strong>ei suoriteta</strong> valinnan ollessa voimassa."
 
 #: controllers/IndexController.php:106
 msgid "Text"
@@ -70,7 +70,7 @@ msgstr "Teksti"
 msgid ""
 "Add content for page, including HTML markup and PHP code (if the HTML editor"
 " is not checked above)."
-msgstr ""
+msgstr "Lisää sivulle HTML-merkkausta ja PHP-koodia. PHP koodia ei suoriteta mikäli sivulla käytetään HTML-editoria (asetus yllä)."
 
 #: controllers/IndexController.php:120
 msgid "Parent"
@@ -78,15 +78,15 @@ msgstr "Yläsivu"
 
 #: controllers/IndexController.php:121
 msgid "The parent page"
-msgstr ""
+msgstr "Hierarkiassa ylempi sivu"
 
 #: controllers/IndexController.php:129
 msgid "Order"
-msgstr ""
+msgstr "Järjestys"
 
 #: controllers/IndexController.php:131
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr ""
+msgstr "Saman yläsivun alla olevien sivujen järjestys toisiinsa."
 
 #: controllers/IndexController.php:143
 msgid "Publish this page?"
@@ -94,7 +94,7 @@ msgstr "Julkaise"
 
 #: controllers/IndexController.php:144
 msgid "Checking this box will make the page public"
-msgstr ""
+msgstr "Julkaisee sivun."
 
 #: controllers/IndexController.php:164
 #, php-format
@@ -113,7 +113,7 @@ msgstr "Sivu \"%s\" on poistettu."
 
 #: helpers/SimplePageFunctions.php:121
 msgid "Home"
-msgstr ""
+msgstr "Etusivu"
 
 #: helpers/SimplePageFunctions.php:166
 msgid "Main Page (No Parent)"
@@ -171,7 +171,7 @@ msgstr "Julkaisematon"
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
-msgstr ""
+msgstr "Muokattu viimeksi"
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"

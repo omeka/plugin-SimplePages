@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-#   <begona.soto@urjc.es>, 2012.
-# Daniel Montes <danimontesgarcia@gmail.com>, 2012.
-# Fran Pérez <fperezrodri@gmail.com>, 2012.
-# Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2013.
+# begona.soto <begona.soto@urjc.es>, 2012
+# Dani Garcia <danimontesgarcia@gmail.com>, 2012
+# Fran Pérez <fperezrodri@gmail.com>, 2012
+# rubenalcaraz <rubenalcarazmartinez@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-01-21 18:25+0000\n"
+"PO-Revision-Date: 2013-04-04 10:54+0000\n"
 "Last-Translator: rubenalcaraz <rubenalcarazmartinez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/omeka/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Simple Pages"
 
 #: SimplePagesPlugin.php:293
 msgid "Simple Page"
-msgstr ""
+msgstr "Página estática"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
@@ -38,7 +38,7 @@ msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page. PHP code will not be allowed in the "
 "content of pages if this box is checked."
-msgstr ""
+msgstr "Si se activa, este plugin filtrará todas las páginas estáticas con los filtros HTML establecidos en la página de configuración de la seguridad. Si esta casilla está activada, el código PHP no estará permitido en el contenido de las páginas."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
@@ -53,7 +53,7 @@ msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr ""
+msgstr "El \"slug\" es la parte de la URL que identifica a esta página. Esta parte de la URL será creada automáticamente a partir del título si no se especifica una. Esta permitada la utilización de letras, números, guiones bajos, guiones y barras inclinadas."
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
@@ -63,7 +63,7 @@ msgstr "¿Usar editor HTML?"
 msgid ""
 "Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
 "code will not be read in pages if this option is checked.</strong>"
-msgstr ""
+msgstr "Activa para añadir un editor HTML. <strong>El código PHP no será leído en las páginas si esta opción se encuentra activada.</strong>"
 
 #: controllers/IndexController.php:106
 msgid "Text"

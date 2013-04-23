@@ -3,64 +3,64 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# Bogdan Trifunovic <>, 2012-2013
+# evilinstone <evilinstone@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-01-23 08:37+0000\n"
-"Last-Translator: Bogdan Trifunovic <>\n"
-"Language-Team: Serbian (Serbia) (http://www.transifex.com/projects/p/omeka/language/sr_RS/)\n"
+"PO-Revision-Date: 2013-04-06 15:23+0000\n"
+"Last-Translator: evilinstone <evilinstone@gmail.com>\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/omeka/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sr_RS\n"
+"Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: SimplePagesPlugin.php:267
 msgid "Simple Pages"
-msgstr "Једноставне странице"
+msgstr "Прості сторінки"
 
 #: SimplePagesPlugin.php:293
 msgid "Simple Page"
-msgstr "Једноставна страница"
+msgstr "Проста сторінка"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
-msgstr "Филтрирај унос корисника за садржај странице?"
+msgstr "Фільтр введення даних для вмісту сторінки?"
 
 #: config_form.php:9
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page. PHP code will not be allowed in the "
 "content of pages if this box is checked."
-msgstr "Уколико је потврђено овај додатак ће филтрирати све једноставне странице коришћењем HTML филтера подстављених на страници безбедносних подешавања. PHP код неће бити дозвољен у садржају страница ако је поље потврђено."
+msgstr "Якщо ця опція увімкнена, цей додаток буде застосувати перевірку до простих сторінок використовуючи HTML фільтри що вказані на сторінці налаштувань безпеки. PHP код заборонено використовувати якщо ця опція увімкнена. "
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
-msgstr "Име и заглавље странице (захтевано)"
+msgstr "Назва та заголовок для цієї сторінки (обов'язкові)"
 
 #: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
 msgid "Slug"
-msgstr "Линк"
+msgstr "Коротка назва"
 
 #: controllers/IndexController.php:77
 msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr "Линк је део URL-а за ову страницу. Линк ће бити креиран аутоматски из наслова уколико није посебно унешен. Слова, бројеви, доње, средње и косе црте су дозвољени."
+msgstr "Проста назва є частиною посилання для цієї сторінки. Якщо коротку назву не вказано, її буде автоматично створено на основі назви сторінки. Дозволено використовувати букви, числа, підкреслення, дефіси."
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
-msgstr "Користи HTML уређивач?"
+msgstr "Використовувати редактор HTML?"
 
 #: controllers/IndexController.php:93
 msgid ""
 "Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
 "code will not be read in pages if this option is checked.</strong>"
-msgstr "Потврди овде да би се додао HTML уређивач за једноставно додавање HTML-a.  <strong>PHP код неће се видети у страницама ако је ова опција потврђена.</strong>"
+msgstr "Відмітити, щоб додати панель керування редактора HTML для простішого створення. <strong>PHP код не буде виконуватись, якщо увімкнено цю опцію.</strong>"
 
 #: controllers/IndexController.php:106
 msgid "Text"
@@ -70,141 +70,141 @@ msgstr "Текст"
 msgid ""
 "Add content for page, including HTML markup and PHP code (if the HTML editor"
 " is not checked above)."
-msgstr "Додај садржај странице, укључујући HTML ознаке и PHP код (уколико изнад није потврђен HTML уређивач)."
+msgstr "Додати контент до сторінки, включаючи HTML маркування та PHP код (якщо вище не відмічено опцію HTML редактора)."
 
 #: controllers/IndexController.php:120
 msgid "Parent"
-msgstr "Родитељ"
+msgstr "Вихідна"
 
 #: controllers/IndexController.php:121
 msgid "The parent page"
-msgstr "Страница родитељ"
+msgstr "Вихідна сторінка"
 
 #: controllers/IndexController.php:129
 msgid "Order"
-msgstr "Редослед"
+msgstr "Порядок"
 
 #: controllers/IndexController.php:131
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr "Редослед странице у односу на друге странице са истим родитељем"
+msgstr "Порядок сортування по відношенню до інших сторінок з тією ж вихідною сторінкою"
 
 #: controllers/IndexController.php:143
 msgid "Publish this page?"
-msgstr "Објави страницу?"
+msgstr "Опублікувати цю сторінку?"
 
 #: controllers/IndexController.php:144
 msgid "Checking this box will make the page public"
-msgstr "Потврђивањем овог поља страница ће бити видљива"
+msgstr "Зробити сторінку загальнодоступною"
 
 #: controllers/IndexController.php:164
 #, php-format
 msgid "The page \"%s\" has been added."
-msgstr "Страница \"%s\" је додата."
+msgstr "Сторінку \"%s\" було додано."
 
 #: controllers/IndexController.php:166
 #, php-format
 msgid "The page \"%s\" has been edited."
-msgstr "Страница \"%s\" је уређена."
+msgstr "Сторінку \"%s\" була відредагована."
 
 #: controllers/IndexController.php:184
 #, php-format
 msgid "The page \"%s\" has been deleted."
-msgstr "Страница \"%s\" је обрисана."
+msgstr "Сторінку \"%s\" була видалена."
 
 #: helpers/SimplePageFunctions.php:121
 msgid "Home"
-msgstr "Почетак"
+msgstr "Домашня сторінка"
 
 #: helpers/SimplePageFunctions.php:166
 msgid "Main Page (No Parent)"
-msgstr "Главна страница (нема родитеља)"
+msgstr "Головна сторінка (вихідні сторінки відсутні)"
 
 #: models/SimplePagesPage.php:60
 msgid "The page must be given a title."
-msgstr "Страница мора имати наслов."
+msgstr "Необхідно надати назву сторінці."
 
 #: models/SimplePagesPage.php:64
 msgid "The title for your page must be 255 characters or less."
-msgstr "Наслов странице мора имати 255 карактера или мање."
+msgstr "Назва сторінки може складатись з 255 або менше знаків."
 
 #: models/SimplePagesPage.php:68
 msgid "The title is already in use by another page. Please choose another."
-msgstr "Наслов је већ у употреби код друге странице. Молимо одабери други наслов."
+msgstr "Це назва сторінки вже використовується. Прохання, обрати іншу назву."
 
 #: models/SimplePagesPage.php:72
 msgid "The page must be given a valid slug."
-msgstr "Страница мора имати исправан линк."
+msgstr "Необхідно задати правильну коротку назву для сторінки."
 
 #: models/SimplePagesPage.php:76
 msgid "The slug for your page must not be a forward slash."
-msgstr "Линк странице не сме бити коса црта."
+msgstr "Коротка назва сторінки не може містити знак косої лінії (/)."
 
 #: models/SimplePagesPage.php:80
 msgid "The slug for your page must be 255 characters or less."
-msgstr "Линк странице мора имати 255 карактера или мање."
+msgstr "Коротка назва сторінки може складатись з 255 або менше знаків."
 
 #: models/SimplePagesPage.php:84
 msgid "The slug is already in use by another page. Please choose another."
-msgstr "Линк је већ у употреби код друге странице. Молимо одабери други линк."
+msgstr "Це коротка назва сторінки вже використовується. Прохання, обрати іншу коротку назву."
 
 #: models/SimplePagesPage.php:88
 msgid "The order must be an integer greater than or equal to 0."
-msgstr "Редослед мора бити цео број већи од или једнак 0."
+msgstr "Номер за-порядком повинний бути цілим числом більшим або рівним 0."
 
 #: views/admin/index/add.php:5
 msgid "Simple Pages | Add Page"
-msgstr "Једноставне странице | Додај страницу"
+msgstr "Прості сторінки | Додати сторінку"
 
 #: views/admin/index/browse-hierarchy-page.php:16
 #: views/admin/index/browse-list.php:33
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
-msgstr "<strong>%1$s</strong> %2$s"
+msgstr "<strong>%1$s</strong> на %2$s"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Published"
-msgstr "Објављено"
+msgstr "Опубліковані"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Not Published"
-msgstr "Није објављено"
+msgstr "Не опубліковані"
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
-msgstr "Последња измењена"
+msgstr "Останні редаговані"
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"
-msgstr "Једноставне странице | Прегледај"
+msgstr "Прості сторінки | Перегляд"
 
 #: views/admin/index/browse.php:9
 msgid "List View"
-msgstr "Преглед листе"
+msgstr "Перегляд списком"
 
 #: views/admin/index/browse.php:12
 msgid "Hierarchy View"
-msgstr "Преглед хијерархије"
+msgstr "Ступеневий перегляд"
 
 #: views/admin/index/browse.php:17
 msgid "Add a Page"
-msgstr "Додај страницу"
+msgstr "Додати сторінку"
 
 #: views/admin/index/browse.php:19
 msgid "There are no pages."
-msgstr "Нема страница."
+msgstr "Сторінки відсутні."
 
 #: views/admin/index/browse.php:19
 msgid "Add a page."
-msgstr "Додај страницу."
+msgstr "Додати сторінку."
 
 #: views/admin/index/edit.php:4
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
-msgstr "Једноставне странице | Уреди \"%s\""
+msgstr "Прості сторінки | Редагувати \"%s\""
 
 #: views/admin/index/edit.php:40
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
 " <strong>%3$s</strong> on %4$s."
-msgstr "Ова страница је додата од <strong>%1$s</strong> %2$s и последњи пут измењена од <strong>%3$s</strong> %4$s."
+msgstr "Ця сторінка була створена <strong>%1$s</strong> на %2$s, та останній раз редагована  <strong>%3$s</strong> на %4$s."

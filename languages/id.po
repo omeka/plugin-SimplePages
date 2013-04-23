@@ -3,44 +3,43 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# rijekateam <digitalizacija@gkri.hr>, 2013
-# rijekateam <digitalizacija@gkri.hr>, 2012
+# demank <sukmabudi@yahoo.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-03-05 16:51+0000\n"
-"Last-Translator: rijekateam <digitalizacija@gkri.hr>\n"
-"Language-Team: Croatian (http://www.transifex.com/projects/p/omeka/language/hr/)\n"
+"PO-Revision-Date: 2013-02-02 02:56+0000\n"
+"Last-Translator: demank <sukmabudi@yahoo.com>\n"
+"Language-Team: Indonesian (http://www.transifex.com/projects/p/omeka/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: id\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: SimplePagesPlugin.php:267
 msgid "Simple Pages"
-msgstr "Simple Pages"
+msgstr "Halaman Sederhana"
 
 #: SimplePagesPlugin.php:293
 msgid "Simple Page"
-msgstr "Jednostavna stranica"
+msgstr "Halaman Sederhana"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
-msgstr "Filtriraj korisnički unos za sadržaj stranice?"
+msgstr "Saring Masukkan Pengguna Untuk Konten Halaman?"
 
 #: config_form.php:9
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page. PHP code will not be allowed in the "
 "content of pages if this box is checked."
-msgstr "Ako odaberete, ovaj dodatak će filtrirati sve jednostavne stranice koristeći HTML filtere postavljene na stranici sigurnosnih postavki. PHP kod neće biti dozvoljen u sadržaju stanica ako je ova kućica označena. "
+msgstr "Bila dicentang, plugin ini akan menyaring semua halaman sederhana menggunakan saringan HTML yang disetel dalam halaman setelan keamanan. Kode PHP tidak akan diperkenankan dalam konten halaman tersebut bila kotak ini dicentang."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
-msgstr "Naziv i naslov stranice (obavezno)"
+msgstr "Nama dan heading untuk halaman (diperlukan)"
 
 #: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
 msgid "Slug"
@@ -51,161 +50,161 @@ msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr "Slug je dio URL-a ove stranice. Ukoliko ništa ne upišete, slug se generira automatski iz naslova. Dopušteni znakovi: slova, brojevi, podcrtice, crtice i kose crte."
+msgstr "Slug adalah bagian dari URL untuk halaman ini. Sebuah slug akan dibuat secara otomatis dari judul bila tidak diisikan. Huruf, angka, garis bawah, garis tengah, dan garis miring ke kanan diperkenankan."
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
-msgstr "Koristi HTML urednik?"
+msgstr "Gunakan editor HTML?"
 
 #: controllers/IndexController.php:93
 msgid ""
 "Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
 "code will not be read in pages if this option is checked.</strong>"
-msgstr "Označite ovu kućicu ako želite dodati HTML urednik za jednostavno kreiranje HTML-a. <strong>PHP kod neće biti čitan na stranicama ako je ova opcija označena.</strong>"
+msgstr "Centang ini untuk menambahkan sebuah baris editor HTML untuk kemudahan dalam membuat HMTL. <strong>Kode PHP tidak akan dibaca pada halaman jika opsi ini dicentang.</strong>"
 
 #: controllers/IndexController.php:106
 msgid "Text"
-msgstr "Tekst"
+msgstr "Teks"
 
 #: controllers/IndexController.php:108
 msgid ""
 "Add content for page, including HTML markup and PHP code (if the HTML editor"
 " is not checked above)."
-msgstr "Dodaj sadržaj stranici, uključujući HTML oznake i PHP kod (ako gore nije označen HTML urednik). "
+msgstr "Tambah konten untuk halaman, termasuk tanda HTML dan kode PHP (jika editor HTML tidak dicentang di atas)."
 
 #: controllers/IndexController.php:120
 msgid "Parent"
-msgstr "Nadređena stranica"
+msgstr "Induk"
 
 #: controllers/IndexController.php:121
 msgid "The parent page"
-msgstr "Hijerarhijski nadređena stranica. "
+msgstr "Halaman induk"
 
 #: controllers/IndexController.php:129
 msgid "Order"
-msgstr "Redoslijed"
+msgstr "Urutan"
 
 #: controllers/IndexController.php:131
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr "Redoslijed stranice u odnosu na druge stranice s istom nadređenom stranicom. "
+msgstr "Urutan dari halaman terkait ke halaman lainnya dalam induk yang sama"
 
 #: controllers/IndexController.php:143
 msgid "Publish this page?"
-msgstr "Objavi ovu stranicu?"
+msgstr "Publikasikan halaman ini?"
 
 #: controllers/IndexController.php:144
 msgid "Checking this box will make the page public"
-msgstr "Označite ovu kućicu da objavite stranicu"
+msgstr "Centang kotak ini akan menjadikan halaman menjadi publik"
 
 #: controllers/IndexController.php:164
 #, php-format
 msgid "The page \"%s\" has been added."
-msgstr "Stranica \"%s\" je dodana."
+msgstr "Halaman \"%s\" telah ditambahkan."
 
 #: controllers/IndexController.php:166
 #, php-format
 msgid "The page \"%s\" has been edited."
-msgstr "Stranica \"%s\" je uređena."
+msgstr "Halaman \"%s\" telah diedit."
 
 #: controllers/IndexController.php:184
 #, php-format
 msgid "The page \"%s\" has been deleted."
-msgstr "Stranica \"%s\" je obrisana."
+msgstr "Halaman \"%s\" telah dihapus."
 
 #: helpers/SimplePageFunctions.php:121
 msgid "Home"
-msgstr "Home"
+msgstr "Beranda"
 
 #: helpers/SimplePageFunctions.php:166
 msgid "Main Page (No Parent)"
-msgstr "Glavna stranica (nema nadređene)"
+msgstr "Halaman Utama (Tidak Berinduk)"
 
 #: models/SimplePagesPage.php:60
 msgid "The page must be given a title."
-msgstr "Stranica mora imati naslov."
+msgstr "Halaman harus diberi judul."
 
 #: models/SimplePagesPage.php:64
 msgid "The title for your page must be 255 characters or less."
-msgstr "Naslov vaše stranice smije sadržavati najviše 255 znakova. "
+msgstr "Judul untuk halaman anda harus 255 karakter atau kurang."
 
 #: models/SimplePagesPage.php:68
 msgid "The title is already in use by another page. Please choose another."
-msgstr "Naslov se već koristi na drugoj stranici. Molimo izaberite drugi."
+msgstr "Judul tersebut sudah digunakan oleh halaman lain. Gunakan yang lain."
 
 #: models/SimplePagesPage.php:72
 msgid "The page must be given a valid slug."
-msgstr "Stranica mora imati valjani slug."
+msgstr "Halaman tersebut harus diberi slug yang valid."
 
 #: models/SimplePagesPage.php:76
 msgid "The slug for your page must not be a forward slash."
-msgstr "Slug vaše stranice ne smije biti kosa crta."
+msgstr "Slug untuk halaman anda tidak berupa garis miring ke kanan."
 
 #: models/SimplePagesPage.php:80
 msgid "The slug for your page must be 255 characters or less."
-msgstr "Slug vaše stranice smije imati najviše 255 znakova. "
+msgstr "Slug untuk halaman anda harus 255 karakter atau kurang."
 
 #: models/SimplePagesPage.php:84
 msgid "The slug is already in use by another page. Please choose another."
-msgstr "Slug se već koristi na drugoj stranici. Molimo odaberite novi slug. "
+msgstr "Slug sudah digunakan oleh halaman lain. Gunakan yang lain."
 
 #: models/SimplePagesPage.php:88
 msgid "The order must be an integer greater than or equal to 0."
-msgstr "Redni broj mora biti broj veći od ili jednak nuli. "
+msgstr "Urutan harus berupa integer lebih dari atau sama dengan 0."
 
 #: views/admin/index/add.php:5
 msgid "Simple Pages | Add Page"
-msgstr "Jednostavne stranice | Dodaj stranicu"
+msgstr "Halaman Sederhana | Tambah Halaman"
 
 #: views/admin/index/browse-hierarchy-page.php:16
 #: views/admin/index/browse-list.php:33
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
-msgstr "<strong>%1$s</strong> on %2$s"
+msgstr "<strong>%1$s</strong> pada %2$s"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Published"
-msgstr "Objavljeno"
+msgstr "Dipublikasikan"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Not Published"
-msgstr "Nije objavljeno"
+msgstr "Tidak Dipublikasikan"
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
-msgstr "Posljednje uređivanje"
+msgstr "Terakhir Dimodifikasi"
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"
-msgstr "Jednostavne stranice | Pregledaj"
+msgstr "Halaman Sederhana | Ramban"
 
 #: views/admin/index/browse.php:9
 msgid "List View"
-msgstr "Popis"
+msgstr "Tampilan Daftar"
 
 #: views/admin/index/browse.php:12
 msgid "Hierarchy View"
-msgstr "Hijerahijski prikaz"
+msgstr "Tampilan Hirarki"
 
 #: views/admin/index/browse.php:17
 msgid "Add a Page"
-msgstr "Dodaj stranicu"
+msgstr "Tambah Halaman"
 
 #: views/admin/index/browse.php:19
 msgid "There are no pages."
-msgstr "Nema stranica."
+msgstr "Tidak ada halaman."
 
 #: views/admin/index/browse.php:19
 msgid "Add a page."
-msgstr "Dodaj stranicu."
+msgstr "Tambah halaman."
 
 #: views/admin/index/edit.php:4
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
-msgstr "Jednostavne stranice | Uredi \"%s\""
+msgstr "Halaman Sederhana | Edit \"%s\""
 
 #: views/admin/index/edit.php:40
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
 " <strong>%3$s</strong> on %4$s."
-msgstr "Stranicu izradio <strong>%1$s</strong>  %2$s, a posljednji put modificirao <strong>%3$s</strong> %4$s."
+msgstr "Halaman ini dibuat oleh <strong>%1$s</strong> pada %2$s, dan terakhir dimodifikasi oleh <strong>%3$s</strong> pada %4$s."
