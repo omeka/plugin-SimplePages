@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
+# Iwe E.C. Muiser <e.c.muiser@utwente.nl>, 2013
 # Peter Baan <exnihilo@xs4all.nl>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-01-10 17:29+0000\n"
-"Last-Translator: John Flatness <john@zerocrates.org>\n"
+"PO-Revision-Date: 2013-09-16 14:22+0000\n"
+"Last-Translator: Iwe E.C. Muiser <e.c.muiser@utwente.nl>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/omeka/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +25,7 @@ msgstr "Simple Pages "
 
 #: SimplePagesPlugin.php:293
 msgid "Simple Page"
-msgstr ""
+msgstr "Simpele Pagina"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
@@ -35,11 +36,11 @@ msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page. PHP code will not be allowed in the "
 "content of pages if this box is checked."
-msgstr ""
+msgstr "Wanneer aangevinkt zal deze plugin alle simple pages filteren met de HTML-filters die zijn gedaan op in de instelligspagina. PHP-code wordt niet toegestaan op de pagina's als dit vakje wordt aangevinkt."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
-msgstr ""
+msgstr "Naam en koptekst voor deze pagina (verplicht)"
 
 #: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
 msgid "Slug"
@@ -50,17 +51,17 @@ msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr ""
+msgstr "De 'slug' is een deel van de URL voor deze pagina. Een 'slug' wordt automatisch gemaakt van de titel als niks in ingevoerd. Letters, nummers, underscores, streepjes en schuine strepen worden niet toegestaan."
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
-msgstr ""
+msgstr "Gebruik de HTML-editor?"
 
 #: controllers/IndexController.php:93
 msgid ""
 "Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
 "code will not be read in pages if this option is checked.</strong>"
-msgstr ""
+msgstr "Vink deze optie aan om een HTML-editorbalk toe te voegen om makkelijk HTML te creëren. <strong>PHP-code zal niet worden uitgevoerd in pagina's als deze optie is aangevinkt.</strong>"
 
 #: controllers/IndexController.php:106
 msgid "Text"
@@ -70,7 +71,7 @@ msgstr "Tekst"
 msgid ""
 "Add content for page, including HTML markup and PHP code (if the HTML editor"
 " is not checked above)."
-msgstr ""
+msgstr "Voeg inhoud toe aan pagina, inclusief HTML-opmaak en PHP-code (als de HTML-editor niet aangevinkt is hierboven)."
 
 #: controllers/IndexController.php:120
 msgid "Parent"
@@ -78,15 +79,15 @@ msgstr "Hoofditem"
 
 #: controllers/IndexController.php:121
 msgid "The parent page"
-msgstr ""
+msgstr "De bovenliggende pagina"
 
 #: controllers/IndexController.php:129
 msgid "Order"
-msgstr ""
+msgstr "Volgorde"
 
 #: controllers/IndexController.php:131
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr ""
+msgstr "De volgorde van de pagina ten opzichte van andere pagina's met dezelfde bovenliggende pagina."
 
 #: controllers/IndexController.php:143
 msgid "Publish this page?"
@@ -94,7 +95,7 @@ msgstr "Deze pagina publiceren?"
 
 #: controllers/IndexController.php:144
 msgid "Checking this box will make the page public"
-msgstr ""
+msgstr "Het aanvinken van dit vakje zal de pagina publiek maken."
 
 #: controllers/IndexController.php:164
 #, php-format
@@ -113,7 +114,7 @@ msgstr "De pagina \"%s\" is verwijderd."
 
 #: helpers/SimplePageFunctions.php:121
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: helpers/SimplePageFunctions.php:166
 msgid "Main Page (No Parent)"
@@ -171,7 +172,7 @@ msgstr "Niet gepubliceerd"
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
-msgstr ""
+msgstr "Laatst gewijzigd"
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"

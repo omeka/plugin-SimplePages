@@ -3,44 +3,43 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# rubenalcaraz <rubenalcarazmartinez@gmail.com>, 2013
-# sergimontes <sergi.blanes@gmail.com>, 2013
+# xfil <llopes@museus.ul.pt>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-09-25 18:41+0000\n"
-"Last-Translator: sergimontes <sergi.blanes@gmail.com>\n"
-"Language-Team: Catalan (Spain) (http://www.transifex.com/projects/p/omeka/language/ca_ES/)\n"
+"PO-Revision-Date: 2013-08-01 16:20+0000\n"
+"Last-Translator: xfil <llopes@museus.ul.pt>\n"
+"Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/omeka/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ca_ES\n"
+"Language: pt_PT\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: SimplePagesPlugin.php:267
 msgid "Simple Pages"
-msgstr "Simple Pages"
+msgstr "Páginas Simples"
 
 #: SimplePagesPlugin.php:293
 msgid "Simple Page"
-msgstr "Simple Page"
+msgstr "Página Simples"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
-msgstr "Filtrar l'entrada de dades a la pàgina de continguts?"
+msgstr "Filtrar entradas dos utilizadores para o conteúdo da página?"
 
 #: config_form.php:9
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page. PHP code will not be allowed in the "
 "content of pages if this box is checked."
-msgstr "Si s'activa aquest plugin filtrarà totes les pàgines estàtiques amb els filtres HTML establerts a la pàgina de configuració de la seguretat. Si aquesta casella està marcada, el codi PHP no és permet en el contingut de les pàgines."
+msgstr "Se assinalado, este plugin irá filtrar todas as páginas simples usando filtros HTML definidos nas definições de segurança. Código PHP não será permitido no conteúdo das páginas se esta opção for assinalada."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
-msgstr "Nom i capçalera per a la pàgina (obligatori)"
+msgstr "Nome e cabeçalho para a página (obrigatório)"
 
 #: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
 msgid "Slug"
@@ -51,161 +50,161 @@ msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr "L'identificador és la part de l'URL per aquesta pàgina. Els identificadors es creen automaticament a partir del títol si no s'indica cap. Les lletres, números, guions baixos, guions i contrabarres són permesos."
+msgstr "O identificador é a parte do URL para esta página. O identificador será criado automaticamente a partir do título se não for inserido um. Letras, números, sub-traços, hífenes e barras inclinadas para a frente são permitidos."
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
-msgstr "Vols utilitzar l'editor HTML?"
+msgstr "Usar editor HTML?"
 
 #: controllers/IndexController.php:93
 msgid ""
 "Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
 "code will not be read in pages if this option is checked.</strong>"
-msgstr "Activeu aquesta opció per afegir un editor HTML. <strong>El codi PHP no es podrà llegir en les pàgines si aquesta opció es troba marcada.</strong>"
+msgstr "Marcar aqui para adicionar uma barra de edição HTML para a criação fácil de HTML. <strong>Código PHP não será lido nas páginas se esta opção estiver seleccionada.</strong>"
 
 #: controllers/IndexController.php:106
 msgid "Text"
-msgstr "Text"
+msgstr "Texto"
 
 #: controllers/IndexController.php:108
 msgid ""
 "Add content for page, including HTML markup and PHP code (if the HTML editor"
 " is not checked above)."
-msgstr "Afegiu contingut a la pàgina, incloent codi HTML i PHP (si l'editor HTML està desmarcat)"
+msgstr "Adicionar conteúdo à página, incluíndo HTML e código PHP (se o editor HTML não estiver seleccionado em cima)"
 
 #: controllers/IndexController.php:120
 msgid "Parent"
-msgstr "Element principal"
+msgstr "Nó Superior"
 
 #: controllers/IndexController.php:121
 msgid "The parent page"
-msgstr "Pàgina superior"
+msgstr "Nó superior"
 
 #: controllers/IndexController.php:129
 msgid "Order"
-msgstr "Ordre"
+msgstr "Ordem"
 
 #: controllers/IndexController.php:131
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr "L'ordre de la pàgina respecte a les altres pàgines amb la mateixa superior"
+msgstr "Ordem da página relativa a outras páginas com nó superior comum."
 
 #: controllers/IndexController.php:143
 msgid "Publish this page?"
-msgstr "Vols publicar aquesta pàgina?"
+msgstr "Publicar esta página?"
 
 #: controllers/IndexController.php:144
 msgid "Checking this box will make the page public"
-msgstr "Marqueu aquesta casella si voleu fer la pàgina pública"
+msgstr "Assinalar esta opção tornará a página pública."
 
 #: controllers/IndexController.php:164
 #, php-format
 msgid "The page \"%s\" has been added."
-msgstr "S'ha afegit la pàgina: \"%s\""
+msgstr "A página \"%s\" foi adicionada."
 
 #: controllers/IndexController.php:166
 #, php-format
 msgid "The page \"%s\" has been edited."
-msgstr "S'ha editat la pàgina: \"%s\""
+msgstr "A página \"%s\" foi editada."
 
 #: controllers/IndexController.php:184
 #, php-format
 msgid "The page \"%s\" has been deleted."
-msgstr "S'ha esborrat la pàgina: \"%s\""
+msgstr "A página \"%s\" foi eliminada."
 
 #: helpers/SimplePageFunctions.php:121
 msgid "Home"
-msgstr "Inici"
+msgstr "Origem"
 
 #: helpers/SimplePageFunctions.php:166
 msgid "Main Page (No Parent)"
-msgstr "Pàgina d'inici (sense element principal)"
+msgstr "Página Principal"
 
 #: models/SimplePagesPage.php:60
 msgid "The page must be given a title."
-msgstr "La pàgina ha de tenir un títol."
+msgstr "Deve ser dado um título à página."
 
 #: models/SimplePagesPage.php:64
 msgid "The title for your page must be 255 characters or less."
-msgstr "El títol per a la pàgina ha de tenir 255 caràcters o menys."
+msgstr "O título da sua página dever ter no máximo 255 caracteres."
 
 #: models/SimplePagesPage.php:68
 msgid "The title is already in use by another page. Please choose another."
-msgstr "Aquest títol ja s'utilitza per una altra pàgina. Si us plau tria un altre."
+msgstr "Este título já existe. Por favor escolha outro."
 
 #: models/SimplePagesPage.php:72
 msgid "The page must be given a valid slug."
-msgstr "La pàgina ha de tenir un identificador vàlid"
+msgstr "A página deve ter um identificador válido."
 
 #: models/SimplePagesPage.php:76
 msgid "The slug for your page must not be a forward slash."
-msgstr "L'identificador de la pàgina no pot ser una barra diagonal."
+msgstr "O identificador da sua página não deve ser uma barra inclinada para a frente."
 
 #: models/SimplePagesPage.php:80
 msgid "The slug for your page must be 255 characters or less."
-msgstr "L'identificador de la pàgina ha de tenir 255 caràcters o menys."
+msgstr "O identificador da sua página deve ter no máximo 255 caracteres"
 
 #: models/SimplePagesPage.php:84
 msgid "The slug is already in use by another page. Please choose another."
-msgstr "Aquest identificador ja s'utilitza en una altra pàgina. Si us plau tria un altre."
+msgstr "Este identificador já está em uso. Por favor escolha outro."
 
 #: models/SimplePagesPage.php:88
 msgid "The order must be an integer greater than or equal to 0."
-msgstr "El criteri d'ordenació ha de ser un nombre enter major o igual a 0."
+msgstr "A ordem deve ser um número inteiro maior ou igual a 0."
 
 #: views/admin/index/add.php:5
 msgid "Simple Pages | Add Page"
-msgstr "Simple Pages | Afegeix una pàgina"
+msgstr "Páginas Simples | Adicionar Página"
 
 #: views/admin/index/browse-hierarchy-page.php:16
 #: views/admin/index/browse-list.php:33
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
-msgstr "<strong>%1$s</strong> a %2$s"
+msgstr "<strong>%1$s</strong> em %2$s"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Published"
-msgstr "Publicat"
+msgstr "Publicado"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Not Published"
-msgstr "No publicat"
+msgstr "Não Publicado"
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
-msgstr "Darrera modificació"
+msgstr "Última Modeificação"
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"
-msgstr "Simple Pages | Navega"
+msgstr "Páginas Simples | Explorar"
 
 #: views/admin/index/browse.php:9
 msgid "List View"
-msgstr "Visualització en forma de llista"
+msgstr "Ver como lista"
 
 #: views/admin/index/browse.php:12
 msgid "Hierarchy View"
-msgstr "Visualitza la jerarquia"
+msgstr "Vista hierárquica"
 
 #: views/admin/index/browse.php:17
 msgid "Add a Page"
-msgstr "Afegeix una pàgina"
+msgstr "Adicionar Página"
 
 #: views/admin/index/browse.php:19
 msgid "There are no pages."
-msgstr "No hi ha cap pàgina."
+msgstr "Não há páginas."
 
 #: views/admin/index/browse.php:19
 msgid "Add a page."
-msgstr "Afegeix una pàgina."
+msgstr "Adicionar uma página."
 
 #: views/admin/index/edit.php:4
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
-msgstr "Simple Pages | Edita \"%s\""
+msgstr "Páginas Simples | Editar \"%s\""
 
 #: views/admin/index/edit.php:40
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
 " <strong>%3$s</strong> on %4$s."
-msgstr "Aquesta pàgina ha estat creada <strong>%1$s</strong> el dia %2$s, i darrerament modificada per <strong>%3$s</strong> el dia %4$s."
+msgstr "Esta página foi criada por <strong>%1$s</strong> em %2$s, e foi modificada da última vez por <strong>%3$s</strong> em %4$s."
