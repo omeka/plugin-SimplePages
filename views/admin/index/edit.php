@@ -23,7 +23,7 @@ jQuery(window).load(function() {
         // See http://www.tinymce.com/forum/viewtopic.php?id=24539
         media_strict: false,
         // General configuration:
-        convert_urls: false,
+        convert_urls: false
     });
     // Add or remove TinyMCE control.
     jQuery('#simple-pages-use-tiny-mce').click(function() {
