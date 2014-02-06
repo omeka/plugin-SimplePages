@@ -3,208 +3,209 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# demank <sukmabudi@yahoo.com>, 2013
+# yenny <yennylin1234@gmail.com>, 2014
+# zhangh <zhangh@unlv.nevada.edu>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-11-19 15:35+0000\n"
-"Last-Translator: demank <sukmabudi@yahoo.com>\n"
-"Language-Team: Indonesian (http://www.transifex.com/projects/p/omeka/language/id/)\n"
+"PO-Revision-Date: 2014-01-11 09:13+0000\n"
+"Last-Translator: yenny <yennylin1234@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/omeka/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: SimplePagesPlugin.php:267
 msgid "Simple Pages"
-msgstr "Halaman Sederhana"
+msgstr "簡單頁面"
 
 #: SimplePagesPlugin.php:293
 msgid "Simple Page"
-msgstr "Halaman Sederhana"
+msgstr "簡單頁面"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
-msgstr "Saring Masukkan Pengguna Untuk Konten Halaman?"
+msgstr "過濾用戶輸入頁面的內容？"
 
 #: config_form.php:9
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page. PHP code will not be allowed in the "
 "content of pages if this box is checked."
-msgstr "Bila dicentang, plugin ini akan menyaring semua halaman sederhana menggunakan saringan HTML yang disetel dalam halaman setelan keamanan. Kode PHP tidak akan diperkenankan dalam konten halaman tersebut bila kotak ini dicentang."
+msgstr "如果點選了，這個插件將使用HTML過濾器（可在「安全設定」中設定）過濾所有簡單頁面。如果點選核定框，頁面內容將不允許有PHP代碼。"
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
-msgstr "Nama dan heading untuk halaman (diperlukan)"
+msgstr "頁面的名稱和頁頭（必需）"
 
 #: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
 msgid "Slug"
-msgstr "Slug"
+msgstr "網址簡稱"
 
 #: controllers/IndexController.php:77
 msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr "Slug adalah bagian dari URL untuk halaman ini. Sebuah slug akan dibuat secara otomatis dari judul bila tidak diisikan. Huruf, angka, garis bawah, garis tengah, dan garis miring ke kanan diperkenankan."
+msgstr "網址簡稱是這個頁面URL的一部分。如果沒有輸入，網址簡稱將會從標題自動生成。字母、數字、下劃線、破折號以及斜線（/）是允許的。"
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
-msgstr "Gunakan editor HTML?"
+msgstr "使用HTML編輯器？"
 
 #: controllers/IndexController.php:93
 msgid ""
 "Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
 "code will not be read in pages if this option is checked.</strong>"
-msgstr "Centang ini untuk menambahkan sebuah baris editor HTML untuk kemudahan dalam membuat HMTL. <strong>Kode PHP tidak akan dibaca pada halaman jika opsi ini dicentang.</strong>"
+msgstr "點選此處可用HTML編輯器撰寫HTML。<strong>如果點選了此選項，頁面中的PHP代碼將不會被讀入。</strong>"
 
 #: controllers/IndexController.php:106
 msgid "Text"
-msgstr "Teks"
+msgstr "文本"
 
 #: controllers/IndexController.php:108
 msgid ""
 "Add content for page, including HTML markup and PHP code (if the HTML editor"
 " is not checked above)."
-msgstr "Tambah konten untuk halaman, termasuk tanda HTML dan kode PHP (jika editor HTML tidak dicentang di atas)."
+msgstr "為頁面添加內容，包括HTML標記和PHP代碼（如果上面的HTML編輯器沒有被點選）。"
 
 #: controllers/IndexController.php:120
 msgid "Parent"
-msgstr "Induk"
+msgstr "上層"
 
 #: controllers/IndexController.php:121
 msgid "The parent page"
-msgstr "Halaman induk"
+msgstr "上層頁面"
 
 #: controllers/IndexController.php:129
 msgid "Order"
-msgstr "Urutan"
+msgstr "排序"
 
 #: controllers/IndexController.php:131
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr "Urutan dari halaman terkait ke halaman lainnya dalam induk yang sama"
+msgstr "同層次（附屬於相同的上層頁面）頁面間的順序"
 
 #: controllers/IndexController.php:143
 msgid "Publish this page?"
-msgstr "Publikasikan halaman ini?"
+msgstr "公布這一頁？"
 
 #: controllers/IndexController.php:144
 msgid "Checking this box will make the page public"
-msgstr "Centang kotak ini akan menjadikan halaman menjadi publik"
+msgstr "點選核定框將公開頁面"
 
 #: controllers/IndexController.php:164
 #, php-format
 msgid "The page \"%s\" has been added."
-msgstr "Halaman \"%s\" telah ditambahkan."
+msgstr "頁面\"%s\"已添加完畢。"
 
 #: controllers/IndexController.php:166
 #, php-format
 msgid "The page \"%s\" has been edited."
-msgstr "Halaman \"%s\" telah diedit."
+msgstr "頁面\"%s\"已編輯完畢。"
 
 #: controllers/IndexController.php:184
 #, php-format
 msgid "The page \"%s\" has been deleted."
-msgstr "Halaman \"%s\" telah dihapus."
+msgstr "頁面\"%s\"已刪除。"
 
 #: helpers/SimplePageFunctions.php:121
 msgid "Home"
-msgstr "Beranda"
+msgstr "首頁"
 
 #: helpers/SimplePageFunctions.php:166
 msgid "Main Page (No Parent)"
-msgstr "Halaman Utama (Tidak Berinduk)"
+msgstr "主頁（無上層頁）"
 
 #: models/SimplePagesPage.php:60
 msgid "The page must be given a title."
-msgstr "Halaman harus diberi judul."
+msgstr "頁面必須賦予一個標題。"
 
 #: models/SimplePagesPage.php:64
 msgid "The title for your page must be 255 characters or less."
-msgstr "Judul untuk halaman anda harus 255 karakter atau kurang."
+msgstr "你的頁面標題最多只能有255個字符。"
 
 #: models/SimplePagesPage.php:68
 msgid "The title is already in use by another page. Please choose another."
-msgstr "Judul tersebut sudah digunakan oleh halaman lain. Gunakan yang lain."
+msgstr "這個標題已被另一個頁面使用。請選擇另一個。"
 
 #: models/SimplePagesPage.php:72
 msgid "The page must be given a valid slug."
-msgstr "Halaman tersebut harus diberi slug yang valid."
+msgstr "頁面必須賦予一個有效的網址簡稱。"
 
 #: models/SimplePagesPage.php:76
 msgid "The slug for your page must not be a forward slash."
-msgstr "Slug untuk halaman anda tidak berupa garis miring ke kanan."
+msgstr "您頁面的網址簡稱不能是斜線（/）。"
 
 #: models/SimplePagesPage.php:80
 msgid "The slug for your page must be 255 characters or less."
-msgstr "Slug untuk halaman anda harus 255 karakter atau kurang."
+msgstr "您頁面的網址簡稱最多只能有255個字符。"
 
 #: models/SimplePagesPage.php:84
 msgid "The slug is already in use by another page. Please choose another."
-msgstr "Slug sudah digunakan oleh halaman lain. Gunakan yang lain."
+msgstr "這個網址簡稱已被另一頁面使用。請選擇另一個。"
 
 #: models/SimplePagesPage.php:88
 msgid "The order must be an integer greater than or equal to 0."
-msgstr "Urutan harus berupa integer lebih dari atau sama dengan 0."
+msgstr "序號必須是大於或等於0的一個整數。"
 
 #: views/admin/index/add.php:5
 msgid "Simple Pages | Add Page"
-msgstr "Halaman Sederhana | Tambah Halaman"
+msgstr "簡單頁面 | 添加頁面"
 
 #: views/admin/index/browse-hierarchy-page.php:16
 #: views/admin/index/browse-list.php:33
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
-msgstr "<strong>%1$s</strong> pada %2$s"
+msgstr "在%2$s上的<strong>%1$s</strong>"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Published"
-msgstr "Dipublikasikan"
+msgstr "已公布"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Not Published"
-msgstr "Tidak Dipublikasikan"
+msgstr "未公布"
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
-msgstr "Terakhir Dimodifikasi"
+msgstr "最後修改日期"
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"
-msgstr "Halaman Sederhana | Ramban"
+msgstr "簡單頁面 | 瀏覽"
 
 #: views/admin/index/browse.php:9
 msgid "List View"
-msgstr "Tampilan Daftar"
+msgstr "列表介面"
 
 #: views/admin/index/browse.php:12
 msgid "Hierarchy View"
-msgstr "Tampilan Hirarki"
+msgstr "層次介面"
 
 #: views/admin/index/browse.php:17
 msgid "Add a Page"
-msgstr "Tambah Halaman"
+msgstr "添加頁面"
 
 #: views/admin/index/browse.php:19
 msgid "There are no pages."
-msgstr "Tidak ada halaman."
+msgstr "沒有頁面。"
 
 #: views/admin/index/browse.php:19
 msgid "Add a page."
-msgstr "Tambah halaman."
+msgstr "添加頁面。"
 
 #: views/admin/index/edit.php:4
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
-msgstr "Halaman Sederhana | Edit \"%s\""
+msgstr "簡單頁面 | 編輯\"%s\""
 
 #: views/admin/index/edit.php:40
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
 " <strong>%3$s</strong> on %4$s."
-msgstr "Halaman ini dibuat oleh <strong>%1$s</strong> pada %2$s, dan terakhir dimodifikasi oleh <strong>%3$s</strong> pada %4$s."
+msgstr "本頁由<strong>%1$s</strong>創建於%2$s，並由<strong>%3$s</strong>最後修改於%4$s。"
