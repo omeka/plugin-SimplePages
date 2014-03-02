@@ -26,7 +26,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     protected $_filters = array('admin_navigation_main',
         'public_navigation_main', 'search_record_types', 'page_caching_whitelist',
         'page_caching_blacklist_for_record',
-	'api_resources', 'front_page_blocks');
+	    'api_resources', 'front_page_blocks');
 
     /**
      * @var array Options and their default values.
@@ -38,19 +38,32 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     
     public function filterFrontPageBlocks($blocks)
     {
-        $blocks[] = array('heading' => 'Simple Pages', 
-                          'name'=>'SimplePages', 
-                          'callback' => array('SimplePagesPlugin', 'front'),
-                          'callback_params' => array('page' => 2)
-                          );
+        $blocks['SimplePages'] = array('heading'     => __('Simple Pages'), 
+                                       'name'        =>'SimplePages',
+                                       'heading_url' => array('SimplePagesPlugin', 'headingLink'),  
+                                       'callback'    => array('SimplePagesPlugin', 'front'),
+                                       'options'     => array('page' => 2, 'snippet' => 20),
+                                       'multiple'    => true
+                                       );
         return $blocks;
     }
     
-    public static function front($params = null)
+    public static function front($block, $view)
     {
-        $page = get_db()->getTable('SimplePagesPage')->find($params['page']);
+        $pageId = $block['options']['page'];
+        $page = get_db()->getTable('SimplePagesPage')->find($pageId);
         $text = metadata($page, 'text', array('no_escape' => true));
+        
+        $text = snippet($text, 0, $block['options']['snippet']);
         return $text;
+    }
+    
+    public static function headingLink($block, $view)
+    {
+        $pageId = $block['options']['page'];
+        $page = get_db()->getTable('SimplePagesPage')->find($pageId);        
+        $url = record_url($page, 'show');
+        return $url;
     }
     
     /**
