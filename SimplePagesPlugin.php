@@ -26,7 +26,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     protected $_filters = array('admin_navigation_main',
         'public_navigation_main', 'search_record_types', 'page_caching_whitelist',
         'page_caching_blacklist_for_record',
-	'api_resources');
+	'api_resources', 'api_import_omeka_adapters');
 
     /**
      * @var array Options and their default values.
@@ -347,5 +347,13 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
 		'actions'   => array('get','index'),
 	);	
        return $apiResources;
+    }
+    
+    public function filterApiImportOmekaAdapters($adapters, $args)
+    {
+        $simplePagesAdapter = new ApiImport_ResponseAdapter_Omeka_GenericAdapter(null, $args['endpointUri'], 'SimplePagesPage');
+        $simplePagesAdapter->setUserProperties(array('modified_by_user', 'created_by_user'));
+        $adapters['simple_pages'] = $simplePagesAdapter;
+        return $adapters;
     }
 }
