@@ -352,6 +352,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     public function filterApiImportOmekaAdapters($adapters, $args)
     {
         $simplePagesAdapter = new ApiImport_ResponseAdapter_Omeka_GenericAdapter(null, $args['endpointUri'], 'SimplePagesPage');
+        $simplePagesAdapter->setService($args['omeka_service']);
         $simplePagesAdapter->setUserProperties(array('modified_by_user', 'created_by_user'));
         $adapters['simple_pages'] = $simplePagesAdapter;
         return $adapters;
