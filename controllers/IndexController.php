@@ -90,9 +90,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                 'values' => array(1, 0),
                 'label' => __('Use HTML editor?'),
                 'description' => __(
-                    'Check this to add an HTML editor bar for easily creating '
-                    . 'HTML. <strong>PHP code will not be read in pages if '
-                    . 'this option is checked.</strong>'
+                    'Check this to add an HTML editor bar for easily creating HTML.'
                 )
             )
         );
@@ -105,8 +103,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                 'value' => $page->text,
                 'label' => __('Text'),
                 'description' => __(
-                    'Add content for page, including HTML markup and PHP code '
-                    . '(if the HTML editor is not checked above).'
+                    'Add content for page.'
                 )
             )
         );
