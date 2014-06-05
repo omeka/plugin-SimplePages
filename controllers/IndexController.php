@@ -103,7 +103,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
                 'value' => $page->text,
                 'label' => __('Text'),
                 'description' => __(
-                    'Add content for page. Simple Pages supports shortcodes. For a list of available shortcodes, refer to the <a target=_blank href="http://omeka.org/codex/Shortcodes">Omeka Codex</a>.'
+                    'Add content for page. This field supports shortcodes. For a list of available shortcodes, refer to the <a target=_blank href="http://omeka.org/codex/Shortcodes">Omeka Codex</a>.'
                 )
             )
         );
