@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-11-19 15:35+0000\n"
-"Last-Translator: Matti Lassila <matti.lassila@gmail.com>\n"
+"PO-Revision-Date: 2014-06-05 19:27+0000\n"
+"Last-Translator: John Flatness <john@zerocrates.org>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/omeka/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Language: fi_FI\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: SimplePagesPlugin.php:267
+#: SimplePagesPlugin.php:268
 msgid "Simple Pages"
 msgstr "Sivut"
 
-#: SimplePagesPlugin.php:293
+#: SimplePagesPlugin.php:294
 msgid "Simple Page"
 msgstr "Sivu"
 
@@ -30,12 +30,11 @@ msgstr "Sivu"
 msgid "Filter User Input For Page Content?"
 msgstr "Haitallisen sisällön suodatus"
 
-#: config_form.php:9
+#: config_form.php:7
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
-"set on the security settings page. PHP code will not be allowed in the "
-"content of pages if this box is checked."
-msgstr "Poista kaikki muut paitsi turvallisuusasetuksissa erikseen sallitut HTML-elementit ja PHP-koodi."
+"set on the security settings page."
+msgstr ""
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
@@ -57,56 +56,55 @@ msgid "Use HTML editor?"
 msgstr "Käytä HTML-editoria"
 
 #: controllers/IndexController.php:93
-msgid ""
-"Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
-"code will not be read in pages if this option is checked.</strong>"
-msgstr "Näytä HTML-editori sivulla. PHP-koodia <strong>ei suoriteta</strong> valinnan ollessa voimassa."
+msgid "Check this to add an HTML editor bar for easily creating HTML."
+msgstr ""
 
-#: controllers/IndexController.php:106
+#: controllers/IndexController.php:104
 msgid "Text"
 msgstr "Teksti"
 
-#: controllers/IndexController.php:108
+#: controllers/IndexController.php:106
 msgid ""
-"Add content for page, including HTML markup and PHP code (if the HTML editor"
-" is not checked above)."
-msgstr "Lisää sivulle HTML-merkkausta ja PHP-koodia. PHP koodia ei suoriteta mikäli sivulla käytetään HTML-editoria (asetus yllä)."
+"Add content for page. This field supports shortcodes. For a list of "
+"available shortcodes, refer to the <a target=_blank "
+"href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
+msgstr ""
 
-#: controllers/IndexController.php:120
+#: controllers/IndexController.php:117
 msgid "Parent"
 msgstr "Yläsivu"
 
-#: controllers/IndexController.php:121
+#: controllers/IndexController.php:118
 msgid "The parent page"
 msgstr "Hierarkiassa ylempi sivu"
 
-#: controllers/IndexController.php:129
+#: controllers/IndexController.php:126
 msgid "Order"
 msgstr "Järjestys"
 
-#: controllers/IndexController.php:131
+#: controllers/IndexController.php:128
 msgid "The order of the page relative to the other pages with the same parent"
 msgstr "Saman yläsivun alla olevien sivujen järjestys toisiinsa."
 
-#: controllers/IndexController.php:143
+#: controllers/IndexController.php:140
 msgid "Publish this page?"
 msgstr "Julkaise"
 
-#: controllers/IndexController.php:144
+#: controllers/IndexController.php:141
 msgid "Checking this box will make the page public"
 msgstr "Julkaisee sivun."
 
-#: controllers/IndexController.php:164
+#: controllers/IndexController.php:161
 #, php-format
 msgid "The page \"%s\" has been added."
 msgstr "Sivu  \"%s\" lisättiin."
 
-#: controllers/IndexController.php:166
+#: controllers/IndexController.php:163
 #, php-format
 msgid "The page \"%s\" has been edited."
 msgstr "Sivua \"%s\" muokattiin. "
 
-#: controllers/IndexController.php:184
+#: controllers/IndexController.php:181
 #, php-format
 msgid "The page \"%s\" has been deleted."
 msgstr "Sivu \"%s\" on poistettu."

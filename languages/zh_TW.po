@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# yenny <yennylin1234@gmail.com>, 2014
-# zhangh <zhangh@unlv.nevada.edu>, 2013
+# yennylin <yennylin1234@gmail.com>, 2014
+# Hong Zhang <zhangh@unlv.nevada.edu>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2014-01-11 09:13+0000\n"
-"Last-Translator: yenny <yennylin1234@gmail.com>\n"
+"PO-Revision-Date: 2014-06-05 19:27+0000\n"
+"Last-Translator: John Flatness <john@zerocrates.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/omeka/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: SimplePagesPlugin.php:267
+#: SimplePagesPlugin.php:268
 msgid "Simple Pages"
 msgstr "簡單頁面"
 
-#: SimplePagesPlugin.php:293
+#: SimplePagesPlugin.php:294
 msgid "Simple Page"
 msgstr "簡單頁面"
 
@@ -31,12 +31,11 @@ msgstr "簡單頁面"
 msgid "Filter User Input For Page Content?"
 msgstr "過濾用戶輸入頁面的內容？"
 
-#: config_form.php:9
+#: config_form.php:7
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
-"set on the security settings page. PHP code will not be allowed in the "
-"content of pages if this box is checked."
-msgstr "如果點選了，這個插件將使用HTML過濾器（可在「安全設定」中設定）過濾所有簡單頁面。如果點選核定框，頁面內容將不允許有PHP代碼。"
+"set on the security settings page."
+msgstr ""
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
@@ -58,56 +57,55 @@ msgid "Use HTML editor?"
 msgstr "使用HTML編輯器？"
 
 #: controllers/IndexController.php:93
-msgid ""
-"Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
-"code will not be read in pages if this option is checked.</strong>"
-msgstr "點選此處可用HTML編輯器撰寫HTML。<strong>如果點選了此選項，頁面中的PHP代碼將不會被讀入。</strong>"
+msgid "Check this to add an HTML editor bar for easily creating HTML."
+msgstr ""
 
-#: controllers/IndexController.php:106
+#: controllers/IndexController.php:104
 msgid "Text"
 msgstr "文本"
 
-#: controllers/IndexController.php:108
+#: controllers/IndexController.php:106
 msgid ""
-"Add content for page, including HTML markup and PHP code (if the HTML editor"
-" is not checked above)."
-msgstr "為頁面添加內容，包括HTML標記和PHP代碼（如果上面的HTML編輯器沒有被點選）。"
+"Add content for page. This field supports shortcodes. For a list of "
+"available shortcodes, refer to the <a target=_blank "
+"href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
+msgstr ""
 
-#: controllers/IndexController.php:120
+#: controllers/IndexController.php:117
 msgid "Parent"
 msgstr "上層"
 
-#: controllers/IndexController.php:121
+#: controllers/IndexController.php:118
 msgid "The parent page"
 msgstr "上層頁面"
 
-#: controllers/IndexController.php:129
+#: controllers/IndexController.php:126
 msgid "Order"
 msgstr "排序"
 
-#: controllers/IndexController.php:131
+#: controllers/IndexController.php:128
 msgid "The order of the page relative to the other pages with the same parent"
 msgstr "同層次（附屬於相同的上層頁面）頁面間的順序"
 
-#: controllers/IndexController.php:143
+#: controllers/IndexController.php:140
 msgid "Publish this page?"
 msgstr "公布這一頁？"
 
-#: controllers/IndexController.php:144
+#: controllers/IndexController.php:141
 msgid "Checking this box will make the page public"
 msgstr "點選核定框將公開頁面"
 
-#: controllers/IndexController.php:164
+#: controllers/IndexController.php:161
 #, php-format
 msgid "The page \"%s\" has been added."
 msgstr "頁面\"%s\"已添加完畢。"
 
-#: controllers/IndexController.php:166
+#: controllers/IndexController.php:163
 #, php-format
 msgid "The page \"%s\" has been edited."
 msgstr "頁面\"%s\"已編輯完畢。"
 
-#: controllers/IndexController.php:184
+#: controllers/IndexController.php:181
 #, php-format
 msgid "The page \"%s\" has been deleted."
 msgstr "頁面\"%s\"已刪除。"

@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Bogdan Trifunovic <>, 2012-2013
+# Predrag Djukic <predragd@bgb.rs>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-11-19 15:35+0000\n"
-"Last-Translator: Bogdan Trifunovic <>\n"
+"PO-Revision-Date: 2014-06-17 11:49+0000\n"
+"Last-Translator: Predrag Djukic <predragd@bgb.rs>\n"
 "Language-Team: Serbian (Serbia) (http://www.transifex.com/projects/p/omeka/language/sr_RS/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,11 +19,11 @@ msgstr ""
 "Language: sr_RS\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: SimplePagesPlugin.php:267
+#: SimplePagesPlugin.php:268
 msgid "Simple Pages"
 msgstr "Једноставне странице"
 
-#: SimplePagesPlugin.php:293
+#: SimplePagesPlugin.php:294
 msgid "Simple Page"
 msgstr "Једноставна страница"
 
@@ -30,12 +31,11 @@ msgstr "Једноставна страница"
 msgid "Filter User Input For Page Content?"
 msgstr "Филтрирај унос корисника за садржај странице?"
 
-#: config_form.php:9
+#: config_form.php:7
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
-"set on the security settings page. PHP code will not be allowed in the "
-"content of pages if this box is checked."
-msgstr "Уколико је потврђено овај додатак ће филтрирати све једноставне странице коришћењем HTML филтера подстављених на страници безбедносних подешавања. PHP код неће бити дозвољен у садржају страница ако је поље потврђено."
+"set on the security settings page."
+msgstr "Уколико је потврђено овај додатак ће филтрирати све једноставне странице коришћењем HTML филтера подстављених на страници безбедносних подешавања. "
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
@@ -57,56 +57,55 @@ msgid "Use HTML editor?"
 msgstr "Користи HTML уређивач?"
 
 #: controllers/IndexController.php:93
-msgid ""
-"Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
-"code will not be read in pages if this option is checked.</strong>"
-msgstr "Потврди овде да би се додао HTML уређивач за једноставно додавање HTML-a.  <strong>PHP код неће се видети у страницама ако је ова опција потврђена.</strong>"
+msgid "Check this to add an HTML editor bar for easily creating HTML."
+msgstr "Потврди овде да би се додао HTML уређивач за једноставно додавање HTML-a."
 
-#: controllers/IndexController.php:106
+#: controllers/IndexController.php:104
 msgid "Text"
 msgstr "Текст"
 
-#: controllers/IndexController.php:108
+#: controllers/IndexController.php:106
 msgid ""
-"Add content for page, including HTML markup and PHP code (if the HTML editor"
-" is not checked above)."
-msgstr "Додај садржај странице, укључујући HTML ознаке и PHP код (уколико изнад није потврђен HTML уређивач)."
+"Add content for page. This field supports shortcodes. For a list of "
+"available shortcodes, refer to the <a target=_blank "
+"href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
+msgstr "Додај садржај на страницу. Ово поље подржава скраћене кодове. Листу доступник скраћених кодова можете погледати на <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
 
-#: controllers/IndexController.php:120
+#: controllers/IndexController.php:117
 msgid "Parent"
 msgstr "Родитељ"
 
-#: controllers/IndexController.php:121
+#: controllers/IndexController.php:118
 msgid "The parent page"
 msgstr "Страница родитељ"
 
-#: controllers/IndexController.php:129
+#: controllers/IndexController.php:126
 msgid "Order"
 msgstr "Редослед"
 
-#: controllers/IndexController.php:131
+#: controllers/IndexController.php:128
 msgid "The order of the page relative to the other pages with the same parent"
 msgstr "Редослед странице у односу на друге странице са истим родитељем"
 
-#: controllers/IndexController.php:143
+#: controllers/IndexController.php:140
 msgid "Publish this page?"
 msgstr "Објави страницу?"
 
-#: controllers/IndexController.php:144
+#: controllers/IndexController.php:141
 msgid "Checking this box will make the page public"
 msgstr "Потврђивањем овог поља страница ће бити видљива"
 
-#: controllers/IndexController.php:164
+#: controllers/IndexController.php:161
 #, php-format
 msgid "The page \"%s\" has been added."
 msgstr "Страница \"%s\" је додата."
 
-#: controllers/IndexController.php:166
+#: controllers/IndexController.php:163
 #, php-format
 msgid "The page \"%s\" has been edited."
 msgstr "Страница \"%s\" је уређена."
 
-#: controllers/IndexController.php:184
+#: controllers/IndexController.php:181
 #, php-format
 msgid "The page \"%s\" has been deleted."
 msgstr "Страница \"%s\" је обрисана."

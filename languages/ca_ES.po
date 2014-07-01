@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# rubenalcaraz <rubenalcarazmartinez@gmail.com>, 2013
-# sergimontes <sergi.blanes@gmail.com>, 2013
+# Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2013
+# Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2014
+# Sergi Montes <sergi.blanes@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-11-19 15:35+0000\n"
-"Last-Translator: sergimontes <sergi.blanes@gmail.com>\n"
+"PO-Revision-Date: 2014-06-07 06:16+0000\n"
+"Last-Translator: Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/projects/p/omeka/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,11 @@ msgstr ""
 "Language: ca_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: SimplePagesPlugin.php:267
+#: SimplePagesPlugin.php:268
 msgid "Simple Pages"
 msgstr "Simple Pages"
 
-#: SimplePagesPlugin.php:293
+#: SimplePagesPlugin.php:294
 msgid "Simple Page"
 msgstr "Simple Page"
 
@@ -31,12 +32,11 @@ msgstr "Simple Page"
 msgid "Filter User Input For Page Content?"
 msgstr "Filtrar l'entrada de dades a la pàgina de continguts?"
 
-#: config_form.php:9
+#: config_form.php:7
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
-"set on the security settings page. PHP code will not be allowed in the "
-"content of pages if this box is checked."
-msgstr "Si s'activa aquest plugin filtrarà totes les pàgines estàtiques amb els filtres HTML establerts a la pàgina de configuració de la seguretat. Si aquesta casella està marcada, el codi PHP no és permet en el contingut de les pàgines."
+"set on the security settings page."
+msgstr "Si l'activeu, aquest plugin filtrarà totes les pàgines estàtiques amb els filtres HTML especificats a la configuració de seguretat."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
@@ -58,56 +58,55 @@ msgid "Use HTML editor?"
 msgstr "Vols utilitzar l'editor HTML?"
 
 #: controllers/IndexController.php:93
-msgid ""
-"Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
-"code will not be read in pages if this option is checked.</strong>"
-msgstr "Activeu aquesta opció per afegir un editor HTML. <strong>El codi PHP no es podrà llegir en les pàgines si aquesta opció es troba marcada.</strong>"
+msgid "Check this to add an HTML editor bar for easily creating HTML."
+msgstr "Activeu aquesta casella per afegir un editor HTML."
 
-#: controllers/IndexController.php:106
+#: controllers/IndexController.php:104
 msgid "Text"
 msgstr "Text"
 
-#: controllers/IndexController.php:108
+#: controllers/IndexController.php:106
 msgid ""
-"Add content for page, including HTML markup and PHP code (if the HTML editor"
-" is not checked above)."
-msgstr "Afegiu contingut a la pàgina, incloent codi HTML i PHP (si l'editor HTML està desmarcat)"
+"Add content for page. This field supports shortcodes. For a list of "
+"available shortcodes, refer to the <a target=_blank "
+"href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
+msgstr "Afegiu contingut a la pàgina. Aquest camp admet shortcodes. Per obtenir una llista de shortcodes disponibles, consulteu la <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">documentació d'Omeka </ a>."
 
-#: controllers/IndexController.php:120
+#: controllers/IndexController.php:117
 msgid "Parent"
 msgstr "Element principal"
 
-#: controllers/IndexController.php:121
+#: controllers/IndexController.php:118
 msgid "The parent page"
 msgstr "Pàgina superior"
 
-#: controllers/IndexController.php:129
+#: controllers/IndexController.php:126
 msgid "Order"
 msgstr "Ordre"
 
-#: controllers/IndexController.php:131
+#: controllers/IndexController.php:128
 msgid "The order of the page relative to the other pages with the same parent"
 msgstr "L'ordre de la pàgina respecte a les altres pàgines amb la mateixa superior"
 
-#: controllers/IndexController.php:143
+#: controllers/IndexController.php:140
 msgid "Publish this page?"
 msgstr "Vols publicar aquesta pàgina?"
 
-#: controllers/IndexController.php:144
+#: controllers/IndexController.php:141
 msgid "Checking this box will make the page public"
 msgstr "Marqueu aquesta casella si voleu fer la pàgina pública"
 
-#: controllers/IndexController.php:164
+#: controllers/IndexController.php:161
 #, php-format
 msgid "The page \"%s\" has been added."
 msgstr "S'ha afegit la pàgina: \"%s\""
 
-#: controllers/IndexController.php:166
+#: controllers/IndexController.php:163
 #, php-format
 msgid "The page \"%s\" has been edited."
 msgstr "S'ha editat la pàgina: \"%s\""
 
-#: controllers/IndexController.php:184
+#: controllers/IndexController.php:181
 #, php-format
 msgid "The page \"%s\" has been deleted."
 msgstr "S'ha esborrat la pàgina: \"%s\""

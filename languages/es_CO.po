@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
+# MangleRojo <administrador@manglerojo.org>, 2014
 # MangleRojo <administrador@manglerojo.org>, 2013
 # MangleRojo <administrador@manglerojo.org>, 2012
 # MangleRojo <administrador@manglerojo.org>, 2012
@@ -11,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-11-19 15:35+0000\n"
+"PO-Revision-Date: 2014-07-01 01:08+0000\n"
 "Last-Translator: MangleRojo <administrador@manglerojo.org>\n"
 "Language-Team: Spanish (Colombia) (http://www.transifex.com/projects/p/omeka/language/es_CO/)\n"
 "MIME-Version: 1.0\n"
@@ -20,11 +21,11 @@ msgstr ""
 "Language: es_CO\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: SimplePagesPlugin.php:267
+#: SimplePagesPlugin.php:268
 msgid "Simple Pages"
 msgstr "Simple Pages"
 
-#: SimplePagesPlugin.php:293
+#: SimplePagesPlugin.php:294
 msgid "Simple Page"
 msgstr "Simple Page"
 
@@ -32,12 +33,11 @@ msgstr "Simple Page"
 msgid "Filter User Input For Page Content?"
 msgstr "¿Filtrar Entrada para Contenido de la Página?"
 
-#: config_form.php:9
+#: config_form.php:7
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
-"set on the security settings page. PHP code will not be allowed in the "
-"content of pages if this box is checked."
-msgstr "Si se selecciona, este plugin filtrará todas las simple pages con los filtros establecidos HTML en la página de configuración de seguridad. El código PHP no será permitidos en el contenido de las páginas si esta casilla está marcada."
+"set on the security settings page."
+msgstr "Si es seleccionado, este plugin filtrará el código HTML en la página."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
@@ -59,56 +59,55 @@ msgid "Use HTML editor?"
 msgstr "¿Usar editor HTML?"
 
 #: controllers/IndexController.php:93
-msgid ""
-"Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
-"code will not be read in pages if this option is checked.</strong>"
-msgstr "Activar para agregar una barra de edición HTML para crear facilmente HTML. <strong> El código PHP no será permitidos en el contenido de las páginas si esta casilla está marcada.</strong>"
+msgid "Check this to add an HTML editor bar for easily creating HTML."
+msgstr "Seleccione para agregar una barra de edición HTML."
 
-#: controllers/IndexController.php:106
+#: controllers/IndexController.php:104
 msgid "Text"
 msgstr "Texto"
 
-#: controllers/IndexController.php:108
+#: controllers/IndexController.php:106
 msgid ""
-"Add content for page, including HTML markup and PHP code (if the HTML editor"
-" is not checked above)."
-msgstr "Añadir el contenido de la página, incluyendo HTML y código PHP (si el editor HTML no está seleccionado)."
+"Add content for page. This field supports shortcodes. For a list of "
+"available shortcodes, refer to the <a target=_blank "
+"href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
+msgstr "Agregar contenido para la página. Este campo soporta shortcodes. Para una lista de shortcodes ver <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
 
-#: controllers/IndexController.php:120
+#: controllers/IndexController.php:117
 msgid "Parent"
 msgstr "Relación"
 
-#: controllers/IndexController.php:121
+#: controllers/IndexController.php:118
 msgid "The parent page"
 msgstr "La página principal."
 
-#: controllers/IndexController.php:129
+#: controllers/IndexController.php:126
 msgid "Order"
 msgstr "Orden"
 
-#: controllers/IndexController.php:131
+#: controllers/IndexController.php:128
 msgid "The order of the page relative to the other pages with the same parent"
 msgstr "El orden de la página con respecto a otras páginas con el mismo padre"
 
-#: controllers/IndexController.php:143
+#: controllers/IndexController.php:140
 msgid "Publish this page?"
 msgstr "¿Publicar esta página?"
 
-#: controllers/IndexController.php:144
+#: controllers/IndexController.php:141
 msgid "Checking this box will make the page public"
 msgstr "Marcar esta casilla hace pública la página"
 
-#: controllers/IndexController.php:164
+#: controllers/IndexController.php:161
 #, php-format
 msgid "The page \"%s\" has been added."
 msgstr "La página \"%s\" ha sido agregada."
 
-#: controllers/IndexController.php:166
+#: controllers/IndexController.php:163
 #, php-format
 msgid "The page \"%s\" has been edited."
 msgstr "La página \"%s\" ha sido editado."
 
-#: controllers/IndexController.php:184
+#: controllers/IndexController.php:181
 #, php-format
 msgid "The page \"%s\" has been deleted."
 msgstr "la página \"%s\" ha sido borrado."

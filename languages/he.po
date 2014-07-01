@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# moshe742 <moshegrey@gmail.com>, 2012-2013
+# moshe nahmias <moshegrey@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-11-19 15:35+0000\n"
-"Last-Translator: moshe742 <moshegrey@gmail.com>\n"
+"PO-Revision-Date: 2014-06-05 19:27+0000\n"
+"Last-Translator: John Flatness <john@zerocrates.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/omeka/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Language: he\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: SimplePagesPlugin.php:267
+#: SimplePagesPlugin.php:268
 msgid "Simple Pages"
 msgstr "עמודים פשוטים"
 
-#: SimplePagesPlugin.php:293
+#: SimplePagesPlugin.php:294
 msgid "Simple Page"
 msgstr "עמוד פשוט"
 
@@ -30,12 +30,11 @@ msgstr "עמוד פשוט"
 msgid "Filter User Input For Page Content?"
 msgstr "האם לסנן קלט משתמש עבור תוכן עמוד?"
 
-#: config_form.php:9
+#: config_form.php:7
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
-"set on the security settings page. PHP code will not be allowed in the "
-"content of pages if this box is checked."
-msgstr "אם מסומנת, תוסף זה יסנן את כל העמודים הפשוטים באמצעות מסנני HTML המוגדרים בעמוד הגדרות האבטחה. קוד PHP לא יאופשר בתוכן העמודים אם תיבה זו תסומן."
+"set on the security settings page."
+msgstr ""
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
@@ -57,56 +56,55 @@ msgid "Use HTML editor?"
 msgstr "האם להשתמש בעורך HTML?"
 
 #: controllers/IndexController.php:93
-msgid ""
-"Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
-"code will not be read in pages if this option is checked.</strong>"
-msgstr "יש לסמן כאן כדי להוסיף סרגל עורך HTML כדי ליצור בקלות HTML.\n<strong>קוד PHP לא יהיה קריא בעמודים אם אפשרות זו מסומנת.\n</strong>"
+msgid "Check this to add an HTML editor bar for easily creating HTML."
+msgstr ""
 
-#: controllers/IndexController.php:106
+#: controllers/IndexController.php:104
 msgid "Text"
 msgstr "טקסט"
 
-#: controllers/IndexController.php:108
+#: controllers/IndexController.php:106
 msgid ""
-"Add content for page, including HTML markup and PHP code (if the HTML editor"
-" is not checked above)."
-msgstr "הוספת תוכן לעמוד, כולל תבניות HTML וקוד PHP (אם עורך ה-HTML למעלה לא מסומן)."
+"Add content for page. This field supports shortcodes. For a list of "
+"available shortcodes, refer to the <a target=_blank "
+"href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
+msgstr ""
 
-#: controllers/IndexController.php:120
+#: controllers/IndexController.php:117
 msgid "Parent"
 msgstr "הורה"
 
-#: controllers/IndexController.php:121
+#: controllers/IndexController.php:118
 msgid "The parent page"
 msgstr "העמוד ההורה"
 
-#: controllers/IndexController.php:129
+#: controllers/IndexController.php:126
 msgid "Order"
 msgstr "מסדר"
 
-#: controllers/IndexController.php:131
+#: controllers/IndexController.php:128
 msgid "The order of the page relative to the other pages with the same parent"
 msgstr "מיקום העמוד ביחס לעמודים אחרים עם אותו ההורה"
 
-#: controllers/IndexController.php:143
+#: controllers/IndexController.php:140
 msgid "Publish this page?"
 msgstr "האם לפרסם את עמוד זה?"
 
-#: controllers/IndexController.php:144
+#: controllers/IndexController.php:141
 msgid "Checking this box will make the page public"
 msgstr "סימון תיבה זו תהפוך את העמוד לציבורי"
 
-#: controllers/IndexController.php:164
+#: controllers/IndexController.php:161
 #, php-format
 msgid "The page \"%s\" has been added."
 msgstr "העמוד \"%s\" הוסף."
 
-#: controllers/IndexController.php:166
+#: controllers/IndexController.php:163
 #, php-format
 msgid "The page \"%s\" has been edited."
 msgstr "העמוד \"%s\" נערך."
 
-#: controllers/IndexController.php:184
+#: controllers/IndexController.php:181
 #, php-format
 msgid "The page \"%s\" has been deleted."
 msgstr "העמוד \"%s\" נמחק"

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# tombeczka <dominik@broniszewski.pl>, 2013
+# Dominik Broniszewski <dominik@broniszewski.pl>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2013-11-19 15:35+0000\n"
-"Last-Translator: tombeczka <dominik@broniszewski.pl>\n"
+"PO-Revision-Date: 2014-06-05 19:27+0000\n"
+"Last-Translator: John Flatness <john@zerocrates.org>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/omeka/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: SimplePagesPlugin.php:267
+#: SimplePagesPlugin.php:268
 msgid "Simple Pages"
 msgstr "Proste strony"
 
-#: SimplePagesPlugin.php:293
+#: SimplePagesPlugin.php:294
 msgid "Simple Page"
 msgstr "Prosta strona"
 
@@ -30,12 +30,11 @@ msgstr "Prosta strona"
 msgid "Filter User Input For Page Content?"
 msgstr "Czy dostęp użytkowników do treści strony ma być kontrolowany?"
 
-#: config_form.php:9
+#: config_form.php:7
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
-"set on the security settings page. PHP code will not be allowed in the "
-"content of pages if this box is checked."
-msgstr "Jeśli pole zostanie zaznaczone, wtyczka użyje względem wszystkich prostych stron filtrowania tagów HTML określonych w ustawieniach bezpieczeństwa systemu. Kod PHP nie będzie interpretowany na stronie w przypadku oznaczenia tego pola."
+"set on the security settings page."
+msgstr ""
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
@@ -57,56 +56,55 @@ msgid "Use HTML editor?"
 msgstr "Użyć edytora HTML?"
 
 #: controllers/IndexController.php:93
-msgid ""
-"Check this to add an HTML editor bar for easily creating HTML. <strong>PHP "
-"code will not be read in pages if this option is checked.</strong>"
-msgstr "Oznaczenie pola wywoła pasek edytora HTML. <strong>Kod PHP nie będzie interpretowany na stronie w przypadku użycia tej funkcji.</strong>"
+msgid "Check this to add an HTML editor bar for easily creating HTML."
+msgstr ""
 
-#: controllers/IndexController.php:106
+#: controllers/IndexController.php:104
 msgid "Text"
 msgstr "Tekst"
 
-#: controllers/IndexController.php:108
+#: controllers/IndexController.php:106
 msgid ""
-"Add content for page, including HTML markup and PHP code (if the HTML editor"
-" is not checked above)."
-msgstr "Dodaj treść strony, z możliwością użycia znaczników HTML i kodu PHP (jeśli opcja edytora HTML powyżej - nie jest oznaczona)."
+"Add content for page. This field supports shortcodes. For a list of "
+"available shortcodes, refer to the <a target=_blank "
+"href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
+msgstr ""
 
-#: controllers/IndexController.php:120
+#: controllers/IndexController.php:117
 msgid "Parent"
 msgstr "Nadrzędność"
 
-#: controllers/IndexController.php:121
+#: controllers/IndexController.php:118
 msgid "The parent page"
 msgstr "Strona nadrzędna"
 
-#: controllers/IndexController.php:129
+#: controllers/IndexController.php:126
 msgid "Order"
 msgstr "Porządek"
 
-#: controllers/IndexController.php:131
+#: controllers/IndexController.php:128
 msgid "The order of the page relative to the other pages with the same parent"
 msgstr "Pozycja strony w odniesieniu do innych stron o tej samej nadrzędnej."
 
-#: controllers/IndexController.php:143
+#: controllers/IndexController.php:140
 msgid "Publish this page?"
 msgstr "Opublikować tę stronę?"
 
-#: controllers/IndexController.php:144
+#: controllers/IndexController.php:141
 msgid "Checking this box will make the page public"
 msgstr "Oznaczenie pola spowoduje opublikowanie strony."
 
-#: controllers/IndexController.php:164
+#: controllers/IndexController.php:161
 #, php-format
 msgid "The page \"%s\" has been added."
 msgstr "Strona \"%s\" została dodana."
 
-#: controllers/IndexController.php:166
+#: controllers/IndexController.php:163
 #, php-format
 msgid "The page \"%s\" has been edited."
 msgstr "Strona \"%s\" została poprawiona."
 
-#: controllers/IndexController.php:184
+#: controllers/IndexController.php:181
 #, php-format
 msgid "The page \"%s\" has been deleted."
 msgstr "Strona \"%s\" została usunięta."
