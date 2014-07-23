@@ -4,12 +4,14 @@
 # 
 # Translators:
 # Dominik Broniszewski <dominik@broniszewski.pl>, 2013
+# John Flatness <john@zerocrates.org>, 2014
+# vortage <vortage@o2.pl>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2014-06-05 19:27+0000\n"
+"PO-Revision-Date: 2014-07-23 19:55+0000\n"
 "Last-Translator: John Flatness <john@zerocrates.org>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/omeka/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +36,7 @@ msgstr "Czy dostęp użytkowników do treści strony ma być kontrolowany?"
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page."
-msgstr ""
+msgstr "Jeśli pole zostanie zaznaczone, wtyczka użyje względem wszystkich prostych stron filtrowania tagów HTML określonych w ustawieniach bezpieczeństwa systemu."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
@@ -57,7 +59,7 @@ msgstr "Użyć edytora HTML?"
 
 #: controllers/IndexController.php:93
 msgid "Check this to add an HTML editor bar for easily creating HTML."
-msgstr ""
+msgstr "Zaznaczenie pola wywoła pasek edytora HTML, ułatwiającego tworzenie strony HTML."
 
 #: controllers/IndexController.php:104
 msgid "Text"
@@ -68,7 +70,7 @@ msgid ""
 "Add content for page. This field supports shortcodes. For a list of "
 "available shortcodes, refer to the <a target=_blank "
 "href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
-msgstr ""
+msgstr "Dodaj treść strony. Pole wspiera mikrokody. Lista mikrokodów dostępna jest na stronie <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
 
 #: controllers/IndexController.php:117
 msgid "Parent"

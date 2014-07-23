@@ -3,207 +3,206 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# Bogdan Trifunovic <>, 2012-2013
-# Predrag Djukic <djukic.predrag@gmail.com>, 2014
+# Per-Olof Olofsson <poo@bornholmsmuseum.dk>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2014-06-17 11:49+0000\n"
-"Last-Translator: Predrag Djukic <djukic.predrag@gmail.com>\n"
-"Language-Team: Serbian (Serbia) (http://www.transifex.com/projects/p/omeka/language/sr_RS/)\n"
+"PO-Revision-Date: 2014-07-19 17:22+0000\n"
+"Last-Translator: Per-Olof Olofsson <poo@bornholmsmuseum.dk>\n"
+"Language-Team: Danish (Denmark) (http://www.transifex.com/projects/p/omeka/language/da_DK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sr_RS\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: da_DK\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: SimplePagesPlugin.php:268
 msgid "Simple Pages"
-msgstr "Једноставне странице"
+msgstr "Enkelte Sider"
 
 #: SimplePagesPlugin.php:294
 msgid "Simple Page"
-msgstr "Једноставна страница"
+msgstr "Enkelt Side"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
-msgstr "Филтрирај унос корисника за садржај странице?"
+msgstr "Filter Bruger-genereret indhold på sider?"
 
 #: config_form.php:7
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page."
-msgstr "Уколико је потврђено овај додатак ће филтрирати све једноставне странице коришћењем HTML филтера подстављених на страници безбедносних подешавања. "
+msgstr "Hvis markeret, vil dette plugin filtrere alle enkelte sider ved hjælp af HTML-filtre sat på side sikkerhedsindstillingerne."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
-msgstr "Име и заглавље странице (захтевано)"
+msgstr "Navn og overskrift for denne side (påkrævet)"
 
 #: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
 msgid "Slug"
-msgstr "Линк"
+msgstr "Slug"
 
 #: controllers/IndexController.php:77
 msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr "Линк је део URL-а за ову страницу. Линк ће бити креиран аутоматски из наслова уколико није посебно унешен. Слова, бројеви, доње, средње и косе црте су дозвољени."
+msgstr "Kortadressen er den del af URL-adressen før denne side. \nEn kortadress vil blive oprettet automatisk fra titlen, hvis den ikke er indtastet. Bogstaver, tal, underscore, bindestreger og skråstreger er tilladt."
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
-msgstr "Користи HTML уређивач?"
+msgstr "Brug HTML editor?"
 
 #: controllers/IndexController.php:93
 msgid "Check this to add an HTML editor bar for easily creating HTML."
-msgstr "Потврди овде да би се додао HTML уређивач за једноставно додавање HTML-a."
+msgstr "Check dette før at tilføje en HTML-editor menu, for nemt at oprette HTML."
 
 #: controllers/IndexController.php:104
 msgid "Text"
-msgstr "Текст"
+msgstr "Tekst"
 
 #: controllers/IndexController.php:106
 msgid ""
 "Add content for page. This field supports shortcodes. For a list of "
 "available shortcodes, refer to the <a target=_blank "
 "href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
-msgstr "Додај садржај на страницу. Ово поље подржава скраћене кодове. Листу доступник скраћених кодова можете погледати на <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
+msgstr "Tilføj indhold til siden. Dette felt understøtter kortkoder. For en liste over tilgængelige kortkoder, henvises til <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
 
 #: controllers/IndexController.php:117
 msgid "Parent"
-msgstr "Родитељ"
+msgstr "Overordnede"
 
 #: controllers/IndexController.php:118
 msgid "The parent page"
-msgstr "Страница родитељ"
+msgstr "Den overordnede side"
 
 #: controllers/IndexController.php:126
 msgid "Order"
-msgstr "Редослед"
+msgstr "Bestil"
 
 #: controllers/IndexController.php:128
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr "Редослед странице у односу на друге странице са истим родитељем"
+msgstr "Rækkefølgen af siden i forhold til de andre sider med samme forælder"
 
 #: controllers/IndexController.php:140
 msgid "Publish this page?"
-msgstr "Објави страницу?"
+msgstr "Udgiv denne side?"
 
 #: controllers/IndexController.php:141
 msgid "Checking this box will make the page public"
-msgstr "Потврђивањем овог поља страница ће бити видљива"
+msgstr "Markering af dette felt vil gøre siden offentlig"
 
 #: controllers/IndexController.php:161
 #, php-format
 msgid "The page \"%s\" has been added."
-msgstr "Страница \"%s\" је додата."
+msgstr "Siden \"%s\" er blevet tilføjet."
 
 #: controllers/IndexController.php:163
 #, php-format
 msgid "The page \"%s\" has been edited."
-msgstr "Страница \"%s\" је уређена."
+msgstr "Siden \"%s\" er blevet redigeret."
 
 #: controllers/IndexController.php:181
 #, php-format
 msgid "The page \"%s\" has been deleted."
-msgstr "Страница \"%s\" је обрисана."
+msgstr "Siden \"%s\" er blevet slettet."
 
 #: helpers/SimplePageFunctions.php:121
 msgid "Home"
-msgstr "Почетак"
+msgstr "Hjem"
 
 #: helpers/SimplePageFunctions.php:166
 msgid "Main Page (No Parent)"
-msgstr "Главна страница (нема родитеља)"
+msgstr "Forside (Ingen Forældreside)"
 
 #: models/SimplePagesPage.php:60
 msgid "The page must be given a title."
-msgstr "Страница мора имати наслов."
+msgstr "Siden skal have en titel."
 
 #: models/SimplePagesPage.php:64
 msgid "The title for your page must be 255 characters or less."
-msgstr "Наслов странице мора имати 255 карактера или мање."
+msgstr "Titeln til din side skal være 255 tegn eller mindre."
 
 #: models/SimplePagesPage.php:68
 msgid "The title is already in use by another page. Please choose another."
-msgstr "Наслов је већ у употреби код друге странице. Молимо одабери други наслов."
+msgstr "Titlen er allerede i brug af en anden side. Vælg en anden."
 
 #: models/SimplePagesPage.php:72
 msgid "The page must be given a valid slug."
-msgstr "Страница мора имати исправан линк."
+msgstr "Siden skal have et gyldigt kortadresse."
 
 #: models/SimplePagesPage.php:76
 msgid "The slug for your page must not be a forward slash."
-msgstr "Линк странице не сме бити коса црта."
+msgstr "Kortadresse til din side, må ikke være en skråstreg."
 
 #: models/SimplePagesPage.php:80
 msgid "The slug for your page must be 255 characters or less."
-msgstr "Линк странице мора имати 255 карактера или мање."
+msgstr "Kortadresse til din side skal være 255 tegn eller mindre."
 
 #: models/SimplePagesPage.php:84
 msgid "The slug is already in use by another page. Please choose another."
-msgstr "Линк је већ у употреби код друге странице. Молимо одабери други линк."
+msgstr "Kortadresse er allerede i brug af en anden side. Vælg et andet."
 
 #: models/SimplePagesPage.php:88
 msgid "The order must be an integer greater than or equal to 0."
-msgstr "Редослед мора бити цео број већи од или једнак 0."
+msgstr "Rækkefølgen skal være et heltal større end eller lig med 0."
 
 #: views/admin/index/add.php:5
 msgid "Simple Pages | Add Page"
-msgstr "Једноставне странице | Додај страницу"
+msgstr "Enkelte sider | Tilføj Side"
 
 #: views/admin/index/browse-hierarchy-page.php:16
 #: views/admin/index/browse-list.php:33
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
-msgstr "<strong>%1$s</strong> %2$s"
+msgstr "<strong>%1$s</strong> på %2$s"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Published"
-msgstr "Објављено"
+msgstr "Udgivet"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Not Published"
-msgstr "Није објављено"
+msgstr "Ikke Udgivet"
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
-msgstr "Последња измењена"
+msgstr "Sidst Ændret"
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"
-msgstr "Једноставне странице | Прегледај"
+msgstr "Enkelte sider | Gennemse"
 
 #: views/admin/index/browse.php:9
 msgid "List View"
-msgstr "Преглед листе"
+msgstr "Liste Visning"
 
 #: views/admin/index/browse.php:12
 msgid "Hierarchy View"
-msgstr "Преглед хијерархије"
+msgstr "Hierarki Visning."
 
 #: views/admin/index/browse.php:17
 msgid "Add a Page"
-msgstr "Додај страницу"
+msgstr "Tilføj en Side"
 
 #: views/admin/index/browse.php:19
 msgid "There are no pages."
-msgstr "Нема страница."
+msgstr "Der er ikke nogle sider."
 
 #: views/admin/index/browse.php:19
 msgid "Add a page."
-msgstr "Додај страницу."
+msgstr "Tilføj en side"
 
 #: views/admin/index/edit.php:4
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
-msgstr "Једноставне странице | Уреди \"%s\""
+msgstr "Enkelte Sider | Redigere \"%s\""
 
 #: views/admin/index/edit.php:40
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
 " <strong>%3$s</strong> on %4$s."
-msgstr "Ова страница је додата од <strong>%1$s</strong> %2$s и последњи пут измењена од <strong>%3$s</strong> %4$s."
+msgstr "Denne side blev skabet af <strong>%1$s</strong> på %2$s, og sidst modifiered af <strong>%3$s</strong> på %4$s."
