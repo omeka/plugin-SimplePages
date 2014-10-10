@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# Matti Lassila <matti.lassila@gmail.com>, 2012
+# Matti Lassila <matti.lassila@gmail.com>, 2012,2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2014-06-05 19:27+0000\n"
-"Last-Translator: John Flatness <john@zerocrates.org>\n"
+"PO-Revision-Date: 2014-08-27 05:22+0000\n"
+"Last-Translator: Matti Lassila <matti.lassila@gmail.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/omeka/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +34,7 @@ msgstr "Haitallisen sisällön suodatus"
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page."
-msgstr ""
+msgstr "Suodata sisältö käyttäen turvallisuusasetuksissa määritettyjä HTML-suodattimia."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
@@ -57,7 +57,7 @@ msgstr "Käytä HTML-editoria"
 
 #: controllers/IndexController.php:93
 msgid "Check this to add an HTML editor bar for easily creating HTML."
-msgstr ""
+msgstr "Näytä HTML-työkalurivi muokkausnäkymässä."
 
 #: controllers/IndexController.php:104
 msgid "Text"
@@ -68,7 +68,7 @@ msgid ""
 "Add content for page. This field supports shortcodes. For a list of "
 "available shortcodes, refer to the <a target=_blank "
 "href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
-msgstr ""
+msgstr "Voit käyttää sisällössä lyhytkoodeja. Katso ohjeita ja listaus lyhytkoodeista <a href target=\"_blank\" href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a> -sivuilta."
 
 #: controllers/IndexController.php:117
 msgid "Parent"

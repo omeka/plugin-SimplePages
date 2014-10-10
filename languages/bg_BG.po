@@ -3,211 +3,206 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# begona.soto <begona.soto@urjc.es>, 2012
-# Dani Garcia <danimontesgarcia@gmail.com>, 2012
-# dario hereñu <magallania@gmail.com>, 2014
-# Fran Pérez <fperezrodri@gmail.com>, 2012
-# Pablo Laguna <pablolaguna@vera.com.uy>, 2014
-# Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2013
+# Gabriel Radev <gabosss@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2014-10-02 15:51+0000\n"
-"Last-Translator: dario hereñu <magallania@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/omeka/language/es/)\n"
+"PO-Revision-Date: 2014-09-10 14:22+0000\n"
+"Last-Translator: Gabriel Radev <gabosss@gmail.com>\n"
+"Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/omeka/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
+"Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: SimplePagesPlugin.php:268
 msgid "Simple Pages"
-msgstr "Simple Pages"
+msgstr "Обикновени страници"
 
 #: SimplePagesPlugin.php:294
 msgid "Simple Page"
-msgstr "Página estática"
+msgstr "Обикновена страница"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
-msgstr "¿Filtrar la entrada de datos de los usuarios a la página de contenidos?"
+msgstr "Филтриране на потребителското въвеждане на съдържанието на страници?"
 
 #: config_form.php:7
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page."
-msgstr "Si se activa, este plugin filtrará todas las páginas simples con los filtros HTML de la página de ajustes de seguridad."
+msgstr "Ако е отметнато, тази приставка ще филтрира всички Обикновени страници използвайки HTML филтрите в зададени в Настройки на сигурността."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
-msgstr "Nombre y título de la página (obligatorio)"
+msgstr "Име и заглавие на страницата (задължително)"
 
 #: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
 msgid "Slug"
-msgstr "Slug"
+msgstr "Кратко име"
 
 #: controllers/IndexController.php:77
 msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr "El \"slug\" es la parte de la URL que identifica a esta página. Esta parte de la URL será creada automáticamente a partir del título si no se especifica una. Esta permitada la utilización de letras, números, guiones bajos, guiones y barras inclinadas."
+msgstr "Краткото име е част от URL за тази страница. Краткото име се създава автоматично от заглавието на страница ако не е въведено друго. Букви, цифри, тирета и наклонени чертички са разрешени."
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
-msgstr "¿Usar editor HTML?"
+msgstr "Използване на HTML редактор?"
 
 #: controllers/IndexController.php:93
 msgid "Check this to add an HTML editor bar for easily creating HTML."
-msgstr "Marcar para añadir una barra de edición HTML para crear HTML fácilmente."
+msgstr "Маркирайте това за да включите лентата с HTML редактор за по-лесно създаване на HTML"
 
 #: controllers/IndexController.php:104
 msgid "Text"
-msgstr "Texto"
+msgstr "Текст"
 
 #: controllers/IndexController.php:106
 msgid ""
 "Add content for page. This field supports shortcodes. For a list of "
 "available shortcodes, refer to the <a target=_blank "
 "href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
-msgstr "Agregar contenido a la página. Este campo soporta shortcodes. Para obtener una lista de códigos abreviados disponibles, acuda al <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
+msgstr "Добавяне на съдържание на страницата. Това поле поддържа кратки кодове. За списък с достъпните кратки кодове отидете на <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
 
 #: controllers/IndexController.php:117
 msgid "Parent"
-msgstr "Padre"
+msgstr "Родител"
 
 #: controllers/IndexController.php:118
 msgid "The parent page"
-msgstr "La página superior"
+msgstr "Родителска страница"
 
 #: controllers/IndexController.php:126
 msgid "Order"
-msgstr "Orden"
+msgstr "Подреждане"
 
 #: controllers/IndexController.php:128
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr "El orden de la página con respecto al resto de las páginas con la misma jerarquía"
+msgstr "Подреждането на страницата е в зависимост от подреждането на страниците със същият родител"
 
 #: controllers/IndexController.php:140
 msgid "Publish this page?"
-msgstr "¿Publicar esta página?"
+msgstr "Публикуване на страницата?"
 
 #: controllers/IndexController.php:141
 msgid "Checking this box will make the page public"
-msgstr "Marca esta casilla para hacer la página pública."
+msgstr "Отметнете квадратчето за да направите страницата публична."
 
 #: controllers/IndexController.php:161
 #, php-format
 msgid "The page \"%s\" has been added."
-msgstr "La página \"%s\" ha sido añadida."
+msgstr "Страницата \"%s\" е добавена."
 
 #: controllers/IndexController.php:163
 #, php-format
 msgid "The page \"%s\" has been edited."
-msgstr "La página \"%s\" ha sido editada."
+msgstr "Страницата \"%s\" е редактирана"
 
 #: controllers/IndexController.php:181
 #, php-format
 msgid "The page \"%s\" has been deleted."
-msgstr "La página \"%s\" ha sido eliminada."
+msgstr "Страницата \"%s\" е изтрита."
 
 #: helpers/SimplePageFunctions.php:121
 msgid "Home"
-msgstr "Inicio"
+msgstr "Начало"
 
 #: helpers/SimplePageFunctions.php:166
 msgid "Main Page (No Parent)"
-msgstr "Página Principal (No Padre)"
+msgstr "Начална страница (не е задължителна)"
 
 #: models/SimplePagesPage.php:60
 msgid "The page must be given a title."
-msgstr "Debe dar un título a esta página."
+msgstr "Страницата трябва да има заглавие"
 
 #: models/SimplePagesPage.php:64
 msgid "The title for your page must be 255 characters or less."
-msgstr "El título de la página debe tener 255 caracteres o menos."
+msgstr "Заглавието за страницата трябва да е не-повече от 255 знака."
 
 #: models/SimplePagesPage.php:68
 msgid "The title is already in use by another page. Please choose another."
-msgstr "Este título ya está en uso por otra página. Por favor, elija otro."
+msgstr "Заглавието се използва от друга страница. Изберете друго заглавие."
 
 #: models/SimplePagesPage.php:72
 msgid "The page must be given a valid slug."
-msgstr "Es necesario asignar un slug válido a esta página."
+msgstr "На страницата трябва да бъде даден валидно кратко име."
 
 #: models/SimplePagesPage.php:76
 msgid "The slug for your page must not be a forward slash."
-msgstr "El slug de la página no puede ser una barra diagonal."
+msgstr "Краткото име на страницата не може да е наклонена черта."
 
 #: models/SimplePagesPage.php:80
 msgid "The slug for your page must be 255 characters or less."
-msgstr "El slug de la página debe tener 255 caracteres o menos."
+msgstr "Краткото име на страницата трябва да е по-малко от 255 знака."
 
 #: models/SimplePagesPage.php:84
 msgid "The slug is already in use by another page. Please choose another."
-msgstr "El slug ya está siendo usado por otra página. Por favor, elija otro."
+msgstr "Краткото име се използва за друга страница. Моля изберете друго."
 
 #: models/SimplePagesPage.php:88
 msgid "The order must be an integer greater than or equal to 0."
-msgstr "El orden debe ser un número entero mayor o igual a 0."
+msgstr "Подреждането трябва да е в числа по-големи или равни на 0"
 
 #: views/admin/index/add.php:5
 msgid "Simple Pages | Add Page"
-msgstr "Simple Pages | Añadir una página"
+msgstr "Обикновени страници| Добавяне на Страница"
 
 #: views/admin/index/browse-hierarchy-page.php:16
 #: views/admin/index/browse-list.php:33
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
-msgstr "<strong>%1$s</strong> el %2$s"
+msgstr "<strong>%1$s</strong> на %2$s"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Published"
-msgstr "Publicada"
+msgstr "Публикувана"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Not Published"
-msgstr "No publicada"
+msgstr "Не публикувана"
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
-msgstr "Última modificación"
+msgstr "Последно променена"
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"
-msgstr "Simple Pages | Navegar"
+msgstr "Обикновени страници | Преглед"
 
 #: views/admin/index/browse.php:9
 msgid "List View"
-msgstr "Vista de lista"
+msgstr "Преглед на списък"
 
 #: views/admin/index/browse.php:12
 msgid "Hierarchy View"
-msgstr "Vista jerárquica"
+msgstr "Преглед на йерархията"
 
 #: views/admin/index/browse.php:17
 msgid "Add a Page"
-msgstr "Añadir una página"
+msgstr "Добавяна на страница"
 
 #: views/admin/index/browse.php:19
 msgid "There are no pages."
-msgstr "No hay páginas"
+msgstr "Няма страници"
 
 #: views/admin/index/browse.php:19
 msgid "Add a page."
-msgstr "Añada una página"
+msgstr "Добавяне на страница"
 
 #: views/admin/index/edit.php:4
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
-msgstr "Simple Pages | Editar \"%s\""
+msgstr "Обикновени страници | Редактиране на \"%s\""
 
 #: views/admin/index/edit.php:40
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
 " <strong>%3$s</strong> on %4$s."
-msgstr "Esta página fue creada por <strong>%1$s</strong> el %2$s, y modificada por <strong>%3$s</strong> el %4$s"
+msgstr "Страницата е създадена от <strong>%1$s</strong> в %2$s, и последно редактирана от  <strong>%3$s</strong> в %4$s."

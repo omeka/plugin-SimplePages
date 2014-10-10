@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Julien Sicot <julien.sicot@gmail.com>, 2012
+# rcheno <remi.cheno@ideo-cairo.org>, 2014
 # Stéphane Loret Sdj <stephane.loret@univ-nantes.fr>, 2012
 # Thierry Pasquier <thierry.pasquier@emf.ccsti.eu>, 2012
 # Thierry Pasquier <thierry.pasquier@emf.ccsti.eu>, 2013
@@ -12,8 +13,8 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2014-06-05 19:27+0000\n"
-"Last-Translator: John Flatness <john@zerocrates.org>\n"
+"PO-Revision-Date: 2014-07-27 21:31+0000\n"
+"Last-Translator: rcheno <remi.cheno@ideo-cairo.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/omeka/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +38,7 @@ msgstr "Filtrage des contenus entrés par les usagers dans les pages ?"
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page."
-msgstr ""
+msgstr "Si coché, ce plugin filtrera toutes les pages libres en utilisant l'ensemble des filtres HTML de la page des paramètres de sécurité."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
@@ -60,7 +61,7 @@ msgstr "Utiliser un éditeur HTML ?"
 
 #: controllers/IndexController.php:93
 msgid "Check this to add an HTML editor bar for easily creating HTML."
-msgstr ""
+msgstr "Cochez ici pour ajouter une barre d'édition HTML pour faciliter la création d'un code HTML."
 
 #: controllers/IndexController.php:104
 msgid "Text"
@@ -71,7 +72,7 @@ msgid ""
 "Add content for page. This field supports shortcodes. For a list of "
 "available shortcodes, refer to the <a target=_blank "
 "href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
-msgstr ""
+msgstr "Ajoutez un contenu à cette page. Le champ accepte les codes courts. Pour une liste des codes courts acceptés, référez-vous au  <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Codex d'Omeka</a>."
 
 #: controllers/IndexController.php:117
 msgid "Parent"
