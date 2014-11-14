@@ -64,9 +64,24 @@ class SimplePagesPageTable extends Omeka_Db_Table
                     $select->order("{$alias}.title ASC");
                     break;
             }
-        }         
+        }
     }
-    
+
+    /**
+     * Retrieve a simple page by slug.
+     *
+     * @param sllug $slug Slug of the page to retrieve.
+     * @return SimplePagePage|null The simple page that is returned.
+     */
+    public function findBySlug($slug)
+    {
+        $select = $this->getSelect();
+        $select->where($this->getTableAlias() . '.slug = ?', $slug);
+        $select->limit(1);
+        $select->reset(Zend_Db_Select::ORDER);
+        return $this->fetchObject($select, array());
+    }
+
     /**
      * Retrieve child pages from list of pages matching page ID.
      *
