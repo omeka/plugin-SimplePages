@@ -23,7 +23,19 @@ class SimplePagesPageTable extends Omeka_Db_Table
         $select = $this->getSelect()->order('slug');
         return $this->fetchObjects($select);
     }
-    
+
+   /**
+     * Retrieve the array of columns that are used by findPairsForSelectForm().
+     *
+     * @see Omeka_Db_Table::findPairsForSelectForm()
+     * @return array
+     */
+    protected function _getColumnPairs()
+    {
+        $alias = $this->getTableAlias();
+        return array($alias . '.id', $alias . '.slug');
+    }
+
     public function applySearchFilters($select, $params)
     {
         $alias = $this->getTableAlias();

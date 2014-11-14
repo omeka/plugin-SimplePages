@@ -197,18 +197,22 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
 
         $router = $args['router'];
 
-        // Add custom routes based on the page slug.
-        $pages = get_db()->getTable('SimplePagesPage')->findAll();
-        foreach ($pages as $page) {
+        // Add custom routes based on the page slug, with one query.
+        $slugs = get_db()->getTable('SimplePagesPage')->findPairsForSelectForm();
+        if (empty($slugs)) {
+            return;
+        }
+
+        foreach ($slugs as $id => $slug) {
             $router->addRoute(
-                'simple_pages_show_page_' . $page->id, 
+                'simple_pages_show_page_' . $id,
                 new Zend_Controller_Router_Route(
-                    $page->slug, 
+                    $slug,
                     array(
-                        'module'       => 'simple-pages', 
-                        'controller'   => 'page', 
-                        'action'       => 'show', 
-                        'id'           => $page->id
+                        'module' => 'simple-pages',
+                        'controller' => 'page',
+                        'action' => 'show',
+                        'id' => $id,
                     )
                 )
             );
