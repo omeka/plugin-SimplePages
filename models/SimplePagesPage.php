@@ -16,6 +16,8 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord implements Zend_Acl_Re
     public $modified_by_user_id;
     public $created_by_user_id;
     public $is_published = 0;
+    // A page is searchable by default.
+    public $is_searchable = 1;
     public $title;
     public $slug;
     public $text = null;
@@ -116,12 +118,14 @@ class SimplePagesPage extends Omeka_Record_AbstractRecord implements Zend_Acl_Re
     
     protected function afterSave($args)
     {
-        if (!$this->is_published) {
+        if (!$this->is_published || !$this->is_searchable) {
             $this->setSearchTextPrivate();
         }
-        $this->setSearchTextTitle($this->title);
-        $this->addSearchText($this->title);
-        $this->addSearchText($this->text);
+        if ($this->is_searchable) {
+            $this->setSearchTextTitle($this->title);
+            $this->addSearchText($this->title);
+            $this->addSearchText($this->text);
+        }
     }
     
     /**

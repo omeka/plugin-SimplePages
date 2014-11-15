@@ -8,6 +8,7 @@ class Api_SimplePagesPage extends Omeka_Record_Api_AbstractRecordAdapter
 		    'id' =>$record->id,
 		    'url' => $this->getResourceUrl("/simple_pages/{$record->id}"),
 		    'is_published'        => (bool)$record->is_published,
+            'is_searchable' => (bool)$record->is_searchable,
 		    'title'               => $record->title,
 		    'slug'                => $record->slug,
 		    'text'                => $record->text,

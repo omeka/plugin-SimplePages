@@ -148,6 +148,17 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
             $form->addElement('sessionCsrfToken', 'csrf_token');
         }
         
+        $form->addElementToSaveGroup(
+            'checkbox', 'is_searchable',
+            array(
+                'id' => 'simple_pages_is_searchable',
+                'values' => array(1, 0),
+                'checked' => $page->is_searchable,
+                'label' => __('Is this page searchable?'),
+                'description' => __('Checking this box will make this page searchable')
+            )
+        );
+
         return $form;
     }
     
