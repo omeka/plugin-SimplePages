@@ -196,7 +196,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
         }
 
         // Add a custom route based on the page slugs.
-        $slugs = get_db()->getTable('SimplePagesPage')->findPairsForSelectForm();
+        $slugs = get_db()->getTable('SimplePagesPage')->findSlugs();
         if (empty($slugs)) {
             return;
         }

@@ -24,16 +24,18 @@ class SimplePagesPageTable extends Omeka_Db_Table
         return $this->fetchObjects($select);
     }
 
-   /**
-     * Retrieve the array of columns that are used by findPairsForSelectForm().
+    /**
+     * Find all slugs.
      *
-     * @see Omeka_Db_Table::findPairsForSelectForm()
-     * @return array
+     * @return array All slugs of pages.
      */
-    protected function _getColumnPairs()
+    public function findSlugs()
     {
         $alias = $this->getTableAlias();
-        return array($alias . '.id', $alias . '.slug');
+        $select = $this->getSelect();
+        $select->reset(Zend_Db_Select::COLUMNS);
+        $select->from(array(), array($alias . '.slug'));
+        return $this->fetchCol($select);
     }
 
     public function applySearchFilters($select, $params)
