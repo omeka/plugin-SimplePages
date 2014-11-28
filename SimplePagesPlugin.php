@@ -212,7 +212,8 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
             ),
             array(
                 1 => 'slug',
-            )
+            ),
+            '%s'
         ));
     }
 
