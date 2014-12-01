@@ -162,6 +162,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     public function hookInitialize()
     {
         add_translation_source(dirname(__FILE__) . '/languages');
+        add_shortcode('simple_pages', 'SimplePagesPlugin::shortcodeSimplePages');
     }
 
     /**
@@ -360,5 +361,139 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
         $simplePagesAdapter->setUserProperties(array('modified_by_user', 'created_by_user'));
         $adapters['simple_pages'] = $simplePagesAdapter;
         return $adapters;
+    }
+
+    /**
+     * Shortcode for displaying simple pages as blocks, texts, links, or lists.
+     *
+     * @todo No check is done on recursive shortcodes inside text of pages.
+     *
+     * @param array $args
+     * @param Omeka_View $view
+     * @return string
+     */
+    public static function shortcodeSimplePages($args, $view)
+    {
+        $params = array();
+        $simplePages = array();
+        // List is used to display list of links or titles.
+        $list = false;
+
+        if (isset($args['slug'])) {
+            $params['slug'] = $args['slug'];
+        }
+
+        if (isset($args['slugs'])) {
+            $params['slug'] = explode(',', $args['slugs']);
+            $list = true;
+        }
+
+        if (isset($args['id'])) {
+            $params['id'] = $args['id'];
+        }
+
+        if (isset($args['ids'])) {
+            $params['range'] = $args['ids'];
+            $list = true;
+        }
+
+        if (isset($args['output'])) {
+            $output = $args['output'];
+        }
+        // Default is to return a simple page as a block, except if there is no
+        // parameter, where the navigation list of all simple pages is returned.
+        else {
+            $output = empty($params) ? 'navigation' : 'block';
+        }
+
+        // Set other params only if needed.
+        if (!empty($params)) {
+            if (isset($args['sort'])) {
+                $params['sort'] = $args['sort'];
+            }
+            // Default order is "order" to simplify shortcode, except for slugs,
+            // where it is the specified order, sorted below.
+            elseif (!isset($args['slugs'])) {
+                $params['sort'] = 'order';
+            }
+
+            if (isset($args['num'])) {
+                $limit = $args['num'];
+            } else {
+                $limit = 10;
+            }
+
+            $simplePages = get_records('SimplePagesPage', $params, $limit);
+            if (empty($simplePages)) {
+                return '';
+            }
+
+            // Order slugs by slug if needed (order by field is not used in model).
+            if (isset($args['slugs']) && !isset($args['sort'])) {
+                $orderedPages = array_fill_keys($params['slug'], null);
+                foreach ($simplePages as $simplePage) {
+                    $orderedPages[$simplePage->slug] = $simplePage;
+                }
+                $simplePages = array_filter($orderedPages);
+            }
+        }
+
+        $html = '';
+        switch ($output) {
+            case 'block':
+                foreach ($simplePages as $simplePage) {
+                    $text = metadata($simplePage, 'text', array('no_escape' => true));
+                    $html .= '<div class="simple-page-block">';
+                    $html .= '<h3>' . html_escape($simplePage->title) . '</h3>';
+                    $html .= $view->shortcodes($text);
+                    $html .= '</div>';
+                }
+                break;
+
+            case 'text':
+                foreach ($simplePages as $simplePage) {
+                    $text = metadata($simplePage, 'text', array('no_escape' => true));
+                    $html .= '<div class="simple-page-text">';
+                    $html .= $view->shortcodes($text);
+                    $html .= '</div>';
+                }
+                break;
+
+            case 'link':
+                $html .= $list ? '<ul  class="simple-page-titles">' : '';
+                foreach ($simplePages as $simplePage) {
+                    $html .= $list ? '<li class="simple-page-title">' : '<span class="simple-page-title">';
+                    $html .= link_to($simplePage, null, html_escape($simplePage->title));
+                    $html .= $list ? '</li>' : '</span>';
+                }
+                $html .= $list ? '</ul>' : '';
+                break;
+
+            case 'title':
+                $html .= $list ? '<ul  class="simple-page-titles">' : '';
+                foreach ($simplePages as $simplePage) {
+                    $html .= $list ? '<li class="simple-page-title">' : '<span class="simple-page-title">';
+                    $html .= html_escape($simplePage->title);
+                    $html .= $list ? '</li>' : '</span>';
+                }
+                $html .= $list ? '</ul>' : '';
+                break;
+
+            case 'navigation':
+                $order = isset($args['sort']) && $args['sort'] == 'alpha' ? 'alpha' : 'order';
+                // Display full navigation.
+                if (empty($simplePages)) {
+                    $html .= simple_pages_navigation(0, $order);
+                }
+                // Display navigation under each specified parent page.
+                else {
+                    foreach ($simplePages as $simplePage) {
+                        $html .= simple_pages_navigation($simplePage->id, $order);
+                    }
+                }
+                break;
+        }
+
+        return $html;
     }
 }
