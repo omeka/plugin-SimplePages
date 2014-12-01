@@ -126,20 +126,42 @@ function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $inc
     return $html;
 }
 
-function simple_pages_display_hierarchy($parentPageId = 0, $partialFilePath = 'index/browse-hierarchy-page.php')
+/**
+ * Recursively list the pages under a page for editing.
+ *
+ * @param SimplePage $page A page to list.
+ * @return string
+ */
+function simple_pages_edit_page_list($page)
 {
-    $html = '';
-    $childrenPages = get_db()->getTable('SimplePagesPage')->findChildrenPages($parentPageId);
-    if (count($childrenPages)) {        
+    $html = '<li class="page" id="page_' . $page->id . '">';
+    $html .= '<div class="sortable-item">';
+    $html .= sprintf('<a href="%s">%s</a>', html_escape(record_url($page)), html_escape($page->title));
+    $html .= ' (' . html_escape($page->slug) . ')';
+    $html .= '<ul class="action-links group">';
+    $html .= '<li>' . sprintf('<a href="%s" id="simplepage-%s" class="simplepage toggle-status status %s">%s</a>',
+        ADMIN_BASE_URL,
+       $page->id,
+       ($page->is_published ? 'public' : 'private'),
+       ($page->is_published ? __('Published') : __('Private'))) . '</li>';
+    $html .= '<li>' . link_to($page, 'edit', __('Edit'), array('class' => 'edit')) . '</li>';
+    $html .= '</ul>';
+    $html .= '<br />';
+    $html .= __('<strong>%1$s</strong> on %2$s',
+        html_escape(metadata($page, 'modified_username')),
+        html_escape(format_date(metadata($page, 'updated'), Zend_Date::DATETIME_SHORT)));
+    $html .= '<a class="delete-toggle delete-element" href="#">' . __('Delete') . '</a>';
+    $html .= '</div>';
+
+    $childrenPages = $page->getChildren();
+    if (count($childrenPages)) {
         $html .= '<ul>';
-        foreach($childrenPages as $childPage) {
-            $html .= '<li>';
-            $html .= get_view()->partial($partialFilePath, array('simple_pages_page' => $childPage));
-            $html .= simple_pages_display_hierarchy($childPage->id, $partialFilePath);
-            $html .= '</li>';
+        foreach ($childrenPages as $childPage) {
+            $html .= simple_pages_edit_page_list($childPage);
         }
         $html .= '</ul>';
     }
+    $html .= '</li>';
     return $html;
 }
 
@@ -171,4 +193,56 @@ function simple_pages_get_parent_options($page)
         }
     }
     return $valuePairs;
+}
+
+/**
+ * Update orders of all simple pages that have been modified.
+ */
+function simple_pages_update_order($newOrder)
+{
+    $db = get_db();
+    $table = $db->SimplePagesPage;
+
+    // Pages are ordered by order, then by title, so two passes are needed.
+
+    // First step: update parent if needed.
+    $sql = "SELECT `id`, `parent_id` FROM `$table` ORDER BY `order` ASC, `title` ASC";
+    $currentOrder = $db->fetchPairs($sql);
+
+    foreach ($newOrder as $id => $parentId) {
+        if ($currentOrder[$id] != $parentId) {
+            $db->update($table,
+                array('parent_id' => $parentId),
+                'id = ' . $id);
+            // Update old hierarchy for next step.
+            $currentOrder[$id] = $parentId;
+        }
+    }
+
+    // Second step: update order if needed for each sibling.
+    // For each parent, check if current children are ordered as new ones.
+    while (!empty($newOrder)) {
+        $parentId = reset($newOrder);
+
+        // Get all current and new pages with this parent.
+        $currentChildren = array_intersect($currentOrder, array($parentId));
+        $newChildren = array_intersect($newOrder, array($parentId));
+
+        // Compare them and update all values if they are different.
+        // Orders are compared as csv because no function allows to check order.
+        if (implode(',', array_keys($currentChildren)) != implode(',', array_keys($newChildren))) {
+            // Order by 10 for easier insert and update of edited pages.
+            $order = 10;
+            foreach ($newChildren as $id => $parentId) {
+                $db->update($table,
+                    array('order' => $order),
+                    'id = ' . $id);
+                $order += 10;
+            }
+        }
+
+        // Remove filtered keys before loop.
+        $currentOrder = array_diff_key($currentOrder, $currentChildren);
+        $newOrder = array_diff_key($newOrder, $newChildren);
+    }
 }

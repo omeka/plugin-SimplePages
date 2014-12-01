@@ -1,0 +1,51 @@
+.simplepages-list {
+    padding: 0;
+    margin: 0;
+}
+.simplepages-list li {
+    list-style: none outside none;
+    padding-left: 10px;
+    display: inline-block;
+    font-family: "Arvo",serif;
+    margin: 0;
+    padding: 4px 4px 4px 4px;
+}
+a.simplepage.status {
+    position:relative;
+    padding-left: 20px;
+    cursor: pointer;
+}
+a.simplepage.toggle-status.public {
+    background: url('../../../../../application/views/scripts/images/silk-icons/tick.png') no-repeat scroll 0 0 transparent;
+}
+a.simplepage.toggle-status.private {
+    background: url('../../../../../application/views/scripts/images/silk-icons/error.png') no-repeat scroll 0 0 transparent;
+}
+a.simplepage.transmit {
+    background: url('../../shared/images/waiting-mini.gif') no-repeat scroll 0 0 transparent !important;
+}
+.action {
+    color: #338899;
+    cursor: pointer;
+}
+.instructions {
+    font-size:11px;
+    color: #888;
+    clear: both;
+}
+/* override for core's .undo-delete hiding */
+#page-list .undo-delete {
+    display: inline;
+}
+#page-list .page ul {
+    margin-top: 15px;
+}
+#page-list ul.action-links {
+    margin-top: 0;
+}
+#page-list ul.action-links li {
+    margin-bottom: 0;
+}
+#page-list ul.action-links li a.edit {
+    padding-left: 3px;
+}

@@ -1,3 +1,7 @@
+<p class="instructions"><?php
+    echo ' ' . __('To publish or unpublish a page, click on the icon.');
+    echo ' ' . __('Changes are immediate.');
+?></p>
 <table class="full">
     <thead>
         <tr>
@@ -16,17 +20,20 @@
                     <a href="<?php echo html_escape(record_url('simple_pages_page')); ?>">
                         <?php echo metadata('simple_pages_page', 'title'); ?>
                     </a>
-                    <?php if(!metadata('simple_pages_page', 'is_published')): ?>
-                        (<?php echo __('Private'); ?>)
-                    <?php endif; ?>
                 </span>
                 <ul class="action-links group">
+                    <li><?php printf('<a href="%s" id="simplepage-%s" class="simplepage toggle-status status %s">%s</a>',
+                        ADMIN_BASE_URL,
+                       $simplePage->id,
+                       ($simplePage->is_published ? 'public' : 'private'),
+                       ($simplePage->is_published ? __('Published') : __('Private')));
+                    ?></li>
                     <li><a class="edit" href="<?php echo html_escape(record_url('simple_pages_page', 'edit')); ?>">
                         <?php echo __('Edit'); ?>
                     </a></li>
-                    <li><a class="delete-confirm" href="<?php echo html_escape(record_url('simple_pages_page', 'delete-confirm')); ?>">
-                        <?php echo __('Delete'); ?>
-                    </a></li>
+                    <li><?php printf('<a href="%s" id="simplepage-delete-%s" class="simplepage delete-confirm">%s</a>',
+                        ADMIN_BASE_URL, $simplePage->id, __('Delete'));
+                    ?></li>
                 </ul>
             </td>
             <td><?php echo metadata('simple_pages_page', 'slug'); ?></td>
