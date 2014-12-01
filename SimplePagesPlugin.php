@@ -460,10 +460,20 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
                 break;
 
             case 'link':
+                // Check if different titles should be used, generally shorter.
+                // They should be as many as slugs, in the same order. If empty,
+                // the original title is used. They must be separated by a ";"
+                // and this character, like any other regex metacharacters,
+                // shouldn't appear in the title.
+                $titles = isset($args['titles']) ? array_map('trim', explode(';', $args['titles'])) : array();
+                $i = 0;
+
                 $html .= $list ? '<ul  class="simple-page-titles">' : '';
                 foreach ($simplePages as $simplePage) {
+                    $title = !empty($titles[$i]) ? $titles[$i] : $simplePage->title;
+                    $i++;
                     $html .= $list ? '<li class="simple-page-title">' : '<span class="simple-page-title">';
-                    $html .= link_to($simplePage, null, html_escape($simplePage->title));
+                    $html .= link_to($simplePage, null, html_escape($title));
                     $html .= $list ? '</li>' : '</span>';
                 }
                 $html .= $list ? '</ul>' : '';
