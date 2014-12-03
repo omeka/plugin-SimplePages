@@ -162,7 +162,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     public function hookInitialize()
     {
         add_translation_source(dirname(__FILE__) . '/languages');
-        add_shortcode('simple_pages', 'SimplePagesPlugin::shortcodeSimplePages');
+        add_shortcode('simple_pages', array($this, 'shortcodeSimplePages'));
     }
 
     /**
