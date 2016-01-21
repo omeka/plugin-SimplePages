@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2015-08-20 10:43+0000\n"
+"PO-Revision-Date: 2015-09-04 19:16+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (http://www.transifex.com/omeka/omeka/language/et/)\n"
 "MIME-Version: 1.0\n"
@@ -28,13 +28,13 @@ msgstr "Lihtsad leheküljed"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
-msgstr ""
+msgstr "Filtreerida lehe sisu?"
 
 #: config_form.php:7
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page."
-msgstr ""
+msgstr "Kui see valik on märgitud, siis plugin filtreerib kõiki lihtsaid lehekülgi kasutades turvaseadete lehel olevaid HTML filtreid."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
@@ -49,7 +49,7 @@ msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr ""
+msgstr "Lühinimi on osa lehe URL-ist. Kui pealkirja pole sisestatud, siis luuakse see automaatselt. Lubatud on tähed, arvud, allkriipsud, sidekriipsud ja kaldkriipsud."
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
@@ -68,7 +68,7 @@ msgid ""
 "Add content for page. This field supports shortcodes. For a list of "
 "available shortcodes, refer to the <a target=_blank "
 "href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
-msgstr ""
+msgstr "Lisa lehele sisu. See lahter toetab lühikoodide kasutamist. Saadaolevaid lühikoode vaata <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Omeka koodeksist</a>."
 
 #: controllers/IndexController.php:117
 msgid "Parent"
