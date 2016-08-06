@@ -105,7 +105,12 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
         $oldVersion = $args['old_version'];
         $newVersion = $args['new_version'];
         $db = $this->_db;
-        
+
+        // MySQL 5.7+ fix; must do first or else MySQL complains about any other ALTER
+        if ($oldVersion < '3.0.7') {
+            $db->query("ALTER TABLE `$db->SimplePagesPage` ALTER `inserted` SET DEFAULT '2000-01-01 00:00:00'");
+        }
+
         if ($oldVersion < '1.0') {
             $sql = "ALTER TABLE `$db->SimplePagesPage` ADD INDEX ( `is_published` )";
             $db->query($sql);    
@@ -153,10 +158,6 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
 
         if ($oldVersion < '3.0.2') {
             $db->query("ALTER TABLE `$db->SimplePagesPage` MODIFY `text` MEDIUMTEXT COLLATE utf8_unicode_ci");
-        }
-
-        if ($oldVersion < '3.0.7') {
-            $db->query("ALTER TABLE `$db->SimplePagesPage` ALTER `inserted` SET DEFAULT '2000-01-01 00:00:00'");
         }
     }
 
