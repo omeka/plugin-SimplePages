@@ -290,7 +290,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
      */
     public function filterPublicNavigationMain($nav)
     {
-        $navLinks = simple_pages_get_links_for_children_pages(0, 0, 'order', true);
+        $navLinks = simple_pages_get_links_for_children_pages(0, 'order', true);
         $nav = array_merge($nav, $navLinks);
         return $nav;
     }
