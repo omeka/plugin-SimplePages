@@ -13,9 +13,12 @@
  * @param integer|null The id of the parent page.  If null, it uses the current simple page
  * @param string The method by which you sort pages. Options are 'order' (default) and 'alpha'.
  * @param boolean Whether to return only published pages.
+ * @param array Array with keys of parent_id and values = array(SimplePages)
+ *              that have that parent_id. Used internally.
  * @return array The navigation links.
  */
-function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'order', $requiresIsPublished = false)
+function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'order', $requiresIsPublished = false,
+                                                   $pages = null)
 {
     if ($parentId === null) {
         $parentPage = get_current_record('simple_pages_page', false);
@@ -26,32 +29,47 @@ function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'or
         }
     }
 
-    $findBy = array('parent_id' => $parentId, 'sort' => $sort);
-    if ($requiresIsPublished) {
-        $findBy['is_published'] = $requiresIsPublished ? 1 : 0;
-    }
+    if (! isset($pages)) {
+        $findBy = array('sort' => $sort);
+        if ($requiresIsPublished) {
+            $findBy['is_published'] = $requiresIsPublished ? 1 : 0;
+        }
+        $pages = get_db()->getTable('SimplePagesPage')->findBy($findBy);
 
-    $pages = get_db()->getTable('SimplePagesPage')->findBy($findBy);
+        $parentIdToPages = array();
+        foreach ($pages as $page) {
+            if (! isset($parentIdToPages[$page->parent_id])) {
+                $parentIdToPages[$page->parent_id] = array();
+            }
+            $parentIdToPages[$page->parent_id][] = $page;
+        }
+        $pages = $parentIdToPages;
+    }
 
     $navLinks = array();
 
-    foreach ($pages as $page) {
-        $uri = public_url($page->slug);
+    if (isset($pages[$parentId])) {
+        foreach ($pages[$parentId] as $page) {
+            $uri = public_url($page->slug);
+            $subNavLinks = simple_pages_get_links_for_children_pages(
+                $page->id, $sort, $requiresIsPublished, $pages
+            );
 
-        $subNavLinks = simple_pages_get_links_for_children_pages($page->id, $sort, $requiresIsPublished);
-        if (count($subNavLinks) > 0) {
-            $navLinks[] = array(
-                'label' => $page->title,
-                'uri' => $uri,
-                'pages' => $subNavLinks
-            );
-        } else {
-            $navLinks[] = array(
-                'label' => $page->title,
-                'uri' => $uri,
-            );
+            if (count($subNavLinks) > 0) {
+                $navLinks[] = array(
+                    'label' => $page->title,
+                    'uri' => $uri,
+                    'pages' => $subNavLinks
+                );
+            } else {
+                $navLinks[] = array(
+                    'label' => $page->title,
+                    'uri' => $uri,
+                );
+            }
         }
     }
+
     return $navLinks;
 }
 
