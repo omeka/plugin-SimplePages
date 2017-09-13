@@ -48,6 +48,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
           `modified_by_user_id` int(10) unsigned NOT NULL,
           `created_by_user_id` int(10) unsigned NOT NULL,
           `is_published` tinyint(1) NOT NULL,
+          `is_searchable` tinyint(1) NOT NULL,
           `title` tinytext COLLATE utf8_unicode_ci NOT NULL,
           `slug` tinytext COLLATE utf8_unicode_ci NOT NULL,
           `text` mediumtext COLLATE utf8_unicode_ci,
@@ -67,12 +68,13 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
           KEY `parent_id` (`parent_id`)
         ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
         $db->query($sql);
-        
+
         // Save an example page.
         $page = new SimplePagesPage;
         $page->modified_by_user_id = current_user()->id;
         $page->created_by_user_id = current_user()->id;
         $page->is_published = 1;
+        $page->is_searchable = 1;
         $page->parent_id = 0;
         $page->title = 'About';
         $page->slug = 'about';
@@ -158,6 +160,22 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
 
         if ($oldVersion < '3.0.2') {
             $db->query("ALTER TABLE `$db->SimplePagesPage` MODIFY `text` MEDIUMTEXT COLLATE utf8_unicode_ci");
+        }
+
+        if ($oldVersion < '3.0.4') {
+            // Check if "is_searchable" exists, because the patch is rebased.
+            $sql = "SHOW columns FROM `$db->SimplePagesPage` WHERE `Field` = 'is_searchable';";
+            $result = $db->query($sql)->fetchAll();
+            if (empty($result)) {
+                $sql = "
+                    ALTER TABLE `$db->SimplePagesPage`
+                    ADD `is_searchable` tinyint(1) NOT NULL AFTER `is_published`
+                ";
+                $db->query($sql);
+                // Set all existing pages as searchable.
+                $sql = "UPDATE `$db->SimplePagesPage` SET `is_searchable` = '1';";
+                $db->query($sql);
+            }
         }
     }
 
