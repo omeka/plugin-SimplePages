@@ -3,207 +3,210 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# Doru  DEACONU <dumitrudeaconu@yahoo.com>, 2014
-# Nicolaie Constantinescu <kosson@gmail.com>, 2012-2013
+# Cédric Valmary <cvalmary@yahoo.fr>, 2016
+# Julien Sicot <julien.sicot@gmail.com>, 2012
+# rcheno <remi.cheno@ideo-cairo.org>, 2014
+# Stéphane Loret Sdj <stephane.loret@univ-nantes.fr>, 2012
+# Thierry Pasquier <thierry.pasquier@emf.ccsti.eu>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2017-09-19 11:05+0000\n"
-"Last-Translator: Doru  DEACONU <dumitrudeaconu@yahoo.com>\n"
-"Language-Team: Romanian (http://www.transifex.com/omeka/omeka/language/ro/)\n"
+"PO-Revision-Date: 2017-09-23 18:08+0000\n"
+"Last-Translator: Cédric Valmary <cvalmary@yahoo.fr>\n"
+"Language-Team: Occitan (post 1500) (http://www.transifex.com/omeka/omeka/language/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ro\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+"Language: oc\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: SimplePagesPlugin.php:268
 msgid "Simple Pages"
-msgstr "Pagini simple"
+msgstr "Simple Pages"
 
 #: SimplePagesPlugin.php:294
 msgid "Simple Page"
-msgstr "Pagini simple"
+msgstr "Simple Page"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
-msgstr "Vrei să filtrezi ce introduc utilizatorii în pagina de conținut?"
+msgstr "Filtratge dels contenguts entrats pels usatgièrs dins las paginas ?"
 
 #: config_form.php:7
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page."
-msgstr "Dacă este bifat, acest modul va filtra toate paginile simple folosing filtrele HTML setate la pagina dedicată setărilor de securitate."
+msgstr "Se marcat, aqueste plugin filtrarà totas las paginas liuras en utilizant l'ensemble dels filtres HTML de la pagina dels paramètres de seguretat."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
-msgstr "Numele și headingul paginii (necesare)"
+msgstr "Nom e entèsta de la pagina (requesit)"
 
 #: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
 msgid "Slug"
-msgstr "Terminație"
+msgstr "Identificant "
 
 #: controllers/IndexController.php:77
 msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr "Prescurtarea este parte a URL-ului pentru această pagină. O prescurtare va fi creată automat din titlu dacă acest câmp nu este completat. Sunt permise alfanumerice, liniuțe jos, liniuțe și shashuri."
+msgstr "L'identificant es la partida pròpria a aquesta pagina de son URL. Se es pas sasit, l'identificant serà creat automaticament a partir del títol. Las letras, las chifras, los jonhents e las barras oblicas son autorizats."
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
-msgstr "Folosești un editor HTML?"
+msgstr "Utilizar un editor HTML ?"
 
 #: controllers/IndexController.php:93
 msgid "Check this to add an HTML editor bar for easily creating HTML."
-msgstr "Bifaţi aici pentru a adăuga un editor HTML în bară pentru crearea facilă a paginilor HTML"
+msgstr "Marcatz aicí per apondre una barra d'edicion HTML per facilitar la creacion d'un còdi HTML."
 
 #: controllers/IndexController.php:104
 msgid "Text"
-msgstr "Text"
+msgstr "Tèxte"
 
 #: controllers/IndexController.php:106
 msgid ""
 "Add content for page. This field supports shortcodes. For a list of "
 "available shortcodes, refer to the <a target=_blank "
 "href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
-msgstr "Adaugă conţinut paginii. Acest câmp admite scurtături. Pentru o listă a scurtăturilor disponibile consultaţi <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
+msgstr "Apondètz un contengut a aquesta pagina. Lo camp accèpta los còdis corts. Per una lista dels còdis corts acceptats, referissètz-vos al <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Codex d'Omeka</a>."
 
 #: controllers/IndexController.php:117
 msgid "Parent"
-msgstr "Părinte"
+msgstr "Parent"
 
 #: controllers/IndexController.php:118
 msgid "The parent page"
-msgstr "Pagina părinte"
+msgstr "Pagina parenta"
 
 #: controllers/IndexController.php:126
 msgid "Order"
-msgstr "Ordonare"
+msgstr "Òrdre"
 
 #: controllers/IndexController.php:128
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr "Locul paginii relativ la alte pagini care au același părinte"
+msgstr "L'òrdre de la pagina relativament a las paginas que possedisson la meteissa pagina parenta"
 
 #: controllers/IndexController.php:140
 msgid "Publish this page?"
-msgstr "Vrei să publici pagina?"
+msgstr "Publicar aquesta pagina ?"
 
 #: controllers/IndexController.php:141
 msgid "Checking this box will make the page public"
-msgstr "Bifând aici, pagina va fi publică"
+msgstr "Marcar aquesta casa rendrà la pagina publica"
 
 #: controllers/IndexController.php:161
 #, php-format
 msgid "The page \"%s\" has been added."
-msgstr "A fost adăugată pagina \"%s\"."
+msgstr "La pagina \"%s\" es estada aponduda."
 
 #: controllers/IndexController.php:163
 #, php-format
 msgid "The page \"%s\" has been edited."
-msgstr "A fost editată pagina \"%s\"."
+msgstr "La pagina \"%s\" es estada modificada."
 
 #: controllers/IndexController.php:181
 #, php-format
 msgid "The page \"%s\" has been deleted."
-msgstr "Pagina \"%s\" a fost ștearsă."
+msgstr "La pagina \"%s\" es estada suprimida."
 
 #: helpers/SimplePageFunctions.php:121
 msgid "Home"
-msgstr "Home"
+msgstr "Acuèlh"
 
 #: helpers/SimplePageFunctions.php:166
 msgid "Main Page (No Parent)"
-msgstr "Pagina principală (fără părinte)"
+msgstr "Pagina raiç (sens parent)"
 
 #: models/SimplePagesPage.php:60
 msgid "The page must be given a title."
-msgstr "Pagii trebuie să i se dea un titlu"
+msgstr "La pagina deu possedir un títol."
 
 #: models/SimplePagesPage.php:64
 msgid "The title for your page must be 255 characters or less."
-msgstr "Titlul pentru pagină trebuie să fie de 255 de caractere sau mai puțin."
+msgstr "Lo títol de vòstra pagina deu pas depassar 255 caractèrs."
 
 #: models/SimplePagesPage.php:68
 msgid "The title is already in use by another page. Please choose another."
-msgstr "Titlul este deja folosit de altă pagină. Alege altul!"
+msgstr "Aqueste títol es ja estat utilizat per una autra pagina. Mercé de ne causir un autre."
 
 #: models/SimplePagesPage.php:72
 msgid "The page must be given a valid slug."
-msgstr "Pagina trebuie să aibe o terminație validă."
+msgstr "La pagina deu aver un identificant valid."
 
 #: models/SimplePagesPage.php:76
 msgid "The slug for your page must not be a forward slash."
-msgstr "Terminația pentru URL-ul paginii nu trebuie să fie un slash."
+msgstr "L'identificant de vòstra pagina se pòt pas reduire a una barra oblica."
 
 #: models/SimplePagesPage.php:80
 msgid "The slug for your page must be 255 characters or less."
-msgstr "Terminația paginii trebuie să aibe 255 de caractere sau mai puțin."
+msgstr "L'identificant de vòstra pagina deu pas depassar 255 caractèrs."
 
 #: models/SimplePagesPage.php:84
 msgid "The slug is already in use by another page. Please choose another."
-msgstr "Terminația este deja utilizată de altă pagină. Alege alta."
+msgstr "Aqueste identificant es estat utilizat per una autra pagina. Mercé de ne causir un autre."
 
 #: models/SimplePagesPage.php:88
 msgid "The order must be an integer greater than or equal to 0."
-msgstr "Ordinea trebuie să fie un număr întreg mai mare sau egal cu 0."
+msgstr "Lo reng deu èsser un nombre entièr egal o superior a 0."
 
 #: views/admin/index/add.php:5
 msgid "Simple Pages | Add Page"
-msgstr "Pagini simple | Adaugă pagină"
+msgstr "Simple Pages | Apondre una pagina"
 
 #: views/admin/index/browse-hierarchy-page.php:16
 #: views/admin/index/browse-list.php:33
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
-msgstr "<strong>%1$s</strong> pe %2$s"
+msgstr "<strong>%1$s</strong> lo %2$s"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Published"
-msgstr "Publicată"
+msgstr "Publicat"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Not Published"
-msgstr "Nepublicată"
+msgstr "Pas publicat"
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
-msgstr "Ultima modificare"
+msgstr "Darrièra modificacion"
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"
-msgstr "Pagini simple | Navighează"
+msgstr "Simple Page | Percórrer"
 
 #: views/admin/index/browse.php:9
 msgid "List View"
-msgstr "Vizualizare listă"
+msgstr "Vista en lista"
 
 #: views/admin/index/browse.php:12
 msgid "Hierarchy View"
-msgstr "Vizualizare ierarhică"
+msgstr "Vista ierarquica"
 
 #: views/admin/index/browse.php:17
 msgid "Add a Page"
-msgstr "Adaugă o pagină"
+msgstr "Apondre una pagina"
 
 #: views/admin/index/browse.php:19
 msgid "There are no pages."
-msgstr "Nu există pagini."
+msgstr "I a pas de pagina."
 
 #: views/admin/index/browse.php:19
 msgid "Add a page."
-msgstr "Adaugă o pagină"
+msgstr "Apondre una pagina."
 
 #: views/admin/index/edit.php:4
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
-msgstr "Pagini simple | Editează \"%s\""
+msgstr "Simple Pages | Editar \"%s\""
 
 #: views/admin/index/edit.php:40
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
 " <strong>%3$s</strong> on %4$s."
-msgstr "Această pagină a fost creată de <strong>%1$s</strong> pe %2$s, și a fost modificată ultima dată de <strong>%3$s</strong> la %4$s."
+msgstr "Aquesta pagina es estada creada per <strong>%1$s</strong> lo %2$s, e la darrièra modificacion es estada efectuada per <strong>%3$s</strong> lo %4$s."

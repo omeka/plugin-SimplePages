@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2016-05-25 02:20+0000\n"
+"PO-Revision-Date: 2017-09-23 21:47+0000\n"
 "Last-Translator: Khaidav T. <khaidaw@yahoo.com>\n"
 "Language-Team: Mongolian (http://www.transifex.com/omeka/omeka/language/mn/)\n"
 "MIME-Version: 1.0\n"
@@ -28,28 +28,28 @@ msgstr "Энгийн хуудас"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
-msgstr ""
+msgstr "Хуудасны агуулгад хэрэглэгч оруулах шүүлтүүр үү?"
 
 #: config_form.php:7
 msgid ""
 "If checked, this plugin will filter all simple pages using the HTML filters "
 "set on the security settings page."
-msgstr ""
+msgstr "Энэ плагин сонговол бүх хамгаалалтын тохиргооны хуудсанд бүх  хуудсанд ашиглаж байгаа HTML шүүлтүүрийн багцыг хэрэглэж шүүлт хийнэ."
 
 #: controllers/IndexController.php:65
 msgid "Name and heading for the page (required)"
-msgstr ""
+msgstr "Хуудасны нэр болон толгойн гарчиг  (шаардлагатай)"
 
 #: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
 msgid "Slug"
-msgstr ""
+msgstr "Слаг /Slug/"
 
 #: controllers/IndexController.php:77
 msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr ""
+msgstr "Слаг /Slug/ бол тухайн хуудасны URL хаягийн бүрэлдэхүүн хэсэг юм. Хэрэв та гараар үүсгээгүй бол слаг нь автоматаар үүсдэг.  Үсэг, тоо, доогуур зураас, ташуу зураас, дундуур зураасыг зөвшөөрнө."
 
 #: controllers/IndexController.php:91
 msgid "Use HTML editor?"
@@ -68,7 +68,7 @@ msgid ""
 "Add content for page. This field supports shortcodes. For a list of "
 "available shortcodes, refer to the <a target=_blank "
 "href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
-msgstr ""
+msgstr "Хуудсанд агуулга нэмэх. Талбар нь тусгай коод /shortcode/ дэмжинэ. Ашиглаж болох тусгай коодын жагсаалт <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
 
 #: controllers/IndexController.php:117
 msgid "Parent"
@@ -84,7 +84,7 @@ msgstr "Эрэмблэх"
 
 #: controllers/IndexController.php:128
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr ""
+msgstr "Ижил дээд түвшний бусад хуудсууд руу хамааралтай хуудасны эрэмблэлт"
 
 #: controllers/IndexController.php:140
 msgid "Publish this page?"
@@ -131,23 +131,23 @@ msgstr "Энэ нэрийг өөр хуудсанд хэрэглэж байна.
 
 #: models/SimplePagesPage.php:72
 msgid "The page must be given a valid slug."
-msgstr ""
+msgstr "Хуудсанд зөв Слаг өгөгдсөн байх ёстой."
 
 #: models/SimplePagesPage.php:76
 msgid "The slug for your page must not be a forward slash."
-msgstr ""
+msgstr "Таны хуудасны Слаг нь /slug/ урагшаа ташуу зураасгүй байх ёстой."
 
 #: models/SimplePagesPage.php:80
 msgid "The slug for your page must be 255 characters or less."
-msgstr ""
+msgstr "Хуудасны слаг /slug/ 255 хүртэлх тэмдэгтэд багтах ёстой."
 
 #: models/SimplePagesPage.php:84
 msgid "The slug is already in use by another page. Please choose another."
-msgstr ""
+msgstr "Энэ слагийг /slug/ өөр хуудсанд хэрэглэж байна. Өөр слаг сонгоно уу."
 
 #: models/SimplePagesPage.php:88
 msgid "The order must be an integer greater than or equal to 0."
-msgstr ""
+msgstr "Эрэмбэлхэд /order/ 0 эсвэл түүнээс их бүхэл тоо байх ёстой."
 
 #: views/admin/index/add.php:5
 msgid "Simple Pages | Add Page"

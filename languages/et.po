@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the Omeka package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2015
+# Rivo Zängov <eraser@eraser.ee>, 2015,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2015-09-04 19:16+0000\n"
+"PO-Revision-Date: 2017-09-19 19:06+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (http://www.transifex.com/omeka/omeka/language/et/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr "Lihtsad leheküljed"
 
 #: SimplePagesPlugin.php:294
 msgid "Simple Page"
-msgstr "Lihtsad leheküljed"
+msgstr "Lihtne lehekülg"
 
 #: config_form.php:3
 msgid "Filter User Input For Page Content?"
