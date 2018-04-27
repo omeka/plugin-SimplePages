@@ -7,8 +7,8 @@ jQuery(document).ready(function() {
     }
     Omeka.wysiwyg({
         selector: selector,
-        menubar: 'edit insert view format table',
-        plugins: 'lists,link,code,paste,media,autoresize,image,table',
+        menubar: 'edit view insert format table',
+        plugins: 'lists link code paste media autoresize image table charmap hr',
         browser_spellcheck: true
     });
     // Add or remove TinyMCE control.
