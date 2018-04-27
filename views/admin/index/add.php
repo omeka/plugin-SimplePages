@@ -10,6 +10,7 @@ echo head($head);
 jQuery(document).ready(function() {
     Omeka.wysiwyg({
         selector: <?php echo json_encode($simple_pages_page->use_tiny_mce ? '#simple-pages-text' : false); ?>,
+        menubar: 'edit insert view format'
     });
     // Add or remove TinyMCE control.
     jQuery('#simple-pages-use-tiny-mce').click(function() {
