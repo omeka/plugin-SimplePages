@@ -17,22 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: SimplePagesPlugin.php:272
+#: SimplePagesPlugin.php:246
 msgid "Simple Pages"
 msgstr ""
 
-#: SimplePagesPlugin.php:298
+#: SimplePagesPlugin.php:272
 msgid "Simple Page"
-msgstr ""
-
-#: config_form.php:3
-msgid "Filter User Input For Page Content?"
-msgstr ""
-
-#: config_form.php:7
-msgid ""
-"If checked, this plugin will filter all simple pages using the HTML filters "
-"set on the security settings page."
 msgstr ""
 
 #: controllers/IndexController.php:67
@@ -108,11 +98,11 @@ msgstr ""
 msgid "The page \"%s\" has been deleted."
 msgstr ""
 
-#: helpers/SimplePageFunctions.php:121
+#: helpers/SimplePageFunctions.php:139
 msgid "Home"
 msgstr ""
 
-#: helpers/SimplePageFunctions.php:166
+#: helpers/SimplePageFunctions.php:184
 msgid "Main Page (No Parent)"
 msgstr ""
 
@@ -148,7 +138,7 @@ msgstr ""
 msgid "The order must be an integer greater than or equal to 0."
 msgstr ""
 
-#: views/admin/index/add.php:5
+#: views/admin/index/add.php:6
 msgid "Simple Pages | Add Page"
 msgstr ""
 
@@ -194,12 +184,12 @@ msgstr ""
 msgid "Add a page."
 msgstr ""
 
-#: views/admin/index/edit.php:4
+#: views/admin/index/edit.php:6
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
 msgstr ""
 
-#: views/admin/index/edit.php:40
+#: views/admin/index/edit.php:11
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by "
