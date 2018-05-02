@@ -4,12 +4,13 @@
 # 
 # Translators:
 # evilinstone <evilinstone@gmail.com>, 2013
+# tanya chorna <tanya.chorna@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2017-09-19 14:53+0000\n"
+"PO-Revision-Date: 2018-05-02 15:01+0000\n"
 "Last-Translator: John Flatness <john@zerocrates.org>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/omeka/omeka/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -18,138 +19,128 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: SimplePagesPlugin.php:268
+#: SimplePagesPlugin.php:246
 msgid "Simple Pages"
 msgstr "Прості сторінки"
 
-#: SimplePagesPlugin.php:294
+#: SimplePagesPlugin.php:272
 msgid "Simple Page"
 msgstr "Проста сторінка"
 
-#: config_form.php:3
-msgid "Filter User Input For Page Content?"
-msgstr "Фільтр введення даних для вмісту сторінки?"
-
-#: config_form.php:7
-msgid ""
-"If checked, this plugin will filter all simple pages using the HTML filters "
-"set on the security settings page."
-msgstr ""
-
-#: controllers/IndexController.php:65
+#: controllers/IndexController.php:67
 msgid "Name and heading for the page (required)"
 msgstr "Назва та заголовок для цієї сторінки (обов'язкові)"
 
-#: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
+#: controllers/IndexController.php:77 views/admin/index/browse-list.php:6
 msgid "Slug"
 msgstr "Коротка назва"
 
-#: controllers/IndexController.php:77
+#: controllers/IndexController.php:79
 msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
 msgstr "Проста назва є частиною посилання для цієї сторінки. Якщо коротку назву не вказано, її буде автоматично створено на основі назви сторінки. Дозволено використовувати букви, числа, підкреслення, дефіси."
 
-#: controllers/IndexController.php:91
+#: controllers/IndexController.php:93
 msgid "Use HTML editor?"
 msgstr "Використовувати редактор HTML?"
 
-#: controllers/IndexController.php:93
+#: controllers/IndexController.php:95
 msgid "Check this to add an HTML editor bar for easily creating HTML."
-msgstr ""
+msgstr "Перевірте, щоб додати на панель HTML редактор для легкого створення HTML."
 
-#: controllers/IndexController.php:104
+#: controllers/IndexController.php:106
 msgid "Text"
 msgstr "Текст"
 
-#: controllers/IndexController.php:106
+#: controllers/IndexController.php:108
 msgid ""
 "Add content for page. This field supports shortcodes. For a list of "
 "available shortcodes, refer to the <a target=_blank "
 "href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
-msgstr ""
+msgstr "Додайте зміст на сторінку. Це поле підтримує короткі коди. Список доступних коротких кодів див. <a target=_blank href=\"http://omeka.org/codex/Shortcodes\"> Omeka Codex </a>."
 
-#: controllers/IndexController.php:117
+#: controllers/IndexController.php:119
 msgid "Parent"
 msgstr "Вихідна"
 
-#: controllers/IndexController.php:118
+#: controllers/IndexController.php:120
 msgid "The parent page"
 msgstr "Вихідна сторінка"
 
-#: controllers/IndexController.php:126
+#: controllers/IndexController.php:128
 msgid "Order"
 msgstr "Порядок"
 
-#: controllers/IndexController.php:128
+#: controllers/IndexController.php:130
 msgid "The order of the page relative to the other pages with the same parent"
 msgstr "Порядок сортування по відношенню до інших сторінок з тією ж вихідною сторінкою"
 
-#: controllers/IndexController.php:140
+#: controllers/IndexController.php:142
 msgid "Publish this page?"
 msgstr "Опублікувати цю сторінку?"
 
-#: controllers/IndexController.php:141
+#: controllers/IndexController.php:143
 msgid "Checking this box will make the page public"
 msgstr "Зробити сторінку загальнодоступною"
 
-#: controllers/IndexController.php:161
+#: controllers/IndexController.php:171
 #, php-format
 msgid "The page \"%s\" has been added."
 msgstr "Сторінку \"%s\" було додано."
 
-#: controllers/IndexController.php:163
+#: controllers/IndexController.php:173
 #, php-format
 msgid "The page \"%s\" has been edited."
-msgstr "Сторінку \"%s\" була відредагована."
+msgstr "Сторінку \"%s\" було відредаговано."
 
-#: controllers/IndexController.php:181
+#: controllers/IndexController.php:188
 #, php-format
 msgid "The page \"%s\" has been deleted."
-msgstr "Сторінку \"%s\" була видалена."
+msgstr "Сторінка \"%s\" була видалена."
 
-#: helpers/SimplePageFunctions.php:121
+#: helpers/SimplePageFunctions.php:139
 msgid "Home"
 msgstr "Домашня сторінка"
 
-#: helpers/SimplePageFunctions.php:166
+#: helpers/SimplePageFunctions.php:184
 msgid "Main Page (No Parent)"
 msgstr "Головна сторінка (вихідні сторінки відсутні)"
 
-#: models/SimplePagesPage.php:60
+#: models/SimplePagesPage.php:61
 msgid "The page must be given a title."
-msgstr "Необхідно надати назву сторінці."
+msgstr "Необхідно створити назву для сторінки."
 
-#: models/SimplePagesPage.php:64
+#: models/SimplePagesPage.php:65
 msgid "The title for your page must be 255 characters or less."
-msgstr "Назва сторінки може складатись з 255 або менше знаків."
+msgstr "Назва сторінки може містити 255 або менше знаків."
 
-#: models/SimplePagesPage.php:68
+#: models/SimplePagesPage.php:69
 msgid "The title is already in use by another page. Please choose another."
 msgstr "Це назва сторінки вже використовується. Прохання, обрати іншу назву."
 
-#: models/SimplePagesPage.php:72
+#: models/SimplePagesPage.php:73
 msgid "The page must be given a valid slug."
 msgstr "Необхідно задати правильну коротку назву для сторінки."
 
-#: models/SimplePagesPage.php:76
+#: models/SimplePagesPage.php:77
 msgid "The slug for your page must not be a forward slash."
 msgstr "Коротка назва сторінки не може містити знак косої лінії (/)."
 
-#: models/SimplePagesPage.php:80
+#: models/SimplePagesPage.php:81
 msgid "The slug for your page must be 255 characters or less."
-msgstr "Коротка назва сторінки може складатись з 255 або менше знаків."
+msgstr "Коротка назва сторінки може містити 255 або менше знаків."
 
-#: models/SimplePagesPage.php:84
+#: models/SimplePagesPage.php:85
 msgid "The slug is already in use by another page. Please choose another."
 msgstr "Це коротка назва сторінки вже використовується. Прохання, обрати іншу коротку назву."
 
-#: models/SimplePagesPage.php:88
+#: models/SimplePagesPage.php:89
 msgid "The order must be an integer greater than or equal to 0."
 msgstr "Номер за-порядком повинний бути цілим числом більшим або рівним 0."
 
-#: views/admin/index/add.php:5
+#: views/admin/index/add.php:6
 msgid "Simple Pages | Add Page"
 msgstr "Прості сторінки | Додати сторінку"
 
@@ -165,7 +156,7 @@ msgstr "Опубліковані"
 
 #: views/admin/index/browse-hierarchy-page.php:20
 msgid "Not Published"
-msgstr "Не опубліковані"
+msgstr "Неопубліковані"
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
@@ -195,12 +186,12 @@ msgstr "Сторінки відсутні."
 msgid "Add a page."
 msgstr "Додати сторінку."
 
-#: views/admin/index/edit.php:4
+#: views/admin/index/edit.php:6
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
 msgstr "Прості сторінки | Редагувати \"%s\""
 
-#: views/admin/index/edit.php:40
+#: views/admin/index/edit.php:11
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"

@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2017-09-23 20:58+0000\n"
-"Last-Translator: Vadims Maksimovs <defank@inbox.lv>\n"
+"PO-Revision-Date: 2018-05-02 15:01+0000\n"
+"Last-Translator: John Flatness <john@zerocrates.org>\n"
 "Language-Team: Latvian (Latvia) (http://www.transifex.com/omeka/omeka/language/lv_LV/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,138 +18,128 @@ msgstr ""
 "Language: lv_LV\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
-#: SimplePagesPlugin.php:268
+#: SimplePagesPlugin.php:246
 msgid "Simple Pages"
 msgstr "Vienkāršās lapas"
 
-#: SimplePagesPlugin.php:294
+#: SimplePagesPlugin.php:272
 msgid "Simple Page"
 msgstr "Vienkāršā lapa"
 
-#: config_form.php:3
-msgid "Filter User Input For Page Content?"
-msgstr ""
-
-#: config_form.php:7
-msgid ""
-"If checked, this plugin will filter all simple pages using the HTML filters "
-"set on the security settings page."
-msgstr ""
-
-#: controllers/IndexController.php:65
+#: controllers/IndexController.php:67
 msgid "Name and heading for the page (required)"
 msgstr ""
 
-#: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
+#: controllers/IndexController.php:77 views/admin/index/browse-list.php:6
 msgid "Slug"
 msgstr "Slug"
 
-#: controllers/IndexController.php:77
+#: controllers/IndexController.php:79
 msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
 msgstr ""
 
-#: controllers/IndexController.php:91
+#: controllers/IndexController.php:93
 msgid "Use HTML editor?"
 msgstr "Izmantot HTML rediģētāju?"
 
-#: controllers/IndexController.php:93
+#: controllers/IndexController.php:95
 msgid "Check this to add an HTML editor bar for easily creating HTML."
 msgstr ""
 
-#: controllers/IndexController.php:104
+#: controllers/IndexController.php:106
 msgid "Text"
 msgstr "Teksts"
 
-#: controllers/IndexController.php:106
+#: controllers/IndexController.php:108
 msgid ""
 "Add content for page. This field supports shortcodes. For a list of "
 "available shortcodes, refer to the <a target=_blank "
 "href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
 msgstr "Pievieno šai lapai saturu. Šis lauks atbalts shortcode. Saraksts pieejams vietnē <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
 
-#: controllers/IndexController.php:117
+#: controllers/IndexController.php:119
 msgid "Parent"
 msgstr "Sākotnējā"
 
-#: controllers/IndexController.php:118
+#: controllers/IndexController.php:120
 msgid "The parent page"
 msgstr "Sākotnējā lapa"
 
-#: controllers/IndexController.php:126
+#: controllers/IndexController.php:128
 msgid "Order"
 msgstr "Kārtība"
 
-#: controllers/IndexController.php:128
+#: controllers/IndexController.php:130
 msgid "The order of the page relative to the other pages with the same parent"
 msgstr ""
 
-#: controllers/IndexController.php:140
+#: controllers/IndexController.php:142
 msgid "Publish this page?"
 msgstr "Publicēt lapu?"
 
-#: controllers/IndexController.php:141
+#: controllers/IndexController.php:143
 msgid "Checking this box will make the page public"
 msgstr "Atzīmē, lai šī lapa tiktu publicēta"
 
-#: controllers/IndexController.php:161
+#: controllers/IndexController.php:171
 #, php-format
 msgid "The page \"%s\" has been added."
 msgstr ""
 
-#: controllers/IndexController.php:163
+#: controllers/IndexController.php:173
 #, php-format
 msgid "The page \"%s\" has been edited."
 msgstr ""
 
-#: controllers/IndexController.php:181
+#: controllers/IndexController.php:188
 #, php-format
 msgid "The page \"%s\" has been deleted."
 msgstr ""
 
-#: helpers/SimplePageFunctions.php:121
+#: helpers/SimplePageFunctions.php:139
 msgid "Home"
 msgstr ""
 
-#: helpers/SimplePageFunctions.php:166
+#: helpers/SimplePageFunctions.php:184
 msgid "Main Page (No Parent)"
 msgstr ""
 
-#: models/SimplePagesPage.php:60
+#: models/SimplePagesPage.php:61
 msgid "The page must be given a title."
 msgstr ""
 
-#: models/SimplePagesPage.php:64
+#: models/SimplePagesPage.php:65
 msgid "The title for your page must be 255 characters or less."
 msgstr ""
 
-#: models/SimplePagesPage.php:68
+#: models/SimplePagesPage.php:69
 msgid "The title is already in use by another page. Please choose another."
 msgstr ""
 
-#: models/SimplePagesPage.php:72
+#: models/SimplePagesPage.php:73
 msgid "The page must be given a valid slug."
 msgstr ""
 
-#: models/SimplePagesPage.php:76
+#: models/SimplePagesPage.php:77
 msgid "The slug for your page must not be a forward slash."
 msgstr ""
 
-#: models/SimplePagesPage.php:80
+#: models/SimplePagesPage.php:81
 msgid "The slug for your page must be 255 characters or less."
 msgstr ""
 
-#: models/SimplePagesPage.php:84
+#: models/SimplePagesPage.php:85
 msgid "The slug is already in use by another page. Please choose another."
 msgstr ""
 
-#: models/SimplePagesPage.php:88
+#: models/SimplePagesPage.php:89
 msgid "The order must be an integer greater than or equal to 0."
 msgstr ""
 
-#: views/admin/index/add.php:5
+#: views/admin/index/add.php:6
 msgid "Simple Pages | Add Page"
 msgstr "Vienkāršās lapas | Pievienot lapu"
 
@@ -195,12 +185,12 @@ msgstr "Nav lapu."
 msgid "Add a page."
 msgstr "Pievienot lapu."
 
-#: views/admin/index/edit.php:4
+#: views/admin/index/edit.php:6
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
 msgstr "Vienkāršās lapas | Rediģēt \"%s\""
 
-#: views/admin/index/edit.php:40
+#: views/admin/index/edit.php:11
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"

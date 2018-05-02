@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2017-09-20 07:33+0000\n"
-"Last-Translator: Per-Olof Olofsson <poo@bornholmsmuseum.dk>\n"
+"PO-Revision-Date: 2018-05-02 15:01+0000\n"
+"Last-Translator: John Flatness <john@zerocrates.org>\n"
 "Language-Team: Danish (Denmark) (http://www.transifex.com/omeka/omeka/language/da_DK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,138 +18,128 @@ msgstr ""
 "Language: da_DK\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: SimplePagesPlugin.php:268
+#: SimplePagesPlugin.php:246
 msgid "Simple Pages"
 msgstr "Enkelte Sider"
 
-#: SimplePagesPlugin.php:294
+#: SimplePagesPlugin.php:272
 msgid "Simple Page"
 msgstr "Enkelt Side"
 
-#: config_form.php:3
-msgid "Filter User Input For Page Content?"
-msgstr "Filter Bruger-genereret indhold på sider?"
-
-#: config_form.php:7
-msgid ""
-"If checked, this plugin will filter all simple pages using the HTML filters "
-"set on the security settings page."
-msgstr "Hvis markeret, vil dette plugin filtrere alle enkelte sider ved hjælp af HTML-filtre sat på side sikkerhedsindstillingerne."
-
-#: controllers/IndexController.php:65
+#: controllers/IndexController.php:67
 msgid "Name and heading for the page (required)"
 msgstr "Navn og overskrift for denne side (påkrævet)"
 
-#: controllers/IndexController.php:75 views/admin/index/browse-list.php:6
+#: controllers/IndexController.php:77 views/admin/index/browse-list.php:6
 msgid "Slug"
 msgstr "Slug"
 
-#: controllers/IndexController.php:77
+#: controllers/IndexController.php:79
 msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
 msgstr "Kortadressen er den del af URL-adressen før denne side. \nEn kortadress vil blive oprettet automatisk fra titlen, hvis den ikke er indtastet. Bogstaver, tal, underscore, bindestreger og skråstreger er tilladt."
 
-#: controllers/IndexController.php:91
+#: controllers/IndexController.php:93
 msgid "Use HTML editor?"
 msgstr "Brug HTML editor?"
 
-#: controllers/IndexController.php:93
+#: controllers/IndexController.php:95
 msgid "Check this to add an HTML editor bar for easily creating HTML."
 msgstr "Check dette før at tilføje en HTML-editor menu, for nemt at oprette HTML."
 
-#: controllers/IndexController.php:104
+#: controllers/IndexController.php:106
 msgid "Text"
 msgstr "Tekst"
 
-#: controllers/IndexController.php:106
+#: controllers/IndexController.php:108
 msgid ""
 "Add content for page. This field supports shortcodes. For a list of "
 "available shortcodes, refer to the <a target=_blank "
 "href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
 msgstr "Tilføj indhold til siden. Dette felt understøtter kortkoder. For en liste over tilgængelige kortkoder, henvises til <a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
 
-#: controllers/IndexController.php:117
+#: controllers/IndexController.php:119
 msgid "Parent"
 msgstr "Overordnede"
 
-#: controllers/IndexController.php:118
+#: controllers/IndexController.php:120
 msgid "The parent page"
 msgstr "Den overordnede side"
 
-#: controllers/IndexController.php:126
+#: controllers/IndexController.php:128
 msgid "Order"
 msgstr "Bestil"
 
-#: controllers/IndexController.php:128
+#: controllers/IndexController.php:130
 msgid "The order of the page relative to the other pages with the same parent"
 msgstr "Rækkefølgen af siden i forhold til de andre sider med samme forælder"
 
-#: controllers/IndexController.php:140
+#: controllers/IndexController.php:142
 msgid "Publish this page?"
 msgstr "Udgiv denne side?"
 
-#: controllers/IndexController.php:141
+#: controllers/IndexController.php:143
 msgid "Checking this box will make the page public"
 msgstr "Markering af dette felt vil gøre siden offentlig"
 
-#: controllers/IndexController.php:161
+#: controllers/IndexController.php:171
 #, php-format
 msgid "The page \"%s\" has been added."
 msgstr "Siden \"%s\" er blevet tilføjet."
 
-#: controllers/IndexController.php:163
+#: controllers/IndexController.php:173
 #, php-format
 msgid "The page \"%s\" has been edited."
 msgstr "Siden \"%s\" er blevet redigeret."
 
-#: controllers/IndexController.php:181
+#: controllers/IndexController.php:188
 #, php-format
 msgid "The page \"%s\" has been deleted."
 msgstr "Siden \"%s\" er blevet slettet."
 
-#: helpers/SimplePageFunctions.php:121
+#: helpers/SimplePageFunctions.php:139
 msgid "Home"
 msgstr "Hjem"
 
-#: helpers/SimplePageFunctions.php:166
+#: helpers/SimplePageFunctions.php:184
 msgid "Main Page (No Parent)"
 msgstr "Forside (Ingen Forældreside)"
 
-#: models/SimplePagesPage.php:60
+#: models/SimplePagesPage.php:61
 msgid "The page must be given a title."
 msgstr "Siden skal have en titel."
 
-#: models/SimplePagesPage.php:64
+#: models/SimplePagesPage.php:65
 msgid "The title for your page must be 255 characters or less."
 msgstr "Titeln til din side skal være 255 tegn eller mindre."
 
-#: models/SimplePagesPage.php:68
+#: models/SimplePagesPage.php:69
 msgid "The title is already in use by another page. Please choose another."
 msgstr "Titlen er allerede i brug af en anden side. Vælg en anden."
 
-#: models/SimplePagesPage.php:72
+#: models/SimplePagesPage.php:73
 msgid "The page must be given a valid slug."
 msgstr "Siden skal have et gyldigt kortadresse."
 
-#: models/SimplePagesPage.php:76
+#: models/SimplePagesPage.php:77
 msgid "The slug for your page must not be a forward slash."
 msgstr "Kortadresse til din side, må ikke være en skråstreg."
 
-#: models/SimplePagesPage.php:80
+#: models/SimplePagesPage.php:81
 msgid "The slug for your page must be 255 characters or less."
 msgstr "Kortadresse til din side skal være 255 tegn eller mindre."
 
-#: models/SimplePagesPage.php:84
+#: models/SimplePagesPage.php:85
 msgid "The slug is already in use by another page. Please choose another."
 msgstr "Kortadresse er allerede i brug af en anden side. Vælg et andet."
 
-#: models/SimplePagesPage.php:88
+#: models/SimplePagesPage.php:89
 msgid "The order must be an integer greater than or equal to 0."
 msgstr "Rækkefølgen skal være et heltal større end eller lig med 0."
 
-#: views/admin/index/add.php:5
+#: views/admin/index/add.php:6
 msgid "Simple Pages | Add Page"
 msgstr "Enkelte sider | Tilføj Side"
 
@@ -195,12 +185,12 @@ msgstr "Der er ikke nogle sider."
 msgid "Add a page."
 msgstr "Tilføj en side"
 
-#: views/admin/index/edit.php:4
+#: views/admin/index/edit.php:6
 #, php-format
 msgid "Simple Pages | Edit \"%s\""
 msgstr "Enkelte Sider | Redigere \"%s\""
 
-#: views/admin/index/edit.php:40
+#: views/admin/index/edit.php:11
 #, php-format
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
