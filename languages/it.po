@@ -5,14 +5,15 @@
 # Translators:
 # Alessandro Leccese <alec.wiki@gmail.com>, 2012
 # Alfio Squatrito <info@lswebagency.it>, 2014
+# Daniele Binaghi, 2018
 # Stefano Costa <steko@iosa.it>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2018-05-02 15:01+0000\n"
-"Last-Translator: John Flatness <john@zerocrates.org>\n"
+"PO-Revision-Date: 2018-09-30 17:23+0000\n"
+"Last-Translator: Daniele Binaghi\n"
 "Language-Team: Italian (http://www.transifex.com/omeka/omeka/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,11 +27,11 @@ msgstr "Simple Pages"
 
 #: SimplePagesPlugin.php:272
 msgid "Simple Page"
-msgstr ""
+msgstr "Simple Page"
 
 #: controllers/IndexController.php:67
 msgid "Name and heading for the page (required)"
-msgstr ""
+msgstr "Nome e intestazione della pagina (richiesti)"
 
 #: controllers/IndexController.php:77 views/admin/index/browse-list.php:6
 msgid "Slug"
@@ -41,15 +42,15 @@ msgid ""
 "The slug is the part of the URL for this page. A slug will be created "
 "automatically from the title if one is not entered. Letters, numbers, "
 "underscores, dashes, and forward slashes are allowed."
-msgstr ""
+msgstr "Lo slug è la parte dell'URL per questa pagina. Uno slug verrà creato automaticamente dal titolo se non ne verrà inserito uno. Lettere, numeri, sottolineature, trattini e barra inclinata avanti sono permessi."
 
 #: controllers/IndexController.php:93
 msgid "Use HTML editor?"
-msgstr "Usa l'editor HTML?"
+msgstr "Usare la formattazione HTML?"
 
 #: controllers/IndexController.php:95
 msgid "Check this to add an HTML editor bar for easily creating HTML."
-msgstr ""
+msgstr "Selezionare questo per aggiungere una barra di formattazione HTML per creare facilmente codice HTML."
 
 #: controllers/IndexController.php:106
 msgid "Text"
@@ -60,23 +61,23 @@ msgid ""
 "Add content for page. This field supports shortcodes. For a list of "
 "available shortcodes, refer to the <a target=_blank "
 "href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
-msgstr ""
+msgstr "Aggiungi contenuto per la pagina. Questo campo supporta gli shortcode. Per una lista degli shortcode disponibili, fai riferimento all'<a target=_blank href=\"http://omeka.org/codex/Shortcodes\">Omeka Codex</a>."
 
 #: controllers/IndexController.php:119
 msgid "Parent"
-msgstr "Pagina madre"
+msgstr "Pagina superiore"
 
 #: controllers/IndexController.php:120
 msgid "The parent page"
-msgstr "Pagina superiore"
+msgstr "La pagina superiore"
 
 #: controllers/IndexController.php:128
 msgid "Order"
-msgstr "Ordina"
+msgstr "Ordine"
 
 #: controllers/IndexController.php:130
 msgid "The order of the page relative to the other pages with the same parent"
-msgstr ""
+msgstr "L'ordine della pagina relativo alle altre pagine con la stessa pagina superiore"
 
 #: controllers/IndexController.php:142
 msgid "Publish this page?"
@@ -84,7 +85,7 @@ msgstr "Pubblica la pagina?"
 
 #: controllers/IndexController.php:143
 msgid "Checking this box will make the page public"
-msgstr "Selezionando questa casella rendera' la pagina pubblica."
+msgstr "Selezionando questa casella si renderà pubblica la pagina"
 
 #: controllers/IndexController.php:171
 #, php-format
@@ -99,7 +100,7 @@ msgstr "La pagina \"%s\" è stata modificata."
 #: controllers/IndexController.php:188
 #, php-format
 msgid "The page \"%s\" has been deleted."
-msgstr "La pagina \"%s\"è stata eliminata."
+msgstr "La pagina \"%s\" è stata eliminata."
 
 #: helpers/SimplePageFunctions.php:139
 msgid "Home"
@@ -107,11 +108,11 @@ msgstr "Home"
 
 #: helpers/SimplePageFunctions.php:184
 msgid "Main Page (No Parent)"
-msgstr "Pagina principale (nessuna pagina madre)"
+msgstr "Pagina principale (nessuna pagina superiore)"
 
 #: models/SimplePagesPage.php:61
 msgid "The page must be given a title."
-msgstr "La pagina deve avere un titolo"
+msgstr "La pagina deve avere un titolo."
 
 #: models/SimplePagesPage.php:65
 msgid "The title for your page must be 255 characters or less."
@@ -119,7 +120,7 @@ msgstr "Il titolo della pagina deve essere al massimo di 255 caratteri."
 
 #: models/SimplePagesPage.php:69
 msgid "The title is already in use by another page. Please choose another."
-msgstr "Questo titolo è già in uso per un'altra pagina. Scegli un titolo diverso per favore."
+msgstr "Questo titolo è già in uso per un'altra pagina. Scegli un titolo diverso, per favore."
 
 #: models/SimplePagesPage.php:73
 msgid "The page must be given a valid slug."
@@ -127,7 +128,7 @@ msgstr "La pagina deve avere uno \"slug\" valido."
 
 #: models/SimplePagesPage.php:77
 msgid "The slug for your page must not be a forward slash."
-msgstr ""
+msgstr "Lo slug della tua pagina non deve essere una barra inclinata avanti."
 
 #: models/SimplePagesPage.php:81
 msgid "The slug for your page must be 255 characters or less."
@@ -135,7 +136,7 @@ msgstr "Lo slug per la pagina deve essere al massimo di 255 caratteri."
 
 #: models/SimplePagesPage.php:85
 msgid "The slug is already in use by another page. Please choose another."
-msgstr ""
+msgstr "Lo slug è già in uso per un'altra pagina. Si prega di sceglierne un'altro."
 
 #: models/SimplePagesPage.php:89
 msgid "The order must be an integer greater than or equal to 0."
@@ -161,11 +162,11 @@ msgstr "Non pubblicato"
 
 #: views/admin/index/browse-list.php:7
 msgid "Last Modified"
-msgstr "Ultimo modificato."
+msgstr "Ultima modifica"
 
 #: views/admin/index/browse.php:3
 msgid "Simple Pages | Browse"
-msgstr "Simple Pages | Esplora"
+msgstr "Simple Pages | Sfoglia"
 
 #: views/admin/index/browse.php:9
 msgid "List View"
@@ -197,4 +198,4 @@ msgstr "Simple Pages | Modifica \"%s\""
 msgid ""
 "This page was created by <strong>%1$s</strong> on %2$s, and last modified by"
 " <strong>%3$s</strong> on %4$s."
-msgstr "Questa pagina è stata creata da <strong>%1$s</strong> il %2$s, e l'ultima modifica è stata <strong>%3$s</strong> il %4$s."
+msgstr "Questa pagina è stata creata da <strong>%1$s</strong> il %2$s, e l'ultima modifica è stata fatta da <strong>%3$s</strong> il %4$s."

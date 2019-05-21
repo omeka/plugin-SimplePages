@@ -5,7 +5,7 @@
 # Translators:
 # begona.soto <begona.soto@urjc.es>, 2012
 # Dani Garcia <danimontesgarcia@gmail.com>, 2012
-# dario hereñu <magallania@gmail.com>, 2014
+# Darío Hereñú <magallania@gmail.com>, 2014
 # Fran Pérez <fperezrodri@gmail.com>, 2012
 # Pablo Laguna <pablolaguna@vera.com.uy>, 2014
 # Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2013
