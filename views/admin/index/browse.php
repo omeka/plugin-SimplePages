@@ -2,13 +2,16 @@
 $head = array('bodyclass' => 'simple-pages primary',
               'title' => html_escape(__('Simple Pages | Browse')),
               'content_class' => 'horizontal-nav');
+if (isset($_GET['view'])) {
+	$active = $_GET['view'];
+}
 echo head($head);
 ?>
 <ul id="section-nav" class="navigation">
-    <li class="<?php if (isset($_GET['view']) &&  $_GET['view'] != 'hierarchy') {echo 'current';} ?>">
+    <li class="<?php if ($active != 'hierarchy') {echo 'current';} ?>">
         <a href="<?php echo html_escape(url('simple-pages/index/browse?view=list')); ?>"><?php echo __('List View'); ?></a>
     </li>
-    <li class="<?php if (isset($_GET['view']) && $_GET['view'] == 'hierarchy') {echo 'current';} ?>">
+    <li class="<?php if ($active == 'hierarchy') {echo 'current';} ?>">
         <a href="<?php echo html_escape(url('simple-pages/index/browse?view=hierarchy')); ?>"><?php echo __('Hierarchy View'); ?></a>
     </li>
 </ul>
