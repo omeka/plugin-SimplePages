@@ -3,7 +3,7 @@ host = https://www.transifex.com
 
 [omeka.plugin-simplepages]
 file_filter = languages/<lang>.po
+minimum_perc = 10
 source_file = languages/template.pot
 source_lang = en
-minimum_perc = 10
 
