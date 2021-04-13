@@ -1,4 +1,5 @@
 <?php
+queue_css_file('simple-pages');
 $head = array('bodyclass' => 'simple-pages primary',
               'title' => html_escape(__('Simple Pages | Browse')),
               'content_class' => 'horizontal-nav');
@@ -17,7 +18,7 @@ echo head($head);
 </ul>
 <?php echo flash(); ?>
 
-<a class="add-page button small green" href="<?php echo html_escape(url('simple-pages/index/add')); ?>"><?php echo __('Add a Page'); ?></a>
+<a class="add-page button green" href="<?php echo html_escape(url('simple-pages/index/add')); ?>"><?php echo __('Add a Page'); ?></a>
 <?php if (!has_loop_records('simple_pages_page')): ?>
     <p><?php echo __('There are no pages.'); ?> <a href="<?php echo html_escape(url('simple-pages/index/add')); ?>"><?php echo __('Add a page.'); ?></a></p>
 <?php else: ?>
