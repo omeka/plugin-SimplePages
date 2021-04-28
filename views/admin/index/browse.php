@@ -1,6 +1,6 @@
 <?php
 queue_css_file('simple-pages');
-$head = array('bodyclass' => 'simple-pages primary',
+$head = array('bodyclass' => 'simple-pages browse',
               'title' => html_escape(__('Simple Pages | Browse')),
               'content_class' => 'horizontal-nav');
 if (isset($_GET['view'])) {
