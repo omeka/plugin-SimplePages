@@ -71,7 +71,7 @@ class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
         $page->title = 'Example simple exhibite';
         $page->slug = 'example';
         $page->text = '<p>This the header of an example exhibit. Feel free to replace this content, or delete the exhibit and start from scratch.</p>';
-        $page->content = '<p>This is the content field of an example exhibit.<p>'
+        $page->content = '<p>This is the content field of an example exhibit.<p>';
         $page->save();
     }
 
