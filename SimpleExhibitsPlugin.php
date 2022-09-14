@@ -323,7 +323,7 @@ class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
     }
     public function filterApiResources($apiResources)
     {
-	$apiResources['simple_pages'] = array(
+	$apiResources['simple_exhibits'] = array(
 		'record_type' => 'SimpleExhibitsPage',
 		'actions'   => array('get','index'),
 	);	
@@ -335,7 +335,7 @@ class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
         $SimpleExhibitsAdapter = new ApiImport_ResponseAdapter_Omeka_GenericAdapter(null, $args['endpointUri'], 'SimpleExhibitsPage');
         $SimpleExhibitsAdapter->setService($args['omeka_service']);
         $SimpleExhibitsAdapter->setUserProperties(array('modified_by_user', 'created_by_user'));
-        $adapters['simple_pages'] = $SimpleExhibitsAdapter;
+        $adapters['simple_exhibits'] = $SimpleExhibitsAdapter;
         return $adapters;
     }
 }
