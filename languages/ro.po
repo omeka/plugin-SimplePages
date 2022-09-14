@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka Classic\n"
-"Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
+"Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimpleExhibits/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
 "PO-Revision-Date: 2018-05-02 15:01+0000\n"
 "Last-Translator: John Flatness <john@zerocrates.org>\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
-#: SimplePagesPlugin.php:246
+#: SimpleExhibitsPlugin.php:246
 msgid "Simple Pages"
 msgstr "Pagini simple"
 
-#: SimplePagesPlugin.php:272
+#: SimpleExhibitsPlugin.php:272
 msgid "Simple Page"
 msgstr "Pagini simple"
 
@@ -100,43 +100,43 @@ msgstr "A fost editată pagina \"%s\"."
 msgid "The page \"%s\" has been deleted."
 msgstr "Pagina \"%s\" a fost ștearsă."
 
-#: helpers/SimplePageFunctions.php:139
+#: helpers/SimpleExhibitFunctions.php:139
 msgid "Home"
 msgstr "Home"
 
-#: helpers/SimplePageFunctions.php:184
+#: helpers/SimpleExhibitFunctions.php:184
 msgid "Main Page (No Parent)"
 msgstr "Pagina principală (fără părinte)"
 
-#: models/SimplePagesPage.php:61
+#: models/SimpleExhibitsPage.php:61
 msgid "The page must be given a title."
 msgstr "Pagii trebuie să i se dea un titlu"
 
-#: models/SimplePagesPage.php:65
+#: models/SimpleExhibitsPage.php:65
 msgid "The title for your page must be 255 characters or less."
 msgstr "Titlul pentru pagină trebuie să fie de 255 de caractere sau mai puțin."
 
-#: models/SimplePagesPage.php:69
+#: models/SimpleExhibitsPage.php:69
 msgid "The title is already in use by another page. Please choose another."
 msgstr "Titlul este deja folosit de altă pagină. Alege altul!"
 
-#: models/SimplePagesPage.php:73
+#: models/SimpleExhibitsPage.php:73
 msgid "The page must be given a valid slug."
 msgstr "Pagina trebuie să aibe o terminație validă."
 
-#: models/SimplePagesPage.php:77
+#: models/SimpleExhibitsPage.php:77
 msgid "The slug for your page must not be a forward slash."
 msgstr "Terminația pentru URL-ul paginii nu trebuie să fie un slash."
 
-#: models/SimplePagesPage.php:81
+#: models/SimpleExhibitsPage.php:81
 msgid "The slug for your page must be 255 characters or less."
 msgstr "Terminația paginii trebuie să aibe 255 de caractere sau mai puțin."
 
-#: models/SimplePagesPage.php:85
+#: models/SimpleExhibitsPage.php:85
 msgid "The slug is already in use by another page. Please choose another."
 msgstr "Terminația este deja utilizată de altă pagină. Alege alta."
 
-#: models/SimplePagesPage.php:89
+#: models/SimpleExhibitsPage.php:89
 msgid "The order must be an integer greater than or equal to 0."
 msgstr "Ordinea trebuie să fie un număr întreg mai mare sau egal cu 0."
 

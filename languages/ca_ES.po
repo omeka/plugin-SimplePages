@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka Classic\n"
-"Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
+"Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimpleExhibits/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
 "PO-Revision-Date: 2018-05-02 15:01+0000\n"
 "Last-Translator: John Flatness <john@zerocrates.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "Language: ca_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: SimplePagesPlugin.php:246
+#: SimpleExhibitsPlugin.php:246
 msgid "Simple Pages"
 msgstr "Pàgines estàtiques"
 
-#: SimplePagesPlugin.php:272
+#: SimpleExhibitsPlugin.php:272
 msgid "Simple Page"
 msgstr "Pàgina estàtica"
 
@@ -101,43 +101,43 @@ msgstr "S'ha editat la pàgina: \"%s\""
 msgid "The page \"%s\" has been deleted."
 msgstr "S'ha esborrat la pàgina: \"%s\""
 
-#: helpers/SimplePageFunctions.php:139
+#: helpers/SimpleExhibitFunctions.php:139
 msgid "Home"
 msgstr "Inici"
 
-#: helpers/SimplePageFunctions.php:184
+#: helpers/SimpleExhibitFunctions.php:184
 msgid "Main Page (No Parent)"
 msgstr "Pàgina d'inici (sense element principal)"
 
-#: models/SimplePagesPage.php:61
+#: models/SimpleExhibitsPage.php:61
 msgid "The page must be given a title."
 msgstr "La pàgina ha de tenir un títol."
 
-#: models/SimplePagesPage.php:65
+#: models/SimpleExhibitsPage.php:65
 msgid "The title for your page must be 255 characters or less."
 msgstr "El títol per a la pàgina ha de tenir 255 caràcters o menys."
 
-#: models/SimplePagesPage.php:69
+#: models/SimpleExhibitsPage.php:69
 msgid "The title is already in use by another page. Please choose another."
 msgstr "Aquest títol ja s'utilitza per una altra pàgina. Trieu un altre."
 
-#: models/SimplePagesPage.php:73
+#: models/SimpleExhibitsPage.php:73
 msgid "The page must be given a valid slug."
 msgstr "La pàgina ha de tenir un identificador vàlid"
 
-#: models/SimplePagesPage.php:77
+#: models/SimpleExhibitsPage.php:77
 msgid "The slug for your page must not be a forward slash."
 msgstr "L'identificador de la pàgina no pot ser una barra diagonal."
 
-#: models/SimplePagesPage.php:81
+#: models/SimpleExhibitsPage.php:81
 msgid "The slug for your page must be 255 characters or less."
 msgstr "L'identificador de la pàgina ha de tenir 255 caràcters o menys."
 
-#: models/SimplePagesPage.php:85
+#: models/SimpleExhibitsPage.php:85
 msgid "The slug is already in use by another page. Please choose another."
 msgstr "Aquest identificador ja s'utilitza en una altra pàgina. Trieu un altre."
 
-#: models/SimplePagesPage.php:89
+#: models/SimpleExhibitsPage.php:89
 msgid "The order must be an integer greater than or equal to 0."
 msgstr "El criteri d'ordenació ha de ser un número sencer major o igual a 0."
 

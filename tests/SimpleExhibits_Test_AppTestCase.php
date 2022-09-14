@@ -1,17 +1,19 @@
 <?php
 /**
- * Simple Pages
+ * Simple Exhibits
+ * 
+ * based on Simple Pages:
  *
  * @copyright Copyright 2008-2012 Roy Rosenzweig Center for History and New Media
  * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU GPLv3
  */
 
 /**
- * Base class for SimplePages tests.
+ * Base class for SimpleExhibits tests.
  */
-class SimplePages_Test_AppTestCase extends Omeka_Test_AppTestCase
+class SimpleExhibits_Test_AppTestCase extends Omeka_Test_AppTestCase
 {
-    const PLUGIN_NAME = 'SimplePages';
+    const PLUGIN_NAME = 'SimpleExhibits';
     
     public function setUp()
     {
@@ -29,7 +31,7 @@ class SimplePages_Test_AppTestCase extends Omeka_Test_AppTestCase
     
     public function assertPreConditions()
     {
-        $pages = $this->db->getTable('SimplePagesPage')->findAll();
+        $pages = $this->db->getTable('SimpleExhibitsPage')->findAll();
         $this->assertEquals(1, count($pages), 'There should be one page.');
         
         $aboutPage = $pages[0];
@@ -39,17 +41,17 @@ class SimplePages_Test_AppTestCase extends Omeka_Test_AppTestCase
     
     protected function _deleteAllPages()
     {
-        $pages = $this->db->getTable('SimplePagesPage')->findAll();
+        $pages = $this->db->getTable('SimpleExhibitsPage')->findAll();
         foreach($pages as $page) {
             $page->delete();
         }
-        $pages = $this->db->getTable('SimplePagesPage')->findAll();
+        $pages = $this->db->getTable('SimpleExhibitsPage')->findAll();
         $this->assertEquals(0, count($pages), 'There should be no pages.');
     }
     
     protected function _addTestPage($title='Test Page', $slug='testpage', $text='whatever', $isPublished = true) 
     {
-        $page = new SimplePagesPage;
+        $page = new SimpleExhibitsPage;
         $page->title = $title;
         $page->slug = $slug;
         $page->text = $text;
@@ -71,7 +73,7 @@ class SimplePages_Test_AppTestCase extends Omeka_Test_AppTestCase
 
     protected function _reloadRoutes()
     {
-        $plugin = new SimplePagesPlugin;
+        $plugin = new SimpleExhibitsPlugin;
         $plugin->hookDefineRoutes(array('router' => Zend_Controller_Front::getInstance()->getRouter()));
     }
 }

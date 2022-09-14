@@ -9,15 +9,15 @@
 /**
  * The Simple Pages index controller class.
  *
- * @package SimplePages
+ * @package SimpleExhibits
  */
-class SimplePages_IndexController extends Omeka_Controller_AbstractActionController
+class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionController
 {    
     public function init()
     {
         // Set the model class so this controller can perform some functions, 
         // such as $this->findById()
-        $this->_helper->db->setDefaultModelName('SimplePagesPage');
+        $this->_helper->db->setDefaultModelName('SimpleExhibitsPage');
     }
     
     public function indexAction()
@@ -30,7 +30,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
     public function addAction()
     {
         // Create a new page.
-        $page = new SimplePagesPage;
+        $page = new SimpleExhibitsPage;
         
         // Set the created by user ID.
         $page->created_by_user_id = current_user()->id;
@@ -52,7 +52,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
     
     protected function _getForm($page = null)
     { 
-        $formOptions = array('type' => 'simple_pages_page', 'hasPublicPage' => true);
+        $formOptions = array('type' => 'simple_exhibits_page', 'hasPublicPage' => true);
         if ($page && $page->exists()) {
             $formOptions['record'] = $page;
         }
@@ -61,7 +61,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
         $form->addElementToEditGroup(
             'text', 'title',
             array(
-                'id' => 'simple-pages-title',
+                'id' => 'simple-exhibits-title',
                 'value' => $page->title,
                 'label' => __('Title'),
                 'description' => __('Name and heading for the page (required)'),
@@ -72,7 +72,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
         $form->addElementToEditGroup(
             'text', 'slug',
             array(
-                'id' => 'simple-pages-slug',
+                'id' => 'simple-exhibits-slug',
                 'value' => $page->slug,
                 'label' => __('Slug'),
                 'description' => __(
@@ -87,7 +87,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
         $form->addElementToEditGroup(
             'checkbox', 'use_tiny_mce',
             array(
-                'id' => 'simple-pages-use-tiny-mce',
+                'id' => 'simple-exhibits-use-tiny-mce',
                 'checked' => $page->use_tiny_mce,
                 'values' => array(1, 0),
                 'label' => __('Use HTML editor?'),
@@ -99,7 +99,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
          
         $form->addElementToEditGroup(
             'textarea', 'text',
-            array('id' => 'simple-pages-text',
+            array('id' => 'simple-exhibits-text',
                 'cols'  => 50,
                 'rows'  => 25,
                 'value' => $page->text,
@@ -113,8 +113,8 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
         $form->addElementToSaveGroup(
             'select', 'parent_id',
             array(
-                'id' => 'simple-pages-parent-id',
-                'multiOptions' => simple_pages_get_parent_options($page),
+                'id' => 'simple-exhibits-parent-id',
+                'multiOptions' => simple_exhibits_get_parent_options($page),
                 'value' => $page->parent_id,
                 'label' => __('Parent'),
                 'description' => __('The parent page')
@@ -136,7 +136,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
         $form->addElementToSaveGroup(
             'checkbox', 'is_published',
             array(
-                'id' => 'simple_pages_is_published',
+                'id' => 'simple_exhibits_is_published',
                 'values' => array(1, 0),
                 'checked' => $page->is_published,
                 'label' => __('Publish this page?'),
@@ -157,7 +157,7 @@ class SimplePages_IndexController extends Omeka_Controller_AbstractActionControl
     private function _processPageForm($page, $form, $action)
     {
         // Set the page object to the view.
-        $this->view->simple_pages_page = $page;
+        $this->view->simple_exhibits_page = $page;
 
         if ($this->getRequest()->isPost()) {
             if (!$form->isValid($_POST)) {

@@ -1,7 +1,7 @@
 jQuery(document).ready(function() {
     var selector;
-    if (jQuery('#simple-pages-use-tiny-mce').is(':checked')) {
-        selector = '#simple-pages-text';
+    if (jQuery('#simple-exhibits-use-tiny-mce').is(':checked')) {
+        selector = '#simple-exhibits-text';
     } else {
         selector = false;
     }
@@ -12,11 +12,11 @@ jQuery(document).ready(function() {
         browser_spellcheck: true
     });
     // Add or remove TinyMCE control.
-    jQuery('#simple-pages-use-tiny-mce').click(function() {
+    jQuery('#simple-exhibits-use-tiny-mce').click(function() {
         if (jQuery(this).is(':checked')) {
-            tinyMCE.EditorManager.execCommand('mceAddEditor', true, 'simple-pages-text');
+            tinyMCE.EditorManager.execCommand('mceAddEditor', true, 'simple-exhibits-text');
         } else {
-            tinyMCE.EditorManager.execCommand('mceRemoveEditor', true, 'simple-pages-text');
+            tinyMCE.EditorManager.execCommand('mceRemoveEditor', true, 'simple-exhibits-text');
         }
     });
 });

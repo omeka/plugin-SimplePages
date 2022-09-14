@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka Classic\n"
-"Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
+"Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimpleExhibits/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
 "PO-Revision-Date: 2018-05-02 15:01+0000\n"
 "Last-Translator: John Flatness <john@zerocrates.org>\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: SimplePagesPlugin.php:246
+#: SimpleExhibitsPlugin.php:246
 msgid "Simple Pages"
 msgstr "Простые страницы. "
 
-#: SimplePagesPlugin.php:272
+#: SimpleExhibitsPlugin.php:272
 msgid "Simple Page"
 msgstr "Простая страница"
 
@@ -100,43 +100,43 @@ msgstr "Страница \"%s\"  отредактирована."
 msgid "The page \"%s\" has been deleted."
 msgstr "Страница \"%s\"  удалена."
 
-#: helpers/SimplePageFunctions.php:139
+#: helpers/SimpleExhibitFunctions.php:139
 msgid "Home"
 msgstr "Домашняя страница"
 
-#: helpers/SimplePageFunctions.php:184
+#: helpers/SimpleExhibitFunctions.php:184
 msgid "Main Page (No Parent)"
 msgstr "Главная страница (для неё нет исходной)"
 
-#: models/SimplePagesPage.php:61
+#: models/SimpleExhibitsPage.php:61
 msgid "The page must be given a title."
 msgstr "Необходимо дать название странице. "
 
-#: models/SimplePagesPage.php:65
+#: models/SimpleExhibitsPage.php:65
 msgid "The title for your page must be 255 characters or less."
 msgstr "Название вашей страницы не должно превышать 255 символов. "
 
-#: models/SimplePagesPage.php:69
+#: models/SimpleExhibitsPage.php:69
 msgid "The title is already in use by another page. Please choose another."
 msgstr "Данное название уже используется на другой странице. Выберите другое, пожалуйста. "
 
-#: models/SimplePagesPage.php:73
+#: models/SimpleExhibitsPage.php:73
 msgid "The page must be given a valid slug."
 msgstr "Необходимо дать корректный заголовок."
 
-#: models/SimplePagesPage.php:77
+#: models/SimpleExhibitsPage.php:77
 msgid "The slug for your page must not be a forward slash."
 msgstr "Заголовок на странице не должен быть за косой чертой."
 
-#: models/SimplePagesPage.php:81
+#: models/SimpleExhibitsPage.php:81
 msgid "The slug for your page must be 255 characters or less."
 msgstr "Заголовок не должен превышать 255 символов. "
 
-#: models/SimplePagesPage.php:85
+#: models/SimpleExhibitsPage.php:85
 msgid "The slug is already in use by another page. Please choose another."
 msgstr "Данный заголовок уже прописан на другой странице. Выберите другой, пожалуйста. "
 
-#: models/SimplePagesPage.php:89
+#: models/SimpleExhibitsPage.php:89
 msgid "The order must be an integer greater than or equal to 0."
 msgstr "Порядок должен быть целым числом, равным 0 или больше 0"
 

@@ -7,4 +7,4 @@
  */
 
 require_once dirname(dirname(dirname(dirname(__FILE__)))) . '/application/tests/bootstrap.php';
-require_once 'SimplePages_Test_AppTestCase.php';
+require_once 'SimpleExhibits_Test_AppTestCase.php';

@@ -7,21 +7,21 @@
  */
 
 /**
- * Tests for simple_pages_navigation.
+ * Tests for simple_exhibits_navigation.
  */
-class SimplePages_NavigationTest extends SimplePages_Test_AppTestCase
+class SimpleExhibits_NavigationTest extends SimpleExhibits_Test_AppTestCase
 {   
     protected $_isAdminTest = false;
         
-    public function testSimplePagesNavigationForNoChildrenPages()
+    public function testSimpleExhibitsNavigationForNoChildrenPages()
     {
         $this->dispatch('about');
-        $this->assertEquals('', simple_pages_navigation(null));
+        $this->assertEquals('', simple_exhibits_navigation(null));
     }
     
-    public function testSimplePagesNavigationForSomeChildrenPages()
+    public function testSimpleExhibitsNavigationForSomeChildrenPages()
     {
-        $pages = $this->db->getTable('SimplePagesPage')->findAll();
+        $pages = $this->db->getTable('SimpleExhibitsPage')->findAll();
         $this->assertEquals(1, count($pages));
         $aboutPage = $pages[0];
                 
@@ -43,7 +43,7 @@ class SimplePages_NavigationTest extends SimplePages_Test_AppTestCase
         $this->dispatch('about');
         
         $expectedNav =
-'<div class="simple-pages-navigation">
+'<div class="simple-exhibits-navigation">
 <ul class="navigation">
     <li>
         <a href="/usr/bin/testslug0">Test Title 0</a>
@@ -57,12 +57,12 @@ class SimplePages_NavigationTest extends SimplePages_Test_AppTestCase
 </ul></div>
 ';
         
-        $this->assertEquals($expectedNav, simple_pages_navigation(null));
+        $this->assertEquals($expectedNav, simple_exhibits_navigation(null));
     }
     
-    public function testSimplePagesNavigationForSomeGrandChildrenPages()
+    public function testSimpleExhibitsNavigationForSomeGrandChildrenPages()
     {
-        $pages = $this->db->getTable('SimplePagesPage')->findAll();
+        $pages = $this->db->getTable('SimpleExhibitsPage')->findAll();
         $this->assertEquals(1, count($pages));
         $aboutPage = $pages[0];
                 
@@ -109,7 +109,7 @@ class SimplePages_NavigationTest extends SimplePages_Test_AppTestCase
         $this->dispatch('about');
 
         $expectedNav = 
-'<div class="simple-pages-navigation">
+'<div class="simple-exhibits-navigation">
 <ul class="navigation">
     <li>
         <a href="/usr/bin/testslug0">Test Title 0</a>
@@ -144,12 +144,12 @@ class SimplePages_NavigationTest extends SimplePages_Test_AppTestCase
 </ul></div>
 ';
         
-        $this->assertEquals($expectedNav, simple_pages_navigation(null));
+        $this->assertEquals($expectedNav, simple_exhibits_navigation(null));
     }
     
-    public function testSimplePagesNavigationForOnlyPublishedChildrenPages()
+    public function testSimpleExhibitsNavigationForOnlyPublishedChildrenPages()
     {
-        $pages = $this->db->getTable('SimplePagesPage')->findAll();
+        $pages = $this->db->getTable('SimpleExhibitsPage')->findAll();
         $this->assertEquals(1, count($pages));
         $aboutPage = $pages[0];
                 
@@ -174,7 +174,7 @@ class SimplePages_NavigationTest extends SimplePages_Test_AppTestCase
         $this->dispatch('about');
         
         $expectedNav =
-'<div class="simple-pages-navigation">
+'<div class="simple-exhibits-navigation">
 <ul class="navigation">
     <li>
         <a href="/usr/bin/testslug1">Test Title 1</a>
@@ -182,6 +182,6 @@ class SimplePages_NavigationTest extends SimplePages_Test_AppTestCase
 </ul></div>
 ';
         
-        $this->assertEquals($expectedNav, simple_pages_navigation($aboutPage->id, 'order', true));
+        $this->assertEquals($expectedNav, simple_exhibits_navigation($aboutPage->id, 'order', true));
     }
 }

@@ -1,17 +1,18 @@
 <?php
 /**
- * Simple Pages
+ * Simple Exhibits
  *
+ * Based on Simple Pages:
  * @copyright Copyright 2008-2012 Roy Rosenzweig Center for History and New Media
  * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU GPLv3
  */
 
-require_once dirname(__FILE__) . '/helpers/SimplePageFunctions.php';
+require_once dirname(__FILE__) . '/helpers/SimpleExhibitFunctions.php';
 
 /**
- * Simple Pages plugin.
+ * Simple Exhibits plugin.
  */
-class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
+class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
 {
     /**
      * @var array Hooks for the plugin.
@@ -35,7 +36,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
         // Create the table.
         $db = $this->_db;
         $sql = "
-        CREATE TABLE IF NOT EXISTS `$db->SimplePagesPage` (
+        CREATE TABLE IF NOT EXISTS `$db->SimpleExhibitsPage` (
           `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
           `modified_by_user_id` int(10) unsigned NOT NULL,
           `created_by_user_id` int(10) unsigned NOT NULL,
@@ -43,6 +44,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
           `title` tinytext COLLATE utf8_unicode_ci NOT NULL,
           `slug` tinytext COLLATE utf8_unicode_ci NOT NULL,
           `text` mediumtext COLLATE utf8_unicode_ci,
+          `content` mediumtext COLLATE utf8_unicode_CI  
           `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
           `inserted` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00',
           `order` int(10) unsigned NOT NULL,
@@ -61,14 +63,15 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
         $db->query($sql);
         
         // Save an example page.
-        $page = new SimplePagesPage;
+        $page = new SimpleExhibitsPage;
         $page->modified_by_user_id = current_user()->id;
         $page->created_by_user_id = current_user()->id;
         $page->is_published = 1;
         $page->parent_id = 0;
-        $page->title = 'About';
-        $page->slug = 'about';
-        $page->text = '<p>This is an example page. Feel free to replace this content, or delete the page and start from scratch.</p>';
+        $page->title = 'Example simple exhibite';
+        $page->slug = 'example';
+        $page->text = '<p>This the header of an example exhibit. Feel free to replace this content, or delete the exhibit and start from scratch.</p>';
+        $page->content = '<p>This is the content field of an example exhibit.<p>'
         $page->save();
     }
 
@@ -79,7 +82,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     {        
         // Drop the table.
         $db = $this->_db;
-        $sql = "DROP TABLE IF EXISTS `$db->SimplePagesPage`";
+        $sql = "DROP TABLE IF EXISTS `$db->SimpleExhibitsPage`";
         $db->query($sql);
     }
 
@@ -96,60 +99,60 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
 
         // MySQL 5.7+ fix; must do first or else MySQL complains about any other ALTER
         if ($oldVersion < '3.0.7') {
-            $db->query("ALTER TABLE `$db->SimplePagesPage` ALTER `inserted` SET DEFAULT '2000-01-01 00:00:00'");
+            $db->query("ALTER TABLE `$db->SimpleExhibitsPage` ALTER `inserted` SET DEFAULT '2000-01-01 00:00:00'");
         }
 
         if ($oldVersion < '1.0') {
-            $sql = "ALTER TABLE `$db->SimplePagesPage` ADD INDEX ( `is_published` )";
+            $sql = "ALTER TABLE `$db->SimpleExhibitsPage` ADD INDEX ( `is_published` )";
             $db->query($sql);    
             
-            $sql = "ALTER TABLE `$db->SimplePagesPage` ADD INDEX ( `inserted` ) ";
+            $sql = "ALTER TABLE `$db->SimpleExhibitsPage` ADD INDEX ( `inserted` ) ";
             $db->query($sql);    
             
-            $sql = "ALTER TABLE `$db->SimplePagesPage` ADD INDEX ( `updated` ) ";
+            $sql = "ALTER TABLE `$db->SimpleExhibitsPage` ADD INDEX ( `updated` ) ";
             $db->query($sql);    
             
-            $sql = "ALTER TABLE `$db->SimplePagesPage` ADD INDEX ( `add_to_public_nav` ) ";
+            $sql = "ALTER TABLE `$db->SimpleExhibitsPage` ADD INDEX ( `add_to_public_nav` ) ";
             $db->query($sql);    
             
-            $sql = "ALTER TABLE `$db->SimplePagesPage` ADD INDEX ( `created_by_user_id` ) ";
+            $sql = "ALTER TABLE `$db->SimpleExhibitsPage` ADD INDEX ( `created_by_user_id` ) ";
             $db->query($sql);    
             
-            $sql = "ALTER TABLE `$db->SimplePagesPage` ADD INDEX ( `modified_by_user_id` ) ";
+            $sql = "ALTER TABLE `$db->SimpleExhibitsPage` ADD INDEX ( `modified_by_user_id` ) ";
             $db->query($sql);    
             
-            $sql = "ALTER TABLE `$db->SimplePagesPage` ADD `order` INT UNSIGNED NOT NULL ";
+            $sql = "ALTER TABLE `$db->SimpleExhibitsPage` ADD `order` INT UNSIGNED NOT NULL ";
             $db->query($sql);
             
-            $sql = "ALTER TABLE `$db->SimplePagesPage` ADD INDEX ( `order` ) ";
+            $sql = "ALTER TABLE `$db->SimpleExhibitsPage` ADD INDEX ( `order` ) ";
             $db->query($sql);
             
-            $sql = "ALTER TABLE `$db->SimplePagesPage` ADD `parent_id` INT UNSIGNED NOT NULL ";
+            $sql = "ALTER TABLE `$db->SimpleExhibitsPage` ADD `parent_id` INT UNSIGNED NOT NULL ";
             $db->query($sql);
             
-            $sql = "ALTER TABLE `$db->SimplePagesPage` ADD INDEX ( `parent_id` ) ";
+            $sql = "ALTER TABLE `$db->SimpleExhibitsPage` ADD INDEX ( `parent_id` ) ";
             $db->query($sql);
             
-            $sql = "ALTER TABLE `$db->SimplePagesPage` ADD `template` TINYTEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ";
+            $sql = "ALTER TABLE `$db->SimpleExhibitsPage` ADD `template` TINYTEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ";
             $db->query($sql);
         }
 
         if ($oldVersion < '1.3') {
-            $sql = "ALTER TABLE `$db->SimplePagesPage` ADD `use_tiny_mce` TINYINT(1) NOT NULL";
+            $sql = "ALTER TABLE `$db->SimpleExhibitsPage` ADD `use_tiny_mce` TINYINT(1) NOT NULL";
             $db->query($sql);
         }
 
         if ($oldVersion < '2.0') {
-            $db->query("ALTER TABLE `$db->SimplePagesPage` DROP `add_to_public_nav`");
-            delete_option('simple_pages_home_page_id');
+            $db->query("ALTER TABLE `$db->SimpleExhibitsPage` DROP `add_to_public_nav`");
+            delete_option('simple_exhibits_home_page_id');
         }
 
         if ($oldVersion < '3.0.2') {
-            $db->query("ALTER TABLE `$db->SimplePagesPage` MODIFY `text` MEDIUMTEXT COLLATE utf8_unicode_ci");
+            $db->query("ALTER TABLE `$db->SimpleExhibitsPage` MODIFY `text` MEDIUMTEXT COLLATE utf8_unicode_ci");
         }
 
         if ($oldVersion < '3.1.1') {
-            delete_option('simple_pages_filter_page_content');
+            delete_option('simple_exhibits_filter_page_content');
         }
     }
 
@@ -170,14 +173,14 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     {
         $acl = $args['acl'];
         
-        $indexResource = new Zend_Acl_Resource('SimplePages_Index');
-        $pageResource = new Zend_Acl_Resource('SimplePages_Page');
+        $indexResource = new Zend_Acl_Resource('SimpleExhibits_Index');
+        $pageResource = new Zend_Acl_Resource('SimpleExhibits_Page');
         $acl->add($indexResource);
         $acl->add($pageResource);
 
-        $acl->allow(array('super', 'admin'), array('SimplePages_Index', 'SimplePages_Page'));
-        $acl->allow(null, 'SimplePages_Page', 'show');
-        $acl->deny(null, 'SimplePages_Page', 'show-unpublished');
+        $acl->allow(array('super', 'admin'), array('SimpleExhibits_Index', 'SimpleExhibits_Page'));
+        $acl->allow(null, 'SimpleExhibits_Page', 'show');
+        $acl->deny(null, 'SimpleExhibits_Page', 'show-unpublished');
     }
 
     /**
@@ -195,14 +198,14 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
         $router = $args['router'];
 
         // Add custom routes based on the page slug.
-        $pages = get_db()->getTable('SimplePagesPage')->findAll();
+        $pages = get_db()->getTable('SimpleExhibitsPage')->findAll();
         foreach ($pages as $page) {
             $router->addRoute(
-                'simple_pages_show_page_' . $page->id, 
+                'simple_exhibits_show_page_' . $page->id, 
                 new Zend_Controller_Router_Route(
                     $page->slug, 
                     array(
-                        'module'       => 'simple-pages', 
+                        'module'       => 'simple-exhibits', 
                         'controller'   => 'page', 
                         'action'       => 'show', 
                         'id'           => $page->id
@@ -213,7 +216,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     }
 
     /**
-     * Filter the 'text' field of the simple-pages form
+     * Filter the 'text' field of the simple-exhibits form
      * 
      * @param array $args Hook args, contains:
      *  'request': Zend_Controller_Request_Http
@@ -224,8 +227,8 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
         $request = Zend_Controller_Front::getInstance()->getRequest();
         $purifier = $args['purifier'];
 
-        // If we aren't editing or adding a page in SimplePages, don't do anything.
-        if ($request->getModuleName() != 'simple-pages' or !in_array($request->getActionName(), array('edit', 'add'))) {
+        // If we aren't editing or adding a page in SimpleExhibits, don't do anything.
+        if ($request->getModuleName() != 'simple-exhibits' or !in_array($request->getActionName(), array('edit', 'add'))) {
             return;
         }
         
@@ -243,9 +246,9 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     public function filterAdminNavigationMain($nav)
     {
         $nav[] = array(
-            'label' => __('Simple Pages'),
-            'uri' => url('simple-pages'),
-            'resource' => 'SimplePages_Index',
+            'label' => __('Simple Exhibits'),
+            'uri' => url('simple-exhibits'),
+            'resource' => 'SimpleExhibits_Index',
             'privilege' => 'browse'
         );
         return $nav;
@@ -259,17 +262,17 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
      */
     public function filterPublicNavigationMain($nav)
     {
-        $navLinks = simple_pages_get_links_for_children_pages(0, 'order', true);
+        $navLinks = simple_exhibits_get_links_for_children_pages(0, 'order', true);
         $nav = array_merge($nav, $navLinks);
         return $nav;
     }
 
     /**
-     * Add SimplePagesPage as a searchable type.
+     * Add SimpleExhibitsPage as a searchable type.
      */
     public function filterSearchRecordTypes($recordTypes)
     {
-        $recordTypes['SimplePagesPage'] = __('Simple Page');
+        $recordTypes['SimpleExhibitsPage'] = __('Simple Exhibit');
         return $recordTypes;
     }
 
@@ -284,7 +287,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     public function filterPageCachingWhitelist($whitelist)
     {
         // Add custom routes based on the page slug.
-        $pages = get_db()->getTable('SimplePagesPage')->findAll();
+        $pages = get_db()->getTable('SimpleExhibitsPage')->findAll();
         foreach($pages as $page) {
             $whitelist['/' . trim($page->slug, '/')] = array('cache'=>true);
         }
@@ -309,7 +312,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
         $record = $args['record'];
         $action = $args['action'];
 
-        if ($record instanceof SimplePagesPage) {
+        if ($record instanceof SimpleExhibitsPage) {
             $page = $record;
             if ($action == 'update' || $action == 'delete') {
                 $blacklist['/' . trim($page->slug, '/')] = array('cache'=>false);
@@ -321,7 +324,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     public function filterApiResources($apiResources)
     {
 	$apiResources['simple_pages'] = array(
-		'record_type' => 'SimplePagesPage',
+		'record_type' => 'SimpleExhibitsPage',
 		'actions'   => array('get','index'),
 	);	
        return $apiResources;
@@ -329,10 +332,10 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     
     public function filterApiImportOmekaAdapters($adapters, $args)
     {
-        $simplePagesAdapter = new ApiImport_ResponseAdapter_Omeka_GenericAdapter(null, $args['endpointUri'], 'SimplePagesPage');
-        $simplePagesAdapter->setService($args['omeka_service']);
-        $simplePagesAdapter->setUserProperties(array('modified_by_user', 'created_by_user'));
-        $adapters['simple_pages'] = $simplePagesAdapter;
+        $SimpleExhibitsAdapter = new ApiImport_ResponseAdapter_Omeka_GenericAdapter(null, $args['endpointUri'], 'SimpleExhibitsPage');
+        $SimpleExhibitsAdapter->setService($args['omeka_service']);
+        $SimpleExhibitsAdapter->setUserProperties(array('modified_by_user', 'created_by_user'));
+        $adapters['simple_pages'] = $SimpleExhibitsAdapter;
         return $adapters;
     }
 }

@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka Classic\n"
-"Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
+"Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimpleExhibits/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
 "PO-Revision-Date: 2018-05-02 15:01+0000\n"
 "Last-Translator: John Flatness <john@zerocrates.org>\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: SimplePagesPlugin.php:246
+#: SimpleExhibitsPlugin.php:246
 msgid "Simple Pages"
 msgstr "簡單頁面"
 
-#: SimplePagesPlugin.php:272
+#: SimpleExhibitsPlugin.php:272
 msgid "Simple Page"
 msgstr "簡單頁面"
 
@@ -100,43 +100,43 @@ msgstr "頁面\"%s\"已編輯完畢。"
 msgid "The page \"%s\" has been deleted."
 msgstr "頁面\"%s\"已刪除。"
 
-#: helpers/SimplePageFunctions.php:139
+#: helpers/SimpleExhibitFunctions.php:139
 msgid "Home"
 msgstr "首頁"
 
-#: helpers/SimplePageFunctions.php:184
+#: helpers/SimpleExhibitFunctions.php:184
 msgid "Main Page (No Parent)"
 msgstr "主頁（無上層頁）"
 
-#: models/SimplePagesPage.php:61
+#: models/SimpleExhibitsPage.php:61
 msgid "The page must be given a title."
 msgstr "頁面必須賦予一個標題。"
 
-#: models/SimplePagesPage.php:65
+#: models/SimpleExhibitsPage.php:65
 msgid "The title for your page must be 255 characters or less."
 msgstr "你的頁面標題最多只能有255個字符。"
 
-#: models/SimplePagesPage.php:69
+#: models/SimpleExhibitsPage.php:69
 msgid "The title is already in use by another page. Please choose another."
 msgstr "這個標題已被另一個頁面使用。請選擇另一個。"
 
-#: models/SimplePagesPage.php:73
+#: models/SimpleExhibitsPage.php:73
 msgid "The page must be given a valid slug."
 msgstr "頁面必須賦予一個有效的網址簡稱。"
 
-#: models/SimplePagesPage.php:77
+#: models/SimpleExhibitsPage.php:77
 msgid "The slug for your page must not be a forward slash."
 msgstr "您頁面的網址簡稱不能是斜線（/）。"
 
-#: models/SimplePagesPage.php:81
+#: models/SimpleExhibitsPage.php:81
 msgid "The slug for your page must be 255 characters or less."
 msgstr "您頁面的網址簡稱最多只能有255個字符。"
 
-#: models/SimplePagesPage.php:85
+#: models/SimpleExhibitsPage.php:85
 msgid "The slug is already in use by another page. Please choose another."
 msgstr "這個網址簡稱已被另一頁面使用。請選擇另一個。"
 
-#: models/SimplePagesPage.php:89
+#: models/SimpleExhibitsPage.php:89
 msgid "The order must be an integer greater than or equal to 0."
 msgstr "序號必須是大於或等於0的一個整數。"
 

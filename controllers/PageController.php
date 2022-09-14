@@ -9,15 +9,15 @@
 /**
  * The Simple Pages page controller class.
  *
- * @package SimplePages
+ * @package SimpleExhibits
  */
-class SimplePages_PageController extends Omeka_Controller_AbstractActionController
+class SimpleExhibits_PageController extends Omeka_Controller_AbstractActionController
 {
     public function showAction()
     {
         // Get the page object from the passed ID.
         $pageId = $this->_getParam('id');
-        $page = $this->_helper->db->getTable('SimplePagesPage')->find($pageId);
+        $page = $this->_helper->db->getTable('SimpleExhibitsPage')->find($pageId);
         
         // Restrict access to the page when it is not published.
         if (!$page->is_published 
@@ -29,7 +29,7 @@ class SimplePages_PageController extends Omeka_Controller_AbstractActionControll
         $isHomePage = ($route == Omeka_Application_Resource_Router::HOMEPAGE_ROUTE_NAME);
 
         // Set the page object to the view.
-        $this->view->simple_pages_page = $page;
+        $this->view->simple_exhibits_page = $page;
         $this->view->is_home_page = $isHomePage;
     }
 }

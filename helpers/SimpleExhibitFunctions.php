@@ -13,15 +13,15 @@
  * @param integer|null The id of the parent page.  If null, it uses the current simple page
  * @param string The method by which you sort pages. Options are 'order' (default) and 'alpha'.
  * @param boolean Whether to return only published pages.
- * @param array Array with keys of parent_id and values = array(SimplePages)
+ * @param array Array with keys of parent_id and values = array(SimpleExhibits)
  *              that have that parent_id. Used internally.
  * @return array The navigation links.
  */
-function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'order', $requiresIsPublished = false,
+function simple_exhibits_get_links_for_children_pages($parentId = null, $sort = 'order', $requiresIsPublished = false,
                                                    $pages = null)
 {
     if ($parentId === null) {
-        $parentPage = get_current_record('simple_pages_page', false);
+        $parentPage = get_current_record('simple_exhibits_page', false);
         if ($parentPage) {
             $parentId = $parentPage->id;
         } else {
@@ -34,7 +34,7 @@ function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'or
         if ($requiresIsPublished) {
             $findBy['is_published'] = $requiresIsPublished ? 1 : 0;
         }
-        $pages = get_db()->getTable('SimplePagesPage')->findBy($findBy);
+        $pages = get_db()->getTable('SimpleExhibitsPage')->findBy($findBy);
 
         $parentIdToPages = array();
         foreach ($pages as $page) {
@@ -51,7 +51,7 @@ function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'or
     if (isset($pages[$parentId])) {
         foreach ($pages[$parentId] as $page) {
             $uri = public_url($page->slug);
-            $subNavLinks = simple_pages_get_links_for_children_pages(
+            $subNavLinks = simple_exhibits_get_links_for_children_pages(
                 $page->id, $sort, $requiresIsPublished, $pages
             );
 
@@ -76,19 +76,19 @@ function simple_pages_get_links_for_children_pages($parentId = null, $sort = 'or
 /**
 * Returns a nested unordered list of SimplePage links
 *
-* @uses simple_pages_get_links_for_children_pages()
+* @uses simple_exhibits_get_links_for_children_pages()
 * @uses nav()
 * @param integer|null The id of the parent page.  If null, it uses the current simple page
 * @param string The method by which you sort pages. Options are 'order' (default) and 'alpha'.
 * @param boolean Whether to return only published pages.
 * @return string
 */
-function simple_pages_navigation($parentId = 0, $sort = 'order', $requiresIsPublished = true)
+function simple_exhibits_navigation($parentId = 0, $sort = 'order', $requiresIsPublished = true)
 {
     $html = '';
-    $childPageLinks = simple_pages_get_links_for_children_pages($parentId, $sort, $requiresIsPublished);
+    $childPageLinks = simple_exhibits_get_links_for_children_pages($parentId, $sort, $requiresIsPublished);
     if ($childPageLinks) {
-        $html .= '<div class="simple-pages-navigation">' . "\n";
+        $html .= '<div class="simple-exhibits-navigation">' . "\n";
         $html .= nav($childPageLinks);
         $html .= '</div>' . "\n";
     }
@@ -103,18 +103,18 @@ function simple_pages_navigation($parentId = 0, $sort = 'order', $requiresIsPubl
  * @param string $separator The string used to separate each section of the breadcrumb.
  * @param boolean $includePage Whether to include the title of the current page.
  */
-function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $includePage=true)
+function simple_exhibits_display_breadcrumbs($pageId = null, $seperator=' > ', $includePage=true)
 {
     $html = '';
 
     if ($pageId === null) {
-        $page = get_current_record('simple_pages_page', false);
+        $page = get_current_record('simple_exhibits_page', false);
     } else {
-        $page = get_db()->getTable('SimplePagesPage')->find($pageId);
+        $page = get_db()->getTable('SimpleExhibitsPage')->find($pageId);
     }
 
     if ($page) {
-        $ancestorPages = get_db()->getTable('SimplePagesPage')->findAncestorPages($page->id);
+        $ancestorPages = get_db()->getTable('SimpleExhibitsPage')->findAncestorPages($page->id);
         $bPages = array_merge(array($page), $ancestorPages);
 
         // make sure all of the ancestors and the current page are published
@@ -146,16 +146,16 @@ function simple_pages_display_breadcrumbs($pageId = null, $seperator=' > ', $inc
     return $html;
 }
 
-function simple_pages_display_hierarchy($parentPageId = 0, $partialFilePath = 'index/browse-hierarchy-page.php')
+function simple_exhibits_display_hierarchy($parentPageId = 0, $partialFilePath = 'index/browse-hierarchy-page.php')
 {
     $html = '';
-    $childrenPages = get_db()->getTable('SimplePagesPage')->findChildrenPages($parentPageId);
+    $childrenPages = get_db()->getTable('SimpleExhibitsPage')->findChildrenPages($parentPageId);
     if (count($childrenPages)) {        
         $html .= '<ul>';
         foreach($childrenPages as $childPage) {
             $html .= '<li>';
-            $html .= get_view()->partial($partialFilePath, array('simple_pages_page' => $childPage));
-            $html .= simple_pages_display_hierarchy($childPage->id, $partialFilePath);
+            $html .= get_view()->partial($partialFilePath, array('simple_exhibits_page' => $childPage));
+            $html .= simple_exhibits_display_hierarchy($childPage->id, $partialFilePath);
             $html .= '</li>';
         }
         $html .= '</ul>';
@@ -167,24 +167,24 @@ function simple_pages_display_hierarchy($parentPageId = 0, $partialFilePath = 'i
  * Returns the earliest ancestor page for a given page.
  *
  * @param integer|null The id of the page. If null, it uses the current simple page.
- * @return SimplePagesPage|null
+ * @return SimpleExhibitsPage|null
  */
-function simple_pages_earliest_ancestor_page($pageId)
+function simple_exhibits_earliest_ancestor_page($pageId)
 {
     if ($pageId === null) {
-        $page = get_current_record('simple_pages_page');
+        $page = get_current_record('simple_exhibits_page');
     } else {
-        $page = get_db()->getTable('SimplePagesPage')->find($pageId);
+        $page = get_db()->getTable('SimpleExhibitsPage')->find($pageId);
     }
 
-    $pageAncestors = get_db()->getTable('SimplePagesPage')->findAncestorPages($page->id);
+    $pageAncestors = get_db()->getTable('SimpleExhibitsPage')->findAncestorPages($page->id);
     return end($pageAncestors);
 }
 
-function simple_pages_get_parent_options($page)
+function simple_exhibits_get_parent_options($page)
 {
     $valuePairs = array('0' => __('Main Page (No Parent)'));
-    $potentialParentPages = get_db()->getTable('SimplePagesPage')->findPotentialParentPages($page->id);
+    $potentialParentPages = get_db()->getTable('SimpleExhibitsPage')->findPotentialParentPages($page->id);
     foreach($potentialParentPages as $potentialParentPage) {
         if (trim($potentialParentPage->title) != '') {
             $valuePairs[$potentialParentPage->id] = $potentialParentPage->title;

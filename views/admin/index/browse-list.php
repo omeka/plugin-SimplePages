@@ -10,30 +10,30 @@
             </tr>
         </thead>
         <tbody>
-        <?php foreach (loop('simple_pages_pages') as $simplePage): ?>
+        <?php foreach (loop('simple_exhibits_pages') as $simplePage): ?>
             <tr>
                 <td>
                     <span class="title">
-                        <a href="<?php echo html_escape(record_url('simple_pages_page')); ?>">
-                            <?php echo metadata('simple_pages_page', 'title'); ?>
+                        <a href="<?php echo html_escape(record_url('simple_exhibits_page')); ?>">
+                            <?php echo metadata('simple_exhibits_page', 'title'); ?>
                         </a>
-                        <?php if(!metadata('simple_pages_page', 'is_published')): ?>
+                        <?php if(!metadata('simple_exhibits_page', 'is_published')): ?>
                             (<?php echo __('Private'); ?>)
                         <?php endif; ?>
                     </span>
                     <ul class="action-links group">
-                        <li><a class="edit" href="<?php echo html_escape(record_url('simple_pages_page', 'edit')); ?>">
+                        <li><a class="edit" href="<?php echo html_escape(record_url('simple_exhibits_page', 'edit')); ?>">
                             <?php echo __('Edit'); ?>
                         </a></li>
-                        <li><a class="delete-confirm" href="<?php echo html_escape(record_url('simple_pages_page', 'delete-confirm')); ?>">
+                        <li><a class="delete-confirm" href="<?php echo html_escape(record_url('simple_exhibits_page', 'delete-confirm')); ?>">
                             <?php echo __('Delete'); ?>
                         </a></li>
                     </ul>
                 </td>
-                <td><?php echo metadata('simple_pages_page', 'slug'); ?></td>
+                <td><?php echo metadata('simple_exhibits_page', 'slug'); ?></td>
                 <td><?php echo __('<strong>%1$s</strong> on %2$s',
-                    metadata('simple_pages_page', 'modified_username'),
-                    html_escape(format_date(metadata('simple_pages_page', 'updated'), Zend_Date::DATETIME_SHORT))); ?>
+                    metadata('simple_exhibits_page', 'modified_username'),
+                    html_escape(format_date(metadata('simple_exhibits_page', 'updated'), Zend_Date::DATETIME_SHORT))); ?>
                 </td>
             </tr>
         <?php endforeach; ?>

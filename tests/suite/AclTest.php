@@ -7,19 +7,19 @@
  */
 
 /**
- * Test the ACL for SimplePages.
+ * Test the ACL for SimpleExhibits.
  *
- * @package SimplePages
+ * @package SimpleExhibits
  */
-class SimplePages_AclTest extends SimplePages_Test_AppTestCase
+class SimpleExhibits_AclTest extends SimpleExhibits_Test_AppTestCase
 {
-    const PAGE_RESOURCE = 'SimplePages_Page';
-    const ADMIN_RESOURCE = 'SimplePages_Index';
+    const PAGE_RESOURCE = 'SimpleExhibits_Page';
+    const ADMIN_RESOURCE = 'SimpleExhibits_Index';
 
     public function assertPreConditions()
     {
-        $this->assertTrue($this->acl->has('SimplePages_Index'),
-            "SimplePages ACL resources have not been defined.");
+        $this->assertTrue($this->acl->has('SimpleExhibits_Index'),
+            "SimpleExhibits ACL resources have not been defined.");
     }
     
     public function testNonauthenticatedUsersCanViewPublishedPages()

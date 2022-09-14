@@ -7,9 +7,9 @@
  */
 
 /**
- * Tests for the SimplePagesPage model.
+ * Tests for the SimpleExhibitsPage model.
  */
-class Models_SimplePagesPageTest extends SimplePages_Test_AppTestCase
+class Models_SimpleExhibitsPageTest extends SimpleExhibits_Test_AppTestCase
 {   
     public function testGetCreatedByUser()
     {

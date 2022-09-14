@@ -7,9 +7,9 @@
  */
 
 /**
- * Tests for simple_pages_get_links_for_children_pages()
+ * Tests for simple_exhibits_get_links_for_children_pages()
  */
-class SimplePages_GetLinksForChildrenPagesTest extends SimplePages_Test_AppTestCase
+class SimpleExhibits_GetLinksForChildrenPagesTest extends SimpleExhibits_Test_AppTestCase
 {       
     public function testGetPageLinksWithNoLinks()
     {
@@ -18,7 +18,7 @@ class SimplePages_GetLinksForChildrenPagesTest extends SimplePages_Test_AppTestC
         $this->dispatch('/');
     
         $navLinks = array();
-        $this->assertEquals($navLinks, simple_pages_get_links_for_children_pages());
+        $this->assertEquals($navLinks, simple_exhibits_get_links_for_children_pages());
     }
     
     public function testGetPageLinksWithOneMainLinks()
@@ -31,7 +31,7 @@ class SimplePages_GetLinksForChildrenPagesTest extends SimplePages_Test_AppTestC
                 'uri' => public_url('about')
             )
         );
-        $this->assertEquals($navLinks, simple_pages_get_links_for_children_pages());
+        $this->assertEquals($navLinks, simple_exhibits_get_links_for_children_pages());
     }
      
     public function testGetPageLinksWithMultipleMainLinksAndNoSublinks()
@@ -39,7 +39,7 @@ class SimplePages_GetLinksForChildrenPagesTest extends SimplePages_Test_AppTestC
         $testPageCount = 8;
         $this->_addTestPages(1, $testPageCount);
     
-        $pages = $this->db->getTable('SimplePagesPage')->findAll();
+        $pages = $this->db->getTable('SimpleExhibitsPage')->findAll();
         $this->assertEquals($testPageCount + 1, count($pages));
         
         $this->dispatch('/');
@@ -57,12 +57,12 @@ class SimplePages_GetLinksForChildrenPagesTest extends SimplePages_Test_AppTestC
             );
         }
        
-        $this->assertEquals($expectedNavLinks, simple_pages_get_links_for_children_pages());
+        $this->assertEquals($expectedNavLinks, simple_exhibits_get_links_for_children_pages());
     }
     
     public function testGetPageLinksForPublishedPages()
     {
-        $pages = $this->db->getTable('SimplePagesPage')->findAll();
+        $pages = $this->db->getTable('SimpleExhibitsPage')->findAll();
         $this->assertEquals(1, count($pages));
         $aboutPage = $pages[0];
                 
@@ -98,7 +98,7 @@ class SimplePages_GetLinksForChildrenPagesTest extends SimplePages_Test_AppTestC
         
         $this->dispatch('/');
         
-        $actualNavLinks = simple_pages_get_links_for_children_pages($aboutPage->id, 'order', true);
+        $actualNavLinks = simple_exhibits_get_links_for_children_pages($aboutPage->id, 'order', true);
         $this->assertEquals(2, count($actualNavLinks));
         $expectedNavLinks = array();
         $expectedNavLinks[] = array(

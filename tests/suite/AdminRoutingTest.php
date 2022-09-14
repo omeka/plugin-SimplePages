@@ -9,7 +9,7 @@
 /**
  * Test that the routes are correctly not applied on the admin interface.
  */
-class SimplePages_AdminRoutingTest extends SimplePages_Test_AppTestCase
+class SimpleExhibits_AdminRoutingTest extends SimpleExhibits_Test_AppTestCase
 {
     public function testRoutesDoNotApply()
     {
@@ -17,6 +17,6 @@ class SimplePages_AdminRoutingTest extends SimplePages_Test_AppTestCase
         $this->_reloadRoutes();
 
         $this->dispatch('/items');
-        $this->assertNotModule('simple-pages');
+        $this->assertNotModule('simple-exhibits');
     }
 }

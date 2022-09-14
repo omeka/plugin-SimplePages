@@ -1,6 +1,6 @@
 <?php 
 
-class Api_SimplePagesPage extends Omeka_Record_Api_AbstractRecordAdapter
+class Api_SimpleExhibitsPage extends Omeka_Record_Api_AbstractRecordAdapter
 {
 	public function getRepresentation(Omeka_Record_AbstractRecord $record)
 	{
@@ -10,7 +10,8 @@ class Api_SimplePagesPage extends Omeka_Record_Api_AbstractRecordAdapter
 		    'is_published'        => (bool)$record->is_published,
 		    'title'               => $record->title,
 		    'slug'                => $record->slug,
-		    'text'                => $record->text,
+		    'text'                => $record->text, // header text
+			'content'			  => $record->content, // exhibit content
 		    'updated'             => self::getDate($record->updated),
 		    'inserted'            => self::getDate($record->inserted),
 		    'order'               => $record->order,
