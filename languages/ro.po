@@ -1,4 +1,4 @@
-# Translation for the Simple Pages plugin for Omeka.
+# Translation for the Simple Exhibitsplugin for Omeka.
 # Copyright (C) 2011 Roy Rosenzweig Center for History and New Media
 # This file is distributed under the same license as the Omeka package.
 # 
@@ -141,7 +141,7 @@ msgid "The order must be an integer greater than or equal to 0."
 msgstr "Ordinea trebuie să fie un număr întreg mai mare sau egal cu 0."
 
 #: views/admin/index/add.php:6
-msgid "Simple Pages | Add Page"
+msgid "Simple Exhibits | Add Page"
 msgstr "Pagini simple | Adaugă pagină"
 
 #: views/admin/index/browse-hierarchy-page.php:16
@@ -163,7 +163,7 @@ msgid "Last Modified"
 msgstr "Ultima modificare"
 
 #: views/admin/index/browse.php:3
-msgid "Simple Pages | Browse"
+msgid "Simple Exhibits | Browse"
 msgstr "Pagini simple | Navighează"
 
 #: views/admin/index/browse.php:9
@@ -188,7 +188,7 @@ msgstr "Adaugă o pagină"
 
 #: views/admin/index/edit.php:6
 #, php-format
-msgid "Simple Pages | Edit \"%s\""
+msgid "Simple Exhibits | Edit \"%s\""
 msgstr "Pagini simple | Editează \"%s\""
 
 #: views/admin/index/edit.php:11

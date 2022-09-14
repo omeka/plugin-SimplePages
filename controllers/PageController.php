@@ -7,7 +7,7 @@
  */
 
 /**
- * The Simple Pages page controller class.
+ * The Simple Exhibitspage controller class.
  *
  * @package SimpleExhibits
  */

@@ -7,7 +7,7 @@
  */
 
 /**
- * The Simple Pages page record class.
+ * The Simple Exhibitspage record class.
  *
  * @package SimpleExhibits
  */

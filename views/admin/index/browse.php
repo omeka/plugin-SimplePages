@@ -1,7 +1,7 @@
 <?php
 queue_css_file('simple-exhibits');
 $head = array('bodyclass' => 'simple-exhibits browse',
-              'title' => html_escape(__('Simple Pages | Browse')),
+              'title' => html_escape(__('Simple Exhibits | Browse')),
               'content_class' => 'horizontal-nav');
 $hierarchy = false;
 if (isset($_GET['view'])) {

@@ -184,7 +184,7 @@ class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
     }
 
     /**
-     * Add the routes for accessing simple pages by slug.
+     * Add the routes for accessing Simple Exhibitsby slug.
      * 
      * @param Zend_Controller_Router_Rewrite $router
      */
@@ -238,7 +238,7 @@ class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
     }
 
     /**
-     * Add the Simple Pages link to the admin main navigation.
+     * Add the Simple Exhibitslink to the admin main navigation.
      * 
      * @param array Navigation array.
      * @return array Filtered navigation array.

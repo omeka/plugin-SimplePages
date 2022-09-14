@@ -3,7 +3,7 @@ queue_css_file('simple-exhibits');
 queue_js_file('vendor/tinymce/tinymce.min');
 queue_js_file('simple-exhibits-wysiwyg');
 $head = array('bodyclass' => 'simple-exhibits primary', 
-              'title' => __('Simple Pages | Edit "%s"', metadata('simple_exhibits_page', 'title')));
+              'title' => __('Simple Exhibits | Edit "%s"', metadata('simple_exhibits_page', 'title')));
 echo head($head);
 ?>
 
