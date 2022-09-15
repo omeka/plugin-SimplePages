@@ -13,9 +13,10 @@ echo head($head);
     <li class="<?php if (!$hierarchy) {echo 'current';} ?>">
         <a href="<?php echo html_escape(url('simple-exhibits/index/browse?view=list')); ?>"><?php echo __('List View'); ?></a>
     </li>
+    <!-- No hierarchy tab needed 
     <li class="<?php if ($hierarchy) {echo 'current';} ?>">
         <a href="<?php echo html_escape(url('simple-exhibits/index/browse?view=hierarchy')); ?>"><?php echo __('Hierarchy View'); ?></a>
-    </li>
+    </li> -->
 </ul>
 <?php echo flash(); ?>
 

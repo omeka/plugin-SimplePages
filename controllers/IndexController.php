@@ -142,7 +142,7 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
                 )
             )
         );
-        
+        /*
         $form->addElementToSaveGroup(
             'select', 'parent_id',
             array(
@@ -165,7 +165,7 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
                 )
             )
         );
-        
+        */
         $form->addElementToSaveGroup(
             'checkbox', 'is_published',
             array(
