@@ -7,7 +7,7 @@
  */
 
 /**
- * The Simple Exhibitspage record class.
+ * The Simple Exhibits page record class.
  *
  * @package SimpleExhibits
  */
@@ -123,6 +123,7 @@ class SimpleExhibitsPage extends Omeka_Record_AbstractRecord implements Zend_Acl
         $this->setSearchTextTitle($this->title);
         $this->addSearchText($this->title);
         $this->addSearchText($this->text);
+        $this->addSearchText($this->content); //
     }
     
     /**

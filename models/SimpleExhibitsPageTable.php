@@ -7,7 +7,7 @@
  */
 
 /**
- * The Simple Exhibitspage table class.
+ * The Simple Exhibits page table class.
  *
  * @package SimpleExhibits
  */
