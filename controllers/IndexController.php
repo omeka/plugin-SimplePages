@@ -7,7 +7,7 @@
  */
 
 /**
- * The Simple Exhibitsindex controller class.
+ * The Simple Pages index controller class.
  *
  * @package SimpleExhibits
  */
@@ -83,6 +83,9 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
                 )
             )
         );
+     
+        /* Not needed anymore since the header text is a text only field.
+        
         
         $form->addElementToEditGroup(
             'checkbox', 'use_tiny_mce',
@@ -96,16 +99,46 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
                 )
             )
         );
-         
+        */
+
+
         $form->addElementToEditGroup(
             'textarea', 'text',
             array('id' => 'simple-exhibits-text',
                 'cols'  => 50,
                 'rows'  => 25,
                 'value' => $page->text,
-                'label' => __('Text'),
+                'label' => __('Header text'), //'Text' to 'Header text'
                 'description' => __(
-                    'Add content for page. This field supports shortcodes. For a list of available shortcodes, refer to the <a target=_blank href="http://omeka.org/codex/Shortcodes">Omeka Codex</a>.'
+                    'Add text to the header of the exhbibit page.'
+                )
+            )
+        );
+        
+        //Allow usage of tinyMCE for content block.
+        //ERROR 15.09.2022 - when checked adds HTML editor to text, not content
+        $form->addElementToEditGroup(
+            'checkbox', 'use_tiny_mce',
+            array(
+                'id' => 'simple-exhibits-use-tiny-mce',
+                'checked' => $page->use_tiny_mce,
+                'values' => array(1, 0),
+                'label' => __('Use HTML editor?'),
+                'description' => __(
+                    'Check this to add an HTML editor bar for easily creating HTML.'
+                )
+            )
+        );
+
+        $form->addElementToEditGroup(
+            'textarea', 'content',
+            array('id' => 'simple-exhibits-content',
+                'cols'  => 50,
+                'rows'  => 25,
+                'value' => $page->content,
+                'label' => __('Exhibit content'),
+                'description' => __(
+                    'Add content for the exhibit.' //Add info about supported formats / html tags?
                 )
             )
         );
