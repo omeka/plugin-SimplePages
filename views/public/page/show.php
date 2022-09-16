@@ -17,9 +17,9 @@ echo head(array(
     <?php endif; ?>
     <?php
     $text = metadata('simple_exhibits_page', 'text', array('no_escape' => true));
-    $content = metadata('simple_exhibits_page', 'content', array('no escape' => true));
-    echo $this->shortcodes($text);
-    echo $this->shortcodes($content); //displays content block
+    $content = metadata('simple_exhibits_page', 'content', array('no_escape' => true));
+    echo $text;
+    echo $content; //displays content block
     ?>
 </div>
 
