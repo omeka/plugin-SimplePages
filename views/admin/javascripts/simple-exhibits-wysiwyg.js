@@ -15,8 +15,10 @@ jQuery(document).ready(function() {
     jQuery('#simple-exhibits-use-tiny-mce').click(function() {
         if (jQuery(this).is(':checked')) {
             tinyMCE.EditorManager.execCommand('mceAddEditor', true, 'simple-exhibits-content');
+            tinyMCE.EditorManager.execCommand('mceAddEditor', true, 'simple-exhibits-text');
         } else {
             tinyMCE.EditorManager.execCommand('mceRemoveEditor', true, 'simple-exhibits-content');
+            tinyMCE.EditorManager.execCommand('mceAddEditor', true, 'simple-exhibits-text');
         }
     });
 });
