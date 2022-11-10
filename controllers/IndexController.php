@@ -84,7 +84,7 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
             )
         );
      
-        /* Not needed anymore since the header text is a text only field.
+
         
         
         $form->addElementToEditGroup(
@@ -99,7 +99,7 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
                 )
             )
         );
-        */
+
 
 
         $form->addElementToEditGroup(
@@ -176,6 +176,18 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
                 'description' => __('Checking this box will make the page public')
             )
         );
+
+        $form->addElementToSaveGroup(
+            'checkbox', 'is_featured',
+            array(
+                'id' => 'simple_exhibits_is_featured',
+                'values' => array(1, 0),
+                'checked' => $page->is_featured,
+                'label' => __('Make this page featured?'),
+                'description' => __('Checking this box will make the page featured')
+            )
+        );
+
 
         if (class_exists('Omeka_Form_Element_SessionCsrfToken')) {
             $form->addElement('sessionCsrfToken', 'csrf_token');
