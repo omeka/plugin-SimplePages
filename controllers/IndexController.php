@@ -119,18 +119,18 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
         //ERROR 15.09.2022 - when checked adds HTML editor to text, not content
         //FIX 10.11.2022 - simple-exhibits-wysiwyg.js
     
-        // $form->addElementToEditGroup(
-        //     'checkbox', 'use_tiny_mce',
-        //     array(
-        //         'id' => 'simple-exhibits-use-tiny-mce',
-        //         'checked' => $page->use_tiny_mce,
-        //         'values' => array(1, 0),
-        //         'label' => __('Use HTML editor?'),
-        //         'description' => __(
-        //             'Check this to add an HTML editor bar for easily creating HTML.'
-        //         )
-        //     )
-        // );
+        $form->addElementToEditGroup(
+            'checkbox', 'use_tiny_mce',
+            array(
+                'id' => 'simple-exhibits-use-tiny-mce',
+                'checked' => $page->use_tiny_mce,
+                'values' => array(1, 0),
+                'label' => __('Use HTML editor?'),
+                'description' => __(
+                    'Check this to add an HTML editor bar for easily creating HTML.'
+                )
+            )
+        );
 
         $form->addElementToEditGroup(
             'textarea', 'content',
