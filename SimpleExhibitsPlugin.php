@@ -54,7 +54,7 @@ class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
           `use_tiny_mce` tinyint(1) NOT NULL,
           PRIMARY KEY (`id`),
           KEY `is_published` (`is_published`),
-          KEY `is_featured` (`is_featured`);
+          KEY `is_featured` (`is_featured`),
           KEY `inserted` (`inserted`),
           KEY `updated` (`updated`),
           KEY `created_by_user_id` (`created_by_user_id`),
