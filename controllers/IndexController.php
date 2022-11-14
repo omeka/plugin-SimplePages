@@ -90,7 +90,7 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
         $form->addElementToEditGroup(
             'checkbox', 'use_tiny_mce',
             array(
-                'id' => 'simple-exhibits-use-tiny-mce',
+                'id' => 'simple-exhibits-text-use-tiny-mce',
                 'checked' => $page->use_tiny_mce,
                 'values' => array(1, 0),
                 'label' => __('Use HTML editor?'),
@@ -122,7 +122,7 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
         $form->addElementToEditGroup(
             'checkbox', 'use_tiny_mce',
             array(
-                'id' => 'simple-exhibits-use-tiny-mce',
+                'id' => 'simple-exhibits-content-use-tiny-mce',
                 'checked' => $page->use_tiny_mce,
                 'values' => array(1, 0),
                 'label' => __('Use HTML editor?'),

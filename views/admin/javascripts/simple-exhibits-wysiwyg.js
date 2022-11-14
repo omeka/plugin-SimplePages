@@ -1,6 +1,6 @@
 jQuery(document).ready(function() {
     var selector;
-    if (jQuery('#simple-exhibits-use-tiny-mce').is(':checked')) {
+    if (jQuery('#simple-exhibits-text-use-tiny-mce').is(':checked')) {
         selector = '#simple-exhibits-text';
     } else {
         selector = false;
@@ -13,7 +13,7 @@ jQuery(document).ready(function() {
     });
 
     // Add or remove TinyMCE control.
-    jQuery('#simple-exhibits-use-tiny-mce').click(function() {
+    jQuery('#simple-exhibits-text-use-tiny-mce').click(function() {
         if (jQuery(this).is(':checked')) {
             tinyMCE.EditorManager.execCommand('mceAddEditor', true, 'simple-exhibits-text');
         } else {
@@ -22,7 +22,7 @@ jQuery(document).ready(function() {
     });
 
     var selector;
-    if (jQuery('#simple-exhibits-use-tiny-mce').is(':checked')) {
+    if (jQuery('#simple-exhibits-content-use-tiny-mce').is(':checked')) {
         selector = '#simple-exhibits-content';
     } else {
         selector = false;
