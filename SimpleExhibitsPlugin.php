@@ -52,7 +52,7 @@ class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
           `parent_id` int(10) unsigned NOT NULL,
           `template` tinytext COLLATE utf8_unicode_ci NOT NULL,
           `use_tiny_mce_text` tinyint(1) NOT NULL,
-          `use_tiny_mce_content tinyint(1) NOT NULL,
+          `use_tiny_mce_content` tinyint(1) NOT NULL,
           PRIMARY KEY (`id`),
           KEY `is_published` (`is_published`),
           KEY `is_featured` (`is_featured`),
