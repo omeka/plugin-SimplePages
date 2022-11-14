@@ -41,6 +41,7 @@ class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
           `modified_by_user_id` int(10) unsigned NOT NULL,
           `created_by_user_id` int(10) unsigned NOT NULL,
           `is_published` tinyint(1) NOT NULL,
+          `is_featured` tinyint(1) NOT NULL,
           `title` tinytext COLLATE utf8_unicode_ci NOT NULL,
           `slug` tinytext COLLATE utf8_unicode_ci NOT NULL,
           `text` mediumtext COLLATE utf8_unicode_ci,
@@ -53,6 +54,7 @@ class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
           `use_tiny_mce` tinyint(1) NOT NULL,
           PRIMARY KEY (`id`),
           KEY `is_published` (`is_published`),
+          KEY `is_featured` (`is_featured`);
           KEY `inserted` (`inserted`),
           KEY `updated` (`updated`),
           KEY `created_by_user_id` (`created_by_user_id`),

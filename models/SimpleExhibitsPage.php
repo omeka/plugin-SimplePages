@@ -16,6 +16,7 @@ class SimpleExhibitsPage extends Omeka_Record_AbstractRecord implements Zend_Acl
     public $modified_by_user_id;
     public $created_by_user_id;
     public $is_published = 0;
+    public $is_featured = 0;
     public $title;
     public $slug;
     public $text = null; // header content

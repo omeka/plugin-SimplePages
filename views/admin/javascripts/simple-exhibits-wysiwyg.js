@@ -20,7 +20,9 @@ jQuery(document).ready(function() {
             tinyMCE.EditorManager.execCommand('mceRemoveEditor', true, 'simple-exhibits-text');
         }
     });
+});
 
+jQuery(document).ready(function() {
     var selector;
     if (jQuery('#simple-exhibits-content-use-tiny-mce').is(':checked')) {
         selector = '#simple-exhibits-content';
@@ -43,7 +45,7 @@ jQuery(document).ready(function() {
         }
     });
 
-
-
 });
+
+
 
