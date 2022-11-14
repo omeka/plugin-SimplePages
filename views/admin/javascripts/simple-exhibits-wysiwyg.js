@@ -1,7 +1,7 @@
 console.log('before jquery');
 jQuery(document).ready(function() {
     var selector;
-    console.log('inside 1st jquery';)
+    console.log('inside 1st jquery');
     if (jQuery('#simple-exhibits-text-use-tiny-mce').is(':checked')) {
         selector = '#simple-exhibits-text';
         console.log('simple exhibits text checked');
