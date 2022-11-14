@@ -88,7 +88,7 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
         
         
         $form->addElementToEditGroup(
-            'checkbox', 'use_tiny_mce',
+            'checkbox', 'use_tiny_mce_text',
             array(
                 'id' => 'simple-exhibits-text-use-tiny-mce',
                 'checked' => $page->use_tiny_mce,
@@ -120,7 +120,7 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
         //FIX 10.11.2022 - simple-exhibits-wysiwyg.js
     
         $form->addElementToEditGroup(
-            'checkbox', 'use_tiny_mce',
+            'checkbox', 'use_tiny_mce_content',
             array(
                 'id' => 'simple-exhibits-content-use-tiny-mce',
                 'checked' => $page->use_tiny_mce,
