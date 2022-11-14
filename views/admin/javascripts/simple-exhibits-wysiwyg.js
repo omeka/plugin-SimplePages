@@ -42,7 +42,7 @@ jQuery(document).ready(function() {
     });
 
     // Add or remove TinyMCE control.
-    jQuery('#simple-exhibits-use-tiny-mce').click(function() {
+    jQuery('#simple-exhibits-content-use-tiny-mce').click(function() {
         if (jQuery(this).is(':checked')) {
             tinyMCE.EditorManager.execCommand('mceAddEditor', true, 'simple-exhibits-content');
         } else {
