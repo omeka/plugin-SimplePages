@@ -2,6 +2,7 @@ jQuery(document).ready(function() {
     var selector;
     if (jQuery('#simple-exhibits-text-use-tiny-mce').is(':checked')) {
         selector = '#simple-exhibits-text';
+        console.log('simple exhibits text checked');
     } else {
         selector = false;
     }
@@ -26,6 +27,7 @@ jQuery(document).ready(function() {
     var selector;
     if (jQuery('#simple-exhibits-content-use-tiny-mce').is(':checked')) {
         selector = '#simple-exhibits-content';
+        console.log('simple echibits content checked');
     } else {
         selector = false;
     }
