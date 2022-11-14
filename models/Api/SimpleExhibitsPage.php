@@ -8,7 +8,7 @@ class Api_SimpleExhibitsPage extends Omeka_Record_Api_AbstractRecordAdapter
 		    'id' =>$record->id,
 		    'url' => $this->getResourceUrl("/simple_exhibits/{$record->id}"),
 		    'is_published'        => (bool)$record->is_published,
-			'is_featured'		  => (bool)$record->is_featured
+			'is_featured'		  => (bool)$record->is_featured,
 		    'title'               => $record->title,
 		    'slug'                => $record->slug,
 		    'text'                => $record->text, // header text
