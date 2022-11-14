@@ -26,7 +26,8 @@ class SimpleExhibitsPage extends Omeka_Record_AbstractRecord implements Zend_Acl
     public $order = 0;
     public $parent_id = 0;
     public $template = '';
-    public $use_tiny_mce = 0;
+    public $use_tiny_mce_text = 0;
+    public $use_tiny_mce_content = 0;
     
     protected function _initializeMixins()
     {
