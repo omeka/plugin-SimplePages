@@ -55,7 +55,7 @@ class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
           `template` tinytext COLLATE utf8_unicode_ci NOT NULL,
           `use_tiny_mce_text` tinyint(1) NOT NULL,
           `use_tiny_mce_content` tinyint(1) NOT NULL,
-          `ckc_cover_image`, TEXT
+          `ckc_cover_image` TEXT,
           PRIMARY KEY (`id`),
           KEY `is_published` (`is_published`),
           KEY `is_featured` (`is_featured`),
