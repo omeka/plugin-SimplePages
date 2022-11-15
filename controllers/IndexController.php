@@ -85,7 +85,19 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
         );
      
 
-        
+            //20201110 CKC page's cover image
+            $form->addElementToEditGroup( 'file', 'ckc_page_cover',
+            array(
+            'id' => 'simple-pages-cover',
+            'label' => __('Cover image'),
+            'description' => __('Upload an image file to be displayed as a cover photo. '
+                . 'Maximum filesize is 1 MiB.<br/>Allowed image formats: gif, jpeg, jpeg2000, png, webp.<br/>Current file:<br/>%s',
+                ( ( (string)$page['ckc_cover_image'] !== '' ) ? '<a href="'
+                . CKC_SPAGES_COVERS_URI . '/' . $page['ckc_cover_image'] . '">'
+                . CKC_SPAGES_COVERS_DIR . '/' . $page['ckc_cover_image'] . '</a>' : '-' ) )
+            )
+        );
+    
         
         $form->addElementToEditGroup(
             'checkbox', 'use_tiny_mce_text',
@@ -100,18 +112,6 @@ class SimpleExhibits_IndexController extends Omeka_Controller_AbstractActionCont
             )
         );
 
-            //20201110 CKC page's cover image
-        $form->addElementToEditGroup( 'file', 'ckc_page_cover',
-        array(
-        'id' => 'simple-pages-cover',
-        'label' => __('Cover image'),
-        'description' => __('Upload an image file to be displayed as a cover photo. '
-            . 'Maximum filesize is 1 MiB.<br/>Allowed image formats: gif, jpeg, jpeg2000, png, webp.<br/>Current file:<br/>%s',
-            ( ( (string)$page['ckc_cover_image'] !== '' ) ? '<a href="'
-            . CKC_SPAGES_COVERS_URI . '/' . $page['ckc_cover_image'] . '">'
-            . CKC_SPAGES_COVERS_DIR . '/' . $page['ckc_cover_image'] . '</a>' : '-' ) )
-        )
-    );
 
 
 
