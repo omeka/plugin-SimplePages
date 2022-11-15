@@ -28,6 +28,7 @@ class SimpleExhibitsPage extends Omeka_Record_AbstractRecord implements Zend_Acl
     public $template = '';
     public $use_tiny_mce_text = 0;
     public $use_tiny_mce_content = 0;
+    public $ckc_cover_image = null; //20201110 CKC
     
     protected function _initializeMixins()
     {
@@ -192,6 +193,8 @@ class SimpleExhibitsPage extends Omeka_Record_AbstractRecord implements Zend_Acl
                 return $this->getCreatedByUser()->username;
             case 'modified_username':
                 return $this->getModifiedByUser()->username;
+            case 'ckc_cover_image_uri': //20201111 CKC
+                return ( ( $this->ckc_cover_image !== null ) ? CKC_SPAGES_COVERS_URI . '/' . $this->ckc_cover_image : null );
             default:
                 return parent::getProperty($property);
         }

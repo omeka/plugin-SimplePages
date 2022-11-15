@@ -47,6 +47,9 @@ class Api_SimpleExhibitsPage extends Omeka_Record_Api_AbstractRecordAdapter
 		}else{
 		    $representation['parent'] = null;
 		}
+		if ( (string)$record->ckc_cover_image !== '' ) {//20201111 CKC
+            $representation['ckc_cover_image'] = CKC_SPAGES_COVERS_URI . '/' . $record->ckc_cover_image;
+        }
 		return $representation;
 	}
 }

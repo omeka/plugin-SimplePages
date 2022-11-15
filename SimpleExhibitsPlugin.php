@@ -9,6 +9,8 @@
 
 require_once dirname(__FILE__) . '/helpers/SimpleExhibitFunctions.php';
 
+define('CKC_SPAGES_COVERS_DIR', realpath(FILES_DIR) . '/simple_pages_covers'); //20201109 CKC: directory for storing cover images
+define('CKC_SPAGES_COVERS_URI', WEB_FILES . '/simple_pages_covers'); //20201111 CKC: for convenience
 /**
  * Simple Exhibits plugin.
  */
@@ -53,6 +55,7 @@ class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
           `template` tinytext COLLATE utf8_unicode_ci NOT NULL,
           `use_tiny_mce_text` tinyint(1) NOT NULL,
           `use_tiny_mce_content` tinyint(1) NOT NULL,
+          `ckc_cover_image`, TEXT
           PRIMARY KEY (`id`),
           KEY `is_published` (`is_published`),
           KEY `is_featured` (`is_featured`),
@@ -65,13 +68,22 @@ class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
         ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
         $db->query($sql);
         
+        //        $made = @mkdir( CKC_SPAGES_COVERS_DIR, 0770, true );
+        $made = @mkdir( CKC_SPAGES_COVERS_DIR, 0771, true );
+
+        if ( $made !== true || is_readable( CKC_SPAGES_COVERS_DIR ) === false ) {
+            throw new Omeka_Storage_Exception('Error creating directory: ' . CKC_SPAGES_COVERS_DIR);
+        }
+
+
+
         // Save an example page.
         $page = new SimpleExhibitsPage;
         $page->modified_by_user_id = current_user()->id;
         $page->created_by_user_id = current_user()->id;
         $page->is_published = 1;
         $page->parent_id = 0;
-        $page->title = 'Example simple exhibite';
+        $page->title = 'Example simple exhibit';
         $page->slug = 'example';
         $page->text = '<p>This the header of an example exhibit. Feel free to replace this content, or delete the exhibit and start from scratch.</p>';
         $page->content = '<p>This is the content field of an example exhibit.<p>';
@@ -156,6 +168,14 @@ class SimpleExhibitsPlugin extends Omeka_Plugin_AbstractPlugin
 
         if ($oldVersion < '3.1.1') {
             delete_option('simple_exhibits_filter_page_content');
+        }
+        if ( $oldVersion < '9999.20201109' ) { //20201109 CKC
+            $db->query("ALTER TABLE `$db->SimplePagesPage` ADD COLUMN `ckc_cover_image` TEXT COLLATE utf8_unicode_ci");
+
+            $made = @mkdir( CKC_SPAGES_COVERS_DIR, 0770, true );
+            if ( $made !== true || is_readable( CKC_SPAGES_COVERS_DIR ) === false ) {
+                throw new Omeka_Storage_Exception('Error creating directory: ' . CKC_SPAGES_COVERS_DIR);
+            }
         }
     }
 
