@@ -16,8 +16,8 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     /**
      * @var array Hooks for the plugin.
      */
-    protected $_hooks = array('install', 'uninstall', 'upgrade', 'initialize',
-        'define_acl', 'define_routes', 'html_purifier_form_submission');
+    protected $_hooks = array('install', 'uninstall', 'upgrade', 'initialize', 'config_form',
+        'config', 'define_acl', 'define_routes', 'html_purifier_form_submission');
 
     /**
      * @var array Filters for the plugin.
@@ -27,6 +27,13 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
         'page_caching_blacklist_for_record',
         'api_resources', 'api_import_omeka_adapters');
 
+    /**
+     * @var array This plugin's options.
+     */
+    protected $_options = array(
+        'simple_pages_hide_breadcrumbs' => 0
+    );
+	
     /**
      * Install the plugin.
      */
@@ -159,6 +166,27 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     public function hookInitialize()
     {
         add_translation_source(dirname(__FILE__) . '/languages');
+    }
+
+    /**
+     * Shows plugin configuration page.
+     */
+    public function hookConfigForm($args)
+    {
+        $view = get_view();
+        echo $view->partial('plugins/simple-pages-config-form.php');
+    }
+
+    /**
+     * Handle the config form.
+     */
+    public function hookConfig($args)
+    {
+        $post = $args['post'];
+        $post = array_intersect_key($post, $this->_options);
+        foreach ($post as $optionKey => $optionValue) {
+            set_option($optionKey, $optionValue);
+        }
     }
 
     /**
