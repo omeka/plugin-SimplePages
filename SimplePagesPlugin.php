@@ -192,24 +192,26 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
             return;
         }
 
-        $router = $args['router'];
-
-        // Add custom routes based on the page slug.
-        $pages = get_db()->getTable('SimplePagesPage')->findAll();
-        foreach ($pages as $page) {
-            $router->addRoute(
-                'simple_pages_show_page_' . $page->id, 
-                new Zend_Controller_Router_Route(
-                    $page->slug, 
-                    array(
-                        'module'       => 'simple-pages', 
-                        'controller'   => 'page', 
-                        'action'       => 'show', 
-                        'id'           => $page->id
-                    )
-                )
-            );
+        // Add a custom route based on the page slugs.
+        $slugs = get_db()->getTable('SimplePagesPage')->findSlugs();
+        if (empty($slugs)) {
+            return;
         }
+
+        $router = $args['router'];
+        $quotedSlugs = array_map('preg_quote', $slugs);
+        $router->addRoute('simple_pages_show_pages', new Zend_Controller_Router_Route_Regex(
+            '(' . implode('|', $quotedSlugs) . ')',
+            array(
+                'module' => 'simple-pages',
+                'controller' => 'page',
+                'action' => 'show',
+            ),
+            array(
+                1 => 'slug',
+            ),
+            '%s'
+        ));
     }
 
     /**

@@ -13,12 +13,15 @@
  */
 class SimplePages_PageController extends Omeka_Controller_AbstractActionController
 {
+    /**
+     * Show a simple page.
+     */
     public function showAction()
     {
-        // Get the page object from the passed ID.
-        $pageId = $this->_getParam('id');
-        $page = $this->_helper->db->getTable('SimplePagesPage')->find($pageId);
-        
+        // Get the page object from the passed slug.
+        $slug = $this->_getParam('slug');
+        $page = $this->_helper->db->getTable('SimplePagesPage')->findBySlug($slug);
+
         // Restrict access to the page when it is not published.
         if (!$page->is_published 
             && !$this->_helper->acl->isAllowed('show-unpublished')) {
