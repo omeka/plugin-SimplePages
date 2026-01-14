@@ -12,7 +12,9 @@ echo head(array(
 ?>
 <div id="primary">
     <?php if (!$is_home_page): ?>
+    <?php if (!get_option('simple_pages_hide_breadcrumbs')): ?>
     <p id="simple-pages-breadcrumbs"><?php echo simple_pages_display_breadcrumbs(); ?></p>
+    <?php endif; ?>
     <h1><?php echo metadata('simple_pages_page', 'title'); ?></h1>
     <?php endif; ?>
     <?php
