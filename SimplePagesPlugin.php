@@ -18,8 +18,7 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
      */
     protected $_hooks = array('install', 'uninstall', 'upgrade', 'initialize',
         'define_acl', 'define_routes', 'html_purifier_form_submission',
-        'static_site_export_site_config');
-
+        'static_site_export_site_config', 'static_site_export_site_export_post');
     /**
      * @var array Filters for the plugin.
      */
@@ -239,15 +238,8 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
     {
         $job = $args['job'];
 
-        // Respect include_private.
-        $query = [];
-        $includePrivate = $job->getStaticSite()->getDataValue('include_private');
-        if (!$includePrivate) {
-            $query = ['is_published' => true];
-        }
-
-        // Add pages to the menu.
-        $pages = get_db()->getTable('SimplePagesPage')->findBy($query);
+        // Add simple pages to the menu.
+        $pages = $this->staticSiteExportGetSimplePages($job);
         foreach ($pages as $page) {
             $args['site_config']['menus']['main'][] = [
                 'identifier' => sprintf('simple_pages_%s', $page->id),
@@ -257,6 +249,54 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
                 'weight' => 40,
             ];
         }
+    }
+
+    public function hookStaticSiteExportSiteExportPost($args)
+    {
+        $job = $args['job'];
+
+        $shortcodesViewHelper = new Omeka_View_Helper_Shortcodes;
+        $shortcodePattern = '/(\[\w+\s*[^\]]*\])/';
+
+        // Add simple pages.
+        $pages = $this->staticSiteExportGetSimplePages($job);
+        foreach ($pages as $page) {
+            // Parse page text into markdown.
+            $markdown = ["{}\n"];
+            // Split the page text into its component HTML and shortcodes by using
+            // the shortcodes as captured delimiters.
+            $textComponents = preg_split($shortcodePattern, $page->text, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+            foreach ($textComponents as $textComponent) {
+                if (preg_match($shortcodePattern, $textComponent)) {
+                    // Convert Omeka shortcodes into Hugo shortcodes.
+                    // @todo Confirm that Omeka shortcode exists before converting it.
+                    preg_match('/\[(\w+)\s*([^\]]*)\]/', $textComponent, $matches);
+                    $shortcodeName = $matches[1];
+                    $shortcodeArguments = [];
+                    foreach ($shortcodesViewHelper->parseShortcodeAttributes($matches[2]) as $key => $value) {
+                        $shortcodeArguments[] = sprintf('%s="%s"', $key, $value);
+                    }
+                    $markdown[] = sprintf('{{< omeka-shortcode-%s %s >}}', $shortcodeName, implode(' ', $shortcodeArguments));
+                } else {
+                    // Wrap the HTML in the omeka-html shortcode.
+                    $markdown[] = sprintf('{{< omeka-html >}}%s{{< /omeka-html >}}', $textComponent);
+                }
+            }
+            $job->makeDirectory(sprintf('content/%s', $page->slug));
+            $job->makeFile(sprintf('content/%s/index.md', $page->slug), implode('', $markdown));
+        }
+    }
+
+    public function staticSiteExportGetSimplePages($job)
+    {
+        // Respect include_private.
+        $query = [];
+        $includePrivate = $job->getStaticSite()->getDataValue('include_private');
+        if (!$includePrivate) {
+            $query = ['is_published' => true];
+        }
+
+        return get_db()->getTable('SimplePagesPage')->findBy($query);
     }
 
     /**
