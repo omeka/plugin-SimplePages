@@ -259,9 +259,11 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
         $pages = $this->staticSiteExportGetSimplePages($job);
         foreach ($pages as $page) {
             $job->makeDirectory(sprintf('content/%s', $page->slug));
+            $frontMatter = new ArrayObject;
+            $shortcodeMarkdown = $job->getShortcodeMarkdown($page->text, $frontMatter);
             $job->makeFile(
                 sprintf('content/%s/index.md', $page->slug),
-                sprintf("{}\n# %s\n%s", $page->title, $job->getShortcodeMarkdown($page->text))
+                sprintf("%s\n# %s\n%s", json_encode($frontMatter), $page->title, $shortcodeMarkdown)
             );
         }
     }
