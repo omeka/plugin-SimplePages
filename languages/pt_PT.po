@@ -10,20 +10,20 @@ msgstr ""
 "Project-Id-Version: Omeka Classic\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2018-05-02 15:01+0000\n"
-"Last-Translator: John Flatness <john@zerocrates.org>\n"
-"Language-Team: Portuguese (Portugal) (http://www.transifex.com/omeka/omeka/language/pt_PT/)\n"
+"PO-Revision-Date: 2012-01-10 19:04+0000\n"
+"Last-Translator: Daniel Alves <daniel_r_alves@hotmail.com>, 2013-2014\n"
+"Language-Team: Portuguese (Portugal) (http://app.transifex.com/omeka/omeka/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_PT\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-#: SimplePagesPlugin.php:246
+#: SimplePagesPlugin.php:292
 msgid "Simple Pages"
 msgstr "Páginas Simples"
 
-#: SimplePagesPlugin.php:272
+#: SimplePagesPlugin.php:318
 msgid "Simple Page"
 msgstr "Página Simples"
 
@@ -31,7 +31,7 @@ msgstr "Página Simples"
 msgid "Name and heading for the page (required)"
 msgstr "Nome e cabeçalho para a página (obrigatório)"
 
-#: controllers/IndexController.php:77 views/admin/index/browse-list.php:6
+#: controllers/IndexController.php:77 views/admin/index/browse-list.php:7
 msgid "Slug"
 msgstr "Identificador"
 
@@ -104,7 +104,7 @@ msgstr "A página \"%s\" foi eliminada."
 msgid "Home"
 msgstr "Início"
 
-#: helpers/SimplePageFunctions.php:184
+#: helpers/SimplePageFunctions.php:186
 msgid "Main Page (No Parent)"
 msgstr "Página Principal (Sem página superior)"
 
@@ -145,7 +145,7 @@ msgid "Simple Pages | Add Page"
 msgstr "Páginas Simples | Adicionar Página"
 
 #: views/admin/index/browse-hierarchy-page.php:16
-#: views/admin/index/browse-list.php:33
+#: views/admin/index/browse-list.php:34
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
 msgstr "<strong>%1$s</strong> em %2$s"
@@ -158,31 +158,31 @@ msgstr "Publicado"
 msgid "Not Published"
 msgstr "Não Publicado"
 
-#: views/admin/index/browse-list.php:7
+#: views/admin/index/browse-list.php:8
 msgid "Last Modified"
 msgstr "Última Modificação"
 
-#: views/admin/index/browse.php:3
+#: views/admin/index/browse.php:4
 msgid "Simple Pages | Browse"
 msgstr "Páginas Simples | Explorar"
 
-#: views/admin/index/browse.php:9
+#: views/admin/index/browse.php:14
 msgid "List View"
 msgstr "Ver como lista"
 
-#: views/admin/index/browse.php:12
+#: views/admin/index/browse.php:17
 msgid "Hierarchy View"
 msgstr "Vista hierárquica"
 
-#: views/admin/index/browse.php:17
+#: views/admin/index/browse.php:22
 msgid "Add a Page"
 msgstr "Adicionar Página"
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "There are no pages."
 msgstr "Não há páginas."
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "Add a page."
 msgstr "Adicionar uma página."
 

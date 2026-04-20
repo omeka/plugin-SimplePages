@@ -5,26 +5,26 @@
 # Translators:
 # Dana Léw <lew.dana@gmail.com>, 2013
 # Jan Černý <cernyhonza@gmail.com>, 2012-2013
-# Jiří Vírava <appukonrad@gmail.com>, 2017
+# Appukonrad <appukonrad@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka Classic\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2018-05-02 15:01+0000\n"
-"Last-Translator: John Flatness <john@zerocrates.org>\n"
-"Language-Team: Czech (http://www.transifex.com/omeka/omeka/language/cs/)\n"
+"PO-Revision-Date: 2012-01-10 19:04+0000\n"
+"Last-Translator: Appukonrad <appukonrad@gmail.com>, 2017\n"
+"Language-Team: Czech (http://app.transifex.com/omeka/omeka/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-#: SimplePagesPlugin.php:246
+#: SimplePagesPlugin.php:292
 msgid "Simple Pages"
 msgstr "Jednoduché stránky"
 
-#: SimplePagesPlugin.php:272
+#: SimplePagesPlugin.php:318
 msgid "Simple Page"
 msgstr "Jednoduchá stránka"
 
@@ -32,7 +32,7 @@ msgstr "Jednoduchá stránka"
 msgid "Name and heading for the page (required)"
 msgstr "Jméno a titulek pro stránku (povinné)"
 
-#: controllers/IndexController.php:77 views/admin/index/browse-list.php:6
+#: controllers/IndexController.php:77 views/admin/index/browse-list.php:7
 msgid "Slug"
 msgstr "Klíč"
 
@@ -105,7 +105,7 @@ msgstr "Stránka \"%s\" byla smazána."
 msgid "Home"
 msgstr "Domů"
 
-#: helpers/SimplePageFunctions.php:184
+#: helpers/SimplePageFunctions.php:186
 msgid "Main Page (No Parent)"
 msgstr "Hlavní stránka (Bez rodiče)"
 
@@ -146,7 +146,7 @@ msgid "Simple Pages | Add Page"
 msgstr "Jednoduché stránky | Přidat stránku"
 
 #: views/admin/index/browse-hierarchy-page.php:16
-#: views/admin/index/browse-list.php:33
+#: views/admin/index/browse-list.php:34
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
 msgstr "<strong>%1$s</strong> na %2$s"
@@ -159,31 +159,31 @@ msgstr "Publikováno"
 msgid "Not Published"
 msgstr "Nepublikováno"
 
-#: views/admin/index/browse-list.php:7
+#: views/admin/index/browse-list.php:8
 msgid "Last Modified"
 msgstr "Poslední změna"
 
-#: views/admin/index/browse.php:3
+#: views/admin/index/browse.php:4
 msgid "Simple Pages | Browse"
 msgstr "Jednoduché stránky  | Procházet"
 
-#: views/admin/index/browse.php:9
+#: views/admin/index/browse.php:14
 msgid "List View"
 msgstr "Zobrazit seznam"
 
-#: views/admin/index/browse.php:12
+#: views/admin/index/browse.php:17
 msgid "Hierarchy View"
 msgstr "Zobrazit hierarchii"
 
-#: views/admin/index/browse.php:17
+#: views/admin/index/browse.php:22
 msgid "Add a Page"
 msgstr "Přidat stránku"
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "There are no pages."
 msgstr "Nejsou zde žádné stránky."
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "Add a page."
 msgstr "Přidat stránku."
 

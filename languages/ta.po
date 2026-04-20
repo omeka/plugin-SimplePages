@@ -9,20 +9,20 @@ msgstr ""
 "Project-Id-Version: Omeka Classic\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2018-05-02 15:01+0000\n"
-"Last-Translator: John Flatness <john@zerocrates.org>\n"
-"Language-Team: Tamil (http://www.transifex.com/omeka/omeka/language/ta/)\n"
+"PO-Revision-Date: 2012-01-10 19:04+0000\n"
+"Last-Translator: Sivarajah Bagerathan <bagerathan@gmail.com>, 2013\n"
+"Language-Team: Tamil (http://app.transifex.com/omeka/omeka/language/ta/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ta\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: SimplePagesPlugin.php:246
+#: SimplePagesPlugin.php:292
 msgid "Simple Pages"
 msgstr ""
 
-#: SimplePagesPlugin.php:272
+#: SimplePagesPlugin.php:318
 msgid "Simple Page"
 msgstr ""
 
@@ -30,7 +30,7 @@ msgstr ""
 msgid "Name and heading for the page (required)"
 msgstr "பக்கத்திற்கான தலைப்பும் பெயரும் (கட்டாயமானது)"
 
-#: controllers/IndexController.php:77 views/admin/index/browse-list.php:6
+#: controllers/IndexController.php:77 views/admin/index/browse-list.php:7
 msgid "Slug"
 msgstr ""
 
@@ -103,7 +103,7 @@ msgstr "பக்கம் \"%s\" நீக்கப்பட்டுவிட�
 msgid "Home"
 msgstr "இல்லம்"
 
-#: helpers/SimplePageFunctions.php:184
+#: helpers/SimplePageFunctions.php:186
 msgid "Main Page (No Parent)"
 msgstr "பிரதான பக்கம் (பெற்றோரில்லை)"
 
@@ -144,7 +144,7 @@ msgid "Simple Pages | Add Page"
 msgstr ""
 
 #: views/admin/index/browse-hierarchy-page.php:16
-#: views/admin/index/browse-list.php:33
+#: views/admin/index/browse-list.php:34
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
 msgstr ""
@@ -157,31 +157,31 @@ msgstr "வெளியிடப்பட்டது"
 msgid "Not Published"
 msgstr ""
 
-#: views/admin/index/browse-list.php:7
+#: views/admin/index/browse-list.php:8
 msgid "Last Modified"
 msgstr "இறுதியாய் மாற்றப்பட்டது"
 
-#: views/admin/index/browse.php:3
+#: views/admin/index/browse.php:4
 msgid "Simple Pages | Browse"
 msgstr ""
 
-#: views/admin/index/browse.php:9
+#: views/admin/index/browse.php:14
 msgid "List View"
 msgstr ""
 
-#: views/admin/index/browse.php:12
+#: views/admin/index/browse.php:17
 msgid "Hierarchy View"
 msgstr ""
 
-#: views/admin/index/browse.php:17
+#: views/admin/index/browse.php:22
 msgid "Add a Page"
 msgstr "பக்கமொன்றை சேருங்கள்"
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "There are no pages."
 msgstr ""
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "Add a page."
 msgstr "பக்கமொன்றை சேருங்கள்."
 

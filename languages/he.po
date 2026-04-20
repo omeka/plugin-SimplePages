@@ -9,20 +9,20 @@ msgstr ""
 "Project-Id-Version: Omeka Classic\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2018-05-02 15:01+0000\n"
-"Last-Translator: John Flatness <john@zerocrates.org>\n"
-"Language-Team: Hebrew (http://www.transifex.com/omeka/omeka/language/he/)\n"
+"PO-Revision-Date: 2012-01-10 19:04+0000\n"
+"Last-Translator: moshe nahmias <moshegrey@gmail.com>, 2012-2013\n"
+"Language-Team: Hebrew (http://app.transifex.com/omeka/omeka/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+"Plural-Forms: nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;\n"
 
-#: SimplePagesPlugin.php:246
+#: SimplePagesPlugin.php:292
 msgid "Simple Pages"
 msgstr "עמודים פשוטים"
 
-#: SimplePagesPlugin.php:272
+#: SimplePagesPlugin.php:318
 msgid "Simple Page"
 msgstr "עמוד פשוט"
 
@@ -30,7 +30,7 @@ msgstr "עמוד פשוט"
 msgid "Name and heading for the page (required)"
 msgstr "שם וכותרת עבור העמוד (חובה)"
 
-#: controllers/IndexController.php:77 views/admin/index/browse-list.php:6
+#: controllers/IndexController.php:77 views/admin/index/browse-list.php:7
 msgid "Slug"
 msgstr "שם הקישור"
 
@@ -103,7 +103,7 @@ msgstr "העמוד \"%s\" נמחק"
 msgid "Home"
 msgstr "דף הבית"
 
-#: helpers/SimplePageFunctions.php:184
+#: helpers/SimplePageFunctions.php:186
 msgid "Main Page (No Parent)"
 msgstr "עמוד ראשי (ללא הורה)"
 
@@ -144,7 +144,7 @@ msgid "Simple Pages | Add Page"
 msgstr "עמודים פשוטים | הוספת עמוד"
 
 #: views/admin/index/browse-hierarchy-page.php:16
-#: views/admin/index/browse-list.php:33
+#: views/admin/index/browse-list.php:34
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
 msgstr "<strong>%1$s</strong> בתאריך %2$s"
@@ -157,31 +157,31 @@ msgstr "פורסם"
 msgid "Not Published"
 msgstr "לא פורסם"
 
-#: views/admin/index/browse-list.php:7
+#: views/admin/index/browse-list.php:8
 msgid "Last Modified"
 msgstr "עודכן פעם אחרונה"
 
-#: views/admin/index/browse.php:3
+#: views/admin/index/browse.php:4
 msgid "Simple Pages | Browse"
 msgstr "עמודים פשוטים | סיור"
 
-#: views/admin/index/browse.php:9
+#: views/admin/index/browse.php:14
 msgid "List View"
 msgstr "צפיה ברשימה"
 
-#: views/admin/index/browse.php:12
+#: views/admin/index/browse.php:17
 msgid "Hierarchy View"
 msgstr "צפיה בהיררכיה"
 
-#: views/admin/index/browse.php:17
+#: views/admin/index/browse.php:22
 msgid "Add a Page"
 msgstr "הוספת עמוד"
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "There are no pages."
 msgstr "אין עמודים עדיין."
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "Add a page."
 msgstr "הוספת עמוד."
 

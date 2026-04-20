@@ -9,20 +9,20 @@ msgstr ""
 "Project-Id-Version: Omeka Classic\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2018-05-02 15:01+0000\n"
-"Last-Translator: John Flatness <john@zerocrates.org>\n"
-"Language-Team: Danish (Denmark) (http://www.transifex.com/omeka/omeka/language/da_DK/)\n"
+"PO-Revision-Date: 2012-01-10 19:04+0000\n"
+"Last-Translator: Per-Olof Olofsson <poo@bornholmsmuseum.dk>, 2014\n"
+"Language-Team: Danish (Denmark) (http://app.transifex.com/omeka/omeka/language/da_DK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da_DK\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: SimplePagesPlugin.php:246
+#: SimplePagesPlugin.php:292
 msgid "Simple Pages"
 msgstr "Enkelte Sider"
 
-#: SimplePagesPlugin.php:272
+#: SimplePagesPlugin.php:318
 msgid "Simple Page"
 msgstr "Enkelt Side"
 
@@ -30,7 +30,7 @@ msgstr "Enkelt Side"
 msgid "Name and heading for the page (required)"
 msgstr "Navn og overskrift for denne side (påkrævet)"
 
-#: controllers/IndexController.php:77 views/admin/index/browse-list.php:6
+#: controllers/IndexController.php:77 views/admin/index/browse-list.php:7
 msgid "Slug"
 msgstr "Slug"
 
@@ -103,7 +103,7 @@ msgstr "Siden \"%s\" er blevet slettet."
 msgid "Home"
 msgstr "Hjem"
 
-#: helpers/SimplePageFunctions.php:184
+#: helpers/SimplePageFunctions.php:186
 msgid "Main Page (No Parent)"
 msgstr "Forside (Ingen Forældreside)"
 
@@ -144,7 +144,7 @@ msgid "Simple Pages | Add Page"
 msgstr "Enkelte sider | Tilføj Side"
 
 #: views/admin/index/browse-hierarchy-page.php:16
-#: views/admin/index/browse-list.php:33
+#: views/admin/index/browse-list.php:34
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
 msgstr "<strong>%1$s</strong> på %2$s"
@@ -157,31 +157,31 @@ msgstr "Udgivet"
 msgid "Not Published"
 msgstr "Ikke Udgivet"
 
-#: views/admin/index/browse-list.php:7
+#: views/admin/index/browse-list.php:8
 msgid "Last Modified"
 msgstr "Sidst Ændret"
 
-#: views/admin/index/browse.php:3
+#: views/admin/index/browse.php:4
 msgid "Simple Pages | Browse"
 msgstr "Enkelte sider | Gennemse"
 
-#: views/admin/index/browse.php:9
+#: views/admin/index/browse.php:14
 msgid "List View"
 msgstr "Liste Visning"
 
-#: views/admin/index/browse.php:12
+#: views/admin/index/browse.php:17
 msgid "Hierarchy View"
 msgstr "Hierarki Visning."
 
-#: views/admin/index/browse.php:17
+#: views/admin/index/browse.php:22
 msgid "Add a Page"
 msgstr "Tilføj en Side"
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "There are no pages."
 msgstr "Der er ikke nogle sider."
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "Add a page."
 msgstr "Tilføj en side"
 
