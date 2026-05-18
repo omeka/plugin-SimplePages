@@ -17,10 +17,12 @@
                         <a href="<?php echo html_escape(record_url('simple_pages_page')); ?>">
                             <?php echo metadata('simple_pages_page', 'title'); ?>
                         </a>
-                        <?php if(!metadata('simple_pages_page', 'is_published')): ?>
-                            (<?php echo __('Private'); ?>)
-                        <?php endif; ?>
                     </span>
+                    <div class="labels">
+                        <?php if(!metadata('simple_pages_page', 'is_published')): ?>
+                            <span class="private label"><?php echo __('Private'); ?></span>
+                        <?php endif; ?>
+                    </div>
                     <ul class="action-links group">
                         <li><a class="edit" href="<?php echo html_escape(record_url('simple_pages_page', 'edit')); ?>">
                             <?php echo __('Edit'); ?>
