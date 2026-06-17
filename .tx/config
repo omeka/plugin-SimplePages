@@ -6,4 +6,4 @@ file_filter  = languages/<lang>.po
 source_file  = languages/template.pot
 source_lang  = en
 minimum_perc = 10
-
+type = PO
