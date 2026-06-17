@@ -4,27 +4,27 @@
 # 
 # Translators:
 # Dominik Broniszewski <dominik@broniszewski.pl>, 2013
-# John Flatness <john@zerocrates.org>, 2014
+# John Flatness <john@omeka.org>, 2014
 # vortage <vortage@o2.pl>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka Classic\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2018-05-02 15:01+0000\n"
-"Last-Translator: John Flatness <john@zerocrates.org>\n"
-"Language-Team: Polish (http://www.transifex.com/omeka/omeka/language/pl/)\n"
+"PO-Revision-Date: 2012-01-10 19:04+0000\n"
+"Last-Translator: John Flatness <john@omeka.org>, 2014\n"
+"Language-Team: Polish (http://app.transifex.com/omeka/omeka/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: SimplePagesPlugin.php:246
+#: SimplePagesPlugin.php:292
 msgid "Simple Pages"
 msgstr "Proste strony"
 
-#: SimplePagesPlugin.php:272
+#: SimplePagesPlugin.php:318
 msgid "Simple Page"
 msgstr "Prosta strona"
 
@@ -32,7 +32,7 @@ msgstr "Prosta strona"
 msgid "Name and heading for the page (required)"
 msgstr "Nazwa i nagłówek strony (wymagane)"
 
-#: controllers/IndexController.php:77 views/admin/index/browse-list.php:6
+#: controllers/IndexController.php:77 views/admin/index/browse-list.php:7
 msgid "Slug"
 msgstr "Skrót ścieżki URL"
 
@@ -105,7 +105,7 @@ msgstr "Strona \"%s\" została usunięta."
 msgid "Home"
 msgstr "Strona domowa"
 
-#: helpers/SimplePageFunctions.php:184
+#: helpers/SimplePageFunctions.php:186
 msgid "Main Page (No Parent)"
 msgstr "Strona główna (bez nadrzędnej)"
 
@@ -146,7 +146,7 @@ msgid "Simple Pages | Add Page"
 msgstr "Proste strony | Dodaj stronę"
 
 #: views/admin/index/browse-hierarchy-page.php:16
-#: views/admin/index/browse-list.php:33
+#: views/admin/index/browse-list.php:34
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
 msgstr "<strong>%1$s</strong> w %2$s"
@@ -159,31 +159,31 @@ msgstr "Opublikowano"
 msgid "Not Published"
 msgstr "Nie opublikowano"
 
-#: views/admin/index/browse-list.php:7
+#: views/admin/index/browse-list.php:8
 msgid "Last Modified"
 msgstr "Ostatnie modyfikacje"
 
-#: views/admin/index/browse.php:3
+#: views/admin/index/browse.php:4
 msgid "Simple Pages | Browse"
 msgstr "Proste strony | Przeglądaj"
 
-#: views/admin/index/browse.php:9
+#: views/admin/index/browse.php:14
 msgid "List View"
 msgstr "Widok listy"
 
-#: views/admin/index/browse.php:12
+#: views/admin/index/browse.php:17
 msgid "Hierarchy View"
 msgstr "Widok hierarchiczny"
 
-#: views/admin/index/browse.php:17
+#: views/admin/index/browse.php:22
 msgid "Add a Page"
 msgstr "Dodaj stronę"
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "There are no pages."
 msgstr "Nie ma dostępnych stron."
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "Add a page."
 msgstr "Dodaj stronę."
 

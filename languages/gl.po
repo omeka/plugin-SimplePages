@@ -9,20 +9,20 @@ msgstr ""
 "Project-Id-Version: Omeka Classic\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-SimplePages/issues\n"
 "POT-Creation-Date: 2012-01-09 21:49-0500\n"
-"PO-Revision-Date: 2018-05-16 08:28+0000\n"
-"Last-Translator: Tomás Vilariño <vifito@gmail.com>\n"
-"Language-Team: Galician (http://www.transifex.com/omeka/omeka/language/gl/)\n"
+"PO-Revision-Date: 2012-01-10 19:04+0000\n"
+"Last-Translator: Tomás Vilariño <vifito@gmail.com>, 2018\n"
+"Language-Team: Galician (http://app.transifex.com/omeka/omeka/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: SimplePagesPlugin.php:246
+#: SimplePagesPlugin.php:292
 msgid "Simple Pages"
 msgstr "Páxinas Simple"
 
-#: SimplePagesPlugin.php:272
+#: SimplePagesPlugin.php:318
 msgid "Simple Page"
 msgstr "Páxina Simple"
 
@@ -30,7 +30,7 @@ msgstr "Páxina Simple"
 msgid "Name and heading for the page (required)"
 msgstr "Nome e cabeceira para esta páxina (requerido)"
 
-#: controllers/IndexController.php:77 views/admin/index/browse-list.php:6
+#: controllers/IndexController.php:77 views/admin/index/browse-list.php:7
 msgid "Slug"
 msgstr "Slug"
 
@@ -103,7 +103,7 @@ msgstr "A páxina \"%s\" foi eliminada."
 msgid "Home"
 msgstr "Inicio"
 
-#: helpers/SimplePageFunctions.php:184
+#: helpers/SimplePageFunctions.php:186
 msgid "Main Page (No Parent)"
 msgstr "Páxina principal (Sen pai)"
 
@@ -144,7 +144,7 @@ msgid "Simple Pages | Add Page"
 msgstr "Páxinas Simples | Engadir Páxina"
 
 #: views/admin/index/browse-hierarchy-page.php:16
-#: views/admin/index/browse-list.php:33
+#: views/admin/index/browse-list.php:34
 #, php-format
 msgid "<strong>%1$s</strong> on %2$s"
 msgstr "<strong>%1$s</strong> en %2$s"
@@ -157,31 +157,31 @@ msgstr "Publicado"
 msgid "Not Published"
 msgstr "Sen publicar"
 
-#: views/admin/index/browse-list.php:7
+#: views/admin/index/browse-list.php:8
 msgid "Last Modified"
 msgstr "Última modificación"
 
-#: views/admin/index/browse.php:3
+#: views/admin/index/browse.php:4
 msgid "Simple Pages | Browse"
 msgstr "Páxinas Simple | Examinar"
 
-#: views/admin/index/browse.php:9
+#: views/admin/index/browse.php:14
 msgid "List View"
 msgstr "Vista Listado"
 
-#: views/admin/index/browse.php:12
+#: views/admin/index/browse.php:17
 msgid "Hierarchy View"
 msgstr "Vista Xerárquica"
 
-#: views/admin/index/browse.php:17
+#: views/admin/index/browse.php:22
 msgid "Add a Page"
 msgstr "Engadir unha Páxina"
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "There are no pages."
 msgstr "Non hai páxinas."
 
-#: views/admin/index/browse.php:19
+#: views/admin/index/browse.php:24
 msgid "Add a page."
 msgstr "Engadir unha páxina."
 
