@@ -40,9 +40,9 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
           `modified_by_user_id` int(10) unsigned NOT NULL,
           `created_by_user_id` int(10) unsigned NOT NULL,
           `is_published` tinyint(1) NOT NULL,
-          `title` tinytext COLLATE utf8_unicode_ci NOT NULL,
+          `title` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
           `slug` tinytext COLLATE utf8_unicode_ci NOT NULL,
-          `text` mediumtext COLLATE utf8_unicode_ci,
+          `text` longtext COLLATE utf8mb4_unicode_ci,
           `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
           `inserted` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00',
           `order` int(10) unsigned NOT NULL,
@@ -150,6 +150,10 @@ class SimplePagesPlugin extends Omeka_Plugin_AbstractPlugin
 
         if ($oldVersion < '3.1.1') {
             delete_option('simple_pages_filter_page_content');
+        }
+
+        if ($oldVersion < '3.4') {
+            $db->query("ALTER TABLE `{$db->SimplePagesPage}` MODIFY `title` TINYTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci, MODIFY `text` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
         }
     }
 
