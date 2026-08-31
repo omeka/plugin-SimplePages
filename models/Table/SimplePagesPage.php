@@ -11,7 +11,7 @@
  *
  * @package SimplePages
  */
-class SimplePagesPageTable extends Omeka_Db_Table
+class Table_SimplePagesPage extends Omeka_Db_Table
 {
     /**
      * Find all pages, ordered by slug name.
@@ -23,38 +23,36 @@ class SimplePagesPageTable extends Omeka_Db_Table
         $select = $this->getSelect()->order('slug');
         return $this->fetchObjects($select);
     }
-    
-    public function applySearchFilters($select, $params)
+
+    /**
+     * Find all slugs.
+     *
+     * @return array All slugs of pages.
+     */
+    public function findSlugs()
     {
         $alias = $this->getTableAlias();
-        $paramNames = array('parent_id', 
-                            'is_published',
-                            'title', 
-                            'slug',
-                            'created_by_user_id',
-                            'modified_by_user_id',
-                            'template');
-                            
-        foreach($paramNames as $paramName) {
-            if (isset($params[$paramName])) {             
-                $select->where($alias . '.' . $paramName . ' = ?', array($params[$paramName]));
-            }            
-        }
-
-        if (isset($params['sort'])) {
-            switch($params['sort']) {
-                case 'alpha':
-                    $select->order("{$alias}.title ASC");
-                    $select->order("{$alias}.order ASC");
-                    break;
-                case 'order':
-                    $select->order("{$alias}.order ASC");
-                    $select->order("{$alias}.title ASC");
-                    break;
-            }
-        }         
+        $select = $this->getSelect();
+        $select->reset(Zend_Db_Select::COLUMNS);
+        $select->from(array(), array($alias . '.slug'));
+        return $this->fetchCol($select);
     }
-    
+
+    /**
+     * Retrieve a simple page by slug.
+     *
+     * @param sllug $slug Slug of the page to retrieve.
+     * @return SimplePagePage|null The simple page that is returned.
+     */
+    public function findBySlug($slug)
+    {
+        $select = $this->getSelect();
+        $select->where($this->getTableAlias() . '.slug = ?', $slug);
+        $select->limit(1);
+        $select->reset(Zend_Db_Select::ORDER);
+        return $this->fetchObject($select, array());
+    }
+
     /**
      * Retrieve child pages from list of pages matching page ID.
      *
@@ -189,9 +187,50 @@ class SimplePagesPageTable extends Omeka_Db_Table
         $select = parent::getSelect();
         $permissions = new Omeka_Db_Select_PublicPermissions('SimplePages_Page');
         $permissions->apply($select, 'simple_pages_pages','created_by_user_id','is_published');
-        
-        
+
         return $select;
-	
+    }
+
+    /**
+     * @param Omeka_Db_Select
+     * @param array
+     * @return void
+     */
+    public function applySearchFilters($select, $params)
+    {
+        $alias = $this->getTableAlias();
+        $boolean = new Omeka_Filter_Boolean;
+        $genericParams = array();
+        foreach ($params as $key => $value) {
+            if ($value === null || (is_string($value) && trim($value) == '')) {
+                continue;
+            }
+            switch ($key) {
+                case 'range':
+                    $this->filterByRange($select, $value);
+                    break;
+                case 'sort':
+                    switch($params['sort']) {
+                        case 'alpha':
+                            $select->order("$alias.title ASC");
+                            $select->order("$alias.order ASC");
+                            break;
+                        case 'order':
+                            $select->order("$alias.order ASC");
+                            $select->order("$alias.title ASC");
+                            break;
+                    }
+                    break;
+                default:
+                    $genericParams[$key] = $value;
+            }
+        }
+
+        if (!empty($genericParams)) {
+            parent::applySearchFilters($select, $genericParams);
+        }
+
+        // If we returning the data itself, we need to group by the record id.
+        $select->group("$alias.id");
     }
 }
