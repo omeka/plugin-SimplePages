@@ -3,7 +3,6 @@
 }
 
 #page-hierarchy ul {
-    list-style: none;
     padding: 0;
     border-left: 3px solid #d8d8d8;
 }
@@ -14,6 +13,10 @@
 
 #page-hierarchy li {
     padding-left: 1rem;
+}
+
+#page-hierarchy li::marker {
+    color: transparent;
 }
 
 #page-hierarchy li:not(:last-of-type) {
